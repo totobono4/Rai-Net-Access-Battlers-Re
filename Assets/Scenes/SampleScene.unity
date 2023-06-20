@@ -508,10 +508,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
-  yellowLink: {fileID: 4635167930197162847, guid: 28218094d9ed1d04c9e244df6212dae5, type: 3}
-  yellowVirus: {fileID: 4476955998131289746, guid: 2673fe41678234d42bf9e1d26afa9bee, type: 3}
-  blueLink: {fileID: 6660191276044418067, guid: db4bc4373918ee74892d38e6dd85c910, type: 3}
-  blueVirus: {fileID: 1287002789294584676, guid: 498b3b3c98fa4e043a8f8593ce5b3faf, type: 3}
+  yellowLink: {fileID: 5952274782585557641, guid: d00d1bfb85a9fd2498818411c7db2067, type: 3}
+  yellowVirus: {fileID: 7238303541416834860, guid: 5b4dfa1fe80d9504ab10c52128bd3ac4, type: 3}
+  blueLink: {fileID: 5484166807945037162, guid: 03333431da280bf489e4381ca4ba1152, type: 3}
+  blueVirus: {fileID: 4233258299951794494, guid: 690858d63d3d6f74490faaa207dedb9d, type: 3}
 --- !u!4 &951402962
 Transform:
   m_ObjectHideFlags: 0
@@ -993,10 +993,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 1
-  yellowLink: {fileID: 4635167930197162847, guid: 28218094d9ed1d04c9e244df6212dae5, type: 3}
-  yellowVirus: {fileID: 4476955998131289746, guid: 2673fe41678234d42bf9e1d26afa9bee, type: 3}
-  blueLink: {fileID: 6660191276044418067, guid: db4bc4373918ee74892d38e6dd85c910, type: 3}
-  blueVirus: {fileID: 1287002789294584676, guid: 498b3b3c98fa4e043a8f8593ce5b3faf, type: 3}
+  yellowLink: {fileID: 5952274782585557641, guid: d00d1bfb85a9fd2498818411c7db2067, type: 3}
+  yellowVirus: {fileID: 7238303541416834860, guid: 5b4dfa1fe80d9504ab10c52128bd3ac4, type: 3}
+  blueLink: {fileID: 5484166807945037162, guid: 03333431da280bf489e4381ca4ba1152, type: 3}
+  blueVirus: {fileID: 4233258299951794494, guid: 690858d63d3d6f74490faaa207dedb9d, type: 3}
 --- !u!4 &2028718040
 Transform:
   m_ObjectHideFlags: 0

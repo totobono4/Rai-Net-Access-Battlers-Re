@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class CardVisual : MonoBehaviour
 {
-    [SerializeField] private Card Card;
+
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ActionableVisual : MonoBehaviour
@@ -8,12 +6,12 @@ public class ActionableVisual : MonoBehaviour
     [SerializeField] Transform actionable;
 
     private void Start() {
-        if (Reference.TryGetComponent<NormalTile>(out NormalTile normalTile)) {
+        if (Reference.TryGetComponent(out NormalTile normalTile)) {
             normalTile.OnActionableTile += ActionableTile;
         }
     }
 
-    private void ActionableTile(object sender, NormalTile.ActionableTileArgs e) {
+    private void ActionableTile(object sender, Tile.ActionableTileArgs e) {
         if (e.actionableTile == Reference && e.isActionable == true) {
             Show();
         }
