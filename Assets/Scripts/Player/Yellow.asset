@@ -10,5 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 267177527934e3c48b0839592bbc537f, type: 3}
-  m_Name: Blue
+  m_Name: Yellow
   m_EditorClassIdentifier: 
+  team: 0
+  cardPrefabs:
+    link: {fileID: 5952274782585557641, guid: d00d1bfb85a9fd2498818411c7db2067, type: 3}
+    virus: {fileID: 7238303541416834860, guid: 5b4dfa1fe80d9504ab10c52128bd3ac4, type: 3}
+  cardsPlacements:
+  - {x: 0, y: 0}
+  - {x: 1, y: 0}
+  - {x: 2, y: 0}
+  - {x: 3, y: 1}
+  - {x: 4, y: 1}
+  - {x: 5, y: 0}
+  - {x: 6, y: 0}
+  - {x: 7, y: 0}

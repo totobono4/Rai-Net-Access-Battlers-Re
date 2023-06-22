@@ -507,11 +507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11fa9f15eb66f9b42923fd0dbbee0b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 0
-  yellowLink: {fileID: 5952274782585557641, guid: d00d1bfb85a9fd2498818411c7db2067, type: 3}
-  yellowVirus: {fileID: 7238303541416834860, guid: 5b4dfa1fe80d9504ab10c52128bd3ac4, type: 3}
-  blueLink: {fileID: 5484166807945037162, guid: 03333431da280bf489e4381ca4ba1152, type: 3}
-  blueVirus: {fileID: 4233258299951794494, guid: 690858d63d3d6f74490faaa207dedb9d, type: 3}
+  teamSO: {fileID: 11400000, guid: cb36c91f0b47bf7489d30636ba9e4082, type: 2}
 --- !u!4 &951402962
 Transform:
   m_ObjectHideFlags: 0
@@ -773,12 +769,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playGrid: {fileID: 480107317}
-  scorePlayerLinks: {fileID: 812256355}
-  scorePlayerVirus: {fileID: 1986768229}
-  scoreEnnemyLinks: {fileID: 2089549436}
-  scoreEnnemyVirus: {fileID: 1103999687}
-  player: {fileID: 951402961}
-  ennemy: {fileID: 2028718039}
+  scoreYellowLinks: {fileID: 812256355}
+  scoreYellowVirus: {fileID: 1986768229}
+  scoreBlueLinks: {fileID: 2089549436}
+  scoreBlueVirus: {fileID: 1103999687}
+  players:
+  - {fileID: 951402961}
+  - {fileID: 2028718039}
 --- !u!1 &1225422664
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,11 +989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11fa9f15eb66f9b42923fd0dbbee0b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 1
-  yellowLink: {fileID: 5952274782585557641, guid: d00d1bfb85a9fd2498818411c7db2067, type: 3}
-  yellowVirus: {fileID: 7238303541416834860, guid: 5b4dfa1fe80d9504ab10c52128bd3ac4, type: 3}
-  blueLink: {fileID: 5484166807945037162, guid: 03333431da280bf489e4381ca4ba1152, type: 3}
-  blueVirus: {fileID: 4233258299951794494, guid: 690858d63d3d6f74490faaa207dedb9d, type: 3}
+  teamSO: {fileID: 11400000, guid: 396f0f464dcee7443adab17c127ef651, type: 2}
 --- !u!4 &2028718040
 Transform:
   m_ObjectHideFlags: 0
