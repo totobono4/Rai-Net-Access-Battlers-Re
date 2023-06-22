@@ -43,15 +43,21 @@ public class PlayerController : MonoBehaviour {
 
         inputSystem.OnPlayerAction += PlayerAction;
 
-        playerState = PlayerState.SelectingForAction;
+        playerState = PlayerState.WaitingForTurn;
         selectedTile = null;
+
+        PlayerStart();
     }
 
     private void Update() {
-        SendEventTileChanged();
+        SendEventHoverTileChanged();
     }
 
-    private void SendEventTileChanged() {
+    public void PlayerStart() {
+        playerState = PlayerState.SelectingForAction;
+    }
+
+    private void SendEventHoverTileChanged() {
         Vector3 mouseWorldPosition = inputSystem.GetMouseWorldPosition();
         if (gameBoard.GetPlayGridTile(mouseWorldPosition, out Tile tile)) {
             OnHoverTileChanged?.Invoke(this, new HoverTileChangedArgs {

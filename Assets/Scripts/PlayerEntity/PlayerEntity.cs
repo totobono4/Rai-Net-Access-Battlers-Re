@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] private PlayerSO playerSO;
     private Team team;
+    private Dictionary<OnlineCard.CardType, int> onlineCardCounts = new Dictionary<OnlineCard.CardType, int>();
     private Dictionary<OnlineCard.CardType, Transform> onlineCardPrefabs = new Dictionary<OnlineCard.CardType, Transform>();
     private List<Vector2Int> onlineCardPlacements;
 
@@ -21,7 +22,10 @@ public class Player : MonoBehaviour
 
     private void Awake() {
         team = playerSO.team;
-        for (int i = 0; i < playerSO.onlineCardTypes.Count; i++) { onlineCardPrefabs.Add(playerSO.onlineCardTypes[i], playerSO.onlineCardPrefabs[i]); }
+        for (int i = 0; i < playerSO.onlineCardTypes.Count; i++) {
+            onlineCardCounts.Add(playerSO.onlineCardTypes[i], playerSO.onlineCardCounts[i]);
+            onlineCardPrefabs.Add(playerSO.onlineCardTypes[i], playerSO.onlineCardPrefabs[i]);
+        }
         onlineCardPlacements = playerSO.onlineCardsPlacements;
 
         for (int i = 0; i < onlineCardTypes.Count; i++) scoreSlotsGroupDict.Add(onlineCardTypes[i], scoreSlotsGroups[i]);
@@ -30,7 +34,8 @@ public class Player : MonoBehaviour
         virusScore = 0;
     }
 
-    public Dictionary<OnlineCard.CardType, Transform> GetCardPrefabs() { return onlineCardPrefabs; }
+    public Dictionary<OnlineCard.CardType, int> GetOnlineCardCounts() { return onlineCardCounts; }
+    public Dictionary<OnlineCard.CardType, Transform> GetOnlineCardPrefabs() { return onlineCardPrefabs; }
     public List<Vector2Int> GetCardPlacements() { return onlineCardPlacements; }
     public void SubOnlineCards(List<OnlineCard> onlineCards) {
         foreach (OnlineCard onlineCard in onlineCards) {

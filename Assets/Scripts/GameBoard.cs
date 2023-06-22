@@ -7,20 +7,15 @@ public class GameBoard : MonoBehaviour {
 
     private void Start() {
         foreach (var player in players) {
-            Dictionary<OnlineCard.CardType, Transform> cardPrefabs = player.GetCardPrefabs();
-            Transform link = cardPrefabs[OnlineCard.CardType.Link];
-            Transform virus = cardPrefabs[OnlineCard.CardType.Virus];
+            Dictionary<OnlineCard.CardType, int> onlineCardCounts = player.GetOnlineCardCounts();
+            Dictionary<OnlineCard.CardType, Transform> onlineCardPrefabs = player.GetOnlineCardPrefabs();
+            Transform link = onlineCardPrefabs[OnlineCard.CardType.Link];
+            Transform virus = onlineCardPrefabs[OnlineCard.CardType.Virus];
 
-            List<Transform> playerCardsTransforms = new List<Transform> {
-                Instantiate(link),
-                Instantiate(link),
-                Instantiate(link),
-                Instantiate(link),
-                Instantiate(virus),
-                Instantiate(virus),
-                Instantiate(virus),
-                Instantiate(virus)
-            };
+            List<Transform> playerCardsTransforms = new List<Transform>();
+            foreach (OnlineCard.CardType cardType in onlineCardCounts.Keys) { 
+                for (int i = 0; i < onlineCardCounts[cardType];  i++) { playerCardsTransforms.Add(Instantiate(onlineCardPrefabs[cardType])); }
+            }
 
             List<OnlineCard> playerOnlineCards = new List<OnlineCard>();
             foreach (Transform playerCardTransform in playerCardsTransforms) playerOnlineCards.Add(playerCardTransform.GetComponent<OnlineCard>());
@@ -38,7 +33,7 @@ public class GameBoard : MonoBehaviour {
             for (int i = 0;i < playerOnlineCards.Count; i++) { playerOnlineCards[i].SetTileParent(playGrid.GetTile(cardPlacements[i])); }
 
             player.SubOnlineCards(playerOnlineCards);
-        }        
+        }
     }
 
     public bool GetPlayGridTile(Vector3 worldPosition, out Tile tile) {

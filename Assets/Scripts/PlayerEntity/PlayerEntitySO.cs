@@ -9,5 +9,6 @@ public class PlayerSO : ScriptableObject
     public Team team;
     public List<OnlineCard.CardType> onlineCardTypes;
     public List<Transform> onlineCardPrefabs;
+    public List<int> onlineCardCounts;
     public List<Vector2Int> onlineCardsPlacements;
 }
