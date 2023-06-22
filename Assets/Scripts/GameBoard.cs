@@ -1,42 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameBoard : MonoBehaviour {
     [SerializeField] private TileMap playGrid;
-    [SerializeField] private TileMap scorePlayerLinks;
-    [SerializeField] private TileMap scorePlayerVirus;
-    [SerializeField] private TileMap scoreEnnemyLinks;
-    [SerializeField] private TileMap scoreEnnemyVirus;
+    [SerializeField] private TileMap scoreYellowLinks;
+    [SerializeField] private TileMap scoreYellowVirus;
+    [SerializeField] private TileMap scoreBlueLinks;
+    [SerializeField] private TileMap scoreBlueVirus;
 
-    [SerializeField] private Player player;
-    [SerializeField] private Player ennemy;
+    [SerializeField] private List<Player> players;
 
     private void Start() {
-        List<Card> playerCards = player.GetCards();
-        foreach (Card card in playerCards) { card.SetGameBoard(this); }
+        foreach (var player in players) {
+            Player.CardPrefabs cardPrefabs = player.GetCardPrefabs();
+            Transform link = cardPrefabs.link;
+            Transform virus = cardPrefabs.virus;
 
-        playerCards[0].SetTileParent(playGrid.GetTile(0, 0));
-        playerCards[1].SetTileParent(playGrid.GetTile(1, 0));
-        playerCards[2].SetTileParent(playGrid.GetTile(2, 0));
-        playerCards[3].SetTileParent(playGrid.GetTile(3, 1));
-        playerCards[4].SetTileParent(playGrid.GetTile(4, 1));
-        playerCards[5].SetTileParent(playGrid.GetTile(5, 0));
-        playerCards[6].SetTileParent(playGrid.GetTile(6, 0));
-        playerCards[7].SetTileParent(playGrid.GetTile(7, 0));
+            List<Transform> playerCardsTransforms = new List<Transform> {
+                Instantiate(link),
+                Instantiate(link),
+                Instantiate(link),
+                Instantiate(link),
+                Instantiate(virus),
+                Instantiate(virus),
+                Instantiate(virus),
+                Instantiate(virus)
+            };
 
-        List<Card> ennemyCards = ennemy.GetCards();
-        foreach (Card card in ennemyCards) { card.SetGameBoard(this); }
+            List<OnlineCard> playerOnlineCards = new List<OnlineCard>();
+            foreach (Transform playerCardTransform in playerCardsTransforms) playerOnlineCards.Add(playerCardTransform.GetComponent<OnlineCard>());
+            foreach (OnlineCard playerOnlineCard  in playerOnlineCards) { playerOnlineCard.SetGameBoard(this); }
 
-        ennemyCards[0].SetTileParent(playGrid.GetTile(0, 7));
-        ennemyCards[1].SetTileParent(playGrid.GetTile(1, 7));
-        ennemyCards[2].SetTileParent(playGrid.GetTile(2, 7));
-        ennemyCards[3].SetTileParent(playGrid.GetTile(3, 6));
-        ennemyCards[4].SetTileParent(playGrid.GetTile(4, 6));
-        ennemyCards[5].SetTileParent(playGrid.GetTile(5, 7));
-        ennemyCards[6].SetTileParent(playGrid.GetTile(6, 7));
-        ennemyCards[7].SetTileParent(playGrid.GetTile(7, 7));
+            for (int i = 0; i < playerOnlineCards.Count; i++) {
+                int rand = Random.Range(0, 8);
+                OnlineCard temp = playerOnlineCards[i];
+                playerOnlineCards[i] = playerOnlineCards[rand];
+                playerOnlineCards[rand] = temp;
+            }
+
+            List<Vector2Int> cardPlacements = player.GetCardPlacements();
+
+            for (int i = 0;i < playerOnlineCards.Count; i++) { playerOnlineCards[i].SetTileParent(playGrid.GetTile(cardPlacements[i])); }
+
+            player.SubOnlineCards(playerOnlineCards);
+            foreach (OnlineCard onlineCard in playerOnlineCards) {
+                onlineCard.OnMoveCard += MoveCard;
+                onlineCard.OnCaptureCard += CaptureCard;
+            }
+        }        
     }
 
     public bool GetPlayGridTile(Vector3 worldPosition, out Tile tile) {
@@ -49,5 +63,41 @@ public class GameBoard : MonoBehaviour {
 
     public List<Tile> GetNeighbors(Vector3 worldPosition) {
         return playGrid.GetNeighbors(worldPosition);
+    }
+
+    private void MoveCard(object sender, OnlineCard.MoveCardArgs e) {
+        e.movingCard.SetTileParent(e.moveTarget);
+    }
+
+    // PLEASE REFACTOR THIS WTF BRO
+    private void CaptureCard(object sender, OnlineCard.CaptureCardArgs e) {
+        if (e.capturedCard.GetTeam() == Player.Team.Blue) {
+            if (e.capturedCard.GetCardType() == OnlineCard.Type.Link) {
+                if (!scoreYellowLinks.GetTile(0, 0).HasCard()) e.capturedCard.SetTileParent(scoreYellowLinks.GetTile(0, 0));
+                else if (!scoreYellowLinks.GetTile(1, 0).HasCard()) e.capturedCard.SetTileParent(scoreYellowLinks.GetTile(1, 0));
+                else if (!scoreYellowLinks.GetTile(2, 0).HasCard()) e.capturedCard.SetTileParent(scoreYellowLinks.GetTile(2, 0));
+                else if (!scoreYellowLinks.GetTile(3, 0).HasCard()) e.capturedCard.SetTileParent(scoreYellowLinks.GetTile(3, 0));
+            }
+            if (e.capturedCard.GetCardType() == OnlineCard.Type.Virus) {
+                if (!scoreYellowVirus.GetTile(0, 0).HasCard()) e.capturedCard.SetTileParent(scoreYellowVirus.GetTile(0, 0));
+                else if (!scoreYellowVirus.GetTile(1, 0).HasCard()) e.capturedCard.SetTileParent(scoreYellowVirus.GetTile(1, 0));
+                else if (!scoreYellowVirus.GetTile(2, 0).HasCard()) e.capturedCard.SetTileParent(scoreYellowVirus.GetTile(2, 0));
+                else if (!scoreYellowVirus.GetTile(3, 0).HasCard()) e.capturedCard.SetTileParent(scoreYellowVirus.GetTile(3, 0));
+            }
+        }
+        if (e.capturedCard.GetTeam() == Player.Team.Yellow) {
+            if (e.capturedCard.GetCardType() == OnlineCard.Type.Link) {
+                if (!scoreBlueLinks.GetTile(0, 0).HasCard()) e.capturedCard.SetTileParent(scoreBlueLinks.GetTile(0, 0));
+                else if (!scoreBlueLinks.GetTile(1, 0).HasCard()) e.capturedCard.SetTileParent(scoreBlueLinks.GetTile(1, 0));
+                else if (!scoreBlueLinks.GetTile(2, 0).HasCard()) e.capturedCard.SetTileParent(scoreBlueLinks.GetTile(2, 0));
+                else if (!scoreBlueLinks.GetTile(3, 0).HasCard()) e.capturedCard.SetTileParent(scoreBlueLinks.GetTile(3, 0));
+            }
+            if (e.capturedCard.GetCardType() == OnlineCard.Type.Virus) {
+                if (!scoreBlueVirus.GetTile(0, 0).HasCard()) e.capturedCard.SetTileParent(scoreBlueVirus.GetTile(0, 0));
+                else if (!scoreBlueVirus.GetTile(1, 0).HasCard()) e.capturedCard.SetTileParent(scoreBlueVirus.GetTile(1, 0));
+                else if (!scoreBlueVirus.GetTile(2, 0).HasCard()) e.capturedCard.SetTileParent(scoreBlueVirus.GetTile(2, 0));
+                else if (!scoreBlueVirus.GetTile(3, 0).HasCard()) e.capturedCard.SetTileParent(scoreBlueVirus.GetTile(3, 0));
+            }
+        }
     }
 }

@@ -21,6 +21,10 @@ public class TileMap : MonoBehaviour {
         }
     }
 
+    public Tile GetTile(Vector2Int coords) {
+        return GetTile(coords.x, coords.y);
+    }
+
     public Tile GetTile(int x, int y) {
         if (tileMap.GetValue(x, y, out Transform tileTransform)) {
             return tileTransform.GetComponent<Tile>();

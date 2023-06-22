@@ -49,8 +49,9 @@ public abstract class Tile : MonoBehaviour {
         this.card = card;
     }
 
-    public Card GetCard() {
-        return card;
+    public bool GetCard(out Card card) {
+        card = this.card;
+        return card != null;
     }
 
     public void ClearCard() {

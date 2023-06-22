@@ -6,7 +6,7 @@ using UnityEngine;
 public class NormalTile : Tile {
     protected override void SelectedTile(object sender, PlayerController.SelectedTileArgs e) {
         if (e.selectedTile == this) {
-            if (GetCard() != null) {
+            if (HasCard()) {
                 OnSelectedTile?.Invoke(this, new SelectedTileArgs { selectedTile = this, isSelected = true });
             } else {
                 OnSelectedTile?.Invoke(this, new SelectedTileArgs { selectedTile = this, isSelected = false });

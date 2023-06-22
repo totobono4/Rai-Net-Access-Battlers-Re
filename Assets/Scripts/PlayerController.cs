@@ -98,6 +98,7 @@ public class PlayerController : MonoBehaviour {
     private void ThinkingForAction() {
         if (gameBoard.GetPlayGridTile(lastMouseWorldPosition, out Tile tile)) {
             if (tile == selectedTile) {
+                foreach (Tile actionable in actionableTiles) actionable.UnsetActionable();
                 OnCancelTile?.Invoke(this, new CancelTileArgs { canceledTile = tile });
                 playerState = PlayerState.SelectingForAction;
             }
@@ -112,7 +113,9 @@ public class PlayerController : MonoBehaviour {
         e.selectedTile.OnSelectedTile -= OnTileSelected;
         if (e.isSelected) {
             selectedTile = e.selectedTile;
-            actionableTiles = selectedTile.GetCard().GetActionables(lastMouseWorldPosition);
+            if (selectedTile.GetCard(out Card card)) {
+                actionableTiles = card.GetActionables(lastMouseWorldPosition);
+            }
             foreach (Tile actionable in actionableTiles) actionable.SetActionable();
             playerState = PlayerState.ThinkingForAction;
         }
@@ -120,7 +123,9 @@ public class PlayerController : MonoBehaviour {
 
     private void OnTileActioned(object sender, NormalTile.ActionedTileArgs e) {
         e.actionedTile.OnActionedTile -= OnTileActioned;
-        selectedTile.GetCard().Action(e.actionedTile);
+        if (selectedTile.GetCard(out Card card)) {
+            card.Action(e.actionedTile);
+        }
         foreach (Tile actionable in actionableTiles) actionable.UnsetActionable();
         OnCancelTile?.Invoke(this, new CancelTileArgs { canceledTile = selectedTile });
         selectedTile = null;
