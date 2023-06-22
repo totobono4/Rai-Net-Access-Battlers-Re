@@ -5,23 +5,23 @@ using UnityEngine;
 
 public class OnlineCard : Card
 {
-    public enum Type {
+    public enum CardType {
         Link,
         Virus
     };
 
-    public enum State {
+    public enum CardState {
         Revealed,
         Unrevealed,
         Captured
     }
 
-    [SerializeField] private Type type;
-    [SerializeField] private State state;
+    [SerializeField] private CardType type;
+    [SerializeField] private CardState state;
 
     public EventHandler<StateChangedArgs> OnStateChanged;
     public class StateChangedArgs {
-        public State state;
+        public CardState state;
     }
 
     public EventHandler<MoveCardArgs> OnMoveCard;
@@ -37,11 +37,11 @@ public class OnlineCard : Card
     }
 
     private void Start() {
-        state = State.Unrevealed;
-        OnStateChanged?.Invoke(this, new StateChangedArgs { state = state });
+        state = CardState.Unrevealed;
+        StateChanged();
     }
 
-    public Type GetCardType() {
+    public CardType GetCardType() {
         return type;
     }
 
@@ -69,5 +69,14 @@ public class OnlineCard : Card
 
     private void Move(Tile tile) {
         OnMoveCard?.Invoke(this, new MoveCardArgs { movingCard = this, moveTarget = tile });
+    }
+
+    public void Capture() {
+        state = CardState.Revealed;
+        StateChanged();
+    }
+
+    private void StateChanged() {
+        OnStateChanged?.Invoke(this, new StateChangedArgs { state = state });
     }
 }

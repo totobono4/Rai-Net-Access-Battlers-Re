@@ -11,9 +11,9 @@ public class OnlineCardVisual : CardVisual
 
     private void StateChanged(object sender, OnlineCard.StateChangedArgs e) {
         switch(e.state) {
-            case OnlineCard.State.Unrevealed: Hide(); break;
-            case OnlineCard.State.Captured:
-            case OnlineCard.State.Revealed: Show(); break;
+            case OnlineCard.CardState.Unrevealed: Hide(); break;
+            case OnlineCard.CardState.Captured:
+            case OnlineCard.CardState.Revealed: Show(); break;
         }
     }
 

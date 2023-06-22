@@ -13,15 +13,8 @@ MonoBehaviour:
   m_Name: Blue
   m_EditorClassIdentifier: 
   team: 1
-  cardPrefabs:
-    link: {fileID: 5484166807945037162, guid: 03333431da280bf489e4381ca4ba1152, type: 3}
-    virus: {fileID: 4233258299951794494, guid: 690858d63d3d6f74490faaa207dedb9d, type: 3}
-  cardsPlacements:
-  - {x: 0, y: 7}
-  - {x: 1, y: 7}
-  - {x: 2, y: 7}
-  - {x: 3, y: 6}
-  - {x: 4, y: 6}
-  - {x: 5, y: 7}
-  - {x: 6, y: 7}
-  - {x: 7, y: 7}
+  onlineCardTypes: 0000000001000000
+  onlineCardPrefabs:
+  - {fileID: 5484166807945037162, guid: 03333431da280bf489e4381ca4ba1152, type: 3}
+  - {fileID: 4233258299951794494, guid: 690858d63d3d6f74490faaa207dedb9d, type: 3}
+  onlineCardsPlacements: []

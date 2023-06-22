@@ -4,7 +4,7 @@ public class GridMap<TGridObject> {
     private int height;
     private int width;
     Transform origin;
-    protected TGridObject[,] gridMap;
+    private TGridObject[,] gridMap;
 
     public GridMap(int width, int height, Transform origin) {
         this.width = width;

@@ -1,9 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour {
     public static PlayerController Instance { get; private set; }
@@ -109,7 +106,7 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private void OnTileSelected(object sender, NormalTile.SelectedTileArgs e) {
+    private void OnTileSelected(object sender, Tile.SelectedTileArgs e) {
         e.selectedTile.OnSelectedTile -= OnTileSelected;
         if (e.isSelected) {
             selectedTile = e.selectedTile;
@@ -121,7 +118,7 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private void OnTileActioned(object sender, NormalTile.ActionedTileArgs e) {
+    private void OnTileActioned(object sender, Tile.ActionedTileArgs e) {
         e.actionedTile.OnActionedTile -= OnTileActioned;
         if (selectedTile.GetCard(out Card card)) {
             card.Action(e.actionedTile);
