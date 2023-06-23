@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour {
 
     private void SendEventHoverTileChanged() {
         Vector3 mouseWorldPosition = inputSystem.GetMouseWorldPosition();
-        if (gameBoard.GetPlayGridTile(mouseWorldPosition, out Tile tile)) {
+        if (gameBoard.GetTile(mouseWorldPosition, out Tile tile)) {
             OnHoverTileChanged?.Invoke(this, new HoverTileChangedArgs {
                 hoverTile = tile
             });
@@ -92,14 +92,14 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void SelectingForAction() {
-        if (gameBoard.GetPlayGridTile(lastMouseWorldPosition, out Tile tile)) {
+        if (gameBoard.GetTile(lastMouseWorldPosition, out Tile tile)) {
             tile.OnSelectedTile += OnTileSelected;
             OnSelectTile?.Invoke(this, new SelectedTileArgs { selectedTile = tile });
         }
     }
 
     private void ThinkingForAction() {
-        if (gameBoard.GetPlayGridTile(lastMouseWorldPosition, out Tile tile)) {
+        if (gameBoard.GetTile(lastMouseWorldPosition, out Tile tile)) {
             if (tile == selectedTile) {
                 foreach (Tile actionable in actionableTiles) actionable.UnsetActionable();
                 OnCancelTile?.Invoke(this, new CancelTileArgs { canceledTile = tile });

@@ -1,18 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerEntity : MonoBehaviour
 {
-    public enum Team {
-        Yellow,
-        Blue
-    };
-
     [SerializeField] private PlayerSO playerSO;
-    private Team team;
-    private Dictionary<OnlineCard.CardType, int> onlineCardCounts = new Dictionary<OnlineCard.CardType, int>();
-    private Dictionary<OnlineCard.CardType, Transform> onlineCardPrefabs = new Dictionary<OnlineCard.CardType, Transform>();
-    private List<Vector2Int> onlineCardPlacements;
+    private GameBoard.TeamColor teamColor;
 
     [SerializeField] private List<OnlineCard.CardType> onlineCardTypes;
     [SerializeField] private List<ScoreSlotGroup> scoreSlotsGroups;
@@ -21,12 +13,7 @@ public class Player : MonoBehaviour
     private int virusScore;
 
     private void Awake() {
-        team = playerSO.team;
-        for (int i = 0; i < playerSO.onlineCardTypes.Count; i++) {
-            onlineCardCounts.Add(playerSO.onlineCardTypes[i], playerSO.onlineCardCounts[i]);
-            onlineCardPrefabs.Add(playerSO.onlineCardTypes[i], playerSO.onlineCardPrefabs[i]);
-        }
-        onlineCardPlacements = playerSO.onlineCardsPlacements;
+        teamColor = playerSO.teamColor;
 
         for (int i = 0; i < onlineCardTypes.Count; i++) scoreSlotsGroupDict.Add(onlineCardTypes[i], scoreSlotsGroups[i]);
 
@@ -34,9 +21,14 @@ public class Player : MonoBehaviour
         virusScore = 0;
     }
 
-    public Dictionary<OnlineCard.CardType, int> GetOnlineCardCounts() { return onlineCardCounts; }
-    public Dictionary<OnlineCard.CardType, Transform> GetOnlineCardPrefabs() { return onlineCardPrefabs; }
-    public List<Vector2Int> GetCardPlacements() { return onlineCardPlacements; }
+    public GameBoard.TeamColor GetTeamColor() { return teamColor; }
+    public List<TileMap> GetTileMaps() {
+        List<TileMap> tileMaps = new List<TileMap>();
+        foreach (TileMap tileMap in scoreSlotsGroupDict.Values) { tileMaps.Add(tileMap); }
+
+        return tileMaps;
+    }
+
     public void SubOnlineCards(List<OnlineCard> onlineCards) {
         foreach (OnlineCard onlineCard in onlineCards) {
             onlineCard.OnMoveCard += MoveCard;

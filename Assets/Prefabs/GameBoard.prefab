@@ -52,6 +52,12 @@ MonoBehaviour:
   players:
   - {fileID: 166129647392604779}
   - {fileID: 6404502664619306589}
+  gameBoardSO: {fileID: 11400000, guid: 7bed0820317d85e4f9527f728de71bbe, type: 2}
+  scoreSlotsGroups:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &1782136414100758844
 PrefabInstance:
   m_ObjectHideFlags: 0

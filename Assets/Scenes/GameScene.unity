@@ -400,13 +400,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 219825155250762818, guid: f7710ac7ae858124e88a72fd022891e1, type: 3}
+      propertyPath: width
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1155742184614268248, guid: f7710ac7ae858124e88a72fd022891e1, type: 3}
       propertyPath: m_Name
       value: GameBoard
       objectReference: {fileID: 0}
+    - target: {fileID: 1866609033567406475, guid: f7710ac7ae858124e88a72fd022891e1, type: 3}
+      propertyPath: width
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848384705478813117, guid: f7710ac7ae858124e88a72fd022891e1, type: 3}
+      propertyPath: width
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6459167804833192052, guid: f7710ac7ae858124e88a72fd022891e1, type: 3}
+      propertyPath: width
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8077247569548124958, guid: f7710ac7ae858124e88a72fd022891e1, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8077247569548124958, guid: f7710ac7ae858124e88a72fd022891e1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -471,7 +487,7 @@ PrefabInstance:
       objectReference: {fileID: 384068194}
     - target: {fileID: 4412818969115472921, guid: d7592d56bc637a340be63ae34069c0ce, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4412818969115472921, guid: d7592d56bc637a340be63ae34069c0ce, type: 3}
       propertyPath: m_LocalPosition.x
