@@ -5,15 +5,15 @@ public class GameBoard : MonoBehaviour {
     [SerializeField] private PlayGrid playGrid;
     [SerializeField] private List<PlayerEntity> players;
 
-    public enum TeamColor {
+    public enum Team {
         Yellow,
         Blue
     }
 
     [SerializeField] private GameBoardSO gameBoardSO;
-    Dictionary<TeamColor, Dictionary<OnlineCard.CardType, Transform>> onlineCardPrefabs;
-    Dictionary<TeamColor, Dictionary<OnlineCard.CardType, int>> onlineCardCounts;
-    Dictionary<TeamColor, List<Vector2Int>> onlineCardPlacements;
+    Dictionary<Team, Dictionary<OnlineCard.CardType, Transform>> onlineCardPrefabs;
+    Dictionary<Team, Dictionary<OnlineCard.CardType, int>> onlineCardCounts;
+    Dictionary<Team, List<Vector2Int>> onlineCardPlacements;
 
     private List<TileMap> tileMaps = new List<TileMap>();
 
@@ -27,7 +27,7 @@ public class GameBoard : MonoBehaviour {
 
     private void Start() {
         foreach (PlayerEntity playerEntity in players) {
-            TeamColor playerTeamColor = playerEntity.GetTeamColor();
+            Team playerTeamColor = playerEntity.GetTeamColor();
 
             List<Transform> cardTransforms = new List<Transform>();
             foreach (OnlineCard.CardType cardType in onlineCardCounts[playerTeamColor].Keys) { 

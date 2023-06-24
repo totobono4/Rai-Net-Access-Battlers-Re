@@ -6,5 +6,5 @@ using static PlayerEntity;
 [CreateAssetMenu (menuName = "PlayerObject")]
 public class PlayerSO : ScriptableObject
 {
-    public GameBoard.TeamColor teamColor;
+    public GameBoard.Team teamColor;
 }

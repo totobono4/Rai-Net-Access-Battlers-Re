@@ -5,23 +5,23 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "GameBoardObject")]
 public class GameBoardSO : ScriptableObject
 {
-    private List<GameBoard.TeamColor> teamColors;
-    private List<GBOnlineCardsSO> gBOnlineCardsSOs;
+    [SerializeField] private List<GameBoard.Team> teamColors;
+    [SerializeField] private List<GBOnlineCardsSO> gBOnlineCardsSOs;
 
-    public Dictionary<GameBoard.TeamColor, Dictionary<OnlineCard.CardType, Transform>> GetPrefabs() {
-        Dictionary<GameBoard.TeamColor, Dictionary<OnlineCard.CardType, Transform>> prefabsDict = new Dictionary<GameBoard.TeamColor, Dictionary<OnlineCard.CardType, Transform>> ();
+    public Dictionary<GameBoard.Team, Dictionary<OnlineCard.CardType, Transform>> GetPrefabs() {
+        Dictionary<GameBoard.Team, Dictionary<OnlineCard.CardType, Transform>> prefabsDict = new Dictionary<GameBoard.Team, Dictionary<OnlineCard.CardType, Transform>> ();
         for (int i = 0; i < teamColors.Count; i++) { prefabsDict.Add(teamColors[i], gBOnlineCardsSOs[i].GetPrefabs()); }
         return prefabsDict;
     }
 
-    public Dictionary<GameBoard.TeamColor, Dictionary<OnlineCard.CardType, int>> GetCounts() {
-        Dictionary<GameBoard.TeamColor, Dictionary<OnlineCard.CardType, int>> countsDict = new Dictionary<GameBoard.TeamColor, Dictionary<OnlineCard.CardType, int>> ();
+    public Dictionary<GameBoard.Team, Dictionary<OnlineCard.CardType, int>> GetCounts() {
+        Dictionary<GameBoard.Team, Dictionary<OnlineCard.CardType, int>> countsDict = new Dictionary<GameBoard.Team, Dictionary<OnlineCard.CardType, int>> ();
         for (int i = 0;i < teamColors.Count;i++) { countsDict.Add(teamColors[i], gBOnlineCardsSOs[i].GetCounts()); }
         return countsDict;
     }
 
-    public Dictionary<GameBoard.TeamColor, List<Vector2Int>> GetPlacements() {
-        Dictionary<GameBoard.TeamColor, List<Vector2Int>> placementsDict = new Dictionary<GameBoard.TeamColor, List<Vector2Int>> ();
+    public Dictionary<GameBoard.Team, List<Vector2Int>> GetPlacements() {
+        Dictionary<GameBoard.Team, List<Vector2Int>> placementsDict = new Dictionary<GameBoard.Team, List<Vector2Int>> ();
         for (int i = 0; i < teamColors.Count; i++) { placementsDict.Add(teamColors[i], gBOnlineCardsSOs[i].GetPlacements()); }
         return placementsDict;
     }

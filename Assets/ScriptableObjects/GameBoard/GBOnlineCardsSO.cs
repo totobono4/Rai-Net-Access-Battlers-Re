@@ -5,10 +5,10 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "GBOnlineCardsObject")]
 public class GBOnlineCardsSO : ScriptableObject
 {
-    private List<OnlineCard.CardType> onlineCardTypes;
-    private List<Transform> prefabs;
-    private List<int> counts;
-    private List<Vector2Int> placements;
+    [SerializeField] private List<OnlineCard.CardType> onlineCardTypes;
+    [SerializeField] private List<Transform> prefabs;
+    [SerializeField] private List<int> counts;
+    [SerializeField] private List<Vector2Int> placements;
 
     public Dictionary<OnlineCard.CardType, Transform> GetPrefabs() {
         Dictionary<OnlineCard.CardType, Transform> prefabsDict = new Dictionary<OnlineCard.CardType, Transform>();

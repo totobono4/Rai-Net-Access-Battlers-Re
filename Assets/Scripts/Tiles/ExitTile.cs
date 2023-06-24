@@ -1,3 +1,3 @@
-public class ExitTile : NormalTile {
+public class ExitTile : PlayTile {
 
 }

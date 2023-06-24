@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1217398596399872987, guid: 182f460da457423458067a94966e0137, type: 3}
+      propertyPath: m_Name
+      value: BlueStartTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407873774322193958, guid: 182f460da457423458067a94966e0137, type: 3}
+      propertyPath: teamColor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1527053071264985129, guid: 182f460da457423458067a94966e0137, type: 3}
       propertyPath: m_RootOrder
       value: 0

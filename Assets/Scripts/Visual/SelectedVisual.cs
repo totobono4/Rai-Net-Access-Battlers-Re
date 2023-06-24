@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SelectedVisual : MonoBehaviour
@@ -8,12 +6,12 @@ public class SelectedVisual : MonoBehaviour
     [SerializeField] Transform selected;
 
     private void Start() {
-        if (Reference.TryGetComponent<NormalTile>(out NormalTile normalTile)) {
+        if (Reference.TryGetComponent(out PlayTile normalTile)) {
             normalTile.OnSelectedTile += SelectedTile;
         }
     }
 
-    private void SelectedTile(object sender, NormalTile.SelectedTileArgs e) {
+    private void SelectedTile(object sender, PlayTile.SelectedTileArgs e) {
         if (e.selectedTile == Reference && e.isSelected) {
             Show();
         } else {

@@ -8,13 +8,13 @@ public abstract class Card : MonoBehaviour {
 
     private Tile tile;
 
-    [SerializeField] private GameBoard.TeamColor teamColor;
+    [SerializeField] private GameBoard.Team team;
 
     public void SetGameBoard(GameBoard gameBoard) {
         this.gameBoard = gameBoard;
     }
 
-    public GameBoard.TeamColor GetTeam() { return teamColor; }
+    public GameBoard.Team GetTeam() { return team; }
 
     public void SetTileParent(Tile tile) {
         if (this.tile != null) this.tile.ClearCard();

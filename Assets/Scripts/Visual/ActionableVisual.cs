@@ -6,7 +6,7 @@ public class ActionableVisual : MonoBehaviour
     [SerializeField] Transform actionable;
 
     private void Start() {
-        if (Reference.TryGetComponent(out NormalTile normalTile)) {
+        if (Reference.TryGetComponent(out PlayTile normalTile)) {
             normalTile.OnActionableTile += ActionableTile;
         }
     }

@@ -5,7 +5,7 @@ public class PlayerEntity : MonoBehaviour
 {
     [SerializeField] private GameBoard board;
     [SerializeField] private PlayerSO playerSO;
-    private GameBoard.TeamColor teamColor;
+    private GameBoard.Team teamColor;
 
     [SerializeField] private List<OnlineCard.CardType> onlineCardTypes;
     [SerializeField] private List<ScoreSlotGroup> scoreSlotsGroups;
@@ -22,7 +22,7 @@ public class PlayerEntity : MonoBehaviour
         virusScore = 0;
     }
 
-    public GameBoard.TeamColor GetTeamColor() { return teamColor; }
+    public GameBoard.Team GetTeamColor() { return teamColor; }
     public List<TileMap> GetTileMaps() {
         List<TileMap> tileMaps = new List<TileMap>();
         foreach (TileMap tileMap in scoreSlotsGroupDict.Values) { tileMaps.Add(tileMap); }

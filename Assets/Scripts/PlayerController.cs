@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private LayerMask tileLayerMask;
     [SerializeField] private InputSystem inputSystem;
     [SerializeField] private GameBoard gameBoard;
-    [SerializeField] private GameBoard.TeamColor teamColor;
+    [SerializeField] private GameBoard.Team teamColor;
 
     private Vector3 lastMouseWorldPosition;
     private Tile selectedTile;

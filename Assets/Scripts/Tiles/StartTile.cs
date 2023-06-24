@@ -1,3 +1,3 @@
-public class StartTile : NormalTile {
+public class StartTile : PlayTile {
 
 }

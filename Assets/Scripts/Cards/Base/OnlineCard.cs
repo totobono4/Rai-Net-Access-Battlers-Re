@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class OnlineCard : Card
@@ -50,6 +49,7 @@ public class OnlineCard : Card
         List<Tile> actionableTiles = new List<Tile>();
         foreach (Tile tile in neighbors) {
             if (tile.GetCard(out Card card) && card.GetTeam() == GetTeam()) continue;
+            if (tile is ExitTile && tile.GetTeam() == GetTeam()) continue;
             actionableTiles.Add(tile);
         }
         return actionableTiles;
@@ -58,11 +58,11 @@ public class OnlineCard : Card
     public override void Action(Tile actionable) {
         TryCapture(actionable);
         Move(actionable);
+        if (actionable is ExitTile) TryCapture(actionable);
     }
 
     private void TryCapture(Tile tile) {
         if (!tile.GetCard(out Card card)) return;
-        if (card.GetTeam() == GetTeam()) return;
         if (card is not OnlineCard) return;
         OnCaptureCard?.Invoke(this, new CaptureCardArgs { capturedCard = card as OnlineCard, capturingCard = this });
     }

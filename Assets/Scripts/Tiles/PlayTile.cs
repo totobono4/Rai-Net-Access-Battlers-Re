@@ -1,4 +1,4 @@
-public class NormalTile : Tile {
+public class PlayTile : Tile {
     protected override void SelectedTile(object sender, PlayerController.SelectedTileArgs e) {
         if (e.selectedTile != this) return;
         if (HasCard()) OnSelectedTile?.Invoke(this, new SelectedTileArgs { selectedTile = this, isSelected = true });

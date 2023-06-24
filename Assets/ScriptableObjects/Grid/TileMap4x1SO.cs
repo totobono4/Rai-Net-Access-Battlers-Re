@@ -2,7 +2,6 @@ using UnityEngine;
 
 [CreateAssetMenu (menuName = "TileMap4x1Object")]
 public class TileMap4x1SO : TileMapSO {
-
     public Transform tile_0;
     public Transform tile_1;
     public Transform tile_2;

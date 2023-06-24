@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class Tile : MonoBehaviour {
     private PlayerController playerController;
     [SerializeField] private Transform tileCardPoint;
-    [SerializeField] private GameBoard.TeamColor teamColor;
+    [SerializeField] private GameBoard.Team teamColor;
 
     private Vector3 position;
     private Card card;
@@ -42,9 +42,9 @@ public abstract class Tile : MonoBehaviour {
         playerController.OnCancelTile += CanceledTile;
     }
 
-    public Vector2 GetPosition() {
-        return position;
-    }
+    public Vector2 GetPosition() { return position; }
+
+    public GameBoard.Team GetTeam() { return teamColor; }
 
     public void SetCard(Card card) {
         this.card = card;
