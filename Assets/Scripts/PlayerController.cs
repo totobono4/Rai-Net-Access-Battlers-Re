@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private LayerMask tileLayerMask;
     [SerializeField] private InputSystem inputSystem;
     [SerializeField] private GameBoard gameBoard;
+    [SerializeField] private GameBoard.TeamColor teamColor;
 
     private Vector3 lastMouseWorldPosition;
     private Tile selectedTile;
@@ -126,7 +127,7 @@ public class PlayerController : MonoBehaviour {
 
     private void OnTileActioned(object sender, Tile.ActionedTileArgs e) {
         e.actionedTile.OnActionedTile -= OnTileActioned;
-        if (selectedTile.GetCard(out Card card)) {
+        if (selectedTile != null && selectedTile.GetCard(out Card card)) {
             card.Action(e.actionedTile);
         }
         foreach (Tile actionable in actionableTiles) actionable.UnsetActionable();

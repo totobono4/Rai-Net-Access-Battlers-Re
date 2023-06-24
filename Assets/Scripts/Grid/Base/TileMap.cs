@@ -2,19 +2,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TileMap : MonoBehaviour {
-    [SerializeField] private Transform tilePrefab;
-
-    [SerializeField] private int width;
-    [SerializeField] private int height;
+    [SerializeField] private TileMapSO tileMapSO;
     [SerializeField] private Transform origin;
+
+    private Transform[,] tilePrefabArray;
+    private int width;
+    private int height;
     protected GridMap<Transform> tileMap;
 
     private void Awake() {
+        tilePrefabArray = tileMapSO.GetTilePrefabArray();
+        width = tileMapSO.GetWidth();
+        height = tileMapSO.GetHeight();
+
         tileMap = new GridMap<Transform>(width, height, origin);
 
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                Transform tile = Instantiate(tilePrefab, tileMap.GetWorldPosition(x, y), Quaternion.identity, transform);
+                Transform tile = Instantiate(tilePrefabArray[y, x], tileMap.GetWorldPosition(x, y), Quaternion.identity, transform);
                 tile.transform.localScale = origin.localScale;
                 tileMap.SetValue(x, y, tile);
             }

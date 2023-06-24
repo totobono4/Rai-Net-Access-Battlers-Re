@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11fa9f15eb66f9b42923fd0dbbee0b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  board: {fileID: 0}
   playerSO: {fileID: 0}
   onlineCardTypes: 0000000001000000
   scoreSlotsGroups:
@@ -63,10 +64,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6338d44498c6ede49a32956f1cea6eb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilePrefab: {fileID: 1222487698066097899, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
-  width: 4
-  height: 1
+  tileMapSO: {fileID: 11400000, guid: c1eb57d0e79e69742b9e353065147c07, type: 2}
   origin: {fileID: 0}
+  tilePrefab: {fileID: 1222487698066097899, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
 --- !u!114 &-2597583490484288383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,7 +79,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6338d44498c6ede49a32956f1cea6eb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilePrefab: {fileID: 1222487698066097899, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
-  width: 4
-  height: 1
+  tileMapSO: {fileID: 11400000, guid: c1eb57d0e79e69742b9e353065147c07, type: 2}
   origin: {fileID: 0}
+  tilePrefab: {fileID: 1222487698066097899, guid: 3c524243a508ec848a76379da4e00a24, type: 3}

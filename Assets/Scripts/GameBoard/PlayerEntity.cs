@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerEntity : MonoBehaviour
 {
+    [SerializeField] private GameBoard board;
     [SerializeField] private PlayerSO playerSO;
     private GameBoard.TeamColor teamColor;
 

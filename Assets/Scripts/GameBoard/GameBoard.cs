@@ -11,59 +11,27 @@ public class GameBoard : MonoBehaviour {
     }
 
     [SerializeField] private GameBoardSO gameBoardSO;
-    private struct GBOnlineCardsStruct {
-        public Dictionary<OnlineCard.CardType, Transform> onlineCardPrefabs;
-        public Dictionary<OnlineCard.CardType, int> onlineCardCounts;
-        public List<Vector2Int> onlineCardPlacements;
-    }
-    Dictionary<TeamColor, GBOnlineCardsStruct> gBOnlineCards = new Dictionary<TeamColor, GBOnlineCardsStruct>();
+    Dictionary<TeamColor, Dictionary<OnlineCard.CardType, Transform>> onlineCardPrefabs;
+    Dictionary<TeamColor, Dictionary<OnlineCard.CardType, int>> onlineCardCounts;
+    Dictionary<TeamColor, List<Vector2Int>> onlineCardPlacements;
 
     private List<TileMap> tileMaps = new List<TileMap>();
 
     private void Awake() {
-        List<TeamColor> teamColors = gameBoardSO.teamColors;
-        List<GBOnlineCardsSO> gBOnlineCardsSOs = gameBoardSO.gBOnlineCardsSOs;
-
-        for (int i = 0; i < teamColors.Count; i++) {
-            GBOnlineCardsSO gBOnlineCardsSO = gBOnlineCardsSOs[i];
-
-            List<OnlineCard.CardType> onlineCardTypes = gBOnlineCardsSO.onlineCardTypes;
-            List<Transform> prefabs = gBOnlineCardsSO.prefabs;
-            List<int> counts = gBOnlineCardsSO.counts;
-            List<Vector2Int> placements = gBOnlineCardsSO.placements;
-
-            Dictionary<OnlineCard.CardType, Transform> onlineCardPrefabs = new Dictionary<OnlineCard.CardType, Transform>();
-            Dictionary<OnlineCard.CardType, int> onlineCardCounts = new Dictionary<OnlineCard.CardType, int>();
-
-            for (int j = 0; j < onlineCardTypes.Count; j++) {
-                onlineCardPrefabs.Add(onlineCardTypes[j], prefabs[j]);
-                onlineCardCounts.Add(onlineCardTypes[j], counts[j]);
-            }
-            List<Vector2Int> onlineCardPlacements = placements;
-
-            GBOnlineCardsStruct gBOnlineCardsStruct = new GBOnlineCardsStruct();
-            gBOnlineCardsStruct.onlineCardPrefabs = onlineCardPrefabs;
-            gBOnlineCardsStruct.onlineCardCounts = onlineCardCounts;
-            gBOnlineCardsStruct.onlineCardPlacements = onlineCardPlacements;
-
-            gBOnlineCards.Add(teamColors[i], gBOnlineCardsStruct);
-        }
+        onlineCardPrefabs = gameBoardSO.GetPrefabs();
+        onlineCardCounts = gameBoardSO.GetCounts();
+        onlineCardPlacements = gameBoardSO.GetPlacements();
 
         tileMaps.Add(playGrid);
     }
 
     private void Start() {
         foreach (PlayerEntity playerEntity in players) {
-            GBOnlineCardsStruct gBOnlineCard = gBOnlineCards[playerEntity.GetTeamColor()];
-
-            Dictionary<OnlineCard.CardType, Transform> onlineCardPrefabs = gBOnlineCard.onlineCardPrefabs;
-            Dictionary<OnlineCard.CardType, int> onlineCardCounts = gBOnlineCard.onlineCardCounts;
-            List<Vector2Int> onlineCardPlacements = gBOnlineCard.onlineCardPlacements;
-
+            TeamColor playerTeamColor = playerEntity.GetTeamColor();
 
             List<Transform> cardTransforms = new List<Transform>();
-            foreach (OnlineCard.CardType cardType in onlineCardCounts.Keys) { 
-                for (int i = 0; i < onlineCardCounts[cardType];  i++) { cardTransforms.Add(Instantiate(onlineCardPrefabs[cardType])); }
+            foreach (OnlineCard.CardType cardType in onlineCardCounts[playerTeamColor].Keys) { 
+                for (int i = 0; i < onlineCardCounts[playerTeamColor][cardType];  i++) { cardTransforms.Add(Instantiate(onlineCardPrefabs[playerTeamColor][cardType])); }
             }
 
             List<OnlineCard> onlineCards = new List<OnlineCard>();
@@ -77,7 +45,7 @@ public class GameBoard : MonoBehaviour {
                 onlineCards[rand] = temp;
             }
 
-            for (int i = 0;i < onlineCards.Count; i++) { onlineCards[i].SetTileParent(playGrid.GetTile(onlineCardPlacements[i])); }
+            for (int i = 0;i < onlineCards.Count; i++) { onlineCards[i].SetTileParent(playGrid.GetTile(onlineCardPlacements[playerTeamColor][i])); }
 
             playerEntity.SubOnlineCards(onlineCards);
 
