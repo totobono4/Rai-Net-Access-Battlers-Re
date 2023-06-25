@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 883344729912546490, guid: f158bd0412bdedd43a9634565d379a37, type: 3}
+      propertyPath: tile
+      value: 
+      objectReference: {fileID: 8868617103186738975}
     - target: {fileID: 1652468178998450808, guid: f158bd0412bdedd43a9634565d379a37, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -52,12 +56,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2378184296622189897, guid: f158bd0412bdedd43a9634565d379a37, type: 3}
+      propertyPath: boardTile
+      value: 
+      objectReference: {fileID: 8868617103186738975}
     - target: {fileID: 7675099837394033060, guid: f158bd0412bdedd43a9634565d379a37, type: 3}
       propertyPath: m_Name
-      value: NormalTile
+      value: YellowNormalTile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f158bd0412bdedd43a9634565d379a37, type: 3}
+--- !u!114 &8868617103186738975 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -5105751825104200581, guid: f158bd0412bdedd43a9634565d379a37, type: 3}
+  m_PrefabInstance: {fileID: 4771301572971504484}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd753a4d4f9e7a428d17e69d5c76afd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

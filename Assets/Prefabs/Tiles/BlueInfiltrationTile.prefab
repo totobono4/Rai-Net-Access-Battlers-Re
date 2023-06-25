@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: teamColor
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2995320360548955199, guid: 6927905a009ca3b49bdf462a47a56859, type: 3}
+      propertyPath: tile
+      value: 
+      objectReference: {fileID: 6027611744563790922}
     - target: {fileID: 3692241035405277949, guid: 6927905a009ca3b49bdf462a47a56859, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -65,3 +69,14 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6927905a009ca3b49bdf462a47a56859, type: 3}
+--- !u!114 &6027611744563790922 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 324418268716095414, guid: 6927905a009ca3b49bdf462a47a56859, type: 3}
+  m_PrefabInstance: {fileID: 6279970890227307516}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 383482f9e4ef175459423f69e893bb93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

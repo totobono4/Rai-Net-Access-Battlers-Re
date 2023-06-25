@@ -1,8 +1,23 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public class LineBoost : TerminalCard {
+    private bool activated;
+
+    private void Awake() {
+        activated = false;
+    }
+
     public override void Action(Tile actionable) {
-        throw new System.NotImplementedException();
+        if (!IsTileActionable(actionable, out OnlineCard onlineCard)) return;
+        if (!activated) {
+            onlineCard.SetBoost();
+            activated = true;
+        }
+        else {
+            onlineCard.UnsetBoost();
+            activated = false;
+        }
     }
 
     public override List<Tile> GetActionables() {
@@ -17,10 +32,19 @@ public class LineBoost : TerminalCard {
 
     private bool IsTileActionable(Tile tile, out OnlineCard onlineCard) {
         onlineCard = null;
-        if (!tile.GetCard(out Card card)) return false;
-        if (card.GetTeam() != GetTeam()) return false;
-        if (card is not OnlineCard) return false;
-        onlineCard = card as OnlineCard;
+        if (!activated)
+        {
+            if (!tile.GetCard(out Card card)) return false;
+            if (card.GetTeam() != GetTeam()) return false;
+            if (card is not OnlineCard) return false;
+            onlineCard = card as OnlineCard;
+        }
+        else {
+            if (!tile.GetCard(out Card card)) return false;
+            if (card is not OnlineCard) return false;
+            if ((card as OnlineCard).IsBoosted() == false) return false;
+            onlineCard = card as OnlineCard;
+        }
         return true;
     }
 }

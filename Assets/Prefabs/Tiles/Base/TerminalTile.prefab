@@ -60,7 +60,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5500602534370242929, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
+      propertyPath: Reference
+      value: 
+      objectReference: {fileID: 410930451763842031}
     - target: {fileID: 5617063607377675836, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
+      propertyPath: Reference
+      value: 
+      objectReference: {fileID: 410930451763842031}
+    - target: {fileID: 5765669315950771534, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
+      propertyPath: tile
+      value: 
+      objectReference: {fileID: 410930451763842031}
+    - target: {fileID: 6591674176958509906, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
       propertyPath: Reference
       value: 
       objectReference: {fileID: 410930451763842031}
@@ -74,7 +86,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7825839685540939063, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
-      insertIndex: 1
+      insertIndex: -1
       addedObject: {fileID: 410930451763842031}
   m_SourcePrefab: {fileID: 100100000, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
 --- !u!1 &1317465422168869028 stripped

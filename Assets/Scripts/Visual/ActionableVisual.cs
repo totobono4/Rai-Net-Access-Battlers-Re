@@ -2,22 +2,18 @@ using UnityEngine;
 
 public class ActionableVisual : MonoBehaviour
 {
-    [SerializeField] Tile Reference;
+    [SerializeField] Tile tile;
     [SerializeField] Transform actionable;
 
     private void Start() {
-        if (Reference.TryGetComponent(out PlayTile normalTile)) {
+        if (tile.TryGetComponent(out PlayTile normalTile)) {
             normalTile.OnActionableTile += ActionableTile;
         }
     }
 
     private void ActionableTile(object sender, Tile.ActionableTileArgs e) {
-        if (e.actionableTile == Reference && e.isActionable == true) {
-            Show();
-        }
-        else {
-            Hide();
-        }
+        Hide();
+        if (e.actionableTile == tile && e.isActionable == true) Show();
     }
 
     private void Show() {

@@ -12,8 +12,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartTile
       objectReference: {fileID: 0}
+    - target: {fileID: 2348753678849569031, guid: e855b1d460df3ac46a39957632db9556, type: 3}
+      propertyPath: tile
+      value: 
+      objectReference: {fileID: 608705929037364702}
+    - target: {fileID: 2459323498426701923, guid: e855b1d460df3ac46a39957632db9556, type: 3}
+      propertyPath: tile
+      value: 
+      objectReference: {fileID: 608705929037364702}
+    - target: {fileID: 2979365064309069439, guid: e855b1d460df3ac46a39957632db9556, type: 3}
+      propertyPath: Reference
+      value: 
+      objectReference: {fileID: 608705929037364702}
+    - target: {fileID: 3162056947471957787, guid: e855b1d460df3ac46a39957632db9556, type: 3}
+      propertyPath: Reference
+      value: 
+      objectReference: {fileID: 608705929037364702}
+    - target: {fileID: 4381340994061565240, guid: e855b1d460df3ac46a39957632db9556, type: 3}
+      propertyPath: Reference
+      value: 
+      objectReference: {fileID: 608705929037364702}
     - target: {fileID: 4424900021558725237, guid: e855b1d460df3ac46a39957632db9556, type: 3}
       propertyPath: Reference
+      value: 
+      objectReference: {fileID: 608705929037364702}
+    - target: {fileID: 4500381204182439004, guid: e855b1d460df3ac46a39957632db9556, type: 3}
+      propertyPath: Reference
+      value: 
+      objectReference: {fileID: 608705929037364702}
+    - target: {fileID: 4890243072954525885, guid: e855b1d460df3ac46a39957632db9556, type: 3}
+      propertyPath: boardTile
       value: 
       objectReference: {fileID: 608705929037364702}
     - target: {fileID: 6305934118293339539, guid: e855b1d460df3ac46a39957632db9556, type: 3}
@@ -77,7 +105,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2017965628454308222, guid: e855b1d460df3ac46a39957632db9556, type: 3}
-      insertIndex: 1
+      insertIndex: -1
       addedObject: {fileID: 608705929037364702}
   m_SourcePrefab: {fileID: 100100000, guid: e855b1d460df3ac46a39957632db9556, type: 3}
 --- !u!1 &2070413120631103335 stripped

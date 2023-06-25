@@ -12,10 +12,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: NormalTile
       objectReference: {fileID: 0}
+    - target: {fileID: 2348753678849569031, guid: e855b1d460df3ac46a39957632db9556, type: 3}
+      propertyPath: tile
+      value: 
+      objectReference: {fileID: -5105751825104200581}
+    - target: {fileID: 2459323498426701923, guid: e855b1d460df3ac46a39957632db9556, type: 3}
+      propertyPath: tile
+      value: 
+      objectReference: {fileID: -5105751825104200581}
+    - target: {fileID: 2979365064309069439, guid: e855b1d460df3ac46a39957632db9556, type: 3}
+      propertyPath: Reference
+      value: 
+      objectReference: {fileID: -5105751825104200581}
+    - target: {fileID: 3162056947471957787, guid: e855b1d460df3ac46a39957632db9556, type: 3}
+      propertyPath: Reference
+      value: 
+      objectReference: {fileID: -5105751825104200581}
+    - target: {fileID: 4381340994061565240, guid: e855b1d460df3ac46a39957632db9556, type: 3}
+      propertyPath: Reference
+      value: 
+      objectReference: {fileID: -5105751825104200581}
     - target: {fileID: 4424900021558725237, guid: e855b1d460df3ac46a39957632db9556, type: 3}
       propertyPath: Reference
       value: 
       objectReference: {fileID: -5105751825104200581}
+    - target: {fileID: 4500381204182439004, guid: e855b1d460df3ac46a39957632db9556, type: 3}
+      propertyPath: Reference
+      value: 
+      objectReference: {fileID: -5105751825104200581}
+    - target: {fileID: 4890243072954525885, guid: e855b1d460df3ac46a39957632db9556, type: 3}
+      propertyPath: boardTile
+      value: 
+      objectReference: {fileID: -5105751825104200581}
+    - target: {fileID: 4890243072954525885, guid: e855b1d460df3ac46a39957632db9556, type: 3}
+      propertyPath: fireWallVisuals.Array.data[0]
+      value: 
+      objectReference: {fileID: 2046099936400205968}
+    - target: {fileID: 4890243072954525885, guid: e855b1d460df3ac46a39957632db9556, type: 3}
+      propertyPath: fireWallVisuals.Array.data[1]
+      value: 
+      objectReference: {fileID: 8000859207351560153}
     - target: {fileID: 6305934118293339539, guid: e855b1d460df3ac46a39957632db9556, type: 3}
       propertyPath: Reference
       value: 
@@ -73,13 +109,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -5105751825104200581}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8560766221449793621, guid: e855b1d460df3ac46a39957632db9556, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2017965628454308222, guid: e855b1d460df3ac46a39957632db9556, type: 3}
-      insertIndex: 1
+      insertIndex: -1
       addedObject: {fileID: -5105751825104200581}
   m_SourcePrefab: {fileID: 100100000, guid: e855b1d460df3ac46a39957632db9556, type: 3}
+--- !u!4 &2046099936400205968 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7703154971656943690, guid: e855b1d460df3ac46a39957632db9556, type: 3}
+  m_PrefabInstance: {fileID: 8539440272573993178}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2460868306798017045 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6099260383024278223, guid: e855b1d460df3ac46a39957632db9556, type: 3}
@@ -110,3 +152,8 @@ MonoBehaviour:
   tileCardPoint: {fileID: 2460868306798017045}
   teamColor: 0
   worldPosition: {fileID: 6614704408211993057}
+--- !u!4 &8000859207351560153 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1840543569998935811, guid: e855b1d460df3ac46a39957632db9556, type: 3}
+  m_PrefabInstance: {fileID: 8539440272573993178}
+  m_PrefabAsset: {fileID: 0}

@@ -15,7 +15,7 @@ MonoBehaviour:
   onlineCardTypes: 0000000001000000
   prefabs:
   - {fileID: 5484166807945037162, guid: 03333431da280bf489e4381ca4ba1152, type: 3}
-  - {fileID: 4233258299951794494, guid: 690858d63d3d6f74490faaa207dedb9d, type: 3}
+  - {fileID: 5843546533387970943, guid: 690858d63d3d6f74490faaa207dedb9d, type: 3}
   counts: 0400000004000000
   placements:
   - {x: 0, y: 7}

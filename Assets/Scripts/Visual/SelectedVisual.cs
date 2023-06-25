@@ -11,12 +11,9 @@ public class SelectedVisual : MonoBehaviour
         }
     }
 
-    private void SelectedTile(object sender, PlayTile.SelectedTileArgs e) {
-        if (e.selectedTile == Reference && e.isSelected) {
-            Show();
-        } else {
-            Hide();
-        }
+    private void SelectedTile(object sender, Tile.SelectedTileArgs e) {
+        Hide();
+        if (e.selectedTile == Reference && e.isSelected) Show();
     }
 
     private void Show() {

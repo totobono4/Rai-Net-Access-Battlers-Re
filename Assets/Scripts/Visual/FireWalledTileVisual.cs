@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireWallVisual : MonoBehaviour
+public class FireWalledTileVisual : MonoBehaviour
 {
-    [SerializeField] private Tile Reference;
+    [SerializeField] private BoardTile boardTile;
 
     private Dictionary<GameBoard.Team, Transform> fireWallVisualsDict = new Dictionary<GameBoard.Team, Transform>();
     [SerializeField] private List<GameBoard.Team> teams;
@@ -14,14 +14,12 @@ public class FireWallVisual : MonoBehaviour
     }
 
     private void Start() {
-        if (Reference.TryGetComponent(out BoardTile boardTile)) {
-            boardTile.OnFireWallUpdate += FireWallUpdated;
-        }
+        boardTile.OnFireWallUpdate += FireWallUpdated;
     }
 
     private void FireWallUpdated(object sender, BoardTile.FireWallUpdateArgs e) {
         foreach (Transform fireWallVisual in fireWallVisualsDict.Values) { Hide(fireWallVisual); }
-        if (e.boardTile == Reference && e.fireWalled) {
+        if (e.boardTile == boardTile && e.fireWalled) {
             Show(fireWallVisualsDict[e.fireWallTeam]);
         }
     }

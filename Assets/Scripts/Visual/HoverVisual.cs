@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HoverVisual : MonoBehaviour
@@ -16,11 +14,8 @@ public class HoverVisual : MonoBehaviour
     }
 
     private void HoverTileChanged(object sender, PlayerController.HoverTileChangedArgs e) {
-        if (e.hoverTile == Reference) {
-            Show();
-        } else {
-            Hide();
-        }
+        Hide();
+        if (e.hoverTile == Reference) Show();
     }
 
     private void Show() {

@@ -21,20 +21,48 @@ public class OnlineCard : Card
     [SerializeField] private NeighborMatrixSO neighborMatrixSO;
 
     public EventHandler<StateChangedArgs> OnStateChanged;
-    public class StateChangedArgs {
+    public class StateChangedArgs : EventArgs {
         public CardState state;
     }
 
     public EventHandler<MoveCardArgs> OnMoveCard;
-    public class MoveCardArgs {
+    public class MoveCardArgs : EventArgs {
         public OnlineCard movingCard;
         public Tile moveTarget;
     }
 
     public EventHandler<CaptureCardArgs> OnCaptureCard;
-    public class CaptureCardArgs {
+    public class CaptureCardArgs : EventArgs {
         public OnlineCard capturedCard;
         public OnlineCard capturingCard;
+    }
+
+    private bool boosted;
+
+    public EventHandler<BoostedChangedArgs> OnBoostChanged;
+    public class BoostedChangedArgs : EventArgs {
+        public OnlineCard onlineCard;
+        public bool boosted;
+    }
+
+    private void Awake() {
+        boosted = false;
+    }
+
+    public void SetBoost() {
+        boosted = true;
+        BoostChanged();
+    }
+
+    public void UnsetBoost() {
+        boosted = false;
+        BoostChanged();
+    }
+
+    public bool IsBoosted() { return boosted; }
+
+    private void BoostChanged() {
+        OnBoostChanged?.Invoke(this, new BoostedChangedArgs { onlineCard = this, boosted = boosted });
     }
 
     private void Start() {

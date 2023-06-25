@@ -68,8 +68,23 @@ PrefabInstance:
       propertyPath: teamColor
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8397445475218572730, guid: 134d089688aae6f4b8abef2856e3ff40, type: 3}
+      propertyPath: tile
+      value: 
+      objectReference: {fileID: 2949015690960207444}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 134d089688aae6f4b8abef2856e3ff40, type: 3}
+--- !u!114 &2949015690960207444 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 410930451763842031, guid: 134d089688aae6f4b8abef2856e3ff40, type: 3}
+  m_PrefabInstance: {fileID: 3269306793032562107}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c23431d2e87cd3343a895ead58afa57d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

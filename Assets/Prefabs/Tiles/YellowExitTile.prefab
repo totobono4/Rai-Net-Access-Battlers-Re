@@ -52,12 +52,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4217400720412461054, guid: fc9e777226d642b4fb239fb61786bb93, type: 3}
+      propertyPath: tile
+      value: 
+      objectReference: {fileID: 3704384105604346632}
     - target: {fileID: 6649033121864370912, guid: fc9e777226d642b4fb239fb61786bb93, type: 3}
       propertyPath: m_Name
-      value: Exit Tile
+      value: YellowExitTile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc9e777226d642b4fb239fb61786bb93, type: 3}
+--- !u!114 &3704384105604346632 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -2701013929840209785, guid: fc9e777226d642b4fb239fb61786bb93, type: 3}
+  m_PrefabInstance: {fileID: 7632633332497933199}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80d656b012c7a924c9d7a47b7c89be84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueStartTile
       objectReference: {fileID: 0}
+    - target: {fileID: 6285328963880496010, guid: 5cfeafa739fef9b47a9d1e0cec3db57f, type: 3}
+      propertyPath: boardTile
+      value: 
+      objectReference: {fileID: 1013824457334894047}
     - target: {fileID: 6977839907697269947, guid: 5cfeafa739fef9b47a9d1e0cec3db57f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -60,8 +64,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8825575579167707769, guid: 5cfeafa739fef9b47a9d1e0cec3db57f, type: 3}
+      propertyPath: tile
+      value: 
+      objectReference: {fileID: 1013824457334894047}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cfeafa739fef9b47a9d1e0cec3db57f, type: 3}
+--- !u!114 &1013824457334894047 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 608705929037364702, guid: 5cfeafa739fef9b47a9d1e0cec3db57f, type: 3}
+  m_PrefabInstance: {fileID: 460314020633546753}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 345f82d51bd602f4fb16f4038a8e5351, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
