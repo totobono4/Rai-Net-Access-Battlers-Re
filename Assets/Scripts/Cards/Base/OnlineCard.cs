@@ -69,6 +69,7 @@ public class OnlineCard : Card
         if (tile is InfiltrationTile && GetTileParent() is not ExitTile) return false;
         if (tile.GetCard(out Card card) && card.GetTeam() == GetTeam()) return false;
         if (tile is ExitTile && tile.GetTeam() == GetTeam()) return false;
+        if (tile is BoardTile && (tile as BoardTile).HasFireWall() && (tile as BoardTile).GetFireWall() != GetTeam()) return false;
         return true;
     }
 

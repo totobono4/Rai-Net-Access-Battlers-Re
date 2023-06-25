@@ -1,9 +1,22 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 public class FireWall : TerminalCard {
+    private bool activated;
+
+    private void Awake() {
+        activated = false;
+    }
+
     public override void Action(Tile actionable) {
-        throw new System.NotImplementedException();
+        if (!IsTileActionable(actionable)) return;
+        if (!activated) {
+            (actionable as BoardTile).SetFireWall(GetTeam());
+            activated = true;
+        }
+        else {
+            (actionable as BoardTile).UnsetFireWall();
+            activated = false;
+        }
     }
 
     public override List<Tile> GetActionables() {
@@ -17,10 +30,17 @@ public class FireWall : TerminalCard {
     }
 
     private bool IsTileActionable(Tile tile) {
-        if (tile.GetCard(out Card card) && card.GetTeam() != GetTeam()) return false;
-        if (tile is not BoardTile) return false;
-        if (tile is ExitTile) return false;
-        
+        if (!activated) {
+            if (tile.GetCard(out Card card) && card.GetTeam() != GetTeam()) return false;
+            if (tile is not BoardTile) return false;
+            if ((tile as BoardTile).HasFireWall()) return false;
+            if (tile is ExitTile) return false;
+        }
+        else {
+            if (tile is not BoardTile) return false;
+            if (!(tile as BoardTile).HasFireWall()) return false;
+            if ((tile as BoardTile).GetFireWall() != GetTeam()) return false;
+        }
         return true;
     }
 }

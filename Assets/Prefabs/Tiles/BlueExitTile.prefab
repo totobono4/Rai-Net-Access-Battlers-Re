@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3218435126340692586
+--- !u!1001 &8487352431171530161
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,63 +8,55 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -972623608643702437, guid: b0ef38c816606f2428137ed7d54069be, type: 3}
+    - target: {fileID: -2701013929840209785, guid: fc9e777226d642b4fb239fb61786bb93, type: 3}
       propertyPath: teamColor
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1135360272164355381, guid: b0ef38c816606f2428137ed7d54069be, type: 3}
-      propertyPath: teamColor
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2870034162248198223, guid: b0ef38c816606f2428137ed7d54069be, type: 3}
+    - target: {fileID: 2318172709082171708, guid: fc9e777226d642b4fb239fb61786bb93, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2870034162248198223, guid: b0ef38c816606f2428137ed7d54069be, type: 3}
+    - target: {fileID: 2318172709082171708, guid: fc9e777226d642b4fb239fb61786bb93, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2870034162248198223, guid: b0ef38c816606f2428137ed7d54069be, type: 3}
+    - target: {fileID: 2318172709082171708, guid: fc9e777226d642b4fb239fb61786bb93, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2870034162248198223, guid: b0ef38c816606f2428137ed7d54069be, type: 3}
+    - target: {fileID: 2318172709082171708, guid: fc9e777226d642b4fb239fb61786bb93, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2870034162248198223, guid: b0ef38c816606f2428137ed7d54069be, type: 3}
+    - target: {fileID: 2318172709082171708, guid: fc9e777226d642b4fb239fb61786bb93, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2870034162248198223, guid: b0ef38c816606f2428137ed7d54069be, type: 3}
+    - target: {fileID: 2318172709082171708, guid: fc9e777226d642b4fb239fb61786bb93, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2870034162248198223, guid: b0ef38c816606f2428137ed7d54069be, type: 3}
+    - target: {fileID: 2318172709082171708, guid: fc9e777226d642b4fb239fb61786bb93, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2870034162248198223, guid: b0ef38c816606f2428137ed7d54069be, type: 3}
+    - target: {fileID: 2318172709082171708, guid: fc9e777226d642b4fb239fb61786bb93, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2870034162248198223, guid: b0ef38c816606f2428137ed7d54069be, type: 3}
+    - target: {fileID: 2318172709082171708, guid: fc9e777226d642b4fb239fb61786bb93, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2870034162248198223, guid: b0ef38c816606f2428137ed7d54069be, type: 3}
+    - target: {fileID: 2318172709082171708, guid: fc9e777226d642b4fb239fb61786bb93, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2870034162248198223, guid: b0ef38c816606f2428137ed7d54069be, type: 3}
+    - target: {fileID: 2318172709082171708, guid: fc9e777226d642b4fb239fb61786bb93, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6609517835110280083, guid: b0ef38c816606f2428137ed7d54069be, type: 3}
-      propertyPath: m_Name
-      value: BlueExitTile
-      objectReference: {fileID: 0}
-    - target: {fileID: 8827969503296524456, guid: b0ef38c816606f2428137ed7d54069be, type: 3}
+    - target: {fileID: 6649033121864370912, guid: fc9e777226d642b4fb239fb61786bb93, type: 3}
       propertyPath: m_Name
       value: BlueExitTile
       objectReference: {fileID: 0}
@@ -72,4 +64,4 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b0ef38c816606f2428137ed7d54069be, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: fc9e777226d642b4fb239fb61786bb93, type: 3}

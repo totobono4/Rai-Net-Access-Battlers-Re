@@ -1,10 +1,16 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 public class VirusChecker : TerminalCard {
+    private bool used;
+
+    private void Awake() {
+        used = false;
+    }
+
     public override void Action(Tile actionable) {
         if (!IsTileActionable(actionable, out OnlineCard onlineCard)) return;
         onlineCard.Reveal();
+        used = true;
     }
 
     public override List<Tile> GetActionables() {

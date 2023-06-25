@@ -30,7 +30,7 @@ public abstract class Tile : MonoBehaviour {
     protected bool selected;
     protected bool actionable;
 
-    private void Awake() {
+    protected virtual void Awake() {
         position = worldPosition.position;
 
         selected = false;
