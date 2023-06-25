@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa2c6a7bb34bcb0448bf7cb34ac73a2e, type: 3}
-  m_Name: OriginalTerminalGrid
+  m_Script: {fileID: 11500000, guid: 05a3bc2ed0396af4aafa5c61e7c0ef2e, type: 3}
+  m_Name: OriginalYellowTerminalGroup
   m_EditorClassIdentifier: 
-  tile_0: {fileID: 0}
-  tile_1: {fileID: 0}
-  tile_2: {fileID: 0}
-  tile_3: {fileID: 0}
+  terminalCards: []

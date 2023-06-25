@@ -21,8 +21,6 @@ public class GameBoard : MonoBehaviour {
         onlineCardPrefabs = gameBoardSO.GetPrefabs();
         onlineCardCounts = gameBoardSO.GetCounts();
         onlineCardPlacements = gameBoardSO.GetPlacements();
-
-        tileMaps.Add(playGrid);
     }
 
     private void Start() {
@@ -51,13 +49,13 @@ public class GameBoard : MonoBehaviour {
 
             foreach (TileMap tileMap in playerEntity.GetTileMaps()) { tileMaps.Add(tileMap); }
         }
+
+        tileMaps.Add(playGrid);
     }
 
     public bool GetTile(Vector3 worldPosition, out Tile tile) {
         foreach (TileMap tilemap in tileMaps) {
-            if (tilemap.GetTile(worldPosition, out tile)) {
-                return true;
-            }
+            if (tilemap.GetTile(worldPosition, out tile)) return true;
         }
         tile = null;
         return false;

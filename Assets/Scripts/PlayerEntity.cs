@@ -3,15 +3,17 @@ using UnityEngine;
 
 public class PlayerEntity : MonoBehaviour
 {
-    [SerializeField] private GameBoard board;
     [SerializeField] private PlayerSO playerSO;
     private GameBoard.Team teamColor;
 
     [SerializeField] private List<OnlineCard.CardType> onlineCardTypes;
     [SerializeField] private List<ScoreSlotGroup> scoreSlotsGroups;
     private Dictionary<OnlineCard.CardType, ScoreSlotGroup> scoreSlotsGroupDict = new Dictionary<OnlineCard.CardType, ScoreSlotGroup>();
+
     private int linkScore;
     private int virusScore;
+
+    [SerializeField] private TerminalGroup terminalGroup;
 
     private void Awake() {
         teamColor = playerSO.teamColor;
@@ -26,7 +28,7 @@ public class PlayerEntity : MonoBehaviour
     public List<TileMap> GetTileMaps() {
         List<TileMap> tileMaps = new List<TileMap>();
         foreach (TileMap tileMap in scoreSlotsGroupDict.Values) { tileMaps.Add(tileMap); }
-
+        tileMaps.Add(terminalGroup);
         return tileMaps;
     }
 

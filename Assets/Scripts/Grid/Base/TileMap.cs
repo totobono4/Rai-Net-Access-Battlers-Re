@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TileMap : MonoBehaviour {
@@ -10,7 +9,7 @@ public class TileMap : MonoBehaviour {
     private int height;
     protected GridMap<Transform> tileMap;
 
-    private void Awake() {
+    protected virtual void Awake() {
         tilePrefabArray = tileMapSO.GetTilePrefabArray();
         width = tileMapSO.GetWidth();
         height = tileMapSO.GetHeight();

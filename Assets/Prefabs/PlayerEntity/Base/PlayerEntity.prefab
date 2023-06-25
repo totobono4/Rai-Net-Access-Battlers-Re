@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4637078818302889825}
   - component: {fileID: 1997225970513810814}
   - component: {fileID: -2597583490484288383}
+  - component: {fileID: 2527803987454768557}
   m_Layer: 0
   m_Name: PlayerEntity
   m_TagString: Untagged
@@ -46,12 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11fa9f15eb66f9b42923fd0dbbee0b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  board: {fileID: 0}
   playerSO: {fileID: 0}
   onlineCardTypes: 0000000001000000
   scoreSlotsGroups:
   - {fileID: 1997225970513810814}
   - {fileID: -2597583490484288383}
+  terminalGroup: {fileID: 2527803987454768557}
 --- !u!114 &1997225970513810814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,9 +65,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6338d44498c6ede49a32956f1cea6eb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileMapSO: {fileID: 11400000, guid: c1eb57d0e79e69742b9e353065147c07, type: 2}
+  tileMapSO: {fileID: 0}
   origin: {fileID: 0}
-  tilePrefab: {fileID: 1222487698066097899, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
 --- !u!114 &-2597583490484288383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,6 +79,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6338d44498c6ede49a32956f1cea6eb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileMapSO: {fileID: 11400000, guid: c1eb57d0e79e69742b9e353065147c07, type: 2}
+  tileMapSO: {fileID: 0}
   origin: {fileID: 0}
-  tilePrefab: {fileID: 1222487698066097899, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
+--- !u!114 &2527803987454768557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2772805499186007607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e381b08a3c72874ba87cd350c4897df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileMapSO: {fileID: 0}
+  origin: {fileID: 0}
+  terminalGroupSO: {fileID: 0}

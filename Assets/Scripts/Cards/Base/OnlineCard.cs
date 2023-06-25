@@ -55,10 +55,10 @@ public class OnlineCard : Card
         return actionableTiles;
     }
 
-    public override void Action(Tile actionable) {
-        TryCapture(actionable);
-        Move(actionable);
-        if (actionable is ExitTile) TryCapture(actionable);
+    public override void Action(Tile actioned) {
+        TryCapture(actioned);
+        Move(actioned);
+        if (actioned is ExitTile) TryCapture(actioned);
     }
 
     private void TryCapture(Tile tile) {
