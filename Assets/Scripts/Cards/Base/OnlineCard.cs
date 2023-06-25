@@ -18,6 +18,8 @@ public class OnlineCard : Card
     [SerializeField] private CardType type;
     [SerializeField] private CardState state;
 
+    [SerializeField] private NeighborMatrixSO neighborMatrixSO;
+
     public EventHandler<StateChangedArgs> OnStateChanged;
     public class StateChangedArgs {
         public CardState state;
@@ -45,20 +47,26 @@ public class OnlineCard : Card
     }
 
     public override List<Tile> GetActionables(Vector3 worldPosition) {
-        List<Tile> neighbors = gameBoard.GetNeighbors(worldPosition);
+        List<Tile> neighbors = gameBoard.GetNeighbors(worldPosition, neighborMatrixSO);
         List<Tile> actionableTiles = new List<Tile>();
         foreach (Tile tile in neighbors) {
-            if (tile.GetCard(out Card card) && card.GetTeam() == GetTeam()) continue;
-            if (tile is ExitTile && tile.GetTeam() == GetTeam()) continue;
+            if (!IsTileActionable(tile)) continue;
             actionableTiles.Add(tile);
         }
         return actionableTiles;
     }
 
     public override void Action(Tile actioned) {
+        if (!IsTileActionable(actioned)) return;
         TryCapture(actioned);
         Move(actioned);
         if (actioned is ExitTile) TryCapture(actioned);
+    }
+
+    private bool IsTileActionable(Tile tile) {
+        if (tile.GetCard(out Card card) && card.GetTeam() == GetTeam()) return false;
+        if (tile is ExitTile && tile.GetTeam() == GetTeam()) return false;
+        return true;
     }
 
     private void TryCapture(Tile tile) {
@@ -76,7 +84,16 @@ public class OnlineCard : Card
         StateChanged();
     }
 
+    public void Reveal() {
+        state = CardState.Revealed;
+        StateChanged();
+    }
+
     private void StateChanged() {
         OnStateChanged?.Invoke(this, new StateChangedArgs { state = state });
+    }
+
+    public bool IsRevealed() {
+        return CardState.Revealed == state;
     }
 }

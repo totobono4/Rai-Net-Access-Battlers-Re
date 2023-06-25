@@ -1,25 +1,34 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.UI.Image;
 
-public class PlayGrid : TileMap {
+public class PlayMap : TileMap {
+    public List<Tile> GetAllTiles() {
+        List<Tile> result = new List<Tile>();
 
-    public List<Tile> GetNeighbors(Vector3 worldPosition) {
+        for (int x = 0; x < GetWidth(); x++) {
+            for (int y = 0; y < GetHeight(); y++) {
+                result.Add(GetTile(x, y));
+            }
+        }
+
+        return result;
+    }
+
+    public List<Tile> GetNeighbors(Vector3 worldPosition, NeighborMatrixSO neighborMatrixSO) {
         int x, y;
         tileMap.GetCoords(worldPosition, out x, out y);
+        Vector2Int coords = new Vector2Int(x, y);
 
         List<Tile> result = new List<Tile>();
 
-        if (tileMap.GetValue(x + 1, y, out Transform upNeighbor)) {
-            result.Add(upNeighbor.GetComponent<Tile>());
-        }
-        if (tileMap.GetValue(x - 1, y, out Transform downNeighbor)) {
-            result.Add(downNeighbor.GetComponent<Tile>());
-        }
-        if (tileMap.GetValue(x, y + 1, out Transform leftNeighbor)) {
-            result.Add(leftNeighbor.GetComponent<Tile>());
-        }
-        if (tileMap.GetValue(x, y - 1, out Transform rightNeihbor)) {
-            result.Add(rightNeihbor.GetComponent<Tile>());
+        List<Vector2Int> neighborMatrix = neighborMatrixSO.neighborMatrix;
+
+        foreach (Vector2Int neighborRelativeCoords in neighborMatrix) {
+            Vector2Int neighborCoords = coords + neighborRelativeCoords;
+            if (GetTile(neighborCoords, out Tile tile)) {
+                result.Add(tile);
+            }
         }
 
         return result;

@@ -44,4 +44,9 @@ public class TileMap : MonoBehaviour {
         tile = GetTile(x, y);
         return tile != null;
     }
+
+    public bool GetTile(Vector2Int coords, out Tile tile) {
+        tile = GetTile(coords.x, coords.y);
+        return tile != null;
+    }
 }

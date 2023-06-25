@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu (menuName = "GBOnlineCardsObject")]
-public class GBOnlineCardsSO : ScriptableObject
+public class PlayerOnlineCardsSO : ScriptableObject
 {
     [SerializeField] private List<OnlineCard.CardType> onlineCardTypes;
     [SerializeField] private List<Transform> prefabs;

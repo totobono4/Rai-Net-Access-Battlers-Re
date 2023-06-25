@@ -3,8 +3,12 @@ using UnityEngine;
 
 public class PlayerEntity : MonoBehaviour
 {
-    [SerializeField] private PlayerSO playerSO;
-    private GameBoard.Team teamColor;
+    [SerializeField] private GameBoard.Team teamColor;
+
+    [SerializeField] private PlayerOnlineCardsSO playerOnlineCardsSO;
+    Dictionary<OnlineCard.CardType, Transform> onlineCardPrefabs;
+    Dictionary<OnlineCard.CardType, int> onlineCardCounts;
+    List<Vector2Int> onlineCardPlacements;
 
     [SerializeField] private List<OnlineCard.CardType> onlineCardTypes;
     [SerializeField] private List<ScoreSlotGroup> scoreSlotsGroups;
@@ -16,7 +20,9 @@ public class PlayerEntity : MonoBehaviour
     [SerializeField] private TerminalGroup terminalGroup;
 
     private void Awake() {
-        teamColor = playerSO.teamColor;
+        onlineCardPrefabs = playerOnlineCardsSO.GetPrefabs();
+        onlineCardCounts = playerOnlineCardsSO.GetCounts();
+        onlineCardPlacements = playerOnlineCardsSO.GetPlacements();
 
         for (int i = 0; i < onlineCardTypes.Count; i++) scoreSlotsGroupDict.Add(onlineCardTypes[i], scoreSlotsGroups[i]);
 
@@ -31,6 +37,11 @@ public class PlayerEntity : MonoBehaviour
         tileMaps.Add(terminalGroup);
         return tileMaps;
     }
+    public Dictionary<OnlineCard.CardType, Transform> GetOnlineCardPrefabs() { return onlineCardPrefabs; }
+    public Dictionary<OnlineCard.CardType, int> GetOnlineCardCounts() { return onlineCardCounts; }
+    public List<Vector2Int> GetOnlineCardPlacements() { return onlineCardPlacements; }
+
+    public List<TerminalCard> GetTerminalCards() { return terminalGroup.GetTerminalCards(); }
 
     public void SubOnlineCards(List<OnlineCard> onlineCards) {
         foreach (OnlineCard onlineCard in onlineCards) {

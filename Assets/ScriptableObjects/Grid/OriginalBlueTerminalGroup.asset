@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a3bc2ed0396af4aafa5c61e7c0ef2e, type: 3}
   m_Name: OriginalBlueTerminalGroup
   m_EditorClassIdentifier: 
-  terminalCards: []
+  terminal_0: {fileID: 5052600918597923835, guid: dd4c2e8244c4bac47948c39f337d3642, type: 3}
+  terminal_1: {fileID: 6456982032297100754, guid: 35c9bfe518ab85c4b90f78d55e6cbf00, type: 3}
+  terminal_2: {fileID: 172914979125742613, guid: 8c0b0b311e9f6da47a5b15b2360ee5de, type: 3}
+  terminal_3: {fileID: 5860718676584912531, guid: 40d71c5a23136bb458ce982ed632c42b, type: 3}

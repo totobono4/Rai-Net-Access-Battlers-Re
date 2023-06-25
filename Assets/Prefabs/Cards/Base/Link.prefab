@@ -84,3 +84,4 @@ MonoBehaviour:
   team: 0
   type: 0
   state: 1
+  neighborMatrixSO: {fileID: 11400000, guid: 48c67a9bd9f288b439459ac34889a51f, type: 2}

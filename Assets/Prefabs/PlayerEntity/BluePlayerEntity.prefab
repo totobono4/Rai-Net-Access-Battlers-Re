@@ -32,6 +32,14 @@ PrefabInstance:
       propertyPath: playerSO
       value: 
       objectReference: {fileID: 11400000, guid: 396f0f464dcee7443adab17c127ef651, type: 2}
+    - target: {fileID: 4637078818302889825, guid: e8159939f6ec3dc4d8951466fedfb09f, type: 3}
+      propertyPath: teamColor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637078818302889825, guid: e8159939f6ec3dc4d8951466fedfb09f, type: 3}
+      propertyPath: playerOnlineCardsSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 6f49d3fea23092c4dba60a90c75b3d3f, type: 2}
     - target: {fileID: 8556049184886034820, guid: e8159939f6ec3dc4d8951466fedfb09f, type: 3}
       propertyPath: m_RootOrder
       value: 0

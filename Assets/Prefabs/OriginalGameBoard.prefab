@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2e90ee9348fa8c44a192bb2e80b05d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playGrid: {fileID: 8825370985835660750}
+  playMap: {fileID: 8825370985835660750}
   players:
   - {fileID: 4206766335788925625}
   - {fileID: 6414726429702639216}

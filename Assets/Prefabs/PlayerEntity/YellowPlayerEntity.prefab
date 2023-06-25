@@ -32,6 +32,10 @@ PrefabInstance:
       propertyPath: playerSO
       value: 
       objectReference: {fileID: 11400000, guid: cb36c91f0b47bf7489d30636ba9e4082, type: 2}
+    - target: {fileID: 4637078818302889825, guid: e8159939f6ec3dc4d8951466fedfb09f, type: 3}
+      propertyPath: playerOnlineCardsSO
+      value: 
+      objectReference: {fileID: 11400000, guid: f80bffbc42e256b45997ee02f2067e3a, type: 2}
     - target: {fileID: 8556049184886034820, guid: e8159939f6ec3dc4d8951466fedfb09f, type: 3}
       propertyPath: m_RootOrder
       value: 0

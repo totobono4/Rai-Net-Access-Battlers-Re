@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 267177527934e3c48b0839592bbc537f, type: 3}
-  m_Name: Blue
+  m_Script: {fileID: 11500000, guid: 82cd3ddf99ae23f4cb86bba946550eaf, type: 3}
+  m_Name: OnlineCardNeighborMatrix
   m_EditorClassIdentifier: 
-  teamColor: 1
+  worldPosition: {x: 0, y: 0, z: 0}
+  neighbors: []

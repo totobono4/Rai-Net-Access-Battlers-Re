@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a3bc2ed0396af4aafa5c61e7c0ef2e, type: 3}
   m_Name: OriginalYellowTerminalGroup
   m_EditorClassIdentifier: 
-  terminalCards: []
+  terminal_0: {fileID: 7786425651455560285, guid: 42c2756d41b97ba438198e3944936153, type: 3}
+  terminal_1: {fileID: 4141441065698014089, guid: a2d8d5fbb78ebc243991fe73bab3fe2c, type: 3}
+  terminal_2: {fileID: 8261054053797537247, guid: fe9cd62bc1b49394dabd8efed113c554, type: 3}
+  terminal_3: {fileID: 6351373343999936151, guid: 2df13d825d955f049890a0b0aa17962a, type: 3}
