@@ -303,7 +303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4733145618449471642, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
       propertyPath: m_Name
-      value: Normal Tile
+      value: PlayTile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -321,9 +321,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4733145618449471642, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4232546190521385127}
-    - targetCorrespondingSourceObject: {fileID: 4733145618449471642, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 22192042521266504}
     - targetCorrespondingSourceObject: {fileID: 4733145618449471642, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
       insertIndex: -1
@@ -337,29 +334,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4450211132458785606, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
   m_PrefabInstance: {fileID: 3257638994006121901}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2611907154527086214 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 651384567933008683, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
-  m_PrefabInstance: {fileID: 3257638994006121901}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7825839685540939063 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4733145618449471642, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
   m_PrefabInstance: {fileID: 3257638994006121901}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4232546190521385127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7825839685540939063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 386e425eb55e8c64aa5ce5af3518d236, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tileCardPoint: {fileID: 2611907154527086214}
 --- !u!114 &22192042521266504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,7 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a61f2598abe73f479503b0d1986ba87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Reference: {fileID: 4232546190521385127}
+  Reference: {fileID: 0}
   hilight: {fileID: 2181027368884297377}
 --- !u!114 &5617063607377675836
 MonoBehaviour:
@@ -386,7 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156409abb66d37147af8de4e217d0372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Reference: {fileID: 4232546190521385127}
+  Reference: {fileID: 0}
   selected: {fileID: 6071792502595556838}
 --- !u!114 &746432340006504489
 MonoBehaviour:
@@ -400,5 +379,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0101231e05afdea4d8cd03c2bcc2d204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Reference: {fileID: 4232546190521385127}
+  Reference: {fileID: 0}
   actionable: {fileID: 426570536851480085}

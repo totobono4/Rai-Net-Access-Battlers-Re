@@ -6,7 +6,7 @@ public class FireWall : TerminalCard {
         throw new System.NotImplementedException();
     }
 
-    public override List<Tile> GetActionables(Vector3 worldPosition) {
+    public override List<Tile> GetActionables() {
         List<Tile> allTiles = gameBoard.GetAllTiles();
         List<Tile> actionableTiles = new List<Tile>();
         foreach (Tile tile in allTiles) {
@@ -18,7 +18,9 @@ public class FireWall : TerminalCard {
 
     private bool IsTileActionable(Tile tile) {
         if (tile.GetCard(out Card card) && card.GetTeam() != GetTeam()) return false;
+        if (tile is not BoardTile) return false;
         if (tile is ExitTile) return false;
+        
         return true;
     }
 }

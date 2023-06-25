@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4733145618449471642, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
       propertyPath: m_Name
-      value: Score Tile
+      value: ScoreTile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -87,3 +87,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileCardPoint: {fileID: 1659981908113127788}
+  teamColor: 0
+  worldPosition: {fileID: 7990393936335188632}
+--- !u!4 &7990393936335188632 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8133724003736531167, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
+  m_PrefabInstance: {fileID: 2162675669576254023}
+  m_PrefabAsset: {fileID: 0}

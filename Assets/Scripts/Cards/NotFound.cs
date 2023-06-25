@@ -6,7 +6,7 @@ public class NotFound : TerminalCard {
         throw new System.NotImplementedException();
     }
 
-    public override List<Tile> GetActionables(Vector3 worldPosition) {
+    public override List<Tile> GetActionables() {
         List<Tile> allTiles = gameBoard.GetAllTiles();
         List<Tile> actionableTiles = new List<Tile>();
         foreach (Tile tile in allTiles) {

@@ -6,6 +6,7 @@ public abstract class Tile : MonoBehaviour {
     [SerializeField] private Transform tileCardPoint;
     [SerializeField] private GameBoard.Team teamColor;
 
+    [SerializeField] Transform worldPosition;
     private Vector3 position;
     private Card card;
 
@@ -30,6 +31,8 @@ public abstract class Tile : MonoBehaviour {
     protected bool actionable;
 
     private void Awake() {
+        position = worldPosition.position;
+
         selected = false;
         actionable = false;
     }
@@ -42,7 +45,7 @@ public abstract class Tile : MonoBehaviour {
         playerController.OnCancelTile += CanceledTile;
     }
 
-    public Vector2 GetPosition() { return position; }
+    public Vector3 GetPosition() { return position; }
 
     public GameBoard.Team GetTeam() { return teamColor; }
 

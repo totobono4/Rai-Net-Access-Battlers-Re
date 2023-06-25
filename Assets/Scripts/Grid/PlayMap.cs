@@ -1,20 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.UI.Image;
 
 public class PlayMap : TileMap {
-    public List<Tile> GetAllTiles() {
-        List<Tile> result = new List<Tile>();
-
-        for (int x = 0; x < GetWidth(); x++) {
-            for (int y = 0; y < GetHeight(); y++) {
-                result.Add(GetTile(x, y));
-            }
-        }
-
-        return result;
-    }
-
     public List<Tile> GetNeighbors(Vector3 worldPosition, NeighborMatrixSO neighborMatrixSO) {
         int x, y;
         tileMap.GetCoords(worldPosition, out x, out y);

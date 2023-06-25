@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour {
         if (e.isSelected) {
             selectedTile = e.selectedTile;
             if (selectedTile.GetCard(out Card card)) {
-                actionableTiles = card.GetActionables(lastMouseWorldPosition);
+                actionableTiles = card.GetActionables();
             }
             foreach (Tile actionable in actionableTiles) actionable.SetActionable();
             playerState = PlayerState.ThinkingForAction;

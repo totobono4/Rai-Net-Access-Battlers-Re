@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e54b3b0e42ecb048948b50b6f8e69cd, type: 3}
+  m_Name: OriginalBlueInfiltrationGroup
+  m_EditorClassIdentifier: 
+  tile: {fileID: 7213510860704672001, guid: 28ca36d13d3c7b2408173a36f8209573, type: 3}

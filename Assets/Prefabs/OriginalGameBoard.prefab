@@ -52,7 +52,6 @@ MonoBehaviour:
   players:
   - {fileID: 4206766335788925625}
   - {fileID: 6414726429702639216}
-  gameBoardSO: {fileID: 11400000, guid: 7bed0820317d85e4f9527f728de71bbe, type: 2}
 --- !u!1001 &2658810299568799600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -154,6 +153,10 @@ PrefabInstance:
       propertyPath: origin
       value: 
       objectReference: {fileID: 7728863021875485915}
+    - target: {fileID: 415468040263598915, guid: 5dd4980197dcb19449db8664f3c84778, type: 3}
+      propertyPath: origin
+      value: 
+      objectReference: {fileID: 5801220594093125194}
     - target: {fileID: 4444431752086650169, guid: 5dd4980197dcb19449db8664f3c84778, type: 3}
       propertyPath: origin
       value: 
@@ -325,6 +328,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2433643678479601930, guid: 228e25d073450ed49bfdb8f0bd12a2ae, type: 3}
   m_PrefabInstance: {fileID: 8061809692456910160}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &5801220594093125194 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4567598176234115866, guid: 228e25d073450ed49bfdb8f0bd12a2ae, type: 3}
+  m_PrefabInstance: {fileID: 8061809692456910160}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6432991968075827474 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3938355196012803138, guid: 228e25d073450ed49bfdb8f0bd12a2ae, type: 3}
+  m_PrefabInstance: {fileID: 8061809692456910160}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7728863021875485915 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 334149055535620491, guid: 228e25d073450ed49bfdb8f0bd12a2ae, type: 3}
@@ -395,6 +408,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BluePlayerEntity
       objectReference: {fileID: 0}
+    - target: {fileID: 4992889790792423767, guid: b52a11c8d406dc44883f889f84dc651f, type: 3}
+      propertyPath: origin
+      value: 
+      objectReference: {fileID: 6432991968075827474}
     - target: {fileID: 5008159123596576766, guid: b52a11c8d406dc44883f889f84dc651f, type: 3}
       propertyPath: origin
       value: 

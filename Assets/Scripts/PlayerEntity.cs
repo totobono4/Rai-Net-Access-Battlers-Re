@@ -18,6 +18,7 @@ public class PlayerEntity : MonoBehaviour
     private int virusScore;
 
     [SerializeField] private TerminalGroup terminalGroup;
+    [SerializeField] private InfiltrationGroup infiltrationGroup;
 
     private void Awake() {
         onlineCardPrefabs = playerOnlineCardsSO.GetPrefabs();
@@ -35,6 +36,7 @@ public class PlayerEntity : MonoBehaviour
         List<TileMap> tileMaps = new List<TileMap>();
         foreach (TileMap tileMap in scoreSlotsGroupDict.Values) { tileMaps.Add(tileMap); }
         tileMaps.Add(terminalGroup);
+        tileMaps.Add(infiltrationGroup);
         return tileMaps;
     }
     public Dictionary<OnlineCard.CardType, Transform> GetOnlineCardPrefabs() { return onlineCardPrefabs; }

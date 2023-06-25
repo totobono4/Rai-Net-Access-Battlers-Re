@@ -7,7 +7,7 @@ public class VirusChecker : TerminalCard {
         onlineCard.Reveal();
     }
 
-    public override List<Tile> GetActionables(Vector3 worldPosition) {
+    public override List<Tile> GetActionables() {
         List<Tile> allTiles = gameBoard.GetAllTiles();
         List<Tile> actionableTiles = new List<Tile>();
         foreach (Tile tile in allTiles) {

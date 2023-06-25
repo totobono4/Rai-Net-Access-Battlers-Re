@@ -1,12 +1,10 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Card : MonoBehaviour {
     protected GameBoard gameBoard;
 
-    private Tile tile;
+    private Tile tileParent;
 
     [SerializeField] private GameBoard.Team team;
 
@@ -17,15 +15,21 @@ public abstract class Card : MonoBehaviour {
     public GameBoard.Team GetTeam() { return team; }
 
     public void SetTileParent(Tile tile) {
-        if (this.tile != null) this.tile.ClearCard();
+        if (this.tileParent != null) this.tileParent.ClearCard();
 
-        this.tile = tile;
+        this.tileParent = tile;
         tile.SetCard(this);
 
         transform.parent = tile.GetTileCardPointTransform();
         transform.localPosition = Vector3.zero;
     }
 
-    public abstract List<Tile> GetActionables(Vector3 worldPosition);
+    protected Tile GetTileParent() { return tileParent; }
+
+    protected Vector3 GetPosition() {
+        return tileParent.GetPosition();
+    }
+
+    public abstract List<Tile> GetActionables();
     public abstract void Action(Tile actionable);
 }

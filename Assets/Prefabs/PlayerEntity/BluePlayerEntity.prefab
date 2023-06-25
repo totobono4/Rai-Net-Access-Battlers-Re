@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6638780107403105532, guid: e8159939f6ec3dc4d8951466fedfb09f, type: 3}
+      propertyPath: tileMapSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 5a437b49126ce1348baca3dc4405af9e, type: 2}
     - target: {fileID: -2597583490484288383, guid: e8159939f6ec3dc4d8951466fedfb09f, type: 3}
       propertyPath: tileMapSO
       value: 

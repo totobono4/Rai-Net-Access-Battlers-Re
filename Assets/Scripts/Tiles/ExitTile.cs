@@ -1,3 +1,3 @@
-public class ExitTile : PlayTile {
+public class ExitTile : BoardTile {
 
 }

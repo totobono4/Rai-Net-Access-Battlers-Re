@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82cd3ddf99ae23f4cb86bba946550eaf, type: 3}
   m_Name: OnlineCardNeighborMatrix
   m_EditorClassIdentifier: 
-  worldPosition: {x: 0, y: 0, z: 0}
-  neighbors: []
+  neighborMatrix:
+  - {x: -1, y: 0}
+  - {x: 1, y: 0}
+  - {x: 0, y: -1}
+  - {x: 0, y: 1}

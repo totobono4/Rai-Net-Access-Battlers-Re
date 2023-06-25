@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TileMap : MonoBehaviour {
@@ -48,5 +49,17 @@ public class TileMap : MonoBehaviour {
     public bool GetTile(Vector2Int coords, out Tile tile) {
         tile = GetTile(coords.x, coords.y);
         return tile != null;
+    }
+
+    public List<Tile> GetAllTiles() {
+        List<Tile> result = new List<Tile>();
+
+        for (int x = 0; x < GetWidth(); x++) {
+            for (int y = 0; y < GetHeight(); y++) {
+                result.Add(GetTile(x, y));
+            }
+        }
+
+        return result;
     }
 }

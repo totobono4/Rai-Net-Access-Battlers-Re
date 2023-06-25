@@ -46,27 +46,34 @@ public class OnlineCard : Card
         return type;
     }
 
-    public override List<Tile> GetActionables(Vector3 worldPosition) {
-        List<Tile> neighbors = gameBoard.GetNeighbors(worldPosition, neighborMatrixSO);
+    public override void Action(Tile actioned) {
+        if (!IsTileActionable(actioned)) return;
+        TryCapture(actioned);
+        Move(actioned);
+        if (actioned is InfiltrationTile) TryCapture(actioned);
+    }
+
+    public override List<Tile> GetActionables() {
+        List<Tile> allTiles = gameBoard.GetAllTiles();
         List<Tile> actionableTiles = new List<Tile>();
-        foreach (Tile tile in neighbors) {
+        foreach (Tile tile in allTiles) {
             if (!IsTileActionable(tile)) continue;
             actionableTiles.Add(tile);
         }
         return actionableTiles;
     }
 
-    public override void Action(Tile actioned) {
-        if (!IsTileActionable(actioned)) return;
-        TryCapture(actioned);
-        Move(actioned);
-        if (actioned is ExitTile) TryCapture(actioned);
-    }
-
     private bool IsTileActionable(Tile tile) {
+        if (tile is not InfiltrationTile && !GetNeighbors().Contains(tile)) return false;
+        if (tile is InfiltrationTile && tile.GetTeam() == GetTeam()) return false;
+        if (tile is InfiltrationTile && GetTileParent() is not ExitTile) return false;
         if (tile.GetCard(out Card card) && card.GetTeam() == GetTeam()) return false;
         if (tile is ExitTile && tile.GetTeam() == GetTeam()) return false;
         return true;
+    }
+
+    private List<Tile> GetNeighbors() {
+        return gameBoard.GetNeighbors(GetPosition(), neighborMatrixSO);
     }
 
     private void TryCapture(Tile tile) {

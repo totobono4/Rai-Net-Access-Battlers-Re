@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameBoard : MonoBehaviour {
@@ -47,15 +48,19 @@ public class GameBoard : MonoBehaviour {
     }
 
     public bool GetTile(Vector3 worldPosition, out Tile tile) {
-        foreach (TileMap tilemap in tileMaps) {
-            if (tilemap.GetTile(worldPosition, out tile)) return true;
+        foreach (TileMap tileMap in tileMaps) {
+            if (tileMap.GetTile(worldPosition, out tile)) return true;
         }
         tile = null;
         return false;
     }
 
     public List<Tile> GetAllTiles() {
-        return playMap.GetAllTiles();
+        List<Tile> allTiles = new List<Tile>();
+
+        foreach (TileMap tileMap in tileMaps) { allTiles = allTiles.Union(tileMap.GetAllTiles()).ToList(); }
+
+        return allTiles;
     }
 
     public List<Tile> GetNeighbors(Vector3 worldPosition, NeighborMatrixSO neighborMatrixSO) {

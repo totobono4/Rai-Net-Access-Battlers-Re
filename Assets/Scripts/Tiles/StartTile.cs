@@ -1,3 +1,3 @@
-public class StartTile : PlayTile {
+public class StartTile : BoardTile {
 
 }
