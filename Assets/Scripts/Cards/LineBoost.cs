@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 public class LineBoost : TerminalCard {
     private bool activated;
@@ -8,16 +7,18 @@ public class LineBoost : TerminalCard {
         activated = false;
     }
 
+    private void BoostUpdate(object sender, OnlineCard.BoostUpdateArgs e) {
+        if (!e.boosted) e.onlineCard.OnBoostUpdate -= BoostUpdate;
+        activated = e.boosted;
+    }
+
     public override void Action(Tile actionable) {
         if (!IsTileActionable(actionable, out OnlineCard onlineCard)) return;
         if (!activated) {
+            onlineCard.OnBoostUpdate += BoostUpdate;
             onlineCard.SetBoost();
-            activated = true;
         }
-        else {
-            onlineCard.UnsetBoost();
-            activated = false;
-        }
+        else onlineCard.UnsetBoost();
     }
 
     public override List<Tile> GetActionables() {

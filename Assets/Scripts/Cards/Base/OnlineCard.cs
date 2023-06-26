@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class OnlineCard : Card
@@ -39,14 +40,23 @@ public class OnlineCard : Card
 
     private bool boosted;
 
-    public EventHandler<BoostedChangedArgs> OnBoostChanged;
-    public class BoostedChangedArgs : EventArgs {
+    public EventHandler<BoostUpdateArgs> OnBoostUpdate;
+    public class BoostUpdateArgs : EventArgs {
         public OnlineCard onlineCard;
         public bool boosted;
     }
 
+    [SerializeField] private int defaultRange;
+    [SerializeField] private int boostRange;
+
     private void Awake() {
         boosted = false;
+    }
+
+    private int GetRange() {
+        int range = defaultRange;
+        if (boosted) range = boostRange;
+        return range;
     }
 
     public void SetBoost() {
@@ -62,7 +72,7 @@ public class OnlineCard : Card
     public bool IsBoosted() { return boosted; }
 
     private void BoostChanged() {
-        OnBoostChanged?.Invoke(this, new BoostedChangedArgs { onlineCard = this, boosted = boosted });
+        OnBoostUpdate?.Invoke(this, new BoostUpdateArgs { onlineCard = this, boosted = boosted });
     }
 
     private void Start() {
@@ -92,17 +102,53 @@ public class OnlineCard : Card
     }
 
     private bool IsTileActionable(Tile tile) {
-        if (tile is not InfiltrationTile && !GetNeighbors().Contains(tile)) return false;
-        if (tile is InfiltrationTile && tile.GetTeam() == GetTeam()) return false;
-        if (tile is InfiltrationTile && GetTileParent() is not ExitTile) return false;
+        if (!GetValidNeighborsInRange(GetTileParent(), GetRange()).Contains(tile)) return false;
         if (tile.GetCard(out Card card) && card.GetTeam() == GetTeam()) return false;
         if (tile is ExitTile && tile.GetTeam() == GetTeam()) return false;
         if (tile is BoardTile && (tile as BoardTile).HasFireWall() && (tile as BoardTile).GetFireWall() != GetTeam()) return false;
         return true;
     }
 
-    private List<Tile> GetNeighbors() {
-        return gameBoard.GetNeighbors(GetPosition(), neighborMatrixSO);
+    public List<Tile> GetValidNeighborsInRange(Tile tile, int range) {
+        if (range <= 0) return new List<Tile>();
+
+        List<Tile> neighbors = gameBoard.GetNeighbors(tile.GetPosition(), neighborMatrixSO);
+        List<Tile> validNeighbors = new List<Tile>();
+        List<Tile> result = new List<Tile>();
+
+        foreach (Tile neighbor in neighbors) {
+            if (!IsNeighborValid(neighbor)) continue;
+            validNeighbors.Add(neighbor);
+            result.Add(neighbor);
+        }
+
+        foreach (Tile neighbor in validNeighbors) {
+            if (!IsNextNeighborsValid(neighbor)) continue;
+            result = result.Union(GetValidNeighborsInRange(neighbor, range - 1)).ToList();
+        }
+
+        if (tile is ExitTile && tile.GetTeam() != GetTeam()) result.Add(GetInfiltrationTile(tile as ExitTile));
+
+        return result;
+    }
+
+    private bool IsNeighborValid(Tile neighbor) {
+        if (neighbor.GetCard(out Card card) && card.GetTeam() == GetTeam()) return false;
+        if (neighbor is BoardTile && (neighbor as BoardTile).HasFireWall() && (neighbor as BoardTile).GetFireWall() != GetTeam()) return false;
+        if (neighbor is ExitTile && neighbor.GetTeam() == GetTeam()) return false;
+        return true;
+    }
+
+    private bool IsNextNeighborsValid(Tile neighbor) {
+        if (neighbor.HasCard()) return false;
+        return true;
+    }
+
+    private Tile GetInfiltrationTile(ExitTile exitTile) {
+        List<Tile> allTiles = gameBoard.GetAllTiles();
+        Tile infiltrationTile = null;
+        foreach (Tile tile in allTiles) if (tile is InfiltrationTile && tile.GetTeam() == exitTile.GetTeam()) infiltrationTile = tile;
+        return infiltrationTile;
     }
 
     private void TryCapture(Tile tile) {
@@ -117,6 +163,7 @@ public class OnlineCard : Card
 
     public void Capture() {
         state = CardState.Revealed;
+        if (boosted) UnsetBoost();
         StateChanged();
     }
 

@@ -6,10 +6,10 @@ public class BoostedCardVisual : MonoBehaviour
     [SerializeField] private Transform lineBoostVisual;
 
     private void Start() {
-        onlineCard.OnBoostChanged += LineBoostUpdated;
+        onlineCard.OnBoostUpdate += LineBoostUpdated;
     }
 
-    private void LineBoostUpdated(object sender,OnlineCard.BoostedChangedArgs e) {
+    private void LineBoostUpdated(object sender,OnlineCard.BoostUpdateArgs e) {
         Hide();
         if (e.onlineCard == onlineCard && e.boosted) Show();
     }

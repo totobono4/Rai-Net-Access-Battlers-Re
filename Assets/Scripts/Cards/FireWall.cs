@@ -7,16 +7,16 @@ public class FireWall : TerminalCard {
         activated = false;
     }
 
+    private void FireWallUpdate(object sender, BoardTile.FireWallUpdateArgs e) {
+        e.boardTile.OnFireWallUpdate -= FireWallUpdate;
+        activated = e.fireWalled;
+    }
+
     public override void Action(Tile actionable) {
         if (!IsTileActionable(actionable)) return;
-        if (!activated) {
-            (actionable as BoardTile).SetFireWall(GetTeam());
-            activated = true;
-        }
-        else {
-            (actionable as BoardTile).UnsetFireWall();
-            activated = false;
-        }
+        (actionable as BoardTile).OnFireWallUpdate += FireWallUpdate;
+        if (!activated) (actionable as BoardTile).SetFireWall(GetTeam());
+        else (actionable as BoardTile).UnsetFireWall();
     }
 
     public override List<Tile> GetActionables() {
