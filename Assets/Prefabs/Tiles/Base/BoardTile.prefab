@@ -290,6 +290,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoardTileVisual
       objectReference: {fileID: 0}
+    - target: {fileID: 2657270199344271299, guid: e1d70a12644cb7344b34d713d42566e4, type: 3}
+      propertyPath: actioned
+      value: 
+      objectReference: {fileID: 805102075288155382}
     - target: {fileID: 4521360861827915130, guid: e1d70a12644cb7344b34d713d42566e4, type: 3}
       propertyPath: fireWallVisuals.Array.data[0]
       value: 
@@ -347,6 +351,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1d70a12644cb7344b34d713d42566e4, type: 3}
+--- !u!4 &805102075288155382 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8525023306253156657, guid: e1d70a12644cb7344b34d713d42566e4, type: 3}
+  m_PrefabInstance: {fileID: 9034990055015298503}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1630780180855998169 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7765061704856433438, guid: e1d70a12644cb7344b34d713d42566e4, type: 3}

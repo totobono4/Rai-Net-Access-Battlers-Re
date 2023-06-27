@@ -13,6 +13,7 @@ public class PlayTile : Tile {
 
     protected override void CanceledTile(object sender, PlayerController.CancelTileArgs e) {
         if (e.canceledTile != this) return;
+        if (GetCard(out Card card)) card.ResetAction();
         OnSelectedTile?.Invoke(this, new SelectedTileArgs { selectedTile = null });
     }
 

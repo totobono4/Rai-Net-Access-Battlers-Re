@@ -27,6 +27,12 @@ public abstract class Tile : MonoBehaviour {
         public bool isActionable;
     }
 
+    public EventHandler<ActionUsedArgs> OnActionUsed;
+    public class ActionUsedArgs : EventArgs {
+        public Tile usedTile;
+        public bool isUsed;
+    }
+
     protected bool selected;
     protected bool actionable;
 
@@ -78,4 +84,11 @@ public abstract class Tile : MonoBehaviour {
 
     public abstract void SetActionable();
     public abstract void UnsetActionable();
+
+    public void SendActionUsed() {
+        OnActionUsed?.Invoke(this, new ActionUsedArgs { usedTile = this, isUsed = true });
+    }
+    public void SendActioUnused() {
+        OnActionUsed?.Invoke(this, new ActionUsedArgs { usedTile = this, isUsed = false });
+    }
 }

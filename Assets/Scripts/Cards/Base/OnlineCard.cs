@@ -85,10 +85,15 @@ public class OnlineCard : Card
     }
 
     public override void Action(Tile actioned) {
-        if (!IsTileActionable(actioned)) return;
+        if (!IsTileActionable(actioned)) {
+            SendActionFinishedCallBack();
+            return;
+        }
+
         TryCapture(actioned);
         Move(actioned);
         if (actioned is InfiltrationTile) TryCapture(actioned);
+        SendActionFinishedCallBack();
     }
 
     public override List<Tile> GetActionables() {
@@ -169,6 +174,11 @@ public class OnlineCard : Card
 
     public void Reveal() {
         state = CardState.Revealed;
+        StateChanged();
+    }
+
+    public void Unreveal() {
+        state = CardState.Unrevealed;
         StateChanged();
     }
 

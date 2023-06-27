@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayTileVisual
       objectReference: {fileID: 0}
+    - target: {fileID: 3837061852548982812, guid: 78a8a4cea9eb08c40bc82a2f6604dd1b, type: 3}
+      propertyPath: actioned
+      value: 
+      objectReference: {fileID: 8723133908622315995}
     - target: {fileID: 8799035577295115457, guid: 78a8a4cea9eb08c40bc82a2f6604dd1b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -64,6 +68,11 @@ PrefabInstance:
 --- !u!4 &7242687531803255796 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8799035577295115457, guid: 78a8a4cea9eb08c40bc82a2f6604dd1b, type: 3}
+  m_PrefabInstance: {fileID: 2206559115763496757}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8723133908622315995 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7462897522527348462, guid: 78a8a4cea9eb08c40bc82a2f6604dd1b, type: 3}
   m_PrefabInstance: {fileID: 2206559115763496757}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3257638994006121901

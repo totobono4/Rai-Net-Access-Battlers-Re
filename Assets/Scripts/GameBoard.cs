@@ -29,7 +29,7 @@ public class GameBoard : MonoBehaviour {
             foreach (OnlineCard onlineCard  in onlineCards) { onlineCard.SetGameBoard(this); }
 
             for (int i = 0; i < onlineCards.Count; i++) {
-                int rand = Random.Range(0, 8);
+                int rand = Random.Range(0, onlineCards.Count);
                 OnlineCard temp = onlineCards[i];
                 onlineCards[i] = onlineCards[rand];
                 onlineCards[rand] = temp;

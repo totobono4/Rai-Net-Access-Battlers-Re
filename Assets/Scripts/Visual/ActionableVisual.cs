@@ -6,12 +6,10 @@ public class ActionableVisual : MonoBehaviour
     [SerializeField] Transform actionable;
 
     private void Start() {
-        if (tile.TryGetComponent(out PlayTile normalTile)) {
-            normalTile.OnActionableTile += ActionableTile;
-        }
+        tile.OnActionableTile += ActionableTile;
     }
 
-    private void ActionableTile(object sender, Tile.ActionableTileArgs e) {
+    private void ActionableTile(object sender, PlayTile.ActionableTileArgs e) {
         Hide();
         if (e.actionableTile == tile && e.isActionable == true) Show();
     }

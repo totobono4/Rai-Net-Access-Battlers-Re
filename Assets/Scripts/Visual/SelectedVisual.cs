@@ -2,18 +2,16 @@ using UnityEngine;
 
 public class SelectedVisual : MonoBehaviour
 {
-    [SerializeField] Tile Reference;
-    [SerializeField] Transform selected;
+    [SerializeField] private Tile tile;
+    [SerializeField] private Transform selected;
 
     private void Start() {
-        if (Reference.TryGetComponent(out PlayTile normalTile)) {
-            normalTile.OnSelectedTile += SelectedTile;
-        }
+        tile.OnSelectedTile += SelectedTile;
     }
 
     private void SelectedTile(object sender, Tile.SelectedTileArgs e) {
         Hide();
-        if (e.selectedTile == Reference && e.isSelected) Show();
+        if (e.selectedTile == tile && e.isSelected) Show();
     }
 
     private void Show() {

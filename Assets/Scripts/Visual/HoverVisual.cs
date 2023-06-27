@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HoverVisual : MonoBehaviour
 {
-    [SerializeField] Tile Reference;
+    [SerializeField] Tile tile;
     [SerializeField] Transform hilight;
 
     private PlayerController playerController;
@@ -15,7 +15,7 @@ public class HoverVisual : MonoBehaviour
 
     private void HoverTileChanged(object sender, PlayerController.HoverTileChangedArgs e) {
         Hide();
-        if (e.hoverTile == Reference) Show();
+        if (e.hoverTile == tile) Show();
     }
 
     private void Show() {

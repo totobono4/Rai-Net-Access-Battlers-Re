@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public class VirusChecker : TerminalCard {
     private bool used;
@@ -8,9 +9,14 @@ public class VirusChecker : TerminalCard {
     }
 
     public override void Action(Tile actionable) {
-        if (!IsTileActionable(actionable, out OnlineCard onlineCard)) return;
+        if (!IsTileActionable(actionable, out OnlineCard onlineCard)) {
+            SendActionFinishedCallBack();
+            return;
+        }
+
         onlineCard.Reveal();
         used = true;
+        SendActionFinishedCallBack();
     }
 
     public override List<Tile> GetActionables() {

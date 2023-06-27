@@ -13,12 +13,17 @@ public class LineBoost : TerminalCard {
     }
 
     public override void Action(Tile actionable) {
-        if (!IsTileActionable(actionable, out OnlineCard onlineCard)) return;
+        if (!IsTileActionable(actionable, out OnlineCard onlineCard)) {
+            SendActionFinishedCallBack();
+            return;
+        }
+
         if (!activated) {
             onlineCard.OnBoostUpdate += BoostUpdate;
             onlineCard.SetBoost();
         }
         else onlineCard.UnsetBoost();
+        SendActionFinishedCallBack();
     }
 
     public override List<Tile> GetActionables() {

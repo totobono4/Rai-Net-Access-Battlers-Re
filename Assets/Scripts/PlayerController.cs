@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
     private Vector3 lastMouseWorldPosition;
     private Tile selectedTile;
     private List<Tile> actionableTiles;
+    private Card actionCard;
 
     public EventHandler<HoverTileChangedArgs> OnHoverTileChanged;
     public class HoverTileChangedArgs : EventArgs {
@@ -46,6 +47,8 @@ public class PlayerController : MonoBehaviour {
 
         playerState = PlayerState.WaitingForTurn;
         selectedTile = null;
+        actionableTiles = new List<Tile>();
+        actionCard = null;
 
         PlayerStart();
     }
@@ -88,31 +91,35 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    // On attend notre tour.
     private void WaitingForTurn() {
 
     }
 
+    // On essaies de sélectionner une case.
     private void SelectingForAction() {
-        if (gameBoard.GetTile(lastMouseWorldPosition, out Tile tile)) {
-            tile.OnSelectedTile += OnTileSelected;
-            OnSelectTile?.Invoke(this, new SelectedTileArgs { selectedTile = tile });
-        }
+        if (!gameBoard.GetTile(lastMouseWorldPosition, out Tile tile)) return;
+
+        tile.OnSelectedTile += OnTileSelected;
+        OnSelectTile?.Invoke(this, new SelectedTileArgs { selectedTile = tile });   
     }
 
+    // On tente de faire une action.
     private void ThinkingForAction() {
-        if (gameBoard.GetTile(lastMouseWorldPosition, out Tile tile)) {
-            if (tile == selectedTile) {
-                foreach (Tile actionable in actionableTiles) actionable.UnsetActionable();
-                OnCancelTile?.Invoke(this, new CancelTileArgs { canceledTile = tile });
-                playerState = PlayerState.SelectingForAction;
-            }
-            else {
-                tile.OnActionedTile += OnTileActioned;
-                OnActionTile?.Invoke(this, new ActionTileArgs { actionedTile = tile });
-            }
+        if (!gameBoard.GetTile(lastMouseWorldPosition, out Tile tile)) return;
+
+        if (tile == selectedTile) {
+            foreach (Tile actionable in actionableTiles) actionable.UnsetActionable();
+            OnCancelTile?.Invoke(this, new CancelTileArgs { canceledTile = tile });
+            playerState = PlayerState.SelectingForAction;
+        }
+        else {
+            tile.OnActionedTile += OnTileActioned;
+            OnActionTile?.Invoke(this, new ActionTileArgs { actionedTile = tile });
         }
     }
 
+    // Si la case est sélectionable, alors on bascule vers la réflexion.
     private void OnTileSelected(object sender, Tile.SelectedTileArgs e) {
         e.selectedTile.OnSelectedTile -= OnTileSelected;
         if (e.isSelected) {
@@ -125,14 +132,30 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    // Si on peut faire une action on la fait, et on appelle le callback d'action pour savoir s'il reste des chsoes à faire.
     private void OnTileActioned(object sender, Tile.ActionedTileArgs e) {
         e.actionedTile.OnActionedTile -= OnTileActioned;
-        if (selectedTile != null && selectedTile.GetCard(out Card card)) {
-            card.Action(e.actionedTile);
-        }
+        if (selectedTile == null) return;
+        if (!selectedTile.GetCard(out Card card)) return;
+        actionCard = card;
+        actionCard.OnActionCallback += ActionCallback;
+        actionCard.Action(e.actionedTile);
+    }
+
+    // Si il reste des choses à faire, on se prépare à continuer, sinon on termine l'action et on fini le tour.
+    private void ActionCallback(object sender, Card.ActionCallbackArgs e) {
         foreach (Tile actionable in actionableTiles) actionable.UnsetActionable();
-        OnCancelTile?.Invoke(this, new CancelTileArgs { canceledTile = selectedTile });
-        selectedTile = null;
-        playerState = PlayerState.SelectingForAction;
+        if (e.actionFinished) {
+            actionCard.OnActionCallback -= ActionCallback;
+            OnCancelTile?.Invoke(this, new CancelTileArgs { canceledTile = selectedTile });
+            selectedTile = null;
+            playerState = PlayerState.SelectingForAction;
+        }
+        else {
+            if (selectedTile.GetCard(out Card card)) {
+                actionableTiles = card.GetActionables();
+            }
+            foreach (Tile actionable in actionableTiles) actionable.SetActionable();
+        }
     }
 }

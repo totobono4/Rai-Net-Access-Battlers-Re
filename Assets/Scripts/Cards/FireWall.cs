@@ -13,10 +13,15 @@ public class FireWall : TerminalCard {
     }
 
     public override void Action(Tile actionable) {
-        if (!IsTileActionable(actionable)) return;
+        if (!IsTileActionable(actionable)) {
+            SendActionFinishedCallBack();
+            return;
+        }
+
         (actionable as BoardTile).OnFireWallUpdate += FireWallUpdate;
         if (!activated) (actionable as BoardTile).SetFireWall(GetTeam());
         else (actionable as BoardTile).UnsetFireWall();
+        SendActionFinishedCallBack();
     }
 
     public override List<Tile> GetActionables() {

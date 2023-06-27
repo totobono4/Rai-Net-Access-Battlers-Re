@@ -3,7 +3,7 @@ using UnityEngine;
 public class OnlineCardVisual : CardVisual
 {
     [SerializeField] private OnlineCard onlineCard;
-    [SerializeField] Transform show, hide;
+    [SerializeField] private Transform show, hide;
 
     private void Awake() {
         onlineCard.OnStateChanged += StateChanged;
