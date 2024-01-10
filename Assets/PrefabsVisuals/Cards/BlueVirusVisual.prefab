@@ -48,6 +48,26 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5688480664753262388, guid: 3e548c1adef30dd41966d9a298f5a0da, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688480664753262388, guid: 3e548c1adef30dd41966d9a298f5a0da, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688480664753262388, guid: 3e548c1adef30dd41966d9a298f5a0da, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688480664753262388, guid: 3e548c1adef30dd41966d9a298f5a0da, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688480664753262388, guid: 3e548c1adef30dd41966d9a298f5a0da, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 6310494258536707688, guid: 3e548c1adef30dd41966d9a298f5a0da, type: 3}
       propertyPath: m_RootOrder
       value: 0

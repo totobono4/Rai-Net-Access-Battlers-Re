@@ -33,6 +33,10 @@ PrefabInstance:
       value: BluePlayerEntity
       objectReference: {fileID: 0}
     - target: {fileID: 4637078818302889825, guid: e8159939f6ec3dc4d8951466fedfb09f, type: 3}
+      propertyPath: team
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637078818302889825, guid: e8159939f6ec3dc4d8951466fedfb09f, type: 3}
       propertyPath: playerSO
       value: 
       objectReference: {fileID: 11400000, guid: 396f0f464dcee7443adab17c127ef651, type: 2}

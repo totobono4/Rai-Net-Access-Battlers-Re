@@ -1,14 +1,19 @@
 using System;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
-    public static PlayerController Instance { get; private set; }
+public class PlayerController : NetworkBehaviour {
+    public static PlayerController LocalInstance { get; private set; }
+    public static event EventHandler<OnAnyPlayerSpawnedArgs> OnAnyPlayerSpawned;
+    public class OnAnyPlayerSpawnedArgs : EventArgs {
+        public ulong clientId;
+    }
 
     [SerializeField] private LayerMask tileLayerMask;
     [SerializeField] private InputSystem inputSystem;
     [SerializeField] private GameBoard gameBoard;
-    [SerializeField] private GameBoard.Team teamColor;
+    [SerializeField] private NetworkVariable<GameBoard.Team> team;
 
     private Vector3 lastMouseWorldPosition;
     private Tile selectedTile;
@@ -41,14 +46,26 @@ public class PlayerController : MonoBehaviour {
     private PlayerState playerState;
 
     private void Awake() {
-        Instance = this;
-
-        inputSystem.OnPlayerAction += PlayerAction;
-
         playerState = PlayerState.WaitingForTurn;
         selectedTile = null;
         actionableTiles = new List<Tile>();
         actionCard = null;
+    }
+
+    public override void OnNetworkSpawn() {
+        inputSystem = InputSystem.Instance;
+        gameBoard = GameBoard.Instance;
+
+        inputSystem.OnPlayerAction += PlayerAction;
+
+        if (IsOwner) {
+            LocalInstance = this;
+            SetPlayerTeamServerRpc(OwnerClientId);
+        }
+
+        OnAnyPlayerSpawned?.Invoke(this, new OnAnyPlayerSpawnedArgs {
+            clientId = OwnerClientId
+        });
 
         PlayerStart();
     }
@@ -60,6 +77,13 @@ public class PlayerController : MonoBehaviour {
     public void PlayerStart() {
         playerState = PlayerState.SelectingForAction;
     }
+
+    [ServerRpc]
+    private void SetPlayerTeamServerRpc(ulong clientId) {
+        team.Value = gameBoard.PickTeam(clientId);
+    }
+
+    public GameBoard.Team GetTeam() { return team.Value; }
 
     private void SendEventHoverTileChanged() {
         Vector3 mouseWorldPosition = inputSystem.GetMouseWorldPosition();
@@ -75,6 +99,8 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void PlayerAction(object sender, EventArgs e) {
+        if (!IsOwner) return;
+
         lastMouseWorldPosition = inputSystem.GetMouseWorldPosition();
 
         switch (playerState) {
@@ -101,14 +127,14 @@ public class PlayerController : MonoBehaviour {
         if (!gameBoard.GetTile(lastMouseWorldPosition, out Tile tile)) return;
 
         tile.OnSelectedTile += OnTileSelected;
-        OnSelectTile?.Invoke(this, new SelectedTileArgs { selectedTile = tile });   
+        OnSelectTile?.Invoke(this, new SelectedTileArgs { selectedTile = tile });
     }
 
     // On tente de faire une action.
     private void ThinkingForAction() {
         if (!gameBoard.GetTile(lastMouseWorldPosition, out Tile tile)) return;
 
-        if (tile == selectedTile) {
+        if (tile.Equals(selectedTile)) {
             foreach (Tile actionable in actionableTiles) actionable.UnsetActionable();
             OnCancelTile?.Invoke(this, new CancelTileArgs { canceledTile = tile });
             playerState = PlayerState.SelectingForAction;
@@ -122,14 +148,14 @@ public class PlayerController : MonoBehaviour {
     // Si la case est sélectionable, alors on bascule vers la réflexion.
     private void OnTileSelected(object sender, Tile.SelectedTileArgs e) {
         e.selectedTile.OnSelectedTile -= OnTileSelected;
-        if (e.isSelected) {
-            selectedTile = e.selectedTile;
-            if (selectedTile.GetCard(out Card card)) {
-                actionableTiles = card.GetActionables();
-            }
-            foreach (Tile actionable in actionableTiles) actionable.SetActionable();
-            playerState = PlayerState.ThinkingForAction;
-        }
+        if (!e.selectedTile.GetCard(out Card card)) return;
+        if (!card.IsUsable()) return;
+        if (!e.isSelected) return;
+
+        selectedTile = e.selectedTile;
+        actionableTiles = card.GetActionables();
+        foreach (Tile actionable in actionableTiles) actionable.SetActionable();
+        playerState = PlayerState.ThinkingForAction;
     }
 
     // Si on peut faire une action on la fait, et on appelle le callback d'action pour savoir s'il reste des chsoes à faire.
@@ -137,6 +163,7 @@ public class PlayerController : MonoBehaviour {
         e.actionedTile.OnActionedTile -= OnTileActioned;
         if (selectedTile == null) return;
         if (!selectedTile.GetCard(out Card card)) return;
+
         actionCard = card;
         actionCard.OnActionCallback += ActionCallback;
         actionCard.Action(e.actionedTile);
@@ -152,9 +179,9 @@ public class PlayerController : MonoBehaviour {
             playerState = PlayerState.SelectingForAction;
         }
         else {
-            if (selectedTile.GetCard(out Card card)) {
-                actionableTiles = card.GetActionables();
-            }
+            if (!selectedTile.GetCard(out Card card)) return;
+
+            actionableTiles = card.GetActionables();
             foreach (Tile actionable in actionableTiles) actionable.SetActionable();
         }
     }

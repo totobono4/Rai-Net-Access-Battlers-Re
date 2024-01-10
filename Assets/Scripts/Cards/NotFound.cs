@@ -4,9 +4,11 @@ using UnityEngine;
 public class NotFound : TerminalCard {
     private int NEEDED_ACTIONABLES = 2;
     private List<Tile> actionables;
+    private bool used;
 
     private void Awake() {
         actionables = new List<Tile>();
+        used = false;
     }
 
     private void Shuffle() {
@@ -32,6 +34,10 @@ public class NotFound : TerminalCard {
         }
     }
 
+    private void SetUsed() { used = true; }
+
+    public override bool IsUsable() { return !used; }
+
     public override void ResetAction() {
         foreach (Tile actionable in actionables) actionable.SendActioUnused();
         actionables = new List<Tile>();
@@ -50,6 +56,7 @@ public class NotFound : TerminalCard {
         else {
             Unreveal();
             Shuffle();
+            SetUsed();
             SendActionFinishedCallBack();
             ResetAction();
         }

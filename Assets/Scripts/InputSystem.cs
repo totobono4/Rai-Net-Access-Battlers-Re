@@ -3,12 +3,16 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputSystem : MonoBehaviour {
+    public static InputSystem Instance { get; private set; }
+
     private PlayerInputActions inputActions;
-    [SerializeField] LayerMask mousePositionLayer;
+    [SerializeField] private LayerMask mousePositionLayer;
 
     public EventHandler OnPlayerAction;
 
     private void Awake() {
+        Instance = this;
+
         inputActions = new PlayerInputActions();
         inputActions.Player.Enable();
 

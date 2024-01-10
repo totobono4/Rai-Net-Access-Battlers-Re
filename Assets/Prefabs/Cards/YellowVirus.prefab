@@ -142,6 +142,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3340806349316855959, guid: ad2962ae94dae49448e229a7b056dde5, type: 3}
+      propertyPath: team
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4012250611736425412, guid: ad2962ae94dae49448e229a7b056dde5, type: 3}
       propertyPath: m_Name
       value: YellowVirus

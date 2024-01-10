@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boardTile: {fileID: 0}
-  teams: 0000000001000000
+  teams: 0100000002000000
   fireWallVisuals:
   - {fileID: 0}
   - {fileID: 0}

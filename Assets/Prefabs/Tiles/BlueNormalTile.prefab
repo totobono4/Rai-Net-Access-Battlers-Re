@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5105751825104200581, guid: f158bd0412bdedd43a9634565d379a37, type: 3}
       propertyPath: teamColor
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 883344729912546490, guid: f158bd0412bdedd43a9634565d379a37, type: 3}
       propertyPath: tile

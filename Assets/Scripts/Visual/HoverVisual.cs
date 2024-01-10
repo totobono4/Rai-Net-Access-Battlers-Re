@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class HoverVisual : MonoBehaviour
@@ -8,7 +9,20 @@ public class HoverVisual : MonoBehaviour
     private PlayerController playerController;
 
     private void Start() {
-        playerController = PlayerController.Instance;
+        if (PlayerController.LocalInstance == null) PlayerController.OnAnyPlayerSpawned += PlayerControllerSpawned;
+        else SetPlayerController();
+    }
+
+    private void PlayerControllerSpawned(object sender, EventArgs e) {
+        if (PlayerController.LocalInstance == null) return;
+
+        SetPlayerController();
+
+        PlayerController.OnAnyPlayerSpawned -= PlayerControllerSpawned;
+    }
+
+    private void SetPlayerController() {
+        playerController = PlayerController.LocalInstance;
 
         playerController.OnHoverTileChanged += HoverTileChanged;
     }

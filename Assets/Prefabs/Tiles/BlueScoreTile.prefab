@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3305292188859577342, guid: a0d23e41b50bd8f4bb2edc085f9cf92f, type: 3}
       propertyPath: teamColor
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6894127902365424349, guid: a0d23e41b50bd8f4bb2edc085f9cf92f, type: 3}
       propertyPath: m_Name

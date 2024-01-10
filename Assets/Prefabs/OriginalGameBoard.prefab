@@ -52,6 +52,7 @@ MonoBehaviour:
   players:
   - {fileID: 4206766335788925625}
   - {fileID: 6414726429702639216}
+  teamNetworkSO: {fileID: 11400000, guid: a7fdcd950e6d4804190927ff64c9e188, type: 2}
 --- !u!1001 &2658810299568799600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -161,6 +162,10 @@ PrefabInstance:
       propertyPath: origin
       value: 
       objectReference: {fileID: 5631548180464610394}
+    - target: {fileID: 4489563479102002977, guid: 5dd4980197dcb19449db8664f3c84778, type: 3}
+      propertyPath: cameraOrigin
+      value: 
+      objectReference: {fileID: 3642068830334691816}
     - target: {fileID: 5811728431302932931, guid: 5dd4980197dcb19449db8664f3c84778, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -308,6 +313,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5029468281481509804, guid: 228e25d073450ed49bfdb8f0bd12a2ae, type: 3}
   m_PrefabInstance: {fileID: 8061809692456910160}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &3642068830334691816 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6731323977352795320, guid: 228e25d073450ed49bfdb8f0bd12a2ae, type: 3}
+  m_PrefabInstance: {fileID: 8061809692456910160}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3702158434829709571 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6665881915893763155, guid: 228e25d073450ed49bfdb8f0bd12a2ae, type: 3}
@@ -326,6 +336,11 @@ Transform:
 --- !u!4 &5631548180464610394 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2433643678479601930, guid: 228e25d073450ed49bfdb8f0bd12a2ae, type: 3}
+  m_PrefabInstance: {fileID: 8061809692456910160}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5647710119059688076 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2414491652381964252, guid: 228e25d073450ed49bfdb8f0bd12a2ae, type: 3}
   m_PrefabInstance: {fileID: 8061809692456910160}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &5801220594093125194 stripped
@@ -420,6 +435,10 @@ PrefabInstance:
       propertyPath: origin
       value: 
       objectReference: {fileID: 8481985934950500586}
+    - target: {fileID: 9133411120849800501, guid: b52a11c8d406dc44883f889f84dc651f, type: 3}
+      propertyPath: cameraOrigin
+      value: 
+      objectReference: {fileID: 5647710119059688076}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

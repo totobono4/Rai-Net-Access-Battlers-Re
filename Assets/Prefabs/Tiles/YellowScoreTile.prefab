@@ -52,9 +52,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3305292188859577342, guid: a0d23e41b50bd8f4bb2edc085f9cf92f, type: 3}
+      propertyPath: teamColor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6894127902365424349, guid: a0d23e41b50bd8f4bb2edc085f9cf92f, type: 3}
       propertyPath: m_Name
-      value: Score Tile
+      value: YellowScoreTile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

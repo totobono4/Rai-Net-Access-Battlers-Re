@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerEntity : MonoBehaviour
-{
-    [SerializeField] private GameBoard.Team teamColor;
+public class PlayerEntity : MonoBehaviour {
+    [SerializeField] private GameBoard.Team team;
 
     [SerializeField] private PlayerOnlineCardsSO playerOnlineCardsSO;
     Dictionary<OnlineCard.CardType, Transform> onlineCardPrefabs;
@@ -31,7 +30,7 @@ public class PlayerEntity : MonoBehaviour
         virusScore = 0;
     }
 
-    public GameBoard.Team GetTeamColor() { return teamColor; }
+    public GameBoard.Team GetTeam() { return team; }
     public List<TileMap> GetTileMaps() {
         List<TileMap> tileMaps = new List<TileMap>();
         foreach (TileMap tileMap in scoreSlotsGroupDict.Values) { tileMaps.Add(tileMap); }

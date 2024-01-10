@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 608705929037364702, guid: 5cfeafa739fef9b47a9d1e0cec3db57f, type: 3}
       propertyPath: teamColor
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2070413120631103335, guid: 5cfeafa739fef9b47a9d1e0cec3db57f, type: 3}
       propertyPath: m_Name

@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1395364006483053052, guid: 9c708262c85e80d418de9a728e427798, type: 3}
+      propertyPath: team
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2953455569417065024, guid: 9c708262c85e80d418de9a728e427798, type: 3}
       propertyPath: m_Name
       value: YellowFireWall

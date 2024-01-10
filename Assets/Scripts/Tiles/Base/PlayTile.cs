@@ -1,8 +1,19 @@
+using UnityEngine;
+
 public class PlayTile : Tile {
     protected override void SelectedTile(object sender, PlayerController.SelectedTileArgs e) {
         if (e.selectedTile != this) return;
-        if (HasCard()) OnSelectedTile?.Invoke(this, new SelectedTileArgs { selectedTile = this, isSelected = true });
+        if (IsSelectedTileValid()) OnSelectedTile?.Invoke(this, new SelectedTileArgs { selectedTile = this, isSelected = true });
         else OnSelectedTile?.Invoke(this, new SelectedTileArgs { selectedTile = this, isSelected = false });
+    }
+
+    // Verify if this tile is a valid tile for selection.
+    private bool IsSelectedTileValid() {
+        if (!GetCard(out Card card)) return false;
+        if (!card.IsUsable()) return false;
+        if (playerController == null) return false;
+        if (!card.GetTeam().Equals(playerController.GetTeam())) return false;
+        return true;
     }
 
     protected override void ActionedTile(object sender, PlayerController.ActionTileArgs e) {

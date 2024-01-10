@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 public abstract class Tile : MonoBehaviour {
-    private PlayerController playerController;
+    protected PlayerController playerController;
     [SerializeField] private Transform tileCardPoint;
     [SerializeField] private GameBoard.Team teamColor;
 
@@ -44,7 +44,22 @@ public abstract class Tile : MonoBehaviour {
     }
 
     private void Start() {
-        playerController = PlayerController.Instance;
+        if (PlayerController.LocalInstance == null) PlayerController.OnAnyPlayerSpawned += PlayerControllerSpawned;
+        else SetPlayerController();
+    }
+
+    private void PlayerControllerSpawned(object sender, PlayerController.OnAnyPlayerSpawnedArgs e) {
+        if (PlayerController.LocalInstance == null) return;
+
+        SetPlayerController();
+
+        PlayerController.OnAnyPlayerSpawned -= PlayerControllerSpawned;
+    }
+
+    private void SetPlayerController() {
+        if (PlayerController.LocalInstance == null) return;
+
+        playerController = PlayerController.LocalInstance;
 
         playerController.OnSelectTile += SelectedTile;
         playerController.OnActionTile += ActionedTile;

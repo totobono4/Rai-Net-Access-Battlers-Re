@@ -46,4 +46,5 @@ public abstract class Card : MonoBehaviour {
     public abstract List<Tile> GetActionables();
     public abstract void Action(Tile actionable);
     public virtual void ResetAction() { }
+    public virtual bool IsUsable() { return true; }
 }

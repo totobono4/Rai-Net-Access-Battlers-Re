@@ -8,6 +8,9 @@ public class VirusChecker : TerminalCard {
         used = false;
     }
 
+    private void SetUsed() { used = true; }
+    public override bool IsUsable() { return !used; }
+
     public override void Action(Tile actionable) {
         if (!IsTileActionable(actionable, out OnlineCard onlineCard)) {
             SendActionFinishedCallBack();
@@ -15,7 +18,7 @@ public class VirusChecker : TerminalCard {
         }
 
         onlineCard.Reveal();
-        used = true;
+        SetUsed();
         SendActionFinishedCallBack();
     }
 

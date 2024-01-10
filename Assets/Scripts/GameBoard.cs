@@ -1,17 +1,30 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Netcode;
 using UnityEngine;
 
 public class GameBoard : MonoBehaviour {
+    public static GameBoard Instance { get; private set; }
+
     [SerializeField] private PlayMap playMap;
     [SerializeField] private List<PlayerEntity> players;
+    [SerializeField] private Dictionary<ulong, Team> teamsByIds;
+    [SerializeField] private TeamNetworkSO teamNetworkSO;
 
     public enum Team {
+        None,
         Yellow,
         Blue
     }
 
     private List<TileMap> tileMaps = new List<TileMap>();
+
+    private void Awake() {
+        Instance = this;
+
+        teamsByIds = new Dictionary<ulong, Team>();
+    }
 
     private void Start() {
         foreach (PlayerEntity playerEntity in players) {
@@ -29,7 +42,7 @@ public class GameBoard : MonoBehaviour {
             foreach (OnlineCard onlineCard  in onlineCards) { onlineCard.SetGameBoard(this); }
 
             for (int i = 0; i < onlineCards.Count; i++) {
-                int rand = Random.Range(0, onlineCards.Count);
+                int rand = UnityEngine.Random.Range(0, onlineCards.Count);
                 OnlineCard temp = onlineCards[i];
                 onlineCards[i] = onlineCards[rand];
                 onlineCards[rand] = temp;
@@ -45,6 +58,14 @@ public class GameBoard : MonoBehaviour {
         }
 
         tileMaps.Add(playMap);
+    }
+
+    public Team PickTeam(ulong clientId) {
+        if (teamsByIds.Count < teamNetworkSO.playerTeams.Count) teamsByIds.Add(clientId, teamNetworkSO.playerTeams[teamsByIds.Count]);
+
+        if (!teamsByIds.ContainsKey(clientId)) return Team.None;
+
+        return teamsByIds[clientId];
     }
 
     public bool GetTile(Vector3 worldPosition, out Tile tile) {
