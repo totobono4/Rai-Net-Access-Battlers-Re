@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerEntity : MonoBehaviour {
+public class PlayerEntity : NetworkBehaviour {
     [SerializeField] private GameBoard.Team team;
 
     [SerializeField] private PlayerOnlineCardsSO playerOnlineCardsSO;
@@ -13,8 +14,8 @@ public class PlayerEntity : MonoBehaviour {
     [SerializeField] private List<ScoreSlotGroup> scoreSlotsGroups;
     private Dictionary<OnlineCard.CardType, ScoreSlotGroup> scoreSlotsGroupDict = new Dictionary<OnlineCard.CardType, ScoreSlotGroup>();
 
-    private int linkScore;
-    private int virusScore;
+    [SerializeField] private NetworkVariable<int> linkScore;
+    [SerializeField] private NetworkVariable<int> virusScore;
 
     [SerializeField] private TerminalGroup terminalGroup;
     [SerializeField] private InfiltrationGroup infiltrationGroup;
@@ -26,8 +27,8 @@ public class PlayerEntity : MonoBehaviour {
 
         for (int i = 0; i < onlineCardTypes.Count; i++) scoreSlotsGroupDict.Add(onlineCardTypes[i], scoreSlotsGroups[i]);
 
-        linkScore = 0;
-        virusScore = 0;
+        linkScore.Value = 0;
+        virusScore.Value = 0;
     }
 
     public GameBoard.Team GetTeam() { return team; }
@@ -72,7 +73,7 @@ public class PlayerEntity : MonoBehaviour {
     }
 
     private void AddScore(object sender, OnlineCard.CaptureCardArgs e) {
-        if (e.capturedCard.GetCardType() == OnlineCard.CardType.Virus) { virusScore++; }
-        if (e.capturedCard.GetCardType() == OnlineCard.CardType.Link) { linkScore++; }
+        if (e.capturedCard.GetCardType() == OnlineCard.CardType.Virus) { virusScore.Value++; }
+        if (e.capturedCard.GetCardType() == OnlineCard.CardType.Link) { linkScore.Value++; }
     }
 }

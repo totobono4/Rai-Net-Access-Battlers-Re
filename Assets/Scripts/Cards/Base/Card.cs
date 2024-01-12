@@ -19,16 +19,14 @@ public abstract class Card : NetworkBehaviour {
         gameBoard = GameBoard.Instance;
     }
 
-    /*
-    public void SetGameBoard(GameBoard gameBoard) {
-        this.gameBoard = gameBoard;
-    }
-    */
-
     public override void OnNetworkSpawn() {
         if (!IsClient) return;
         if (IsHost) return;
 
+        SyncCardParent();
+    }
+
+    private void SyncCardParent() {
         SyncCardParentServerRpc();
     }
 
@@ -55,6 +53,7 @@ public abstract class Card : NetworkBehaviour {
         tile.SetCard(this);
 
         transform.position = tile.GetTileCardPointTransform().position;
+        SyncCardParent();
     }
 
     public Tile GetTileParent() { return tileParent; }

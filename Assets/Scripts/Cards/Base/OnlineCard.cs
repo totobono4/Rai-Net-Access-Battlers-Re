@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Netcode;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class OnlineCard : Card
@@ -87,14 +89,27 @@ public class OnlineCard : Card
     }
 
     public override void Action(Tile actioned) {
+        ActionServerRpc(actioned.GetComponent<NetworkObject>());
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void ActionServerRpc(NetworkObjectReference tileNetworkReference) {
+        if (!tileNetworkReference.TryGet(out NetworkObject tileNetwork)) return;
+        Tile actioned = tileNetwork.GetComponent<Tile>();
+
         if (!IsTileActionable(actioned)) {
-            SendActionFinishedCallBack();
+            ActionClientRpc();
             return;
         }
 
         TryCapture(actioned);
         Move(actioned);
         if (actioned is InfiltrationTile) TryCapture(actioned);
+        ActionClientRpc();
+    }
+
+    [ClientRpc]
+    private void ActionClientRpc() {
         SendActionFinishedCallBack();
     }
 
@@ -113,9 +128,6 @@ public class OnlineCard : Card
         if (tile.GetCard(out Card card) && card.GetTeam() == GetTeam()) return false;
         if (tile is ExitTile && tile.GetTeam() == GetTeam()) return false;
         if (tile is BoardTile && (tile as BoardTile).HasFireWall() && (tile as BoardTile).GetFireWall() != GetTeam()) return false;
-
-        //Debug.Log(GetTileParent().GetPosition());
-        //Debug.Log(tile.GetPosition());
 
         return true;
     }

@@ -52,14 +52,11 @@ public class TileMap : NetworkBehaviour {
                 SyncGridMapClientRpc(x, y, tileTransform.GetComponent<NetworkObject>());
             }
         }
-
-        Debug.Log("TileMap Syncronised");
     }
 
     [ClientRpc]
     private void SyncGridMapClientRpc(int x, int y, NetworkObjectReference tileNetworkReference) {
         if (!tileNetworkReference.TryGet(out NetworkObject tileNetwork)) return;
-        // Debug.Log(tileNetwork);
         tileMap.SetValue(x, y, tileNetwork.transform);
     }
 
