@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class TileMap : MonoBehaviour {
+public class TileMap : NetworkBehaviour {
     [SerializeField] private TileMapSO tileMapSO;
     [SerializeField] private Transform origin;
 
@@ -16,14 +17,50 @@ public class TileMap : MonoBehaviour {
         height = tileMapSO.GetHeight();
 
         tileMap = new GridMap<Transform>(width, height, origin);
+    }
 
+    public void InstantiateTileMap() {
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                Transform tile = Instantiate(tilePrefabArray[y, x], tileMap.GetWorldPosition(x, y), Quaternion.identity, transform);
-                tile.transform.localScale = origin.localScale;
-                tileMap.SetValue(x, y, tile);
+                Transform tileTransform = Instantiate(tilePrefabArray[y, x], tileMap.GetWorldPosition(x, y), Quaternion.identity);
+                NetworkObject tileNetwork = tileTransform.GetComponent<NetworkObject>();
+                tileNetwork.Spawn();
+
+                tileTransform.transform.localScale = origin.localScale;
+                tileMap.SetValue(x, y, tileTransform);
             }
         }
+    }
+
+    public override void OnNetworkSpawn() {
+        if (!IsClient) return;
+        if (IsHost) return;
+
+        SyncGridMap();
+    }
+
+    public void SyncGridMap() {
+        SyncGridMapServerRpc();
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    protected void SyncGridMapServerRpc() {
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                tileMap.GetValue(x, y, out Transform tileTransform);
+                if (tileTransform == null) continue;
+                SyncGridMapClientRpc(x, y, tileTransform.GetComponent<NetworkObject>());
+            }
+        }
+
+        Debug.Log("TileMap Syncronised");
+    }
+
+    [ClientRpc]
+    private void SyncGridMapClientRpc(int x, int y, NetworkObjectReference tileNetworkReference) {
+        if (!tileNetworkReference.TryGet(out NetworkObject tileNetwork)) return;
+        // Debug.Log(tileNetwork);
+        tileMap.SetValue(x, y, tileNetwork.transform);
     }
 
     protected int GetWidth() { return width; }
@@ -31,6 +68,7 @@ public class TileMap : MonoBehaviour {
 
     public Tile GetTile(int x, int y) {
         if (tileMap.GetValue(x, y, out Transform tileTransform)) {
+            if (tileTransform == null) return null;
             return tileTransform.GetComponent<Tile>();
         }
         return null;

@@ -71,6 +71,8 @@ public class PlayerController : NetworkBehaviour {
     }
 
     private void Update() {
+        if (!IsOwner) return;
+
         SendEventHoverTileChanged();
     }
 
@@ -95,7 +97,7 @@ public class PlayerController : NetworkBehaviour {
         }
         OnHoverTileChanged?.Invoke(this, new HoverTileChangedArgs {
             hoverTile = null
-        });
+    });
     }
 
     private void PlayerAction(object sender, EventArgs e) {

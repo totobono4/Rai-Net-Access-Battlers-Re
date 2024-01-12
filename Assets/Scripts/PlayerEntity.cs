@@ -42,6 +42,16 @@ public class PlayerEntity : MonoBehaviour {
     public Dictionary<OnlineCard.CardType, int> GetOnlineCardCounts() { return onlineCardCounts; }
     public List<Vector2Int> GetOnlineCardPlacements() { return onlineCardPlacements; }
 
+    public void InstantiateTiles() {
+        foreach (ScoreSlotGroup scoreSlotGroup in scoreSlotsGroupDict.Values) { scoreSlotGroup.InstantiateTileMap(); }
+        terminalGroup.InstantiateTileMap();
+        infiltrationGroup.InstantiateTileMap();
+    }
+
+    public void InstantiateCards() {
+        terminalGroup.InstantiateTerminalCards();
+    }
+
     public List<TerminalCard> GetTerminalCards() { return terminalGroup.GetTerminalCards(); }
 
     public void SubOnlineCards(List<OnlineCard> onlineCards) {

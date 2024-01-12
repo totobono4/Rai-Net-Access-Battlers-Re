@@ -4,7 +4,9 @@ using UnityEngine;
 public class VirusChecker : TerminalCard {
     private bool used;
 
-    private void Awake() {
+    protected override void Awake() {
+        base.Awake();
+
         used = false;
     }
 

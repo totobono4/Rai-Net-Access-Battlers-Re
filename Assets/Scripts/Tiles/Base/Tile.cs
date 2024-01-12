@@ -8,7 +8,7 @@ public abstract class Tile : MonoBehaviour {
 
     [SerializeField] Transform worldPosition;
     private Vector3 position;
-    private Card card;
+    [SerializeField] private Card card;
 
     public EventHandler<SelectedTileArgs> OnSelectedTile;
     public class SelectedTileArgs : EventArgs {
@@ -37,13 +37,13 @@ public abstract class Tile : MonoBehaviour {
     protected bool actionable;
 
     protected virtual void Awake() {
-        position = worldPosition.position;
-
         selected = false;
         actionable = false;
     }
 
     private void Start() {
+        position = worldPosition.position;
+
         if (PlayerController.LocalInstance == null) PlayerController.OnAnyPlayerSpawned += PlayerControllerSpawned;
         else SetPlayerController();
     }

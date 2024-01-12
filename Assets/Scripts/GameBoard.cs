@@ -4,7 +4,7 @@ using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
 
-public class GameBoard : MonoBehaviour {
+public class GameBoard : NetworkBehaviour {
     public static GameBoard Instance { get; private set; }
 
     [SerializeField] private PlayMap playMap;
@@ -18,7 +18,7 @@ public class GameBoard : MonoBehaviour {
         Blue
     }
 
-    private List<TileMap> tileMaps = new List<TileMap>();
+    [SerializeField] private List<TileMap> tileMaps = new List<TileMap>();
 
     private void Awake() {
         Instance = this;
@@ -27,19 +27,33 @@ public class GameBoard : MonoBehaviour {
     }
 
     private void Start() {
+        tileMaps.Add(playMap);
+        foreach (PlayerEntity playerEntity in players) foreach (TileMap tileMap in playerEntity.GetTileMaps()) { tileMaps.Add(tileMap); }
+    }
+
+    public override void OnNetworkSpawn() {
+        if (!IsServer) return;
+
+        playMap.InstantiateTileMap();
+
         foreach (PlayerEntity playerEntity in players) {
             Dictionary<OnlineCard.CardType, Transform> onlineCardPrefabs = playerEntity.GetOnlineCardPrefabs();
             Dictionary<OnlineCard.CardType, int> onlineCardCounts = playerEntity.GetOnlineCardCounts();
             List<Vector2Int> onlineCardPlacements = playerEntity.GetOnlineCardPlacements();
 
             List<Transform> cardTransforms = new List<Transform>();
-            foreach (OnlineCard.CardType cardType in onlineCardCounts.Keys) { 
-                for (int i = 0; i < onlineCardCounts[cardType];  i++) { cardTransforms.Add(Instantiate(onlineCardPrefabs[cardType])); }
+            foreach (OnlineCard.CardType cardType in onlineCardCounts.Keys) {
+                for (int i = 0; i < onlineCardCounts[cardType]; i++) {
+                    Transform cardTransform = Instantiate(onlineCardPrefabs[cardType]);
+                    cardTransforms.Add(cardTransform);
+
+                    NetworkObject cardNetwork = cardTransform.GetComponent<NetworkObject>();
+                    cardNetwork.Spawn();
+                }
             }
 
             List<OnlineCard> onlineCards = new List<OnlineCard>();
             foreach (Transform cardTransform in cardTransforms) onlineCards.Add(cardTransform.GetComponent<OnlineCard>());
-            foreach (OnlineCard onlineCard  in onlineCards) { onlineCard.SetGameBoard(this); }
 
             for (int i = 0; i < onlineCards.Count; i++) {
                 int rand = UnityEngine.Random.Range(0, onlineCards.Count);
@@ -48,16 +62,16 @@ public class GameBoard : MonoBehaviour {
                 onlineCards[rand] = temp;
             }
 
-            for (int i = 0;i < onlineCards.Count; i++) { onlineCards[i].SetTileParent(playMap.GetTile(onlineCardPlacements[i])); }
+            for (int i = 0; i < onlineCards.Count; i++) {
+                onlineCards[i].SetTileParent(playMap.GetTile(onlineCardPlacements[i]));
+                playMap.GetTile(onlineCardPlacements[i]).GetCard(out Card card);
+            }
 
             playerEntity.SubOnlineCards(onlineCards);
 
-            foreach (TerminalCard terminalCard in playerEntity.GetTerminalCards()) { terminalCard.SetGameBoard(this); }
-
-            foreach (TileMap tileMap in playerEntity.GetTileMaps()) { tileMaps.Add(tileMap); }
+            playerEntity.InstantiateTiles();
+            playerEntity.InstantiateCards();
         }
-
-        tileMaps.Add(playMap);
     }
 
     public Team PickTeam(ulong clientId) {

@@ -6,7 +6,9 @@ public class NotFound : TerminalCard {
     private List<Tile> actionables;
     private bool used;
 
-    private void Awake() {
+    protected override void Awake() {
+        base.Awake();
+
         actionables = new List<Tile>();
         used = false;
     }

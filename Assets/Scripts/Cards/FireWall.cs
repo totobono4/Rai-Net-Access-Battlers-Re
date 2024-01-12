@@ -3,7 +3,9 @@ using System.Collections.Generic;
 public class FireWall : TerminalCard {
     private bool activated;
 
-    private void Awake() {
+    protected override void Awake() {
+        base.Awake();
+
         activated = false;
     }
 

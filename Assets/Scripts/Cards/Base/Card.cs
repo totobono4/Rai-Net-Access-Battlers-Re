@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public abstract class Card : MonoBehaviour {
+public abstract class Card : NetworkBehaviour {
     protected GameBoard gameBoard;
 
-    private Tile tileParent;
+    [SerializeField] private Tile tileParent;
 
     [SerializeField] private GameBoard.Team team;
 
@@ -14,8 +15,34 @@ public abstract class Card : MonoBehaviour {
         public bool actionFinished;
     }
 
+    protected virtual void Awake() {
+        gameBoard = GameBoard.Instance;
+    }
+
+    /*
     public void SetGameBoard(GameBoard gameBoard) {
         this.gameBoard = gameBoard;
+    }
+    */
+
+    public override void OnNetworkSpawn() {
+        if (!IsClient) return;
+        if (IsHost) return;
+
+        SyncCardParentServerRpc();
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void SyncCardParentServerRpc() {
+        if (tileParent == null) return;
+        NetworkObject tileParentNetwork = tileParent.GetComponent<NetworkObject>();
+        SyncCardParentClientRpc(tileParentNetwork);
+    }
+
+    [ClientRpc]
+    private void SyncCardParentClientRpc(NetworkObjectReference tileNetworkReference) {
+        tileNetworkReference.TryGet(out NetworkObject tileNetwork);
+        SetTileParent(tileNetwork.GetComponent<Tile>());
     }
 
     public GameBoard.Team GetTeam() { return team; }
@@ -27,8 +54,7 @@ public abstract class Card : MonoBehaviour {
 
         tile.SetCard(this);
 
-        transform.parent = tile.GetTileCardPointTransform();
-        transform.localPosition = Vector3.zero;
+        transform.position = tile.GetTileCardPointTransform().position;
     }
 
     public Tile GetTileParent() { return tileParent; }

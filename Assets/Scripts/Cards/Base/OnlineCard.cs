@@ -49,7 +49,9 @@ public class OnlineCard : Card
     [SerializeField] private int defaultRange;
     [SerializeField] private int boostRange;
 
-    private void Awake() {
+    protected override void Awake() {
+        base.Awake();
+
         boosted = false;
     }
 
@@ -111,6 +113,10 @@ public class OnlineCard : Card
         if (tile.GetCard(out Card card) && card.GetTeam() == GetTeam()) return false;
         if (tile is ExitTile && tile.GetTeam() == GetTeam()) return false;
         if (tile is BoardTile && (tile as BoardTile).HasFireWall() && (tile as BoardTile).GetFireWall() != GetTeam()) return false;
+
+        //Debug.Log(GetTileParent().GetPosition());
+        //Debug.Log(tile.GetPosition());
+
         return true;
     }
 
