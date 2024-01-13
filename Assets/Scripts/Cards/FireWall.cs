@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.Netcode;
 
 public class FireWall : TerminalCard {
     private bool activated;
@@ -6,23 +7,36 @@ public class FireWall : TerminalCard {
     protected override void Awake() {
         base.Awake();
 
+        BoardTile.OnFireWallUpdate += FireWallUpdate;
+
         activated = false;
     }
 
     private void FireWallUpdate(object sender, BoardTile.FireWallUpdateArgs e) {
-        e.boardTile.OnFireWallUpdate -= FireWallUpdate;
-        activated = e.fireWalled;
+        activated = e.boardTile.HasFireWall();
     }
 
     public override void Action(Tile actionable) {
+        ActionServerRpc(actionable.GetComponent<NetworkObject>());
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void ActionServerRpc(NetworkObjectReference tileNetworkReference) {
+        if (!tileNetworkReference.TryGet(out NetworkObject tileNetwork)) return;
+        Tile actionable = tileNetwork.GetComponent<Tile>();
+
         if (!IsTileActionable(actionable)) {
-            SendActionFinishedCallBack();
+            ActionClientRpc();
             return;
         }
 
-        (actionable as BoardTile).OnFireWallUpdate += FireWallUpdate;
         if (!activated) (actionable as BoardTile).SetFireWall(GetTeam());
         else (actionable as BoardTile).UnsetFireWall();
+        ActionClientRpc();
+    }
+
+    [ClientRpc]
+    private void ActionClientRpc() {
         SendActionFinishedCallBack();
     }
 

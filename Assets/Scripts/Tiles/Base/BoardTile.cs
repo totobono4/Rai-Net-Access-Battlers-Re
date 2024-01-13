@@ -1,37 +1,44 @@
 using System;
-public class BoardTile : PlayTile {
-    private bool fireWalled;
-    private GameBoard.Team fireWallTeam;
+using Unity.Netcode;
 
-    public EventHandler<FireWallUpdateArgs> OnFireWallUpdate;
+public class BoardTile : PlayTile {
+    private NetworkVariable<GameBoard.Team> fireWallTeam;
+
+    public static EventHandler<FireWallUpdateArgs> OnFireWallUpdate;
     public class FireWallUpdateArgs : EventArgs {
         public BoardTile boardTile;
-        public bool fireWalled;
         public GameBoard.Team fireWallTeam;
     }
 
     protected override void Awake() {
         base.Awake();
-        fireWalled = false;
+
+        fireWallTeam = new NetworkVariable<GameBoard.Team>();
+        fireWallTeam.Value = GameBoard.Team.None;
+        fireWallTeam.OnValueChanged += FireWallUpdate;
+    }
+
+    private void FireWallUpdate(GameBoard.Team previous, GameBoard.Team current) {
+        SetFireWall(current);
     }
 
     public bool HasFireWall() {
-        return fireWalled;
+        return fireWallTeam.Value != GameBoard.Team.None;
     }
 
     public void SetFireWall(GameBoard.Team fireWallTeam) {
-        this.fireWallTeam = fireWallTeam;
-        fireWalled = true;
+        this.fireWallTeam.Value = fireWallTeam;
         FireWallUpdate();
     }
 
     public void UnsetFireWall() {
-        fireWalled = false;
+        fireWallTeam.Value = GameBoard.Team.None;
         FireWallUpdate();
     }
 
-    public GameBoard.Team GetFireWall() { return fireWallTeam; }
+    public GameBoard.Team GetFireWall() { return fireWallTeam.Value; }
+
     private void FireWallUpdate() {
-        OnFireWallUpdate?.Invoke(this, new FireWallUpdateArgs { boardTile = this, fireWalled = fireWalled, fireWallTeam = fireWallTeam });
+        OnFireWallUpdate?.Invoke(this, new FireWallUpdateArgs { boardTile = this, fireWallTeam = fireWallTeam.Value });
     }
 }

@@ -14,12 +14,12 @@ public class FireWalledTileVisual : MonoBehaviour
     }
 
     private void Start() {
-        boardTile.OnFireWallUpdate += FireWallUpdated;
+        BoardTile.OnFireWallUpdate += FireWallUpdated;
     }
 
     private void FireWallUpdated(object sender, BoardTile.FireWallUpdateArgs e) {
         foreach (Transform fireWallVisual in fireWallVisualsDict.Values) { Hide(fireWallVisual); }
-        if (e.boardTile == boardTile && e.fireWalled) {
+        if (e.boardTile == boardTile && e.boardTile.HasFireWall()) {
             Show(fireWallVisualsDict[e.fireWallTeam]);
         }
     }

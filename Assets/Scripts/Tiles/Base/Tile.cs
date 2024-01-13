@@ -1,7 +1,8 @@
 using System;
+using Unity.Netcode;
 using UnityEngine;
 
-public abstract class Tile : MonoBehaviour {
+public abstract class Tile : NetworkBehaviour {
     protected PlayerController playerController;
     [SerializeField] private Transform tileCardPoint;
     [SerializeField] private GameBoard.Team teamColor;
