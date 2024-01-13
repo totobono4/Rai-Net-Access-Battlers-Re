@@ -26,7 +26,7 @@ public abstract class Card : NetworkBehaviour {
         SyncCardParent();
     }
 
-    private void SyncCardParent() {
+    public void SyncCardParent() {
         SyncCardParentServerRpc();
     }
 
@@ -53,7 +53,6 @@ public abstract class Card : NetworkBehaviour {
         tile.SetCard(this);
 
         transform.position = tile.GetTileCardPointTransform().position;
-        SyncCardParent();
     }
 
     public Tile GetTileParent() { return tileParent; }

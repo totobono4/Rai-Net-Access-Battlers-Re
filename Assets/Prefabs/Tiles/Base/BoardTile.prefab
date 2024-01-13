@@ -261,6 +261,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoardTile
       objectReference: {fileID: 0}
+    - target: {fileID: 8215259797913384250, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 951099334
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 456628496421657628, guid: 3c524243a508ec848a76379da4e00a24, type: 3}

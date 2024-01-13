@@ -13,7 +13,7 @@ public class PlayerController : NetworkBehaviour {
     [SerializeField] private LayerMask tileLayerMask;
     [SerializeField] private InputSystem inputSystem;
     [SerializeField] private GameBoard gameBoard;
-    [SerializeField] private NetworkVariable<GameBoard.Team> team;
+    private NetworkVariable<GameBoard.Team> team;
 
     private Vector3 lastMouseWorldPosition;
     private Tile selectedTile;
@@ -50,6 +50,19 @@ public class PlayerController : NetworkBehaviour {
         selectedTile = null;
         actionableTiles = new List<Tile>();
         actionCard = null;
+
+        team = new NetworkVariable<GameBoard.Team>();
+        team.Value = GameBoard.Team.None;
+        team.OnValueChanged += TeamChanged;
+    }
+
+    public static EventHandler<OnTeamChangedArgs> OnTeamChanged;
+    public class OnTeamChangedArgs : EventArgs {
+        public GameBoard.Team team;
+    }
+
+    private void TeamChanged(GameBoard.Team previous, GameBoard.Team current) {
+        OnTeamChanged?.Invoke(this, new OnTeamChangedArgs { team = current });
     }
 
     public override void OnNetworkSpawn() {

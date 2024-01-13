@@ -14,8 +14,8 @@ public class PlayerEntity : NetworkBehaviour {
     [SerializeField] private List<ScoreSlotGroup> scoreSlotsGroups;
     private Dictionary<OnlineCard.CardType, ScoreSlotGroup> scoreSlotsGroupDict = new Dictionary<OnlineCard.CardType, ScoreSlotGroup>();
 
-    [SerializeField] private NetworkVariable<int> linkScore;
-    [SerializeField] private NetworkVariable<int> virusScore;
+    private NetworkVariable<int> linkScore;
+    private NetworkVariable<int> virusScore;
 
     [SerializeField] private TerminalGroup terminalGroup;
     [SerializeField] private InfiltrationGroup infiltrationGroup;
@@ -26,6 +26,9 @@ public class PlayerEntity : NetworkBehaviour {
         onlineCardPlacements = playerOnlineCardsSO.GetPlacements();
 
         for (int i = 0; i < onlineCardTypes.Count; i++) scoreSlotsGroupDict.Add(onlineCardTypes[i], scoreSlotsGroups[i]);
+
+        linkScore = new NetworkVariable<int>();
+        virusScore = new NetworkVariable<int>();
 
         linkScore.Value = 0;
         virusScore.Value = 0;

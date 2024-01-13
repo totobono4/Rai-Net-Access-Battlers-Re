@@ -18,7 +18,7 @@ public class GameBoard : NetworkBehaviour {
         Blue
     }
 
-    [SerializeField] private List<TileMap> tileMaps = new List<TileMap>();
+    private List<TileMap> tileMaps = new List<TileMap>();
 
     private void Awake() {
         Instance = this;

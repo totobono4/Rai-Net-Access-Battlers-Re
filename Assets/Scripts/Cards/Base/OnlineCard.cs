@@ -40,7 +40,7 @@ public class OnlineCard : Card
         public OnlineCard capturingCard;
     }
 
-    private bool boosted;
+    private NetworkVariable<bool> boosted;
 
     public EventHandler<BoostUpdateArgs> OnBoostUpdate;
     public class BoostUpdateArgs : EventArgs {
@@ -54,29 +54,29 @@ public class OnlineCard : Card
     protected override void Awake() {
         base.Awake();
 
-        boosted = false;
+        boosted = new NetworkVariable<bool>();
+        boosted.Value = false;
+        boosted.OnValueChanged += BoostChanged;
     }
 
     private int GetRange() {
         int range = defaultRange;
-        if (boosted) range = boostRange;
+        if (boosted.Value) range = boostRange;
         return range;
     }
 
     public void SetBoost() {
-        boosted = true;
-        BoostChanged();
+        boosted.Value = true;
     }
 
     public void UnsetBoost() {
-        boosted = false;
-        BoostChanged();
+        boosted.Value = false;
     }
 
-    public bool IsBoosted() { return boosted; }
+    public bool IsBoosted() { return boosted.Value; }
 
-    private void BoostChanged() {
-        OnBoostUpdate?.Invoke(this, new BoostUpdateArgs { onlineCard = this, boosted = boosted });
+    private void BoostChanged(bool previous, bool current) {
+        OnBoostUpdate?.Invoke(this, new BoostUpdateArgs { onlineCard = this, boosted = current });
     }
 
     private void Start() {
@@ -110,6 +110,7 @@ public class OnlineCard : Card
 
     [ClientRpc]
     private void ActionClientRpc() {
+        SyncCardParent();
         SendActionFinishedCallBack();
     }
 
@@ -186,7 +187,7 @@ public class OnlineCard : Card
 
     public void Capture() {
         state = CardState.Revealed;
-        if (boosted) UnsetBoost();
+        if (boosted.Value) UnsetBoost();
         StateChanged();
     }
 

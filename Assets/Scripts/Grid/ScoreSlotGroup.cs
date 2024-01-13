@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Unity.Netcode;
+using UnityEngine;
 
 public class ScoreSlotGroup : TileMap
 {
@@ -9,5 +11,14 @@ public class ScoreSlotGroup : TileMap
 
         onlineCard.SetTileParent(GetTile(onlineCards.Count % width, onlineCards.Count / width));
         onlineCards.Add(onlineCard);
+
+        AddOnlineCardClientRpc(onlineCard.GetComponent<NetworkObject>());
+    }
+
+    [ClientRpc]
+    private void AddOnlineCardClientRpc(NetworkObjectReference onlineCardNetworkReference) {
+        if (!onlineCardNetworkReference.TryGet(out NetworkObject onlineCardNetwork)) return;
+        OnlineCard onlineCard = onlineCardNetwork.GetComponent<OnlineCard>();
+        onlineCard.SyncCardParent();
     }
 }
