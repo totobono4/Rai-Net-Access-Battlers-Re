@@ -218,13 +218,22 @@ public class OnlineCard : Card
     }
 
     public void Capture() {
-        state = CardState.Link;
+        Reveal();
         if (boosted.Value) UnsetBoost();
-        StateChanged();
     }
 
     public void Reveal() {
-        state = CardState.Link;
+        RevealServerRpc();
+    }
+
+    [ServerRpc]
+    private void RevealServerRpc() {
+        RevealClientRpc(serverState);
+    }
+
+    [ClientRpc]
+    private void RevealClientRpc(CardState newState) {
+        state = newState;
         StateChanged();
     }
 

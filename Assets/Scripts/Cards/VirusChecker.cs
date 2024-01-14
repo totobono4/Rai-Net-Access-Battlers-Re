@@ -24,6 +24,7 @@ public class VirusChecker : TerminalCard {
         Tile actionable = tileNetwork.GetComponent<Tile>();
 
         if (!IsTileActionable(actionable, out OnlineCard onlineCard)) {
+            Debug.Log("Nooooooo");
             ActionClientRpc();
             return;
         }
