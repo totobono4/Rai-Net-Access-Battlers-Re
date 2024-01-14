@@ -6,13 +6,13 @@ public class PlayerEntity : NetworkBehaviour {
     [SerializeField] private GameBoard.Team team;
 
     [SerializeField] private PlayerOnlineCardsSO playerOnlineCardsSO;
-    Dictionary<OnlineCard.CardType, Transform> onlineCardPrefabs;
-    Dictionary<OnlineCard.CardType, int> onlineCardCounts;
+    Transform onlineCardPrefab;
+    Dictionary<OnlineCard.CardState, int> onlineCardCounts;
     List<Vector2Int> onlineCardPlacements;
 
-    [SerializeField] private List<OnlineCard.CardType> onlineCardTypes;
+    [SerializeField] private List<OnlineCard.CardState> onlineCardTypes;
     [SerializeField] private List<ScoreSlotGroup> scoreSlotsGroups;
-    private Dictionary<OnlineCard.CardType, ScoreSlotGroup> scoreSlotsGroupDict = new Dictionary<OnlineCard.CardType, ScoreSlotGroup>();
+    private Dictionary<OnlineCard.CardState, ScoreSlotGroup> scoreSlotsGroupDict = new Dictionary<OnlineCard.CardState, ScoreSlotGroup>();
 
     private NetworkVariable<int> linkScore;
     private NetworkVariable<int> virusScore;
@@ -21,7 +21,7 @@ public class PlayerEntity : NetworkBehaviour {
     [SerializeField] private InfiltrationGroup infiltrationGroup;
 
     private void Awake() {
-        onlineCardPrefabs = playerOnlineCardsSO.GetPrefabs();
+        onlineCardPrefab = playerOnlineCardsSO.GetPrefab();
         onlineCardCounts = playerOnlineCardsSO.GetCounts();
         onlineCardPlacements = playerOnlineCardsSO.GetPlacements();
 
@@ -42,8 +42,8 @@ public class PlayerEntity : NetworkBehaviour {
         tileMaps.Add(infiltrationGroup);
         return tileMaps;
     }
-    public Dictionary<OnlineCard.CardType, Transform> GetOnlineCardPrefabs() { return onlineCardPrefabs; }
-    public Dictionary<OnlineCard.CardType, int> GetOnlineCardCounts() { return onlineCardCounts; }
+    public Transform GetOnlineCardPrefab() { return onlineCardPrefab; }
+    public Dictionary<OnlineCard.CardState, int> GetOnlineCardCounts() { return onlineCardCounts; }
     public List<Vector2Int> GetOnlineCardPlacements() { return onlineCardPlacements; }
 
     public void InstantiateTiles() {
@@ -71,12 +71,12 @@ public class PlayerEntity : NetworkBehaviour {
     }
 
     private void CaptureCard(object sender, OnlineCard.CaptureCardArgs e) {
-        scoreSlotsGroupDict[e.capturedCard.GetCardType()].AddOnlineCard(e.capturedCard);
+        scoreSlotsGroupDict[e.capturedCard.GetServerCardState()].AddOnlineCard(e.capturedCard);
         e.capturedCard.Capture();
     }
 
     private void AddScore(object sender, OnlineCard.CaptureCardArgs e) {
-        if (e.capturedCard.GetCardType() == OnlineCard.CardType.Virus) { virusScore.Value++; }
-        if (e.capturedCard.GetCardType() == OnlineCard.CardType.Link) { linkScore.Value++; }
+        if (e.capturedCard.GetCardState() == OnlineCard.CardState.Virus) { virusScore.Value++; }
+        if (e.capturedCard.GetCardState() == OnlineCard.CardState.Link) { linkScore.Value++; }
     }
 }

@@ -49,7 +49,7 @@ public class GridMap<TGridObject> {
         gridMap[x, y] = value;
     }
 
-    public bool GetValue(int x, int y, out TGridObject tGridObject) {
+    public bool TryGetValue(int x, int y, out TGridObject tGridObject) {
         if (IsValidPosition(x, y)) {
             tGridObject = gridMap[x, y];
             return true;

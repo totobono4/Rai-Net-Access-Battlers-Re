@@ -20,6 +20,8 @@ public abstract class Card : NetworkBehaviour {
     }
 
     public override void OnNetworkSpawn() {
+        base.OnNetworkSpawn();
+
         if (!IsClient) return;
         if (IsHost) return;
 

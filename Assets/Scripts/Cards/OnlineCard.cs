@@ -7,18 +7,15 @@ using UnityEngine;
 
 public class OnlineCard : Card
 {
-    public enum CardType {
+    public static event EventHandler<EventArgs> OnAnyOnlineCardSpawned;
+
+    public enum CardState {
+        Unknown,
         Link,
         Virus
     };
 
-    public enum CardState {
-        Revealed,
-        Unrevealed,
-        Captured
-    }
-
-    [SerializeField] private CardType type;
+    private CardState serverState;
     [SerializeField] private CardState state;
 
     [SerializeField] private NeighborMatrixSO neighborMatrixSO;
@@ -57,6 +54,42 @@ public class OnlineCard : Card
         boosted = new NetworkVariable<bool>();
         boosted.Value = false;
         boosted.OnValueChanged += BoostChanged;
+
+        state = CardState.Unknown;
+
+        PlayerController.OnTeamChanged += LocalTeamChanged;
+    }
+
+    private void Start() {
+        StateChanged();
+    }
+
+    public override void OnNetworkSpawn() {
+        base.OnNetworkSpawn();
+
+        OnAnyOnlineCardSpawned?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void LocalTeamChanged(object sender, PlayerController.OnTeamChangedArgs e) {
+        if (!sender.Equals(PlayerController.LocalInstance)) return;
+        SyncServerStateServerRpc();
+    }
+
+    public void SetServerState(CardState newState) {
+        serverState = newState;
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void SyncServerStateServerRpc() {
+        if (!gameBoard.TryGetClientIdByTeam(GetTeam(), out ulong clientTarget)) return;
+        ClientRpcParams clientRpcParams = new ClientRpcParams { Send = new ClientRpcSendParams { TargetClientIds = new ulong[] { clientTarget } } };
+        SyncServerStateClientRpc(serverState, clientRpcParams);
+    }
+
+    [ClientRpc]
+    private void SyncServerStateClientRpc(CardState newState, ClientRpcParams clientRpcParams) {
+        state = newState;
+        StateChanged();
     }
 
     private int GetRange() {
@@ -79,13 +112,12 @@ public class OnlineCard : Card
         OnBoostUpdate?.Invoke(this, new BoostUpdateArgs { onlineCard = this, boosted = current });
     }
 
-    private void Start() {
-        state = CardState.Unrevealed;
-        StateChanged();
+    public CardState GetServerCardState() {
+        return serverState;
     }
 
-    public CardType GetCardType() {
-        return type;
+    public CardState GetCardState() {
+        return state;
     }
 
     public override void Action(Tile actioned) {
@@ -186,18 +218,18 @@ public class OnlineCard : Card
     }
 
     public void Capture() {
-        state = CardState.Revealed;
+        state = CardState.Link;
         if (boosted.Value) UnsetBoost();
         StateChanged();
     }
 
     public void Reveal() {
-        state = CardState.Revealed;
+        state = CardState.Link;
         StateChanged();
     }
 
     public void Unreveal() {
-        state = CardState.Unrevealed;
+        state = CardState.Unknown;
         StateChanged();
     }
 
@@ -206,6 +238,6 @@ public class OnlineCard : Card
     }
 
     public bool IsRevealed() {
-        return CardState.Revealed == state;
+        return state != CardState.Unknown;
     }
 }

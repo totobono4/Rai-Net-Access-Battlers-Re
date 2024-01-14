@@ -10,10 +10,15 @@ public class PlayerController : NetworkBehaviour {
         public ulong clientId;
     }
 
+    public static EventHandler<OnTeamChangedArgs> OnTeamChanged;
+    public class OnTeamChangedArgs : EventArgs {
+        public GameBoard.Team team;
+    }
+
     [SerializeField] private LayerMask tileLayerMask;
     [SerializeField] private InputSystem inputSystem;
     [SerializeField] private GameBoard gameBoard;
-    private NetworkVariable<GameBoard.Team> team;
+    [SerializeField] private NetworkVariable<GameBoard.Team> team;
 
     private Vector3 lastMouseWorldPosition;
     private Tile selectedTile;
@@ -54,18 +59,13 @@ public class PlayerController : NetworkBehaviour {
         team = new NetworkVariable<GameBoard.Team>();
         team.Value = GameBoard.Team.None;
         team.OnValueChanged += TeamChanged;
-    }
 
-    public static EventHandler<OnTeamChangedArgs> OnTeamChanged;
-    public class OnTeamChangedArgs : EventArgs {
-        public GameBoard.Team team;
-    }
-
-    private void TeamChanged(GameBoard.Team previous, GameBoard.Team current) {
-        OnTeamChanged?.Invoke(this, new OnTeamChangedArgs { team = current });
+        OnlineCard.OnAnyOnlineCardSpawned += OnlineCardSpawned;
     }
 
     public override void OnNetworkSpawn() {
+        base.OnNetworkSpawn();
+
         inputSystem = InputSystem.Instance;
         gameBoard = GameBoard.Instance;
 
@@ -81,6 +81,14 @@ public class PlayerController : NetworkBehaviour {
         });
 
         PlayerStart();
+    }
+
+    private void TeamChanged(GameBoard.Team previous, GameBoard.Team current) {
+        OnTeamChanged?.Invoke(this, new OnTeamChangedArgs { team = current });
+    }
+
+    private void OnlineCardSpawned(object sender, EventArgs e) {
+        OnTeamChanged?.Invoke(this, new OnTeamChangedArgs { team = team.Value });
     }
 
     private void Update() {

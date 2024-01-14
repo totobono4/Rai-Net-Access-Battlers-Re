@@ -4,19 +4,17 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "GBOnlineCardsObject")]
 public class PlayerOnlineCardsSO : ScriptableObject
 {
-    [SerializeField] private List<OnlineCard.CardType> onlineCardTypes;
-    [SerializeField] private List<Transform> prefabs;
+    [SerializeField] private Transform prefab;
+    [SerializeField] private List<OnlineCard.CardState> onlineCardTypes;
     [SerializeField] private List<int> counts;
     [SerializeField] private List<Vector2Int> placements;
 
-    public Dictionary<OnlineCard.CardType, Transform> GetPrefabs() {
-        Dictionary<OnlineCard.CardType, Transform> prefabsDict = new Dictionary<OnlineCard.CardType, Transform>();
-        for (int i = 0; i < onlineCardTypes.Count; i++) { prefabsDict.Add(onlineCardTypes[i], prefabs[i]); }
-        return prefabsDict;
+    public Transform GetPrefab() {
+        return prefab;
     }
 
-    public Dictionary<OnlineCard.CardType, int> GetCounts() {
-        Dictionary<OnlineCard.CardType, int> countsDict = new Dictionary<OnlineCard.CardType, int>();
+    public Dictionary<OnlineCard.CardState, int> GetCounts() {
+        Dictionary<OnlineCard.CardState, int> countsDict = new Dictionary<OnlineCard.CardState, int>();
         for (int i = 0; i < onlineCardTypes.Count; i++) { countsDict.Add(onlineCardTypes[i], counts[i]); }
         return countsDict;
     }

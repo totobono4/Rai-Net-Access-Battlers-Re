@@ -12,10 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4425257f95e7a7746a6cca2fcfde563e, type: 3}
   m_Name: YellowOnlineCards
   m_EditorClassIdentifier: 
-  onlineCardTypes: 0000000001000000
-  prefabs:
-  - {fileID: 5952274782585557641, guid: d00d1bfb85a9fd2498818411c7db2067, type: 3}
-  - {fileID: 1140644197490874221, guid: 5b4dfa1fe80d9504ab10c52128bd3ac4, type: 3}
+  prefab: {fileID: 5105359114854929678, guid: ad2962ae94dae49448e229a7b056dde5, type: 3}
+  onlineCardTypes: 0100000002000000
   counts: 0400000004000000
   placements:
   - {x: 0, y: 0}

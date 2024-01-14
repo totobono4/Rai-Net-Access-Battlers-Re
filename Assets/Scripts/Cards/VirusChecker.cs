@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 public class VirusChecker : TerminalCard {
@@ -14,13 +15,26 @@ public class VirusChecker : TerminalCard {
     public override bool IsUsable() { return !used; }
 
     public override void Action(Tile actionable) {
+        ActionServerRpc(actionable.GetComponent<NetworkObject>());
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void ActionServerRpc(NetworkObjectReference tileNetworkReference) {
+        if (!tileNetworkReference.TryGet(out NetworkObject tileNetwork)) return;
+        Tile actionable = tileNetwork.GetComponent<Tile>();
+
         if (!IsTileActionable(actionable, out OnlineCard onlineCard)) {
-            SendActionFinishedCallBack();
+            ActionClientRpc();
             return;
         }
 
         onlineCard.Reveal();
         SetUsed();
+        ActionClientRpc();
+    }
+
+    [ClientRpc]
+    private void ActionClientRpc() {
         SendActionFinishedCallBack();
     }
 

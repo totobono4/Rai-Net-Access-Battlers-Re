@@ -12,6 +12,8 @@ public class PlayerEntityCamera : NetworkBehaviour {
     }
 
     public override void OnNetworkSpawn() {
+        base.OnNetworkSpawn();
+
         PlayerController.OnTeamChanged += LocalTeamChanged;
     }
 

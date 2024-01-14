@@ -33,6 +33,8 @@ public class TileMap : NetworkBehaviour {
     }
 
     public override void OnNetworkSpawn() {
+        base.OnNetworkSpawn();
+
         if (!IsClient) return;
         if (IsHost) return;
 
@@ -47,7 +49,7 @@ public class TileMap : NetworkBehaviour {
     protected void SyncGridMapServerRpc() {
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                tileMap.GetValue(x, y, out Transform tileTransform);
+                tileMap.TryGetValue(x, y, out Transform tileTransform);
                 if (tileTransform == null) continue;
                 SyncGridMapClientRpc(x, y, tileTransform.GetComponent<NetworkObject>());
             }
@@ -64,7 +66,7 @@ public class TileMap : NetworkBehaviour {
     protected int GetHeight() { return height; }
 
     public Tile GetTile(int x, int y) {
-        if (tileMap.GetValue(x, y, out Transform tileTransform)) {
+        if (tileMap.TryGetValue(x, y, out Transform tileTransform)) {
             if (tileTransform == null) return null;
             return tileTransform.GetComponent<Tile>();
         }
@@ -75,13 +77,13 @@ public class TileMap : NetworkBehaviour {
         return GetTile(coords.x, coords.y);
     }
 
-    public bool GetTile(Vector3 worldPosition, out Tile tile) {
+    public bool TryGetTile(Vector3 worldPosition, out Tile tile) {
         tileMap.GetCoords(worldPosition, out int x, out int y);
         tile = GetTile(x, y);
         return tile != null;
     }
 
-    public bool GetTile(Vector2Int coords, out Tile tile) {
+    public bool TryGetTile(Vector2Int coords, out Tile tile) {
         tile = GetTile(coords.x, coords.y);
         return tile != null;
     }

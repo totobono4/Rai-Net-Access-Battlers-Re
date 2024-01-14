@@ -15,7 +15,7 @@ public class PlayMap : TileMap {
 
         foreach (Vector2Int neighborRelativeCoords in neighborMatrix) {
             Vector2Int neighborCoords = coords + neighborRelativeCoords;
-            if (GetTile(neighborCoords, out Tile tile)) {
+            if (TryGetTile(neighborCoords, out Tile tile)) {
                 result.Add(tile);
             }
         }

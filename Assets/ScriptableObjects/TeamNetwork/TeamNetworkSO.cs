@@ -5,5 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "TeamNetworkObject")]
 public class TeamNetworkSO : ScriptableObject
 {
-    [SerializeField] public List<GameBoard.Team> playerTeams;
+    [SerializeField] private List<GameBoard.Team> playerTeams;
+
+    public List<GameBoard.Team> GetPlayerTeams() { return new List<GameBoard.Team>(playerTeams); }
 }
