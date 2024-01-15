@@ -22,7 +22,7 @@ public class TileMap : NetworkBehaviour {
     public void InstantiateTileMap() {
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                Transform tileTransform = Instantiate(tilePrefabArray[y, x], tileMap.GetWorldPosition(x, y), Quaternion.identity);
+                Transform tileTransform = Instantiate(tilePrefabArray[y, x], tileMap.GetWorldPosition(x, y), tileMap.GetWorldRotation(x, y));
                 NetworkObject tileNetwork = tileTransform.GetComponent<NetworkObject>();
                 tileNetwork.Spawn();
 

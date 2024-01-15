@@ -29,7 +29,11 @@ public class GridMap<TGridObject> {
     }
 
     public Vector3 GetWorldPosition(int x, int y) {
-        return Vector3.Scale(new Vector3(x, 0, y), origin.localScale) + origin.position;
+        return Vector3.Scale(origin.rotation * new Vector3(x, 0, y), origin.localScale) + origin.position;
+    }
+
+    public Quaternion GetWorldRotation(int x, int y) {
+        return origin.rotation;
     }
 
     public void GetCoords(Vector3 worldPosition, out int x, out int y) {

@@ -13,9 +13,8 @@ public class GameBoard : NetworkBehaviour {
     [SerializeField] private List<PlayerEntity> players;
 
     [SerializeField] private TeamNetworkSO teamNetworkSO;
-    private List<GameBoard.Team> playerTeams;
+    private List<Team> playerTeams;
 
-    private Dictionary<Team, PlayerEntity> playersByTeam;
     private PlayerInfos playerInfos;
     
 
@@ -57,20 +56,17 @@ public class GameBoard : NetworkBehaviour {
             Dictionary<OnlineCard.CardState, int> onlineCardCounts = playerEntity.GetOnlineCardCounts();
             List<Vector2Int> onlineCardPlacements = playerEntity.GetOnlineCardPlacements();
 
-            List<Transform> cardTransforms = new List<Transform>();
+            List<OnlineCard> onlineCards = new List<OnlineCard>();
             foreach (OnlineCard.CardState cardType in onlineCardCounts.Keys) {
                 for (int i = 0; i < onlineCardCounts[cardType]; i++) {
-                    Transform cardTransform = Instantiate(onlineCardPrefab);
-                    cardTransforms.Add(cardTransform);
+                    OnlineCard onlineCard = Instantiate(onlineCardPrefab).GetComponent<OnlineCard>();
+                    onlineCards.Add(onlineCard);
 
-                    cardTransform.GetComponent<OnlineCard>().SetServerState(cardType);
+                    onlineCard.SetServerState(cardType);
 
-                    cardTransform.GetComponent<NetworkObject>().Spawn();
+                    onlineCard.GetComponent<NetworkObject>().Spawn();
                 }
             }
-
-            List<OnlineCard> onlineCards = new List<OnlineCard>();
-            foreach (Transform cardTransform in cardTransforms) onlineCards.Add(cardTransform.GetComponent<OnlineCard>());
 
             for (int i = 0; i < onlineCards.Count; i++) {
                 int rand = UnityEngine.Random.Range(0, onlineCards.Count);

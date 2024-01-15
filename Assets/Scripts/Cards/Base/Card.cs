@@ -7,6 +7,11 @@ public abstract class Card : NetworkBehaviour {
     protected GameBoard gameBoard;
 
     [SerializeField] private Tile tileParent;
+    public EventHandler<TileParentChangedArgs> OnTileParentChanged;
+    public class TileParentChangedArgs : EventArgs {
+        public Tile tile;
+        public GameBoard.Team team;
+    }
 
     [SerializeField] private GameBoard.Team team;
 
@@ -56,6 +61,9 @@ public abstract class Card : NetworkBehaviour {
         tile.SetCard(this);
 
         transform.position = tile.GetTileCardPointTransform().position;
+        transform.rotation = tile.GetTileCardPointTransform().rotation;
+
+        OnTileParentChanged?.Invoke(this, new TileParentChangedArgs { tile = tile, team = team });
     }
 
     public Tile GetTileParent() { return tileParent; }

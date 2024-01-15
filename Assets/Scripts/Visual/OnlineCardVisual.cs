@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class OnlineCardVisual : CardVisual
@@ -6,7 +7,13 @@ public class OnlineCardVisual : CardVisual
     [SerializeField] private Transform unknown, link, virus;
 
     private void Awake() {
+        onlineCard.OnTileParentChanged += TileParentChanged;
         onlineCard.OnStateChanged += StateChanged;
+    }
+
+    private void TileParentChanged(object sender, Card.TileParentChangedArgs e) {
+        if (e.tile is BoardTile && e.team == GameBoard.Team.Blue) transform.rotation = e.tile.transform.rotation * Quaternion.Euler(0, 180, 0);
+        else transform.rotation = e.tile.transform.rotation;
     }
 
     private void StateChanged(object sender, OnlineCard.StateChangedArgs e) {
