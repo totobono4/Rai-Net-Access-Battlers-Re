@@ -17,6 +17,7 @@ public class OnlineCard : Card
 
     private CardState serverState;
     [SerializeField] private CardState state;
+    private NetworkVariable<bool> revealed;
 
     [SerializeField] private NeighborMatrixSO neighborMatrixSO;
 
@@ -51,8 +52,10 @@ public class OnlineCard : Card
     protected override void Awake() {
         base.Awake();
 
-        boosted = new NetworkVariable<bool>();
-        boosted.Value = false;
+        revealed = new NetworkVariable<bool>(false);
+        revealed.OnValueChanged += RevealChanged;
+
+        boosted = new NetworkVariable<bool>(false);
         boosted.OnValueChanged += BoostChanged;
 
         state = CardState.Unknown;
@@ -72,6 +75,11 @@ public class OnlineCard : Card
 
     private void LocalTeamChanged(object sender, PlayerController.OnTeamChangedArgs e) {
         if (!sender.Equals(PlayerController.LocalInstance)) return;
+        if (!IsSpawned) return;
+        SyncServerStateServerRpc();
+    }
+
+    private void RevealChanged(bool previous, bool current) {
         SyncServerStateServerRpc();
     }
 
@@ -83,7 +91,8 @@ public class OnlineCard : Card
     private void SyncServerStateServerRpc() {
         if (!gameBoard.TryGetClientIdByTeam(GetTeam(), out ulong clientTarget)) return;
         ClientRpcParams clientRpcParams = new ClientRpcParams { Send = new ClientRpcSendParams { TargetClientIds = new ulong[] { clientTarget } } };
-        SyncServerStateClientRpc(serverState, clientRpcParams);
+        if (IsRevealed()) SyncServerStateClientRpc(serverState, default);
+        else SyncServerStateClientRpc(serverState, clientRpcParams);
     }
 
     [ClientRpc]
@@ -143,7 +152,7 @@ public class OnlineCard : Card
     [ClientRpc]
     private void ActionClientRpc() {
         SyncCardParent();
-        SendActionFinishedCallBack();
+        SendActionFinishedCallBack(null);
     }
 
     public override List<Tile> GetActionables() {
@@ -228,18 +237,11 @@ public class OnlineCard : Card
 
     [ServerRpc]
     private void RevealServerRpc() {
-        RevealClientRpc(serverState);
-    }
-
-    [ClientRpc]
-    private void RevealClientRpc(CardState newState) {
-        state = newState;
-        StateChanged();
+        revealed.Value = true;
     }
 
     public void Unreveal() {
-        state = CardState.Unknown;
-        StateChanged();
+        
     }
 
     private void StateChanged() {
@@ -247,6 +249,6 @@ public class OnlineCard : Card
     }
 
     public bool IsRevealed() {
-        return state != CardState.Unknown;
+        return revealed.Value;
     }
 }

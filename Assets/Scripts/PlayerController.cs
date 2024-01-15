@@ -41,6 +41,11 @@ public class PlayerController : NetworkBehaviour {
     public class CancelTileArgs : EventArgs {
         public Tile canceledTile;
     }
+    public EventHandler<UsedTileArgs> OnUsedTile;
+    public class UsedTileArgs : EventArgs {
+        public Tile usedTile;
+    }
+    public EventHandler<EventArgs> OnFinishUsingTiles;
 
     private enum PlayerState {
         WaitingForTurn,
@@ -159,6 +164,7 @@ public class PlayerController : NetworkBehaviour {
 
         if (tile.Equals(selectedTile)) {
             foreach (Tile actionable in actionableTiles) actionable.UnsetActionable();
+            OnFinishUsingTiles?.Invoke(this, EventArgs.Empty);
             OnCancelTile?.Invoke(this, new CancelTileArgs { canceledTile = tile });
             playerState = PlayerState.SelectingForAction;
         }
@@ -181,7 +187,7 @@ public class PlayerController : NetworkBehaviour {
         playerState = PlayerState.ThinkingForAction;
     }
 
-    // Si on peut faire une action on la fait, et on appelle le callback d'action pour savoir s'il reste des chsoes à faire.
+    // Si on peut faire une action on la fait, et on appelle le callback d'action pour savoir s'il reste des choses à faire.
     private void OnTileActioned(object sender, Tile.ActionedTileArgs e) {
         e.actionedTile.OnActionedTile -= OnTileActioned;
         if (selectedTile == null) return;
@@ -197,11 +203,14 @@ public class PlayerController : NetworkBehaviour {
         foreach (Tile actionable in actionableTiles) actionable.UnsetActionable();
         if (e.actionFinished) {
             actionCard.OnActionCallback -= ActionCallback;
+            OnFinishUsingTiles?.Invoke(this, EventArgs.Empty);
             OnCancelTile?.Invoke(this, new CancelTileArgs { canceledTile = selectedTile });
             selectedTile = null;
             playerState = PlayerState.SelectingForAction;
         }
         else {
+            OnUsedTile?.Invoke(this, new UsedTileArgs { usedTile = e.actioned });
+
             if (!selectedTile.GetCard(out Card card)) return;
 
             actionableTiles = card.GetActionables();

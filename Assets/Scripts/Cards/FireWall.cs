@@ -37,7 +37,7 @@ public class FireWall : TerminalCard {
 
     [ClientRpc]
     private void ActionClientRpc() {
-        SendActionFinishedCallBack();
+        SendActionFinishedCallBack(null);
     }
 
     public override List<Tile> GetActionables() {

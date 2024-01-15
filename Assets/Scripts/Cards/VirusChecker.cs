@@ -3,16 +3,16 @@ using Unity.Netcode;
 using UnityEngine;
 
 public class VirusChecker : TerminalCard {
-    private bool used;
+    private NetworkVariable<bool> used;
 
     protected override void Awake() {
         base.Awake();
 
-        used = false;
+        used = new NetworkVariable<bool>(false);
     }
 
-    private void SetUsed() { used = true; }
-    public override bool IsUsable() { return !used; }
+    private void SetUsed() { used.Value = true; }
+    public override bool IsUsable() { return !used.Value; }
 
     public override void Action(Tile actionable) {
         ActionServerRpc(actionable.GetComponent<NetworkObject>());
@@ -24,7 +24,6 @@ public class VirusChecker : TerminalCard {
         Tile actionable = tileNetwork.GetComponent<Tile>();
 
         if (!IsTileActionable(actionable, out OnlineCard onlineCard)) {
-            Debug.Log("Nooooooo");
             ActionClientRpc();
             return;
         }
@@ -36,7 +35,7 @@ public class VirusChecker : TerminalCard {
 
     [ClientRpc]
     private void ActionClientRpc() {
-        SendActionFinishedCallBack();
+        SendActionFinishedCallBack(null);
     }
 
     public override List<Tile> GetActionables() {

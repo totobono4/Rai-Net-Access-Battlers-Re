@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
+using static GameBoard;
 using static PlayerController;
 
 public class GameBoard : NetworkBehaviour {
@@ -13,8 +14,10 @@ public class GameBoard : NetworkBehaviour {
 
     [SerializeField] private TeamNetworkSO teamNetworkSO;
     private List<GameBoard.Team> playerTeams;
-    private Dictionary<ulong, Team> teamsByIds;
-    private Dictionary<Team, ulong> idsByTeams;
+
+    private Dictionary<Team, PlayerEntity> playersByTeam;
+    private PlayerInfos playerInfos;
+    
 
     public enum Team {
         None,
@@ -28,8 +31,8 @@ public class GameBoard : NetworkBehaviour {
         Instance = this;
 
         playerTeams = teamNetworkSO.GetPlayerTeams();
-        teamsByIds = new Dictionary<ulong, Team>();
-        idsByTeams = new Dictionary<Team, ulong>();
+
+        playerInfos = new PlayerInfos();
     }
 
     private void Start() {
@@ -46,6 +49,11 @@ public class GameBoard : NetworkBehaviour {
 
         foreach (PlayerEntity playerEntity in players) {
             Transform onlineCardPrefab = playerEntity.GetOnlineCardPrefab();
+
+            playerInfos.TryCreatePlayer(playerEntity.GetTeam());
+            playerInfos.TrySetPlayerEntityFromTeam(playerEntity.GetTeam(), playerEntity);
+            playerInfos.TrySetOnlineCardPrefabFromTeam(playerEntity.GetTeam(), onlineCardPrefab);
+
             Dictionary<OnlineCard.CardState, int> onlineCardCounts = playerEntity.GetOnlineCardCounts();
             List<Vector2Int> onlineCardPlacements = playerEntity.GetOnlineCardPlacements();
 
@@ -57,8 +65,7 @@ public class GameBoard : NetworkBehaviour {
 
                     cardTransform.GetComponent<OnlineCard>().SetServerState(cardType);
 
-                    NetworkObject cardNetwork = cardTransform.GetComponent<NetworkObject>();
-                    cardNetwork.Spawn();
+                    cardTransform.GetComponent<NetworkObject>().Spawn();
                 }
             }
 
@@ -84,6 +91,23 @@ public class GameBoard : NetworkBehaviour {
         }
     }
 
+    public OnlineCard CopyOnlineCard(OnlineCard onlineCard, Tile tileParent) {
+        if (!playerInfos.TryGetPlayerEntityFromTeam(onlineCard.GetTeam(), out PlayerEntity playerEntity)) return null;
+        if (!playerInfos.TryGetOnlineCardPrefabFromTeam(onlineCard.GetTeam(), out Transform onlineCardPrefab)) return null;
+
+        Transform newOnlineCardTransform = Instantiate(onlineCardPrefab);
+        OnlineCard newOnlineCard = newOnlineCardTransform.GetComponent<OnlineCard>();
+
+        newOnlineCard.SetServerState(onlineCard.GetServerCardState());
+        newOnlineCard.SetTileParent(tileParent);
+        newOnlineCard.GetComponent<NetworkObject>().Spawn();
+        playerEntity.SubOnlineCard(newOnlineCard);
+
+        onlineCard.GetComponent<NetworkObject>().Despawn();
+
+        return newOnlineCardTransform.GetComponent<OnlineCard>();
+    }
+
     private bool TryGetTeam(out GameBoard.Team team) {
         team = Team.None;
         if (playerTeams.Count == 0) return false;
@@ -93,15 +117,17 @@ public class GameBoard : NetworkBehaviour {
     }
 
     public Team PickTeam(ulong clientId) {
-        if (teamsByIds.TryGetValue(clientId, out Team teamExists)) return teamExists;
+        if (playerInfos.TryGetTeamFromId(clientId, out Team teamExists)) return teamExists;
         if (!TryGetTeam(out Team team)) { Debug.Log(team); return team; }
-        teamsByIds.Add(clientId, team);
-        idsByTeams.Add(team, clientId);
+
+        playerInfos.TryCreatePlayer(team);
+        playerInfos.TrySetIdFromTeam(team, clientId);
+
         return team;
     }
 
     public bool TryGetClientIdByTeam(Team team, out ulong clientId) {
-        if (!idsByTeams.TryGetValue(team, out clientId)) return false;
+        if (!playerInfos.TryGetIdFromTeam(team, out clientId)) return false;
         return true;
     }
 

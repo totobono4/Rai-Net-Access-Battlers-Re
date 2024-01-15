@@ -1,3 +1,4 @@
+using Unity.Netcode;
 using UnityEngine;
 
 public class PlayTile : Tile {
@@ -24,7 +25,19 @@ public class PlayTile : Tile {
 
     protected override void CanceledTile(object sender, PlayerController.CancelTileArgs e) {
         if (e.canceledTile != this) return;
-        if (GetCard(out Card card)) card.ResetAction();
+        if (GetCard(out Card card)) CanceledTileServerRpc(card.GetComponent<NetworkObject>());
+        CanceledTileServerRpc(default);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void CanceledTileServerRpc(NetworkObjectReference cardNetworkReference) {
+        if (cardNetworkReference.TryGet(out NetworkObject cardNetwork)) cardNetwork.GetComponent<Card>().ResetAction();
+        CanceledTileClientRpc(cardNetworkReference);
+    }
+
+    [ClientRpc]
+    private void CanceledTileClientRpc(NetworkObjectReference cardNetworkReference) {
+        if (cardNetworkReference.TryGet(out NetworkObject cardNetwork)) cardNetwork.GetComponent<Card>().ResetAction();
         OnSelectedTile?.Invoke(this, new SelectedTileArgs { selectedTile = null });
     }
 

@@ -13,6 +13,7 @@ public abstract class Card : NetworkBehaviour {
     public EventHandler<ActionCallbackArgs> OnActionCallback;
     public class ActionCallbackArgs : EventArgs {
         public bool actionFinished;
+        public Tile actioned;
     }
 
     protected virtual void Awake() {
@@ -63,11 +64,11 @@ public abstract class Card : NetworkBehaviour {
         return tileParent.GetPosition();
     }
 
-    protected void SendActionFinishedCallBack() {
-        OnActionCallback?.Invoke(this, new ActionCallbackArgs { actionFinished = true });
+    protected void SendActionFinishedCallBack(Tile actioned) {
+        OnActionCallback?.Invoke(this, new ActionCallbackArgs { actionFinished = true, actioned = actioned });
     }
-    protected void SendActionUnfinishedCallBack() {
-        OnActionCallback?.Invoke(this, new ActionCallbackArgs { actionFinished = false });
+    protected void SendActionUnfinishedCallBack(Tile actioned) {
+        OnActionCallback?.Invoke(this, new ActionCallbackArgs { actionFinished = false, actioned = actioned });
     }
     public abstract List<Tile> GetActionables();
     public abstract void Action(Tile actionable);

@@ -40,7 +40,7 @@ public class LineBoost : TerminalCard {
 
     [ClientRpc]
     private void ActionClientRpc() {
-        SendActionFinishedCallBack();
+        SendActionFinishedCallBack(null);
     }
 
     public override List<Tile> GetActionables() {

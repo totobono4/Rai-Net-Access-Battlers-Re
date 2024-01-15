@@ -65,6 +65,7 @@ public abstract class Tile : NetworkBehaviour {
         playerController.OnSelectTile += SelectedTile;
         playerController.OnActionTile += ActionedTile;
         playerController.OnCancelTile += CanceledTile;
+        playerController.OnUsedTile += UsedTile;
     }
 
     public Vector3 GetPosition() { return position; }
@@ -101,10 +102,16 @@ public abstract class Tile : NetworkBehaviour {
     public abstract void SetActionable();
     public abstract void UnsetActionable();
 
-    public void SendActionUsed() {
+    private void UsedTile(object sender, PlayerController.UsedTileArgs e) {
+        if (e.usedTile != this) return;
         OnActionUsed?.Invoke(this, new ActionUsedArgs { usedTile = this, isUsed = true });
+
+        playerController.OnFinishUsingTiles += UnusedTile;
     }
-    public void SendActioUnused() {
+
+    private void UnusedTile(object sender, EventArgs e) {
         OnActionUsed?.Invoke(this, new ActionUsedArgs { usedTile = this, isUsed = false });
+
+        playerController.OnFinishUsingTiles -= UnusedTile;
     }
 }

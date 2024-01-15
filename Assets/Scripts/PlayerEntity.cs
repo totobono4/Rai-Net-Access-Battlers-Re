@@ -60,10 +60,14 @@ public class PlayerEntity : NetworkBehaviour {
 
     public void SubOnlineCards(List<OnlineCard> onlineCards) {
         foreach (OnlineCard onlineCard in onlineCards) {
-            onlineCard.OnMoveCard += MoveCard;
-            onlineCard.OnCaptureCard += CaptureCard;
-            onlineCard.OnCaptureCard += AddScore;
+            SubOnlineCard(onlineCard);
         }
+    }
+
+    public void SubOnlineCard(OnlineCard onlineCard) {
+        onlineCard.OnMoveCard += MoveCard;
+        onlineCard.OnCaptureCard += CaptureCard;
+        onlineCard.OnCaptureCard += AddScore;
     }
 
     private void MoveCard(object sender, OnlineCard.MoveCardArgs e) {
