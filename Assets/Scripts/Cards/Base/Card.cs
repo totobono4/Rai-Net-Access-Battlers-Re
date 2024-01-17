@@ -21,6 +21,8 @@ public abstract class Card : NetworkBehaviour {
         public Tile actioned;
     }
 
+    [SerializeField] private int actionTokenCost;
+
     protected virtual void Awake() {
         gameBoard = GameBoard.Instance;
     }
@@ -72,14 +74,33 @@ public abstract class Card : NetworkBehaviour {
         return tileParent.GetPosition();
     }
 
-    protected void SendActionFinishedCallBack(Tile actioned) {
-        OnActionCallback?.Invoke(this, new ActionCallbackArgs { actionFinished = true, actioned = actioned });
+    protected void SendActionFinishedCallBack() {
+        OnActionCallback?.Invoke(this, new ActionCallbackArgs { actionFinished = true });
     }
-    protected void SendActionUnfinishedCallBack(Tile actioned) {
-        OnActionCallback?.Invoke(this, new ActionCallbackArgs { actionFinished = false, actioned = actioned });
+    protected void SendActionUnfinishedCallBack() {
+        OnActionCallback?.Invoke(this, new ActionCallbackArgs { actionFinished = false });
     }
-    public abstract List<Tile> GetActionables();
-    public abstract void Action(Tile actionable);
+    protected abstract bool IsTileActionable(Tile tile);
+    public List<Tile> GetActionables() {
+        List<Tile> allTiles = gameBoard.GetAllTiles();
+        List<Tile> actionableTiles = new List<Tile>();
+        foreach (Tile tile in allTiles) {
+            if (!IsTileActionable(tile)) continue;
+            actionableTiles.Add(tile);
+        }
+        return actionableTiles;
+    }
+    public abstract int Action(Tile actionable);
     public virtual void ResetAction() { }
     public virtual bool IsUsable() { return true; }
+
+    public int TryAction(int actionTokens, Tile actionable) {
+        if (actionTokens < GetActionTokenCost() || !IsTileActionable(actionable)) {
+            SendActionFinishedCallBack();
+            return 0;
+        }
+        return Action(actionable);
+    }
+
+    public int GetActionTokenCost() { return actionTokenCost;}
 }

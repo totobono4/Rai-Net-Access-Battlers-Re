@@ -7,17 +7,13 @@ public class PlayerEntityCamera : NetworkBehaviour {
     [SerializeField] private PlayerEntity playerEntity;
     [SerializeField] private Transform cameraOrigin;
 
-    private void Start() {
-        gameBoard = GameBoard.Instance;
-    }
-
     public override void OnNetworkSpawn() {
         base.OnNetworkSpawn();
 
         PlayerController.OnTeamChanged += LocalTeamChanged;
     }
 
-    private void LocalTeamChanged(object sender, PlayerController.OnTeamChangedArgs e) {
+    private void LocalTeamChanged(object sender, PlayerController.TeamChangedArgs e) {
         if (!sender.Equals(PlayerController.LocalInstance)) return;
         if (playerEntity.GetTeam() != e.team) return;
 

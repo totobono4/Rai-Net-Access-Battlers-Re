@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bd496fa113c71642bb89620896e00e9, type: 3}
-  m_Name: OriginalTeamNetwork
+  m_Script: {fileID: 11500000, guid: ece07cbbff0314c44a01ee587fcd0260, type: 3}
+  m_Name: OriginalGameConfig
   m_EditorClassIdentifier: 
+  actionTokens: 1
   playerTeams: 0100000002000000
+  playOrder: 0100000002000000

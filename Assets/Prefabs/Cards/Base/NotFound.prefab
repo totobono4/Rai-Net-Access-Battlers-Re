@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5796369994197276633, guid: 356642929c85a6e478056deb9f268389, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 951099334
+      objectReference: {fileID: 0}
     - target: {fileID: 7850164212865853011, guid: 356642929c85a6e478056deb9f268389, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -81,4 +85,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f88826af7f7c2f146aa96093894a47cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tileParent: {fileID: 0}
   team: 0
+  actionTokenCost: 1

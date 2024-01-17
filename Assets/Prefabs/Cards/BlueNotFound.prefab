@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueNotFound
       objectReference: {fileID: 0}
+    - target: {fileID: 8692989298797254175, guid: df3198adee20a4b4fb2b02ca6f539a24, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 951099334
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

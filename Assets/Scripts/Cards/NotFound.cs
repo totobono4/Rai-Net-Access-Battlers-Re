@@ -36,18 +36,10 @@ public class NotFound : TerminalCard {
             usedTiles[0].GetCard(out Card card1);
             usedTiles[1].GetCard(out Card card2);
 
-            Card newCard1 = gameBoard.CopyOnlineCard(card1 as OnlineCard, parent1);
-            Card newCard2 = gameBoard.CopyOnlineCard(card2 as OnlineCard, parent2);
+            gameBoard.CopyOnlineCard(card1 as OnlineCard, parent1);
+            gameBoard.CopyOnlineCard(card2 as OnlineCard, parent2);
 
             usedTiles.RemoveAt(0);
-        }
-    }
-
-    private void Unreveal() {
-        foreach (Tile actionable in usedTiles) {
-            if (!actionable.GetCard(out Card card)) continue;
-            if (card is not OnlineCard) continue;
-            (card as OnlineCard).Unreveal();
         }
     }
 
@@ -59,54 +51,24 @@ public class NotFound : TerminalCard {
         usedTiles = new List<Tile>();
     }
 
-    public override void Action(Tile actionable) {
-        ActionServerRpc(actionable.GetComponent<NetworkObject>());
-    }
-
-    [ServerRpc(RequireOwnership = false)]
-    private void ActionServerRpc(NetworkObjectReference tileNetworkReference) {
-        if (!tileNetworkReference.TryGet(out NetworkObject tileNetwork)) return;
-        Tile actionable = tileNetwork.GetComponent<Tile>();
-
-        if (!IsTileActionable(actionable)) {
-            ActionClientRpc(true, actionable.GetComponent<NetworkObject>());
-            return;
-        }
-
+    public override int Action(Tile actionable) {
         usedTiles.Add(actionable);
-        if (usedTiles.Count < NEEDED_ACTIONABLES) ActionClientRpc(false, actionable.GetComponent<NetworkObject>());
+        if (usedTiles.Count < NEEDED_ACTIONABLES) {
+            actionable.SetActionUsed();
+            SendActionUnfinishedCallBack();
+            return 0;
+        }
         else {
-            Unreveal();
+            foreach (Tile usedTile in usedTiles) usedTile.UnsetActionUsed();
             Shuffle();
             SetUsed();
-            ActionClientRpc(true, actionable.GetComponent<NetworkObject>());
+            SendActionFinishedCallBack();
             ResetAction();
+            return GetActionTokenCost();
         }
     }
 
-    [ClientRpc]
-    private void ActionClientRpc(bool actionFinished, NetworkObjectReference tileNetworkReference) {
-        if (!tileNetworkReference.TryGet(out NetworkObject tileNetwork)) return;
-        Tile actioned = tileNetwork.GetComponent<Tile>();
-
-        if (actionFinished) SendActionFinishedCallBack(actioned);
-        else {
-            if (!IsHost) usedTiles.Add(actioned);
-            SendActionUnfinishedCallBack(actioned);
-        }
-    }
-
-    public override List<Tile> GetActionables() {
-        List<Tile> allTiles = gameBoard.GetAllTiles();
-        List<Tile> actionableTiles = new List<Tile>();
-        foreach (Tile tile in allTiles) {
-            if (!IsTileActionable(tile)) continue;
-            actionableTiles.Add(tile);
-        }
-        return actionableTiles;
-    }
-
-    private bool IsTileActionable(Tile tile) {
+    protected override bool IsTileActionable(Tile tile) {
         if (!tile.GetCard(out Card card)) return false;
         if (card.GetTeam() != GetTeam()) return false;
         if (card is not OnlineCard) return false;

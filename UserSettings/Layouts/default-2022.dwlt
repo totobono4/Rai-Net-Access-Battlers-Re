@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Inspector
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 988
+  controlID: 270
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 80
+  controlID: 82
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -295,8 +295,8 @@ MonoBehaviour:
     y: 0
     width: 555
     height: 939
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -607,9 +607,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.6624991, y: 0.3315, z: -8.2795}
+    m_Target: {x: -3.2098806, y: -0.7583771, z: -2.9741344}
     speed: 2
-    m_Value: {x: 1.6624991, y: 0.3315, z: -8.2795}
+    m_Value: {x: -3.2098806, y: -0.7583771, z: -2.9741344}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -655,13 +655,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.24562666, y: -0.3393972, z: 0.09228923, w: -0.90331024}
+    m_Target: {x: -0.57809824, y: -0.014200413, z: 0.010066229, w: -0.8157887}
     speed: 2
-    m_Value: {x: -0.24562548, y: -0.33939558, z: 0.09228879, w: -0.90330595}
+    m_Value: {x: -0.57809484, y: -0.01420033, z: 0.01006617, w: -0.8157839}
   m_Size:
-    m_Target: 11.696482
+    m_Target: 20.488491
     speed: 2
-    m_Value: 11.696482
+    m_Value: 20.488491
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -725,7 +725,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 3acafbff88cafbffe8cefbff1410fcff1c10fcff5c32fcff6432fcff9032fcff9832fcff244cfcff025cfcff0a5cfcff125cfcff7a62fcff8262fcff8a62fcffd0defcffd8defcff420afdff4a0afdfffa34fdff0235fdff8a3cfdff923cfdffde65fdffe665fdff4e91fdff5691fdfff2eafefffaeafeffe835fffff035ffff24fbffff30f20000c6f30000
+      m_ExpandedIDs: 4ab7faff8ab7faffecbbfaffc6f6faff06f7faff68fbfaff180dfbff580dfbffba11fbff6047fbffa047fbff024cfbffa479ffffe479ffff467effff78afffffb8afffff1ab4ffff48e5ffff88e5ffffeae9ffff18fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -794,7 +794,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/PrefabsVisuals/Tile
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -811,7 +811,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: c85c0000
     m_LastClickedID: 23752
-    m_ExpandedIDs: 000000003e75000040750000427500004475000046750000487500004a7500004c750000
+    m_ExpandedIDs: 000000004a7500004c7500004e7500005075000052750000547500005675000058750000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -839,21 +839,21 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff000000003e75000040750000427500004475000046750000487500004a750000
+    m_ExpandedIDs: ffffffff000000004a7500004c7500004e7500005075000052750000547500005675000058750000ac75000056d5010058d50100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: BlueOnlineCard
+      m_OriginalName: BlueOnlineCard
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 27822
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 8}
     m_SearchString: 
@@ -959,8 +959,8 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMin: 1
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
-    m_HSlider: 0
-    m_VSlider: 0
+    m_HSlider: 1
+    m_VSlider: 1
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
@@ -973,18 +973,18 @@ MonoBehaviour:
       y: 21
       width: 1064
       height: 583
-    m_Scale: {x: 0.53981483, y: 0.53981483}
-    m_Translation: {x: 532, y: 291.5}
+    m_Scale: {x: 0.5726894, y: 0.5726894}
+    m_Translation: {x: 540.0019, y: 287.6328}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -985.52313
-      y: -540
-      width: 1971.0463
-      height: 1080
+      x: -942.9228
+      y: -502.2492
+      width: 1857.9006
+      height: 1018.0038
     m_MinimalGUI: 1
   m_defaultScale: 0.53981483
   m_LastWindowPixelSize: {x: 1064, y: 604}
@@ -1113,9 +1113,9 @@ MonoBehaviour:
   timeSinceLastRotation: -1
   currentBranchAndRemoteHasUpdate: 0
   currentTrackingStatusHasUpdate: 0
-  currentStatusEntriesHasUpdate: 1
-  repositoryProgressHasUpdate: 1
-  appManagerProgressHasUpdate: 1
+  currentStatusEntriesHasUpdate: 0
+  repositoryProgressHasUpdate: 0
+  appManagerProgressHasUpdate: 0
   changeTab: 3
   activeTab: 3
   initProjectView:
@@ -1255,20 +1255,60 @@ MonoBehaviour:
     remoteBranches: []
   changesView:
     currentBranchHasUpdate: 0
-    currentStatusEntriesHasUpdate: 1
-    currentLocksHasUpdate: 1
+    currentStatusEntriesHasUpdate: 0
+    currentLocksHasUpdate: 0
     commitBody: 
     commitMessage: 
     currentBranch: master
-    treeScroll: {x: 0, y: 0}
+    treeScroll: {x: 0, y: 485}
     treeChanges:
       assets:
         keys:
         - 00000000000000001000000000000000
+        - 2826caa26f9f1804fa456150b977a6d5
+        - 7ee027c45d5b3c64ba49fdadc24a67e7
+        - 293327e8004155c49b7e10f85f84f080
+        - 9c708262c85e80d418de9a728e427798
+        - 384f86dff8edc8847b6adcda05c5fa41
+        - df3198adee20a4b4fb2b02ca6f539a24
+        - c6e77ab1706d41b4cb7dbdfeca90f4d5
+        - ee4bef463cf69b3428d693b2902e7d11
+        - 35c9bfe518ab85c4b90f78d55e6cbf00
+        - dd4c2e8244c4bac47948c39f337d3642
+        - 40d71c5a23136bb458ce982ed632c42b
+        - b7857e5eeaa833d439deeaaa116145b9
+        - ad2962ae94dae49448e229a7b056dde5
+        - f7710ac7ae858124e88a72fd022891e1
+        - 4e2b0ac864f55f749a6092c5c8d812ff
+        - 507a4111e4044f841870fdec482498a1
+        - 78a8a4cea9eb08c40bc82a2f6604dd1b
+        - 6ea315d0fd7389c41b19996891e99ae3
+        - 9fc0d4010bbf28b4594072e72b8655ab
+        - 8e8969d17e4cd32429659b8e626c174b
+        - 85a520a71720c0b43ba8692cc1fd9d36
+        - ece07cbbff0314c44a01ee587fcd0260
+        - e3bb025d7dc1cec449050af9967733b3
         - 104be7f49c6875840a544d9f6178145a
         - 9d98e54ffd5b24142bdb21f4e589e93e
         - fc548d6d973fcf2419c2eaff6f7edf76
         - cc9fcb83c72a5ef42af13a1363b5d827
+        - 7c26fe6858a2ece4ab3aedfa60a125cc
+        - f8c58b8d1b244ab4a99ac18ff47876f5
+        - f88826af7f7c2f146aa96093894a47cf
+        - e6c4626832c570245990e83c3e1e5939
+        - 294ffd121ebfee043bf72de6603b773b
+        - d2e90ee9348fa8c44a192bb2e80b05d2
+        - 9921cdb818987274ab9516de2b0859a2
+        - 316627a715d8bf54aa1c15c48e655432
+        - ce87da1224624594a999446e2c7edaf6
+        - d89296ca99e29064fbae90f9406998d2
+        - 386e425eb55e8c64aa5ce5af3518d236
+        - c7250728caabcd14b8e9fbd5d5603209
+        - 8ee825f2c458ee543a14ff900411d14c
+        - 6ed118add6470194d94769bf509b9cb3
+        - 0101231e05afdea4d8cd03c2bcc2d204
+        - ac9df396e4362a04aa5dd9f2223bf0ac
+        - 156409abb66d37147af8de4e217d0372
         values:
         - path: Assets
           label: Assets
@@ -1288,6 +1328,420 @@ MonoBehaviour:
             originalPath: 
             indexStatus: 0
             workTreeStatus: 0
+        - path: Assets\Prefabs
+          label: Prefabs
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Prefabs\Cards
+          label: Cards
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Prefabs\Cards\Base
+          label: Base
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Prefabs\Cards\Base\FireWall.prefab
+          label: FireWall.prefab
+          level: 4
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Prefabs\Cards\Base\FireWall.prefab
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\Base\FireWall.prefab
+            projectPath: Assets\Prefabs\Cards\Base\FireWall.prefab
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Prefabs\Cards\Base\LineBoost.prefab
+          label: LineBoost.prefab
+          level: 4
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Prefabs\Cards\Base\LineBoost.prefab
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\Base\LineBoost.prefab
+            projectPath: Assets\Prefabs\Cards\Base\LineBoost.prefab
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Prefabs\Cards\Base\NotFound.prefab
+          label: NotFound.prefab
+          level: 4
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Prefabs\Cards\Base\NotFound.prefab
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\Base\NotFound.prefab
+            projectPath: Assets\Prefabs\Cards\Base\NotFound.prefab
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Prefabs\Cards\Base\OnlineCard.prefab
+          label: OnlineCard.prefab
+          level: 4
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Prefabs\Cards\Base\OnlineCard.prefab
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\Base\OnlineCard.prefab
+            projectPath: Assets\Prefabs\Cards\Base\OnlineCard.prefab
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Prefabs\Cards\Base\VirusChecker.prefab
+          label: VirusChecker.prefab
+          level: 4
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Prefabs\Cards\Base\VirusChecker.prefab
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\Base\VirusChecker.prefab
+            projectPath: Assets\Prefabs\Cards\Base\VirusChecker.prefab
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Prefabs\Cards\BlueFireWall.prefab
+          label: BlueFireWall.prefab
+          level: 3
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Prefabs\Cards\BlueFireWall.prefab
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\BlueFireWall.prefab
+            projectPath: Assets\Prefabs\Cards\BlueFireWall.prefab
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Prefabs\Cards\BlueLineBoost.prefab
+          label: BlueLineBoost.prefab
+          level: 3
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Prefabs\Cards\BlueLineBoost.prefab
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\BlueLineBoost.prefab
+            projectPath: Assets\Prefabs\Cards\BlueLineBoost.prefab
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Prefabs\Cards\BlueNotFound.prefab
+          label: BlueNotFound.prefab
+          level: 3
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Prefabs\Cards\BlueNotFound.prefab
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\BlueNotFound.prefab
+            projectPath: Assets\Prefabs\Cards\BlueNotFound.prefab
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Prefabs\Cards\BlueOnlineCard.prefab
+          label: BlueOnlineCard.prefab
+          level: 3
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Prefabs\Cards\BlueOnlineCard.prefab
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\BlueOnlineCard.prefab
+            projectPath: Assets\Prefabs\Cards\BlueOnlineCard.prefab
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Prefabs\Cards\YellowOnlineCard.prefab
+          label: YellowOnlineCard.prefab
+          level: 3
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Prefabs\Cards\YellowOnlineCard.prefab
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\YellowOnlineCard.prefab
+            projectPath: Assets\Prefabs\Cards\YellowOnlineCard.prefab
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Prefabs\OriginalGameBoard.prefab
+          label: OriginalGameBoard.prefab
+          level: 2
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Prefabs\OriginalGameBoard.prefab
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\OriginalGameBoard.prefab
+            projectPath: Assets\Prefabs\OriginalGameBoard.prefab
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\PrefabsVisuals
+          label: PrefabsVisuals
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\PrefabsVisuals\Tile
+          label: Tile
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\PrefabsVisuals\Tile\PlayTileVisual.prefab
+          label: PlayTileVisual.prefab
+          level: 3
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\PrefabsVisuals\Tile\PlayTileVisual.prefab
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\PrefabsVisuals\Tile\PlayTileVisual.prefab
+            projectPath: Assets\PrefabsVisuals\Tile\PlayTileVisual.prefab
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scenes
+          label: Scenes
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scenes\GameScene.unity
+          label: GameScene.unity
+          level: 2
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scenes\GameScene.unity
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scenes\GameScene.unity
+            projectPath: Assets\Scenes\GameScene.unity
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\ScriptableObjects
+          label: ScriptableObjects
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\ScriptableObjects\GameBoard
+          label: GameBoard
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\ScriptableObjects\GameBoard\GameConfigSO.cs
+          label: GameConfigSO.cs
+          level: 3
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\ScriptableObjects\GameBoard\GameConfigSO.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\ScriptableObjects\GameBoard\GameConfigSO.cs
+            projectPath: Assets\ScriptableObjects\GameBoard\GameConfigSO.cs
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\ScriptableObjects\GameBoard\OriginalGameConfig.asset
+          label: OriginalGameConfig.asset
+          level: 3
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\ScriptableObjects\GameBoard\OriginalGameConfig.asset
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\ScriptableObjects\GameBoard\OriginalGameConfig.asset
+            projectPath: Assets\ScriptableObjects\GameBoard\OriginalGameConfig.asset
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
         - path: Assets\Scripts
           label: Scripts
           level: 1
@@ -1360,16 +1814,479 @@ MonoBehaviour:
             originalPath: 
             indexStatus: 0
             workTreeStatus: 3
+        - path: Assets\Scripts\Cards\FireWall.cs
+          label: FireWall.cs
+          level: 3
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\Cards\FireWall.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Cards\FireWall.cs
+            projectPath: Assets\Scripts\Cards\FireWall.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\Cards\LineBoost.cs
+          label: LineBoost.cs
+          level: 3
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\Cards\LineBoost.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Cards\LineBoost.cs
+            projectPath: Assets\Scripts\Cards\LineBoost.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\Cards\NotFound.cs
+          label: NotFound.cs
+          level: 3
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\Cards\NotFound.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Cards\NotFound.cs
+            projectPath: Assets\Scripts\Cards\NotFound.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\Cards\OnlineCard.cs
+          label: OnlineCard.cs
+          level: 3
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\Cards\OnlineCard.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Cards\OnlineCard.cs
+            projectPath: Assets\Scripts\Cards\OnlineCard.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\Cards\VirusChecker.cs
+          label: VirusChecker.cs
+          level: 3
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\Cards\VirusChecker.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Cards\VirusChecker.cs
+            projectPath: Assets\Scripts\Cards\VirusChecker.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\GameBoard.cs
+          label: GameBoard.cs
+          level: 2
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\GameBoard.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\GameBoard.cs
+            projectPath: Assets\Scripts\GameBoard.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\PlayerController.cs
+          label: PlayerController.cs
+          level: 2
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\PlayerController.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\PlayerController.cs
+            projectPath: Assets\Scripts\PlayerController.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\PlayersInfos.cs
+          label: PlayersInfos.cs
+          level: 2
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\PlayersInfos.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\PlayersInfos.cs
+            projectPath: Assets\Scripts\PlayersInfos.cs
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Scripts\Tiles
+          label: Tiles
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Tiles\Base
+          label: Base
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Tiles\Base\PlayTile.cs
+          label: PlayTile.cs
+          level: 4
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\Tiles\Base\PlayTile.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Tiles\Base\PlayTile.cs
+            projectPath: Assets\Scripts\Tiles\Base\PlayTile.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\Tiles\Base\Tile.cs
+          label: Tile.cs
+          level: 4
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\Tiles\Base\Tile.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Tiles\Base\Tile.cs
+            projectPath: Assets\Scripts\Tiles\Base\Tile.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\Tiles\ScoreTile.cs
+          label: ScoreTile.cs
+          level: 3
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\Tiles\ScoreTile.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Tiles\ScoreTile.cs
+            projectPath: Assets\Scripts\Tiles\ScoreTile.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\Visual
+          label: Visual
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Visual\ActionableVisual.cs
+          label: ActionableVisual.cs
+          level: 3
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\Visual\ActionableVisual.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Visual\ActionableVisual.cs
+            projectPath: Assets\Scripts\Visual\ActionableVisual.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\Visual\PlayerEntityCamera.cs
+          label: PlayerEntityCamera.cs
+          level: 3
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\Visual\PlayerEntityCamera.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Visual\PlayerEntityCamera.cs
+            projectPath: Assets\Scripts\Visual\PlayerEntityCamera.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\Visual\SelectedVisual.cs
+          label: SelectedVisual.cs
+          level: 3
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\Visual\SelectedVisual.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Visual\SelectedVisual.cs
+            projectPath: Assets\Scripts\Visual\SelectedVisual.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
       folders:
         keys:
         - Assets
+        - Assets\Prefabs
+        - Assets\Prefabs\Cards
+        - Assets\Prefabs\Cards\Base
+        - Assets\PrefabsVisuals
+        - Assets\PrefabsVisuals\Tile
+        - Assets\Scenes
+        - Assets\ScriptableObjects
+        - Assets\ScriptableObjects\GameBoard
         - Assets\Scripts
         - Assets\Scripts\Cards
         - Assets\Scripts\Cards\Base
+        - Assets\Scripts\Tiles
+        - Assets\Scripts\Tiles\Base
+        - Assets\Scripts\Visual
+        - UserSettings
+        - UserSettings\Layouts
         values:
         - path: Assets
           label: Assets
           level: 0
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Prefabs
+          label: Prefabs
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Prefabs\Cards
+          label: Cards
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Prefabs\Cards\Base
+          label: Base
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\PrefabsVisuals
+          label: PrefabsVisuals
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\PrefabsVisuals\Tile
+          label: Tile
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scenes
+          label: Scenes
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\ScriptableObjects
+          label: ScriptableObjects
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\ScriptableObjects\GameBoard
+          label: GameBoard
+          level: 2
           isFolder: 1
           isContainer: 0
           isCollapsed: 0
@@ -1439,6 +2356,96 @@ MonoBehaviour:
             originalPath: 
             indexStatus: 0
             workTreeStatus: 0
+        - path: Assets\Scripts\Tiles
+          label: Tiles
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Tiles\Base
+          label: Base
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Visual
+          label: Visual
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: UserSettings
+          label: UserSettings
+          level: 0
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: UserSettings\Layouts
+          label: Layouts
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
       checkedFileNodes:
         keys: []
         values: []
@@ -1485,6 +2492,474 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
+      - path: Assets\Prefabs
+        label: Prefabs
+        level: 1
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Prefabs\Cards
+        label: Cards
+        level: 2
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Prefabs\Cards\Base
+        label: Base
+        level: 3
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Prefabs\Cards\Base\FireWall.prefab
+        label: FireWall.prefab
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Prefabs\Cards\Base\FireWall.prefab
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\Base\FireWall.prefab
+          projectPath: Assets\Prefabs\Cards\Base\FireWall.prefab
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Prefabs\Cards\Base\LineBoost.prefab
+        label: LineBoost.prefab
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Prefabs\Cards\Base\LineBoost.prefab
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\Base\LineBoost.prefab
+          projectPath: Assets\Prefabs\Cards\Base\LineBoost.prefab
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Prefabs\Cards\Base\NotFound.prefab
+        label: NotFound.prefab
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Prefabs\Cards\Base\NotFound.prefab
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\Base\NotFound.prefab
+          projectPath: Assets\Prefabs\Cards\Base\NotFound.prefab
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Prefabs\Cards\Base\OnlineCard.prefab
+        label: OnlineCard.prefab
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Prefabs\Cards\Base\OnlineCard.prefab
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\Base\OnlineCard.prefab
+          projectPath: Assets\Prefabs\Cards\Base\OnlineCard.prefab
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Prefabs\Cards\Base\VirusChecker.prefab
+        label: VirusChecker.prefab
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Prefabs\Cards\Base\VirusChecker.prefab
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\Base\VirusChecker.prefab
+          projectPath: Assets\Prefabs\Cards\Base\VirusChecker.prefab
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Prefabs\Cards\BlueFireWall.prefab
+        label: BlueFireWall.prefab
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Prefabs\Cards\BlueFireWall.prefab
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\BlueFireWall.prefab
+          projectPath: Assets\Prefabs\Cards\BlueFireWall.prefab
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Prefabs\Cards\BlueLineBoost.prefab
+        label: BlueLineBoost.prefab
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Prefabs\Cards\BlueLineBoost.prefab
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\BlueLineBoost.prefab
+          projectPath: Assets\Prefabs\Cards\BlueLineBoost.prefab
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Prefabs\Cards\BlueNotFound.prefab
+        label: BlueNotFound.prefab
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Prefabs\Cards\BlueNotFound.prefab
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\BlueNotFound.prefab
+          projectPath: Assets\Prefabs\Cards\BlueNotFound.prefab
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Prefabs\Cards\BlueOnlineCard.prefab
+        label: BlueOnlineCard.prefab
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Prefabs\Cards\BlueOnlineCard.prefab
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\BlueOnlineCard.prefab
+          projectPath: Assets\Prefabs\Cards\BlueOnlineCard.prefab
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Prefabs\Cards\YellowOnlineCard.prefab
+        label: YellowOnlineCard.prefab
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Prefabs\Cards\YellowOnlineCard.prefab
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\YellowOnlineCard.prefab
+          projectPath: Assets\Prefabs\Cards\YellowOnlineCard.prefab
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Prefabs\OriginalGameBoard.prefab
+        label: OriginalGameBoard.prefab
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Prefabs\OriginalGameBoard.prefab
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\OriginalGameBoard.prefab
+          projectPath: Assets\Prefabs\OriginalGameBoard.prefab
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\PrefabsVisuals
+        label: PrefabsVisuals
+        level: 1
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\PrefabsVisuals\Tile
+        label: Tile
+        level: 2
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\PrefabsVisuals\Tile\PlayTileVisual.prefab
+        label: PlayTileVisual.prefab
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\PrefabsVisuals\Tile\PlayTileVisual.prefab
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\PrefabsVisuals\Tile\PlayTileVisual.prefab
+          projectPath: Assets\PrefabsVisuals\Tile\PlayTileVisual.prefab
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scenes
+        label: Scenes
+        level: 1
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scenes\GameScene.unity
+        label: GameScene.unity
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scenes\GameScene.unity
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scenes\GameScene.unity
+          projectPath: Assets\Scenes\GameScene.unity
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\ScriptableObjects
+        label: ScriptableObjects
+        level: 1
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\ScriptableObjects\GameBoard.meta
+        label: GameBoard.meta
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\ScriptableObjects\GameBoard.meta
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\ScriptableObjects\GameBoard.meta
+          projectPath: Assets\ScriptableObjects\GameBoard.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\ScriptableObjects\GameBoard
+        label: GameBoard
+        level: 2
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\ScriptableObjects\GameBoard\GameConfigSO.cs
+        label: GameConfigSO.cs
+        level: 3
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\ScriptableObjects\GameBoard\GameConfigSO.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\ScriptableObjects\GameBoard\GameConfigSO.cs
+          projectPath: Assets\ScriptableObjects\GameBoard\GameConfigSO.cs
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\ScriptableObjects\GameBoard\GameConfigSO.cs.meta
+        label: GameConfigSO.cs.meta
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\ScriptableObjects\GameBoard\GameConfigSO.cs.meta
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\ScriptableObjects\GameBoard\GameConfigSO.cs.meta
+          projectPath: Assets\ScriptableObjects\GameBoard\GameConfigSO.cs.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\ScriptableObjects\GameBoard\OriginalGameConfig.asset
+        label: OriginalGameConfig.asset
+        level: 3
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\ScriptableObjects\GameBoard\OriginalGameConfig.asset
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\ScriptableObjects\GameBoard\OriginalGameConfig.asset
+          projectPath: Assets\ScriptableObjects\GameBoard\OriginalGameConfig.asset
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\ScriptableObjects\GameBoard\OriginalGameConfig.asset.meta
+        label: OriginalGameConfig.asset.meta
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\ScriptableObjects\GameBoard\OriginalGameConfig.asset.meta
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\ScriptableObjects\GameBoard\OriginalGameConfig.asset.meta
+          projectPath: Assets\ScriptableObjects\GameBoard\OriginalGameConfig.asset.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
       - path: Assets\Scripts
         label: Scripts
         level: 1
@@ -1557,6 +3032,420 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 3
+      - path: Assets\Scripts\Cards\FireWall.cs
+        label: FireWall.cs
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\Cards\FireWall.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Cards\FireWall.cs
+          projectPath: Assets\Scripts\Cards\FireWall.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\Cards\LineBoost.cs
+        label: LineBoost.cs
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\Cards\LineBoost.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Cards\LineBoost.cs
+          projectPath: Assets\Scripts\Cards\LineBoost.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\Cards\NotFound.cs
+        label: NotFound.cs
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\Cards\NotFound.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Cards\NotFound.cs
+          projectPath: Assets\Scripts\Cards\NotFound.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\Cards\OnlineCard.cs
+        label: OnlineCard.cs
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\Cards\OnlineCard.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Cards\OnlineCard.cs
+          projectPath: Assets\Scripts\Cards\OnlineCard.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\Cards\VirusChecker.cs
+        label: VirusChecker.cs
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\Cards\VirusChecker.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Cards\VirusChecker.cs
+          projectPath: Assets\Scripts\Cards\VirusChecker.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\GameBoard.cs
+        label: GameBoard.cs
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\GameBoard.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\GameBoard.cs
+          projectPath: Assets\Scripts\GameBoard.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\PlayerController.cs
+        label: PlayerController.cs
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\PlayerController.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\PlayerController.cs
+          projectPath: Assets\Scripts\PlayerController.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\PlayerInfos.cs
+        label: PlayerInfos.cs
+        level: 2
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\PlayerInfos.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\PlayerInfos.cs
+          projectPath: Assets\Scripts\PlayerInfos.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 5
+      - path: Assets\Scripts\PlayerInfos.cs.meta
+        label: PlayerInfos.cs.meta
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\PlayerInfos.cs.meta
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\PlayerInfos.cs.meta
+          projectPath: Assets\Scripts\PlayerInfos.cs.meta
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 5
+      - path: Assets\Scripts\PlayersInfos.cs
+        label: PlayersInfos.cs
+        level: 2
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\PlayersInfos.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\PlayersInfos.cs
+          projectPath: Assets\Scripts\PlayersInfos.cs
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Scripts\PlayersInfos.cs.meta
+        label: PlayersInfos.cs.meta
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\PlayersInfos.cs.meta
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\PlayersInfos.cs.meta
+          projectPath: Assets\Scripts\PlayersInfos.cs.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Scripts\Tiles
+        label: Tiles
+        level: 2
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scripts\Tiles\Base
+        label: Base
+        level: 3
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scripts\Tiles\Base\PlayTile.cs
+        label: PlayTile.cs
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\Tiles\Base\PlayTile.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Tiles\Base\PlayTile.cs
+          projectPath: Assets\Scripts\Tiles\Base\PlayTile.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\Tiles\Base\Tile.cs
+        label: Tile.cs
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\Tiles\Base\Tile.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Tiles\Base\Tile.cs
+          projectPath: Assets\Scripts\Tiles\Base\Tile.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\Tiles\ScoreTile.cs
+        label: ScoreTile.cs
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\Tiles\ScoreTile.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Tiles\ScoreTile.cs
+          projectPath: Assets\Scripts\Tiles\ScoreTile.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\Visual
+        label: Visual
+        level: 2
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scripts\Visual\ActionableVisual.cs
+        label: ActionableVisual.cs
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\Visual\ActionableVisual.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Visual\ActionableVisual.cs
+          projectPath: Assets\Scripts\Visual\ActionableVisual.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\Visual\PlayerEntityCamera.cs
+        label: PlayerEntityCamera.cs
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\Visual\PlayerEntityCamera.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Visual\PlayerEntityCamera.cs
+          projectPath: Assets\Scripts\Visual\PlayerEntityCamera.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\Visual\SelectedVisual.cs
+        label: SelectedVisual.cs
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\Visual\SelectedVisual.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Visual\SelectedVisual.cs
+          projectPath: Assets\Scripts\Visual\SelectedVisual.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: UserSettings
+        label: UserSettings
+        level: 0
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: UserSettings\Layouts
+        label: Layouts
+        level: 1
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: UserSettings\Layouts\default-2022.dwlt
+        label: default-2022.dwlt
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: UserSettings\Layouts\default-2022.dwlt
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\UserSettings\Layouts\default-2022.dwlt
+          projectPath: UserSettings\Layouts\default-2022.dwlt
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
       selectedNode:
         path: 
         label: 
@@ -1577,21 +3466,237 @@ MonoBehaviour:
           indexStatus: 0
           workTreeStatus: 0
     gitStatusEntries:
+    - path: Assets\Prefabs\Cards\Base\FireWall.prefab
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\Base\FireWall.prefab
+      projectPath: Assets\Prefabs\Cards\Base\FireWall.prefab
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Prefabs\Cards\Base\LineBoost.prefab
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\Base\LineBoost.prefab
+      projectPath: Assets\Prefabs\Cards\Base\LineBoost.prefab
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Prefabs\Cards\Base\NotFound.prefab
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\Base\NotFound.prefab
+      projectPath: Assets\Prefabs\Cards\Base\NotFound.prefab
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Prefabs\Cards\Base\OnlineCard.prefab
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\Base\OnlineCard.prefab
+      projectPath: Assets\Prefabs\Cards\Base\OnlineCard.prefab
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Prefabs\Cards\Base\VirusChecker.prefab
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\Base\VirusChecker.prefab
+      projectPath: Assets\Prefabs\Cards\Base\VirusChecker.prefab
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Prefabs\Cards\BlueFireWall.prefab
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\BlueFireWall.prefab
+      projectPath: Assets\Prefabs\Cards\BlueFireWall.prefab
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Prefabs\Cards\BlueLineBoost.prefab
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\BlueLineBoost.prefab
+      projectPath: Assets\Prefabs\Cards\BlueLineBoost.prefab
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Prefabs\Cards\BlueNotFound.prefab
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\BlueNotFound.prefab
+      projectPath: Assets\Prefabs\Cards\BlueNotFound.prefab
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Prefabs\Cards\BlueOnlineCard.prefab
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\BlueOnlineCard.prefab
+      projectPath: Assets\Prefabs\Cards\BlueOnlineCard.prefab
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Prefabs\Cards\YellowOnlineCard.prefab
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Cards\YellowOnlineCard.prefab
+      projectPath: Assets\Prefabs\Cards\YellowOnlineCard.prefab
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Prefabs\OriginalGameBoard.prefab
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\OriginalGameBoard.prefab
+      projectPath: Assets\Prefabs\OriginalGameBoard.prefab
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\PrefabsVisuals\Tile\PlayTileVisual.prefab
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\PrefabsVisuals\Tile\PlayTileVisual.prefab
+      projectPath: Assets\PrefabsVisuals\Tile\PlayTileVisual.prefab
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scenes\GameScene.unity
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scenes\GameScene.unity
+      projectPath: Assets\Scenes\GameScene.unity
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\ScriptableObjects\GameBoard.meta
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\ScriptableObjects\GameBoard.meta
+      projectPath: Assets\ScriptableObjects\GameBoard.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\ScriptableObjects\GameBoard\GameConfigSO.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\ScriptableObjects\GameBoard\GameConfigSO.cs
+      projectPath: Assets\ScriptableObjects\GameBoard\GameConfigSO.cs
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\ScriptableObjects\GameBoard\GameConfigSO.cs.meta
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\ScriptableObjects\GameBoard\GameConfigSO.cs.meta
+      projectPath: Assets\ScriptableObjects\GameBoard\GameConfigSO.cs.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\ScriptableObjects\GameBoard\OriginalGameConfig.asset
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\ScriptableObjects\GameBoard\OriginalGameConfig.asset
+      projectPath: Assets\ScriptableObjects\GameBoard\OriginalGameConfig.asset
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\ScriptableObjects\GameBoard\OriginalGameConfig.asset.meta
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\ScriptableObjects\GameBoard\OriginalGameConfig.asset.meta
+      projectPath: Assets\ScriptableObjects\GameBoard\OriginalGameConfig.asset.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
     - path: Assets\Scripts\Cards\Base\Card.cs
       fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Cards\Base\Card.cs
       projectPath: Assets\Scripts\Cards\Base\Card.cs
       originalPath: 
       indexStatus: 0
       workTreeStatus: 3
-    changedFilesText: 1 changed file
+    - path: Assets\Scripts\Cards\FireWall.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Cards\FireWall.cs
+      projectPath: Assets\Scripts\Cards\FireWall.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\Cards\LineBoost.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Cards\LineBoost.cs
+      projectPath: Assets\Scripts\Cards\LineBoost.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\Cards\NotFound.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Cards\NotFound.cs
+      projectPath: Assets\Scripts\Cards\NotFound.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\Cards\OnlineCard.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Cards\OnlineCard.cs
+      projectPath: Assets\Scripts\Cards\OnlineCard.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\Cards\VirusChecker.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Cards\VirusChecker.cs
+      projectPath: Assets\Scripts\Cards\VirusChecker.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\GameBoard.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\GameBoard.cs
+      projectPath: Assets\Scripts\GameBoard.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\PlayerController.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\PlayerController.cs
+      projectPath: Assets\Scripts\PlayerController.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\PlayerInfos.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\PlayerInfos.cs
+      projectPath: Assets\Scripts\PlayerInfos.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 5
+    - path: Assets\Scripts\PlayerInfos.cs.meta
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\PlayerInfos.cs.meta
+      projectPath: Assets\Scripts\PlayerInfos.cs.meta
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 5
+    - path: Assets\Scripts\PlayersInfos.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\PlayersInfos.cs
+      projectPath: Assets\Scripts\PlayersInfos.cs
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Scripts\PlayersInfos.cs.meta
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\PlayersInfos.cs.meta
+      projectPath: Assets\Scripts\PlayersInfos.cs.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Scripts\Tiles\Base\PlayTile.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Tiles\Base\PlayTile.cs
+      projectPath: Assets\Scripts\Tiles\Base\PlayTile.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\Tiles\Base\Tile.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Tiles\Base\Tile.cs
+      projectPath: Assets\Scripts\Tiles\Base\Tile.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\Tiles\ScoreTile.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Tiles\ScoreTile.cs
+      projectPath: Assets\Scripts\Tiles\ScoreTile.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\Visual\ActionableVisual.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Visual\ActionableVisual.cs
+      projectPath: Assets\Scripts\Visual\ActionableVisual.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\Visual\PlayerEntityCamera.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Visual\PlayerEntityCamera.cs
+      projectPath: Assets\Scripts\Visual\PlayerEntityCamera.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\Visual\SelectedVisual.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Visual\SelectedVisual.cs
+      projectPath: Assets\Scripts\Visual\SelectedVisual.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: UserSettings\Layouts\default-2022.dwlt
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\UserSettings\Layouts\default-2022.dwlt
+      projectPath: UserSettings\Layouts\default-2022.dwlt
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    changedFilesText: 37 changed files
     lastCurrentBranchChangedEvent:
-      updatedTimeString: 2024-01-15T16:43:36.224+01:00
+      updatedTimeString: 2024-01-17T00:17:34.561+01:00
       cacheType: 1
     lastStatusEntriesChangedEvent:
-      updatedTimeString: 2024-01-15T17:05:24.667+01:00
+      updatedTimeString: 2024-01-17T00:23:09.385+01:00
       cacheType: 6
     lastLocksChangedEvent:
-      updatedTimeString: 2024-01-15T17:04:42.758+01:00
+      updatedTimeString: 2024-01-17T00:23:10.705+01:00
       cacheType: 7
   historyView:
     currentLogHasUpdate: 0
@@ -1813,13 +3918,13 @@ MonoBehaviour:
     m_Image: {fileID: 0}
     m_Tooltip: Url of the origin remote
   lastCurrentBranchAndRemoteChangedEvent:
-    updatedTimeString: 2024-01-15T16:43:36.224+01:00
+    updatedTimeString: 2024-01-16T21:40:43.738+01:00
     cacheType: 1
   lastTrackingStatusChangedEvent:
-    updatedTimeString: 2024-01-15T16:46:38.533+01:00
+    updatedTimeString: 2024-01-16T21:40:43.976+01:00
     cacheType: 5
   lastStatusEntriesChangedEvent:
-    updatedTimeString: 2024-01-15T16:47:18.457+01:00
+    updatedTimeString: 2024-01-17T00:23:09.385+01:00
     cacheType: 6
   pullButtonContent:
     m_Text: Pull

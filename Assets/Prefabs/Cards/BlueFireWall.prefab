@@ -78,6 +78,10 @@ PrefabInstance:
       propertyPath: team
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1057505753751774529, guid: 9c708262c85e80d418de9a728e427798, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 951099334
+      objectReference: {fileID: 0}
     - target: {fileID: 2953455569417065024, guid: 9c708262c85e80d418de9a728e427798, type: 3}
       propertyPath: m_Name
       value: BlueFireWall

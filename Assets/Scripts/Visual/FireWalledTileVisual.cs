@@ -18,17 +18,17 @@ public class FireWalledTileVisual : MonoBehaviour
     }
 
     private void FireWallUpdated(object sender, BoardTile.FireWallUpdateArgs e) {
-        foreach (Transform fireWallVisual in fireWallVisualsDict.Values) { Hide(fireWallVisual); }
-        if (e.boardTile == boardTile && e.boardTile.HasFireWall()) {
-            Show(fireWallVisualsDict[e.fireWallTeam]);
-        }
+        if (e.boardTile != boardTile) return;
+
+        Hide();
+        if (e.boardTile.HasFireWall()) Show(fireWallVisualsDict[e.fireWallTeam]);
     }
 
     private void Show(Transform fireWallVisual) {
         fireWallVisual.gameObject.SetActive(true);
     }
 
-    private void Hide(Transform fireWallVisual) {
-        fireWallVisual.gameObject.SetActive(false);
+    private void Hide() {
+        foreach (Transform fireWallVisual in fireWallVisuals) fireWallVisual.gameObject.SetActive(false);
     }
 }

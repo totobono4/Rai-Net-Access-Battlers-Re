@@ -73,8 +73,7 @@ public class OnlineCard : Card
         OnAnyOnlineCardSpawned?.Invoke(this, EventArgs.Empty);
     }
 
-    private void LocalTeamChanged(object sender, PlayerController.OnTeamChangedArgs e) {
-        if (!sender.Equals(PlayerController.LocalInstance)) return;
+    private void LocalTeamChanged(object sender, PlayerController.TeamChangedArgs e) {
         if (!IsSpawned) return;
         SyncServerStateServerRpc();
     }
@@ -129,43 +128,22 @@ public class OnlineCard : Card
         return state;
     }
 
-    public override void Action(Tile actioned) {
-        ActionServerRpc(actioned.GetComponent<NetworkObject>());
-    }
-
-    [ServerRpc(RequireOwnership = false)]
-    private void ActionServerRpc(NetworkObjectReference tileNetworkReference) {
-        if (!tileNetworkReference.TryGet(out NetworkObject tileNetwork)) return;
-        Tile actioned = tileNetwork.GetComponent<Tile>();
-
-        if (!IsTileActionable(actioned)) {
-            ActionClientRpc();
-            return;
-        }
-
+    public override int Action(Tile actioned) {
         TryCapture(actioned);
         Move(actioned);
         if (actioned is InfiltrationTile) TryCapture(actioned);
+
+        SendActionFinishedCallBack();
         ActionClientRpc();
+        return GetActionTokenCost();
     }
 
     [ClientRpc]
     private void ActionClientRpc() {
         SyncCardParent();
-        SendActionFinishedCallBack(null);
     }
 
-    public override List<Tile> GetActionables() {
-        List<Tile> allTiles = gameBoard.GetAllTiles();
-        List<Tile> actionableTiles = new List<Tile>();
-        foreach (Tile tile in allTiles) {
-            if (!IsTileActionable(tile)) continue;
-            actionableTiles.Add(tile);
-        }
-        return actionableTiles;
-    }
-
-    private bool IsTileActionable(Tile tile) {
+    protected override bool IsTileActionable(Tile tile) {
         if (!GetValidNeighborsInRange(GetTileParent(), GetRange()).Contains(tile)) return false;
         if (tile.GetCard(out Card card) && card.GetTeam() == GetTeam()) return false;
         if (tile is ExitTile && tile.GetTeam() == GetTeam()) return false;
@@ -232,11 +210,6 @@ public class OnlineCard : Card
     }
 
     public void Reveal() {
-        RevealServerRpc();
-    }
-
-    [ServerRpc]
-    private void RevealServerRpc() {
         revealed.Value = true;
     }
 

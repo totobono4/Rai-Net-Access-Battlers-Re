@@ -9,7 +9,7 @@ public class ActionableVisual : MonoBehaviour
         tile.OnActionableTile += ActionableTile;
     }
 
-    private void ActionableTile(object sender, PlayTile.ActionableTileArgs e) {
+    private void ActionableTile(object sender, Tile.ActionableTileArgs e) {
         Hide();
         if (e.actionableTile == tile && e.isActionable == true) Show();
     }

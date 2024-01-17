@@ -16,58 +16,31 @@ public class LineBoost : TerminalCard {
         activated.Value = e.boosted;
     }
 
-    public override void Action(Tile actionable) {
-        ActionServerRpc(actionable.GetComponent<NetworkObject>());
-    }
-
-    [ServerRpc(RequireOwnership = false)]
-    private void ActionServerRpc(NetworkObjectReference tileNetworkReference) {
-        if (!tileNetworkReference.TryGet(out NetworkObject tileNetwork)) return;
-        Tile actionable = tileNetwork.GetComponent<Tile>();
-
-        if (!IsTileActionable(actionable, out OnlineCard onlineCard)) {
-            ActionClientRpc();
-            return;
-        }
+    public override int Action(Tile actionable) {
+        if (!actionable.GetCard(out Card card)) return 0;
+        OnlineCard onlineCard = card as OnlineCard;
 
         if (!activated.Value) {
             onlineCard.OnBoostUpdate += BoostUpdate;
             onlineCard.SetBoost();
         }
         else onlineCard.UnsetBoost();
-        ActionClientRpc();
+        SendActionFinishedCallBack();
+        return GetActionTokenCost();
     }
 
-    [ClientRpc]
-    private void ActionClientRpc() {
-        SendActionFinishedCallBack(null);
-    }
-
-    public override List<Tile> GetActionables() {
-        List<Tile> allTiles = gameBoard.GetAllTiles();
-        List<Tile> actionableTiles = new List<Tile>();
-        foreach (Tile tile in allTiles) {
-            if (!IsTileActionable(tile, out _)) continue;
-            actionableTiles.Add(tile);
-        }
-        return actionableTiles;
-    }
-
-    private bool IsTileActionable(Tile tile, out OnlineCard onlineCard) {
-        onlineCard = null;
+    protected override bool IsTileActionable(Tile tile) {
         if (!activated.Value)
         {
             if (!tile.GetCard(out Card card)) return false;
             if (card.GetTeam() != GetTeam()) return false;
             if (card is not OnlineCard) return false;
-            onlineCard = card as OnlineCard;
         }
         else {
             if (!tile.GetCard(out Card card)) return false;
             if (card.GetTeam() != GetTeam()) return false;
             if (card is not OnlineCard) return false;
             if ((card as OnlineCard).IsBoosted() == false) return false;
-            onlineCard = card as OnlineCard;
         }
         return true;
     }

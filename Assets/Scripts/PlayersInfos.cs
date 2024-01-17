@@ -4,7 +4,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using static GameBoard;
 
-public class PlayerInfos
+public class PlayersInfos
 {
     private ulong wrongClientId;
     private List<PlayerElement> players;
@@ -14,16 +14,22 @@ public class PlayerInfos
         public Team team;
         public PlayerEntity playerEntity;
         public Transform onlineCardPrefab;
+        public bool ready;
+
+        public PlayerElement() {
+            clientId = 9999;
+            ready = false;
+        }
     }
 
-    public PlayerInfos() {
+    public PlayersInfos() {
         wrongClientId = 9999;
         players = new List<PlayerElement>();
     }
 
     public bool TryCreatePlayer(Team team) {
         foreach (PlayerElement player in players) if (player.team == team) return false;
-        players.Add(new PlayerElement { team = team, clientId = 9999 });
+        players.Add(new PlayerElement { team = team });
         return true;
     }
 
@@ -31,6 +37,17 @@ public class PlayerInfos
         player = default;
         foreach (PlayerElement playerElement in players) {
             if (playerElement.team == team) {
+                player = playerElement;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private bool TryGetPlayerElementFromId(ulong clientId, out PlayerElement player) {
+        player = default;
+        foreach(PlayerElement playerElement in players) {
+            if (playerElement.clientId == clientId) {
                 player = playerElement;
                 return true;
             }
@@ -53,6 +70,12 @@ public class PlayerInfos
     public bool TrySetIdFromTeam(Team team, ulong clientId) {
         if (!TryGetPlayerElementFromTeam(team, out PlayerElement player)) return false;
         player.clientId = clientId;
+        return true;
+    }
+
+    public bool TrySetReadyFromId(ulong clientId, bool ready) {
+        if (!TryGetPlayerElementFromId(clientId, out PlayerElement player)) return false;
+        player.ready = ready;
         return true;
     }
 
@@ -98,5 +121,10 @@ public class PlayerInfos
             }
         }
         return false;
+    }
+
+    public bool AreAllPlayersReady() {
+        foreach (PlayerElement playerElement in players) if (!playerElement.ready) return false;
+        return true;
     }
 }

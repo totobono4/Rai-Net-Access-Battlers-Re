@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8898791100050559256, guid: c6e77ab1706d41b4cb7dbdfeca90f4d5, type: 3}
+      propertyPath: team
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4676186600003145662, guid: c6e77ab1706d41b4cb7dbdfeca90f4d5, type: 3}
       propertyPath: m_Name
       value: YellowOnlineCard
@@ -67,38 +71,24 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6500198606357219637, guid: c6e77ab1706d41b4cb7dbdfeca90f4d5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7494979277335480568}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4676186600003145662, guid: c6e77ab1706d41b4cb7dbdfeca90f4d5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3340806349316855959}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6e77ab1706d41b4cb7dbdfeca90f4d5, type: 3}
---- !u!4 &5105359114854929678 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6500198606357219637, guid: c6e77ab1706d41b4cb7dbdfeca90f4d5, type: 3}
-  m_PrefabInstance: {fileID: 2084244281883778107}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6632007634506699653 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4676186600003145662, guid: c6e77ab1706d41b4cb7dbdfeca90f4d5, type: 3}
-  m_PrefabInstance: {fileID: 2084244281883778107}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3340806349316855959
+--- !u!114 &1760236227178951379 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: -8898791100050559256, guid: c6e77ab1706d41b4cb7dbdfeca90f4d5, type: 3}
+  m_PrefabInstance: {fileID: 2084244281883778107}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6632007634506699653}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6c4626832c570245990e83c3e1e5939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileParent: {fileID: 0}
-  team: 1
-  neighborMatrixSO: {fileID: 11400000, guid: 48c67a9bd9f288b439459ac34889a51f, type: 2}
-  defaultRange: 1
-  boostRange: 2
+--- !u!4 &5105359114854929678 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6500198606357219637, guid: c6e77ab1706d41b4cb7dbdfeca90f4d5, type: 3}
+  m_PrefabInstance: {fileID: 2084244281883778107}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2443658335454720947
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -110,11 +100,11 @@ PrefabInstance:
     - target: {fileID: 1014789238644972458, guid: 6a9381747135dbf4290838646798078d, type: 3}
       propertyPath: onlineCard
       value: 
-      objectReference: {fileID: 3340806349316855959}
+      objectReference: {fileID: 1760236227178951379}
     - target: {fileID: 1659572765225333927, guid: 6a9381747135dbf4290838646798078d, type: 3}
       propertyPath: onlineCard
       value: 
-      objectReference: {fileID: 3340806349316855959}
+      objectReference: {fileID: 1760236227178951379}
     - target: {fileID: 3154337658132977930, guid: 6a9381747135dbf4290838646798078d, type: 3}
       propertyPath: m_Name
       value: YellowOnlineCardVisual

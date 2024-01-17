@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
-using static GameBoard;
-using static PlayerController;
 
 public class GameBoard : NetworkBehaviour {
     public static GameBoard Instance { get; private set; }
 
+    [SerializeField] private GameConfigSO gameConfigSO;
+
     [SerializeField] private PlayMap playMap;
     [SerializeField] private List<PlayerEntity> players;
 
-    [SerializeField] private TeamNetworkSO teamNetworkSO;
     private List<Team> playerTeams;
-
-    private PlayerInfos playerInfos;
-    
+    private List<Team> playOrder;
+    private int playCursor;
+    private Team teamPriority;
 
     public enum Team {
         None,
@@ -24,14 +23,27 @@ public class GameBoard : NetworkBehaviour {
         Blue
     }
 
+    private PlayersInfos playerInfos;
+
     private List<TileMap> tileMaps = new List<TileMap>();
+
+    public EventHandler<PlayerGivePriorityArgs> OnPlayerGivePriority;
+    public class PlayerGivePriorityArgs : EventArgs {
+        public Team team;
+        public int actionTokens;
+    }
 
     private void Awake() {
         Instance = this;
 
-        playerTeams = teamNetworkSO.GetPlayerTeams();
+        playerTeams = gameConfigSO.GetPlayerTeams();
+        playOrder = gameConfigSO.GetPlayOrder();
+        playCursor = 0;
+        teamPriority = Team.None;
 
-        playerInfos = new PlayerInfos();
+        playerInfos = new PlayersInfos();
+
+        PlayerController.OnPlayerReady += PlayerReady;
     }
 
     private void Start() {
@@ -49,7 +61,7 @@ public class GameBoard : NetworkBehaviour {
         foreach (PlayerEntity playerEntity in players) {
             Transform onlineCardPrefab = playerEntity.GetOnlineCardPrefab();
 
-            playerInfos.TryCreatePlayer(playerEntity.GetTeam());
+            TryCreatePlayers();
             playerInfos.TrySetPlayerEntityFromTeam(playerEntity.GetTeam(), playerEntity);
             playerInfos.TrySetOnlineCardPrefabFromTeam(playerEntity.GetTeam(), onlineCardPrefab);
 
@@ -87,9 +99,34 @@ public class GameBoard : NetworkBehaviour {
         }
     }
 
-    public OnlineCard CopyOnlineCard(OnlineCard onlineCard, Tile tileParent) {
-        if (!playerInfos.TryGetPlayerEntityFromTeam(onlineCard.GetTeam(), out PlayerEntity playerEntity)) return null;
-        if (!playerInfos.TryGetOnlineCardPrefabFromTeam(onlineCard.GetTeam(), out Transform onlineCardPrefab)) return null;
+    private void TryCreatePlayers() {
+        foreach (PlayerEntity playerEntity in players) {
+            playerInfos.TryCreatePlayer(playerEntity.GetTeam());
+        }
+    }
+
+    private void PlayerReady(object sender, PlayerController.PlayerReadyArgs e) {
+        if (playerInfos.AreAllPlayersReady()) return;
+
+        playerInfos.TrySetReadyFromId(e.clientId, true);
+
+        if (!playerInfos.AreAllPlayersReady()) return;
+
+        PassPriority(0);
+    }
+
+    public void PassPriority(int actionTokens) {
+        if (actionTokens <= 0) {
+            teamPriority = playOrder[playCursor % playOrder.Count];
+            playCursor++;
+        }
+        
+        OnPlayerGivePriority?.Invoke(this, new PlayerGivePriorityArgs { team = teamPriority, actionTokens = gameConfigSO.GetActionTokens() });
+    }
+
+    public void CopyOnlineCard(OnlineCard onlineCard, Tile tileParent) {
+        if (!playerInfos.TryGetPlayerEntityFromTeam(onlineCard.GetTeam(), out PlayerEntity playerEntity)) return;
+        if (!playerInfos.TryGetOnlineCardPrefabFromTeam(onlineCard.GetTeam(), out Transform onlineCardPrefab)) return;
 
         Transform newOnlineCardTransform = Instantiate(onlineCardPrefab);
         OnlineCard newOnlineCard = newOnlineCardTransform.GetComponent<OnlineCard>();
@@ -100,8 +137,6 @@ public class GameBoard : NetworkBehaviour {
         playerEntity.SubOnlineCard(newOnlineCard);
 
         onlineCard.GetComponent<NetworkObject>().Despawn();
-
-        return newOnlineCardTransform.GetComponent<OnlineCard>();
     }
 
     private bool TryGetTeam(out GameBoard.Team team) {
@@ -116,7 +151,7 @@ public class GameBoard : NetworkBehaviour {
         if (playerInfos.TryGetTeamFromId(clientId, out Team teamExists)) return teamExists;
         if (!TryGetTeam(out Team team)) { Debug.Log(team); return team; }
 
-        playerInfos.TryCreatePlayer(team);
+        TryCreatePlayers();
         playerInfos.TrySetIdFromTeam(team, clientId);
 
         return team;
