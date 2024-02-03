@@ -36,7 +36,6 @@ public class GameManager : NetworkBehaviour
 
         if (!IsServer) return;
 
-        NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManager_OnClientDisconnect;
         NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += SceneManager_OnLoadEventCompleted;
     }
 
@@ -51,10 +50,6 @@ public class GameManager : NetworkBehaviour
         PassPriority(0);
     }
 
-    private void NetworkManager_OnClientDisconnect(ulong clientId) {
-        throw new NotImplementedException();
-    }
-
     public void PassPriority(int actionTokens) {
         int playerActionTokens = actionTokens;
 
@@ -67,7 +62,7 @@ public class GameManager : NetworkBehaviour
         OnPlayerGivePriority?.Invoke(this, new PlayerGivePriorityArgs { team = teamPriority, actionTokens = playerActionTokens });
     }
 
-    public bool TryGetClientIdByTeam(Team team, out ulong clientId) {
-        return MultiplayerManager.Instance.TryGetClientIdByTeam(team, out clientId);
+    public List<ulong> GetClientIdsByTeam(Team team) {
+        return MultiplayerManager.Instance.GetClientIdsByTeam(team);
     }
 }

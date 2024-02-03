@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 public static class SceneLoader
 {
     public enum Scene {
-        MenuScene,
+        MainMenuScene,
         LoadingScene,
         LobbyScene,
-        WaitingScene,
+        LobbyRoomScene,
         GameScene
     }
 

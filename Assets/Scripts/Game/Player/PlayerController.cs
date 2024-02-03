@@ -98,7 +98,7 @@ public class PlayerController : NetworkBehaviour {
 
     [ServerRpc(RequireOwnership = false)]
     private void InitializeServerRpc(ServerRpcParams serverRpcParams = default) {
-        if (MultiplayerManager.Instance.TryGetClientTeamById(serverRpcParams.Receive.SenderClientId, out Team _team)) team.Value = _team;
+        team.Value = MultiplayerManager.Instance.GetClientTeamById(serverRpcParams.Receive.SenderClientId);
     }
 
     private void Team_OnValueChanged(Team previous, Team current) {

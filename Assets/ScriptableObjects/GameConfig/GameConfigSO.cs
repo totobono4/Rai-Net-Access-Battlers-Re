@@ -5,9 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "GameConfig")]
 public class GameConfigSO : ScriptableObject
 {
-    [SerializeField] private int MAX_PLAYER_COUNT;
-    [SerializeField] private int MIN_PLAYER_COUNT;
-
     [SerializeField] private Transform playerPrefab;
 
     [SerializeField] private int actionTokens;

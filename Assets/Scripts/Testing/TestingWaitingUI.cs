@@ -10,10 +10,10 @@ public class TestingWaitingUI : MonoBehaviour
     private void Awake() {
         menuButton.onClick.AddListener(() => {
             NetworkManager.Singleton.Shutdown();
-            SceneLoader.Load(SceneLoader.Scene.MenuScene);
+            SceneLoader.Load(SceneLoader.Scene.MainMenuScene);
         });
         readyButton.onClick.AddListener(() => {
-            WaitingReadyManager.Instance.SetPlayerReady();
+            LobbyRoomReadyManager.Instance.TogglePlayerReady();
         });
     }
 }

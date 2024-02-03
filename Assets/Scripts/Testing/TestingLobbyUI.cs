@@ -12,11 +12,11 @@ public class TestingLobbyUI : MonoBehaviour
     private void Awake() {
         menuButton.onClick.AddListener(() => {
             NetworkManager.Singleton.Shutdown();
-            SceneLoader.Load(SceneLoader.Scene.MenuScene);
+            SceneLoader.Load(SceneLoader.Scene.MainMenuScene);
         });
         createButton.onClick.AddListener(() => {
             MultiplayerManager.Instance.StartHost();
-            SceneLoader.LoadNetwork(SceneLoader.Scene.WaitingScene);
+            SceneLoader.LoadNetwork(SceneLoader.Scene.LobbyRoomScene);
         });
         joinButton.onClick.AddListener(() => {
             MultiplayerManager.Instance.StartClient();

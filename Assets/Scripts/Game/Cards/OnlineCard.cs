@@ -87,8 +87,8 @@ public class OnlineCard : Card
 
     [ServerRpc(RequireOwnership = false)]
     private void SyncServerStateServerRpc() {
-        if (!GameManager.Instance.TryGetClientIdByTeam(GetTeam(), out ulong clientTarget)) return;
-        ClientRpcParams clientRpcParams = new ClientRpcParams { Send = new ClientRpcSendParams { TargetClientIds = new ulong[] { clientTarget } } };
+        List<ulong> ids = GameManager.Instance.GetClientIdsByTeam(GetTeam());
+        ClientRpcParams clientRpcParams = new ClientRpcParams { Send = new ClientRpcSendParams { TargetClientIds = ids.ToArray() } };
         if (IsRevealed()) SyncServerStateClientRpc(serverState, default);
         else SyncServerStateClientRpc(serverState, clientRpcParams);
     }
