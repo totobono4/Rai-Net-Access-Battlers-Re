@@ -36,10 +36,13 @@ public class NotFound : TerminalCard {
             usedTiles[0].GetCard(out Card card1);
             usedTiles[1].GetCard(out Card card2);
 
-            GameBoard.Instance.CopyOnlineCard(card1 as OnlineCard, parent1);
-            GameBoard.Instance.CopyOnlineCard(card2 as OnlineCard, parent2);
+            OnlineCard newCard1 = GameBoard.Instance.CopyOnlineCard(card1 as OnlineCard, parent1) as OnlineCard;
+            OnlineCard newCard2 = GameBoard.Instance.CopyOnlineCard(card2 as OnlineCard, parent2) as OnlineCard;
 
             usedTiles.RemoveAt(0);
+
+            newCard1.NotFounded();
+            newCard2.NotFounded();
         }
     }
 

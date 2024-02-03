@@ -131,6 +131,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 292793731}
     m_Modifications:
+    - target: {fileID: 2970259378683122268, guid: fd0065bd2eb24554a99268e8d890b8cb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970259378683122268, guid: fd0065bd2eb24554a99268e8d890b8cb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970259378683122268, guid: fd0065bd2eb24554a99268e8d890b8cb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970259378683122268, guid: fd0065bd2eb24554a99268e8d890b8cb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3854570999619017900, guid: fd0065bd2eb24554a99268e8d890b8cb, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -260,6 +276,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8026867409658946759, guid: fd0065bd2eb24554a99268e8d890b8cb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336956665365998735, guid: fd0065bd2eb24554a99268e8d890b8cb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336956665365998735, guid: fd0065bd2eb24554a99268e8d890b8cb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336956665365998735, guid: fd0065bd2eb24554a99268e8d890b8cb, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -437,6 +465,10 @@ PrefabInstance:
     - target: {fileID: 663897431778756978, guid: 67bc0b8fa36fbbe40a7e29c7f5dfec0e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4888095568823313079, guid: 67bc0b8fa36fbbe40a7e29c7f5dfec0e, type: 3}
+      propertyPath: m_ProtocolType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7645056472531532640, guid: 67bc0b8fa36fbbe40a7e29c7f5dfec0e, type: 3}
       propertyPath: m_Name

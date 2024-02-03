@@ -349,6 +349,7 @@ MonoBehaviour:
   unknown: {fileID: 3758595572826371553}
   link: {fileID: 1612533273342157696}
   virus: {fileID: 4758978574184397775}
+  revealed: {fileID: 0}
 --- !u!114 &684124976770349444
 MonoBehaviour:
   m_ObjectHideFlags: 0

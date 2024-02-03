@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerListElement : MonoBehaviour
 {
+    [SerializeField] TeamColorsSO teamColors;
+
     [SerializeField] TextMeshProUGUI playerNameText;
     [SerializeField] Image teamColorImage;
     [SerializeField] Toggle readyToggle;
@@ -58,6 +60,8 @@ public class PlayerListElement : MonoBehaviour
         clientId = playerData.clientId;
         playerId = playerData.playerId.ToString();
         playerNameText.text = playerData.playerName.ToString();
+
+        teamColorImage.color = teamColors.GetTeamColors()[MultiplayerManager.Instance.GetPlayerDataByIndex(playerIndex).team];
 
         Show();
 

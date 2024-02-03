@@ -18,4 +18,10 @@ public class PlayerEntityCamera : NetworkBehaviour {
         Camera.main.transform.position = cameraOrigin.position;
         Camera.main.transform.rotation = cameraOrigin.rotation;
     }
+
+    public override void OnDestroy() {
+        base.OnDestroy();
+
+        PlayerController.OnTeamChanged -= PlayerController_OnTeamChanged;
+    }
 }

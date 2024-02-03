@@ -35,6 +35,20 @@ public class PlayerEntity : NetworkBehaviour {
     }
 
     public Team GetTeam() { return team; }
+
+    public bool GetWin(out bool winState) {
+        winState = default;
+        if (linkScore.Value >= 4) {
+            winState = true;
+            return true;
+        }
+        if (virusScore.Value >= 4) {
+            winState = false;
+            return true;
+        }
+        return false;
+    }
+
     public List<TileMap> GetTileMaps() {
         List<TileMap> tileMaps = new List<TileMap>();
         foreach (TileMap tileMap in scoreSlotsGroupDict.Values) { tileMaps.Add(tileMap); }

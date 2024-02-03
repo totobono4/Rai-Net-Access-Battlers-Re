@@ -24,6 +24,10 @@ public class FireWalledTileVisual : MonoBehaviour
         if (e.boardTile.HasFireWall()) Show(fireWallVisualsDict[e.fireWallTeam]);
     }
 
+    private void OnDestroy() {
+        BoardTile.OnFireWallUpdate -= BoardTile_OnFireWallUpdate;
+    }
+
     private void Show(Transform fireWallVisual) {
         fireWallVisual.gameObject.SetActive(true);
     }

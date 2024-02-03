@@ -67,7 +67,7 @@ public class GameBoard : NetworkBehaviour {
         return default;
     }
 
-    public void CopyOnlineCard(OnlineCard onlineCard, Tile tileParent) {
+    public Card CopyOnlineCard(OnlineCard onlineCard, Tile tileParent) {
         PlayerEntity playerEntity = GetEntityFromTeam(onlineCard.GetTeam());
         Transform onlineCardPrefab = playerEntity.GetOnlineCardPrefab();
 
@@ -80,6 +80,8 @@ public class GameBoard : NetworkBehaviour {
         playerEntity.SubOnlineCard(newOnlineCard);
 
         onlineCard.GetComponent<NetworkObject>().Despawn();
+
+        return newOnlineCard;
     }
 
     public bool GetTile(Vector3 worldPosition, out Tile tile) {
@@ -100,5 +102,9 @@ public class GameBoard : NetworkBehaviour {
 
     public List<Tile> GetNeighbors(Vector3 worldPosition, NeighborMatrixSO neighborMatrixSO) {
         return playMap.GetNeighbors(worldPosition, neighborMatrixSO);
+    }
+
+    public List<PlayerEntity> GetPlayerEntities() {
+        return players;
     }
 }

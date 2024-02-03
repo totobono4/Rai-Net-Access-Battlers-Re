@@ -15,7 +15,7 @@ public class PlayerOnlineCardsSO : ScriptableObject
 
     public Dictionary<OnlineCard.CardState, int> GetCounts() {
         Dictionary<OnlineCard.CardState, int> countsDict = new Dictionary<OnlineCard.CardState, int>();
-        for (int i = 0; i < onlineCardTypes.Count; i++) { countsDict.Add(onlineCardTypes[i], counts[i]); }
+        for (int i = 0; i < onlineCardTypes.Count; i++) countsDict.Add(onlineCardTypes[i], counts[i]);
         return countsDict;
     }
 

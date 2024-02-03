@@ -48,8 +48,12 @@ public class PlayerController : NetworkBehaviour {
     private enum PlayerState {
         WaitingForTurn,
         SelectingForAction,
-        ThinkingForAction
+        ThinkingForAction,
+        Won,
+        Lose
     }
+
+    public static EventHandler OnPlayerStateChanged;
 
     public static EventHandler<EventArgs> OnActionFinished;
     public class ActionFinishedArgs : EventArgs {
@@ -60,6 +64,7 @@ public class PlayerController : NetworkBehaviour {
 
     private void Awake() {
         playerState = new NetworkVariable<PlayerState>(PlayerState.WaitingForTurn);
+        playerState.OnValueChanged += PlayerState_OnValueChanged;
 
         actionTokens = new NetworkVariable<int>(0);
         actionTokens.OnValueChanged += ActionTokens_OnValueChanged;
@@ -71,8 +76,42 @@ public class PlayerController : NetworkBehaviour {
         team = new NetworkVariable<Team>();
         team.Value = Team.None;
         team.OnValueChanged += Team_OnValueChanged;
+    }
 
+    private void Start() {
         OnlineCard.OnAnyOnlineCardSpawned += OnlineCard_OnAnyOnlineCardSpawned;
+        GameManager.Instance.OnGameOver += GameManager_OnGameOver;
+    }
+
+    private void PlayerState_OnValueChanged(PlayerState previousValue, PlayerState newValue) {
+        OnPlayerStateChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void SetWon() {
+        playerState.Value = PlayerState.Won;
+    }
+
+    private void SetLose() {
+        playerState.Value = PlayerState.Lose;
+    }
+
+    public bool HasWon() {
+        return playerState.Value == PlayerState.Won;
+    }
+
+    public bool HasLose() {
+        return playerState.Value == PlayerState.Lose;
+    }
+
+    private void GameManager_OnGameOver(object sender, GameManager.GameOverArgs e) {
+        if (e.team == GetTeam()) {
+            if (e.hasWon) SetWon();
+            else SetLose();
+        }
+        else {
+            if (e.hasWon) SetLose();
+            else SetWon();
+        }
     }
 
     public override void OnNetworkSpawn() {
@@ -128,10 +167,6 @@ public class PlayerController : NetworkBehaviour {
         if (e.team == team.Value) playerState.Value = PlayerState.SelectingForAction;
         else playerState.Value = PlayerState.WaitingForTurn;
         actionTokens.Value = e.actionTokens;
-    }
-
-    public bool IsPlaying() {
-        return playerState.Value != PlayerState.WaitingForTurn;
     }
 
     private void ActionTokens_OnValueChanged(int previous, int current) {

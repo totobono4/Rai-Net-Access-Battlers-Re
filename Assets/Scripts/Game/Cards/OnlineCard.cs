@@ -48,6 +48,11 @@ public class OnlineCard : Card
     [SerializeField] private int defaultRange;
     [SerializeField] private int boostRange;
 
+    public EventHandler OnRevealValueChanged;
+
+    private NetworkVariable<bool> notFound;
+    public EventHandler OnNotFoundValueChanged;
+
     protected override void Awake() {
         base.Awake();
 
@@ -56,6 +61,9 @@ public class OnlineCard : Card
 
         boosted = new NetworkVariable<bool>(false);
         boosted.OnValueChanged += Boosted_OnValueChanged;
+
+        notFound = new NetworkVariable<bool>(false);
+        notFound.OnValueChanged += NotFound_OnValueChanged;
 
         state = CardState.Unknown;
 
@@ -78,6 +86,7 @@ public class OnlineCard : Card
     }
 
     private void Revealed_OnValueChanged(bool previous, bool current) {
+        OnRevealValueChanged?.Invoke(this, EventArgs.Empty);
         SyncServerStateServerRpc();
     }
 
@@ -222,5 +231,13 @@ public class OnlineCard : Card
 
     public bool IsRevealed() {
         return revealed.Value;
+    }
+
+    public void NotFounded() {
+        notFound.Value = true;
+    }
+
+    private void NotFound_OnValueChanged(bool previousValue, bool newValue) {
+        OnNotFoundValueChanged?.Invoke(this, EventArgs.Empty);
     }
 }

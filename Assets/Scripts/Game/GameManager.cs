@@ -11,6 +11,7 @@ public class GameManager : NetworkBehaviour
     [SerializeField] private GameConfigSO gameConfigSO;
 
     private Transform playerPrefab;
+    private List<Team> playerTeams;
     private List<Team> playOrder;
 
     private int playCursor;
@@ -22,10 +23,17 @@ public class GameManager : NetworkBehaviour
         public int actionTokens;
     }
 
+    public EventHandler<GameOverArgs> OnGameOver;
+    public class GameOverArgs : EventArgs {
+        public Team team;
+        public bool hasWon;
+    }
+
     private void Awake() {
         Instance = this;
 
         playerPrefab = gameConfigSO.GetPlayerPrefab();
+        playerTeams = gameConfigSO.GetPlayerTeams();
         playOrder = gameConfigSO.GetPlayOrder();
         playCursor = 0;
         teamPriority = Team.None;
@@ -50,6 +58,21 @@ public class GameManager : NetworkBehaviour
         PassPriority(0);
     }
 
+    private bool IsGameOver(out Team team, out bool hasWon) {
+        team = default;
+        hasWon = default;
+
+        foreach (PlayerEntity playerEntity in GameBoard.Instance.GetPlayerEntities()) {
+            if (!playerEntity.GetWin(out bool winState)) continue;
+
+            team = playerEntity.GetTeam();
+            hasWon = winState;
+            return true;
+        }
+
+        return false;
+    }
+
     public void PassPriority(int actionTokens) {
         int playerActionTokens = actionTokens;
 
@@ -59,7 +82,18 @@ public class GameManager : NetworkBehaviour
             playCursor++;
         }
 
-        OnPlayerGivePriority?.Invoke(this, new PlayerGivePriorityArgs { team = teamPriority, actionTokens = playerActionTokens });
+        if (!IsGameOver(out Team team, out bool hasWon)) {
+            OnPlayerGivePriority?.Invoke(this, new PlayerGivePriorityArgs {
+                team = teamPriority,
+                actionTokens = playerActionTokens
+            });
+            return;
+        }
+
+        OnGameOver?.Invoke(this, new GameOverArgs {
+            team = team,
+            hasWon = hasWon
+        });
     }
 
     public List<ulong> GetClientIdsByTeam(Team team) {

@@ -4,11 +4,13 @@ using UnityEngine;
 public class OnlineCardVisual : CardVisual
 {
     [SerializeField] private OnlineCard onlineCard;
-    [SerializeField] private Transform unknown, link, virus;
+    [SerializeField] private Transform unknown, link, virus, revealed, notfound;
 
     private void Awake() {
         onlineCard.OnTileParentChanged += OnlineCard_OnTileParentChanged;
         onlineCard.OnStateChanged += OnlineCard_OnStateChanged;
+        onlineCard.OnRevealValueChanged += OnlineCard_OnRevealValueChanged;
+        onlineCard.OnNotFoundValueChanged += OnlineCard_OnNotFoundValueChanged;
     }
 
     private void OnlineCard_OnTileParentChanged(object sender, Card.TileParentChangedArgs e) {
@@ -22,6 +24,19 @@ public class OnlineCardVisual : CardVisual
             case OnlineCard.CardState.Link: ShowLink(); break;
             case OnlineCard.CardState.Virus: ShowVirus(); break;
         }
+    }
+
+    private void OnlineCard_OnRevealValueChanged(object sender, EventArgs e) {
+        if (onlineCard.IsRevealed() && onlineCard.GetTeam() == PlayerController.LocalInstance.GetTeam()) {
+            ShowReveal();
+        }
+        else {
+            HideReveal();
+        }
+    }
+
+    private void OnlineCard_OnNotFoundValueChanged(object sender, EventArgs e) {
+        if (onlineCard.GetTeam() != PlayerController.LocalInstance.GetTeam()) ShowNotFound();
     }
 
     private void ShowUnknown() {
@@ -41,5 +56,17 @@ public class OnlineCardVisual : CardVisual
         unknown.gameObject.SetActive(false);
         link.gameObject.SetActive(false);
         virus.gameObject.SetActive(true);
+    }
+
+    private void ShowReveal() {
+        revealed.gameObject.SetActive(true);
+    }
+
+    private void HideReveal() {
+        revealed.gameObject.SetActive(false);
+    }
+
+    private void ShowNotFound() {
+        notfound.gameObject.SetActive(true);
     }
 }

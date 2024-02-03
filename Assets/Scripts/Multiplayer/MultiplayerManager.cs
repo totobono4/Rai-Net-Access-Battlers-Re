@@ -51,7 +51,13 @@ public class MultiplayerManager : NetworkBehaviour
         playerName = PlayerPrefs.GetString(PLAYERPREFS_PLAYER_NAME_MULTIPLAYER, "Guest-" + UnityEngine.Random.Range(1000, 10000).ToString());
     }
 
-    
+    public int GetMaxPlayerCount() {
+        return maxPlayerCount;
+    }
+
+    public int GetMinPlayerCount() {
+        return minPlayerCount;
+    }
 
     public void SetPlayerName(string playerName) {
         this.playerName = playerName;
@@ -61,14 +67,6 @@ public class MultiplayerManager : NetworkBehaviour
 
     public string GetPlayerName() {
         return playerName;
-    }
-
-    public int GetMaxPlayerCount() {
-        return maxPlayerCount;
-    }
-
-    public int GetMinPlayerCount() {
-        return minPlayerCount;
     }
 
     private void PlayerDataNetworkList_OnListChanged(NetworkListEvent<PlayerData> changeEvent) {

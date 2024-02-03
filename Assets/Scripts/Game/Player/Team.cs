@@ -1,5 +1,4 @@
-public enum Team
-{
+public enum Team {
     None,
     Yellow,
     Blue

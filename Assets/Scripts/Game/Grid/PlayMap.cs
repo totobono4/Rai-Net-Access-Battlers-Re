@@ -11,7 +11,7 @@ public class PlayMap : TileMap {
 
         List<Tile> result = new List<Tile>();
 
-        List<Vector2Int> neighborMatrix = neighborMatrixSO.neighborMatrix;
+        List<Vector2Int> neighborMatrix = neighborMatrixSO.GetNeighborMatrix();
 
         foreach (Vector2Int neighborRelativeCoords in neighborMatrix) {
             Vector2Int neighborCoords = coords + neighborRelativeCoords;
