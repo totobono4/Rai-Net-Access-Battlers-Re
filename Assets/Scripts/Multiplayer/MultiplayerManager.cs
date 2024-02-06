@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Unity.Collections;
 using Unity.Netcode;
 using Unity.Services.Authentication;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -48,7 +47,11 @@ public class MultiplayerManager : NetworkBehaviour
         playerDataNetworkList = new NetworkList<PlayerData>();
         playerDataNetworkList.OnListChanged += PlayerDataNetworkList_OnListChanged;
 
-        playerName = PlayerPrefs.GetString(PLAYERPREFS_PLAYER_NAME_MULTIPLAYER, "Guest-" + UnityEngine.Random.Range(1000, 10000).ToString());
+        playerName = PlayerPrefs.GetString(PLAYERPREFS_PLAYER_NAME_MULTIPLAYER, GenerateGuestName());
+    }
+
+    private string GenerateGuestName() {
+        return "Guest-" + UnityEngine.Random.Range(1000, 10000).ToString();
     }
 
     public int GetMaxPlayerCount() {
@@ -82,18 +85,6 @@ public class MultiplayerManager : NetworkBehaviour
     }
 
     private void NetworkManager_ConnectionApprovalCallback(NetworkManager.ConnectionApprovalRequest request, NetworkManager.ConnectionApprovalResponse response) {
-        if (SceneManager.GetActiveScene().name != SceneLoader.Scene.LobbyRoomScene.ToString()) {
-            response.Approved = false;
-            response.Reason = "Game has already started";
-            return;
-        }
-
-        if (NetworkManager.Singleton.ConnectedClientsList.Count >= maxPlayerCount) {
-            response.Approved = false;
-            response.Reason = "Game is full";
-            return;
-        }
-        
         response.Approved = true;
     }
 

@@ -14,13 +14,13 @@ public class OnlineCard : Card
         Virus
     };
 
-    private CardState serverState;
+    [SerializeField] private CardState serverState;
     [SerializeField] private CardState state;
     private NetworkVariable<bool> revealed;
 
     [SerializeField] private NeighborMatrixSO neighborMatrixSO;
 
-    public EventHandler<StateChangedArgs> OnStateChanged;
+    public EventHandler<StateChangedArgs> OnStateValueChanged;
     public class StateChangedArgs : EventArgs {
         public CardState state;
     }
@@ -37,9 +37,9 @@ public class OnlineCard : Card
         public OnlineCard capturingCard;
     }
 
-    private NetworkVariable<bool> boosted;
+    [SerializeField] private NetworkVariable<bool> boosted;
 
-    public EventHandler<BoostUpdateArgs> OnBoostUpdate;
+    public EventHandler<BoostUpdateArgs> OnBoostedValueChanged;
     public class BoostUpdateArgs : EventArgs {
         public OnlineCard onlineCard;
         public bool boosted;
@@ -53,6 +53,9 @@ public class OnlineCard : Card
     private NetworkVariable<bool> notFound;
     public EventHandler OnNotFoundValueChanged;
 
+    private NetworkVariable<bool> captured;
+    public EventHandler OnCapturedValueChanged;
+
     protected override void Awake() {
         base.Awake();
 
@@ -65,12 +68,17 @@ public class OnlineCard : Card
         notFound = new NetworkVariable<bool>(false);
         notFound.OnValueChanged += NotFound_OnValueChanged;
 
+        captured = new NetworkVariable<bool>(false);
+        captured.OnValueChanged += Captured_OnValueChanged;
+
         state = CardState.Unknown;
 
         PlayerController.OnTeamChanged += LocalTeamChanged;
     }
 
-    private void Start() {
+    protected override void Start() {
+        base.Start();
+
         StateChanged();
     }
 
@@ -114,18 +122,18 @@ public class OnlineCard : Card
         return range;
     }
 
-    public void SetBoost() {
+    public void SetBoosted() {
         boosted.Value = true;
     }
 
-    public void UnsetBoost() {
+    public void UnsetBoosted() {
         boosted.Value = false;
     }
 
     public bool IsBoosted() { return boosted.Value; }
 
     private void Boosted_OnValueChanged(bool previous, bool current) {
-        OnBoostUpdate?.Invoke(this, new BoostUpdateArgs { onlineCard = this, boosted = current });
+        OnBoostedValueChanged?.Invoke(this, new BoostUpdateArgs { onlineCard = this, boosted = current });
     }
 
     public CardState GetServerCardState() {
@@ -136,14 +144,16 @@ public class OnlineCard : Card
         return state;
     }
 
-    public override int Action(Tile actioned) {
-        TryCapture(actioned);
-        Move(actioned);
-        if (actioned is InfiltrationTile) TryCapture(actioned);
+    public override void Action(Tile tile, out bool finished, out int tokenCost) {
+        TryCapture(tile);
+        Move(tile);
+        if (tile is InfiltrationTile) TryCapture(tile);
 
-        SendActionFinishedCallBack();
         ActionClientRpc();
-        return GetActionTokenCost();
+        
+        tokenCost = GetTokenCost();
+        finished = true;
+        return;
     }
 
     [ClientRpc]
@@ -151,7 +161,7 @@ public class OnlineCard : Card
         SyncCardParent();
     }
 
-    protected override bool IsTileActionable(Tile tile) {
+    public override bool IsActionable(Tile tile) {
         if (!GetValidNeighborsInRange(GetTileParent(), GetRange()).Contains(tile)) return false;
         if (tile.GetCard(out Card card) && card.GetTeam() == GetTeam()) return false;
         if (tile is ExitTile && tile.GetTeam() == GetTeam()) return false;
@@ -212,13 +222,23 @@ public class OnlineCard : Card
         OnMoveCard?.Invoke(this, new MoveCardArgs { movingCard = this, moveTarget = tile });
     }
 
+    private void Captured_OnValueChanged(bool previousValue, bool newValue) {
+        OnCapturedValueChanged?.Invoke(this, EventArgs.Empty);
+    }
+
     public void Capture() {
         Reveal();
-        if (boosted.Value) UnsetBoost();
+        if (boosted.Value) UnsetBoosted();
+        captured.Value = true;
+    }
+
+    public bool IsCaptured() {
+        return captured.Value;
     }
 
     public void Reveal() {
         revealed.Value = true;
+        notFound.Value = false;
     }
 
     public void Unreveal() {
@@ -226,18 +246,27 @@ public class OnlineCard : Card
     }
 
     private void StateChanged() {
-        OnStateChanged?.Invoke(this, new StateChangedArgs { state = state });
+        OnStateValueChanged?.Invoke(this, new StateChangedArgs { state = state });
     }
 
     public bool IsRevealed() {
         return revealed.Value;
     }
 
-    public void NotFounded() {
+    public bool IsNotFound() {
+        return notFound.Value;
+    }
+
+    public void SetNotFound() {
         notFound.Value = true;
     }
 
     private void NotFound_OnValueChanged(bool previousValue, bool newValue) {
         OnNotFoundValueChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void GetMissingInfos(OnlineCard onlineCard) {
+        GameBoard.Instance.GetPlayerEntityFromTeam(onlineCard.GetTeam()).SubOnlineCard(this);
+        boosted.Value = onlineCard.IsBoosted();
     }
 }

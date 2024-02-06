@@ -10,32 +10,27 @@ public abstract class Tile : NetworkBehaviour {
     private Vector3 position;
     [SerializeField] private Card card;
 
-    public EventHandler<SelectedTileArgs> OnSelectedTile;
+    public EventHandler<SelectedTileArgs> OnSelectedValueChanged;
     public class SelectedTileArgs : EventArgs {
-        public Tile selectedTile;
+        public Tile tile;
         public bool isSelected;
     }
 
-    public EventHandler<ActionedTileArgs> OnActionedTile;
-    public class ActionedTileArgs : EventArgs {
-        public Tile actionedTile;
-    }
-
-    public EventHandler<ActionableTileArgs> OnActionableTile;
+    public EventHandler<ActionableTileArgs> OnActionableValueChanged;
     public class ActionableTileArgs : EventArgs {
-        public Tile actionableTile;
+        public Tile tile;
         public bool isActionable;
     }
 
-    public EventHandler<ActionUsedArgs> OnActionUsed;
+    public EventHandler<ActionUsedArgs> OnActionUsedValueChanged;
     public class ActionUsedArgs : EventArgs {
-        public Tile usedTile;
+        public Tile tile;
         public bool isUsed;
     }
 
     protected NetworkVariable<bool> selected;
     protected NetworkVariable<bool> actionable;
-    private NetworkVariable<bool> actionUsed;
+    protected NetworkVariable<bool> actionUsed;
 
     protected virtual void Awake() {
         selected = new NetworkVariable<bool>(false);
@@ -48,8 +43,7 @@ public abstract class Tile : NetworkBehaviour {
         actionUsed.OnValueChanged += ActionUsed_OnValueChanged;
 
         PlayerController.OnSelectTile += PlayerController_OnSelectedTile;
-        PlayerController.OnActionTile += PlayerController_OnActionedTile;
-        PlayerController.OnCancelTile += PlayerController_OnCanceledTile;
+        PlayerController.OnCancelAction += PlayerController_OnCancelAction;
     }
 
     private void Start() {
@@ -90,13 +84,10 @@ public abstract class Tile : NetworkBehaviour {
     }
 
     protected abstract void PlayerController_OnSelectedTile(object sender, PlayerController.SelectedTileArgs e);
-
-    protected abstract void PlayerController_OnActionedTile(object sender, PlayerController.ActionTileArgs e);
-
-    protected abstract void PlayerController_OnCanceledTile(object sender, PlayerController.CancelTileArgs e);
+    protected abstract void PlayerController_OnCancelAction(object sender, PlayerController.CancelTileArgs e);
 
     private void Selected_OnValueChanged(bool previous, bool current) {
-        OnSelectedTile?.Invoke(this, new SelectedTileArgs { selectedTile = this, isSelected = current });
+        OnSelectedValueChanged?.Invoke(this, new SelectedTileArgs { tile = this, isSelected = current });
     }
 
     public void SetActionable() {
@@ -108,7 +99,7 @@ public abstract class Tile : NetworkBehaviour {
     }
 
     private void Actionable_OnValueChanged(bool previous, bool current) {
-        OnActionableTile?.Invoke(this, new ActionableTileArgs { actionableTile = this, isActionable = current });
+        OnActionableValueChanged?.Invoke(this, new ActionableTileArgs { tile = this, isActionable = current });
     }
 
     public void SetActionUsed() {
@@ -120,6 +111,6 @@ public abstract class Tile : NetworkBehaviour {
     }
 
     private void ActionUsed_OnValueChanged(bool previous, bool current) {
-        OnActionUsed?.Invoke(this, new ActionUsedArgs { usedTile = this, isUsed = current });
+        OnActionUsedValueChanged?.Invoke(this, new ActionUsedArgs { tile = this, isUsed = current });
     }
 }

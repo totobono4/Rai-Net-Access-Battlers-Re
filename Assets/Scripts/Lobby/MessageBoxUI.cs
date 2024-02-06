@@ -26,10 +26,6 @@ public class MessageBoxUI : MonoBehaviour
         LobbyManager.Instance.OnTryQuickJoinLobby += LobbyManager_OnTryQuickJoinLobby;
         LobbyManager.Instance.OnQuickJoinLobbyFailed += LobbyManager_OnQuickJoinnLobbyFailed;
 
-        LobbyManager.Instance.OnTryRefreshingLobbies += LobbyManager_OnTryRefreshingLobbies;
-        LobbyManager.Instance.OnRefreshingLobbiesSuccess += LobbyManager_OnRefreshingLobbiesSuccess;
-        LobbyManager.Instance.OnRefreshingLobbiesFailed += LobbyManager_OnRefreshingLobbiesFailed;
-
         LobbyManager.Instance.OnTryJoinLobbyById += LobbyManager_OnTryJoinLobbyById;
         LobbyManager.Instance.OnJoinLobbyByIdFailed += LobbyManager_OnJoinLobbyByIdFailed;
 
@@ -77,27 +73,6 @@ public class MessageBoxUI : MonoBehaviour
     private void MultiplayerManager_OnConnectionFailed(object sender, EventArgs e) {
         statusText.text = "Failed to Connect";
         messageText.text = NetworkManager.Singleton.DisconnectReason;
-        ShowCloseButton();
-        Show();
-    }
-
-    private void LobbyManager_OnTryRefreshingLobbies(object sender, EventArgs e) {
-        statusText.text = "Refreshing Lobbies...";
-        messageText.text = "";
-        HideCloseButton();
-        Show();
-    }
-
-    private void LobbyManager_OnRefreshingLobbiesSuccess(object sender, EventArgs e) {
-        statusText.text = "Lobbies Refreshed";
-        messageText.text = "That's fun but you'll never see that :c";
-        ShowCloseButton();
-        Hide();
-    }
-
-    private void LobbyManager_OnRefreshingLobbiesFailed(object sender, LobbyManager.LobbyServiceExceptionArgs e) {
-        statusText.text = "Failed to refresh Lobbies";
-        messageText.text = e.lobbyServiceException.Message;
         ShowCloseButton();
         Show();
     }
@@ -155,10 +130,6 @@ public class MessageBoxUI : MonoBehaviour
 
         LobbyManager.Instance.OnTryQuickJoinLobby -= LobbyManager_OnTryQuickJoinLobby;
         LobbyManager.Instance.OnQuickJoinLobbyFailed -= LobbyManager_OnQuickJoinnLobbyFailed;
-
-        LobbyManager.Instance.OnTryRefreshingLobbies -= LobbyManager_OnTryRefreshingLobbies;
-        LobbyManager.Instance.OnRefreshingLobbiesSuccess -= LobbyManager_OnRefreshingLobbiesSuccess;
-        LobbyManager.Instance.OnRefreshingLobbiesFailed -= LobbyManager_OnRefreshingLobbiesFailed;
 
         LobbyManager.Instance.OnTryJoinLobbyById -= LobbyManager_OnTryJoinLobbyById;
         LobbyManager.Instance.OnJoinLobbyByIdFailed -= LobbyManager_OnJoinLobbyByIdFailed;

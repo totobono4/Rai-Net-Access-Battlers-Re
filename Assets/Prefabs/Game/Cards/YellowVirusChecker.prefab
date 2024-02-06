@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: team
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6791546593249464643, guid: ee4bef463cf69b3428d693b2902e7d11, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 951099334
+      objectReference: {fileID: 0}
     - target: {fileID: 7116213709367730377, guid: ee4bef463cf69b3428d693b2902e7d11, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -68,6 +72,17 @@ PrefabInstance:
       addedObject: {fileID: 293332435496679704}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee4bef463cf69b3428d693b2902e7d11, type: 3}
+--- !u!114 &6852299396601498463 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5727654800356118089, guid: ee4bef463cf69b3428d693b2902e7d11, type: 3}
+  m_PrefabInstance: {fileID: 1181339820606604566}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 294ffd121ebfee043bf72de6603b773b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8261054053797537247 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7116213709367730377, guid: ee4bef463cf69b3428d693b2902e7d11, type: 3}
@@ -85,6 +100,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: YellowVirusCheckerVisual
       objectReference: {fileID: 0}
+    - target: {fileID: 1018912776013294894, guid: fda5cf87afeecd04c9500ac64830d3be, type: 3}
+      propertyPath: terminalCard
+      value: 
+      objectReference: {fileID: 6852299396601498463}
     - target: {fileID: 7361042422518554631, guid: fda5cf87afeecd04c9500ac64830d3be, type: 3}
       propertyPath: m_RootOrder
       value: 0

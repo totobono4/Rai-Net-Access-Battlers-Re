@@ -1,35 +1,29 @@
-using System.Collections.Generic;
-using Unity.Netcode;
-
 public class FireWall : TerminalCard {
-    private NetworkVariable<bool> activated;
+    public override void Action(Tile tile, out bool finished, out int tokenCost) {
+        tokenCost = 0; finished = false;
 
-    protected override void Awake() {
-        base.Awake();
+        if (tile is not BoardTile) return;
 
-        activated = new NetworkVariable<bool>(false);
+        used.Value = !used.Value;
+
+        if (used.Value) (tile as BoardTile).SetFireWall(GetTeam());
+        else (tile as BoardTile).UnsetFireWall();
+
+        tokenCost = GetTokenCost();
+        finished = true;
+        return;
     }
 
-    public override int Action(Tile actionable) {
-        activated.Value = !activated.Value;
+    public override bool IsActionable(Tile tile) {
+        if (tile is not BoardTile) return false;
 
-        if (activated.Value) (actionable as BoardTile).SetFireWall(GetTeam());
-        else (actionable as BoardTile).UnsetFireWall();
+        if (!used.Value.Equals((tile as BoardTile).HasFireWall())) return false;
 
-        SendActionFinishedCallBack();
-        return GetActionTokenCost();
-    }
-
-    protected override bool IsTileActionable(Tile tile) {
-        if (!activated.Value) {
-            if (tile.GetCard(out Card card) && card.GetTeam() != GetTeam()) return false;
-            if (tile is not BoardTile) return false;
-            if ((tile as BoardTile).HasFireWall()) return false;
+        if (!used.Value) {
+            if ((tile as BoardTile).GetCard(out Card card) && !card.GetTeam().Equals(GetTeam())) return false;
             if (tile is ExitTile) return false;
         }
         else {
-            if (tile is not BoardTile) return false;
-            if (!(tile as BoardTile).HasFireWall()) return false;
             if ((tile as BoardTile).GetFireWall() != GetTeam()) return false;
         }
         return true;

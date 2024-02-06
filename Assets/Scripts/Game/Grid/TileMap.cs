@@ -19,11 +19,28 @@ public class TileMap : NetworkBehaviour {
         tileMap = new GridMap<Transform>(width, height, origin);
     }
 
+    private bool IsCoordsValid(int x, int y) {
+        return tilePrefabArray[y, x] != null;
+    }
+
+    protected List<int[]> GetValidCoords() {
+        List<int[]> validCoords = new List<int[]>();
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                if (!IsCoordsValid(x, y)) continue;
+                validCoords.Add(new int[] { x, y });
+            }
+        }
+        return validCoords;
+    }
+
     public void InstantiateTileMap() {
         if (!IsServer) return;
 
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
+                if (!IsCoordsValid(x, y)) continue;
+
                 Transform tileTransform = Instantiate(tilePrefabArray[y, x], tileMap.GetWorldPosition(x, y), tileMap.GetWorldRotation(x, y));
                 tileTransform.transform.localScale = origin.localScale;
                 NetworkObject tileNetwork = tileTransform.GetComponent<NetworkObject>();
@@ -73,6 +90,7 @@ public class TileMap : NetworkBehaviour {
 
         for (int x = 0; x < GetWidth(); x++) {
             for (int y = 0; y < GetHeight(); y++) {
+                if (!IsCoordsValid(x, y)) continue;
                 result.Add(GetTile(x, y));
             }
         }

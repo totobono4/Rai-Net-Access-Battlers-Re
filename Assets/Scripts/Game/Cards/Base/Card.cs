@@ -13,16 +13,22 @@ public abstract class Card : NetworkBehaviour {
 
     [SerializeField] private Team team;
 
+    [SerializeField] private int actionTokenCost;
+
     public EventHandler<ActionCallbackArgs> OnActionCallback;
     public class ActionCallbackArgs : EventArgs {
-        public bool actionFinished;
-        public Tile actioned;
+        public Card card;
+        public bool finished;
+        public int tokenCost;
     }
-
-    [SerializeField] private int actionTokenCost;
 
     protected virtual void Awake() {
 
+    }
+
+    protected virtual void Start() {
+        PlayerController.OnAction += PlayerController_OnAction;
+        PlayerController.OnCancelAction += PlayerController_OnCancelAction;
     }
 
     public override void OnNetworkSpawn() {
@@ -72,33 +78,53 @@ public abstract class Card : NetworkBehaviour {
         return tileParent.GetPosition();
     }
 
-    protected void SendActionFinishedCallBack() {
-        OnActionCallback?.Invoke(this, new ActionCallbackArgs { actionFinished = true });
+    public void SendActionFinishedCallBack(bool finished, int tokenCost) {
+        OnActionCallback?.Invoke(this, new ActionCallbackArgs {
+            card = this,
+            finished = finished,
+            tokenCost = tokenCost
+        });
     }
-    protected void SendActionUnfinishedCallBack() {
-        OnActionCallback?.Invoke(this, new ActionCallbackArgs { actionFinished = false });
+
+    public int GetTokenCost() {
+        return actionTokenCost;
     }
-    protected abstract bool IsTileActionable(Tile tile);
+
+    public abstract void Action(Tile tile, out bool finished, out int tokenCost);
+
+    public void TryAction(int actionTokens, Tile tile, out bool finished, out int tokenCost) {
+        tokenCost = 0;
+        finished = true;
+
+        if (actionTokens < GetTokenCost() || !IsActionable(tile)) return;
+
+        Action(tile, out finished, out tokenCost);
+        return;
+    }
+
     public List<Tile> GetActionables() {
         List<Tile> allTiles = GameBoard.Instance.GetAllTiles();
         List<Tile> actionableTiles = new List<Tile>();
         foreach (Tile tile in allTiles) {
-            if (!IsTileActionable(tile)) continue;
+            if (!IsActionable(tile)) continue;
             actionableTiles.Add(tile);
         }
         return actionableTiles;
     }
-    public abstract int Action(Tile actionable);
     public virtual void ResetAction() { }
     public virtual bool IsUsable() { return true; }
+    public abstract bool IsActionable(Tile tile);
 
-    public int TryAction(int actionTokens, Tile actionable) {
-        if (actionTokens < GetActionTokenCost() || !IsTileActionable(actionable)) {
-            SendActionFinishedCallBack();
-            return 0;
-        }
-        return Action(actionable);
+    private void PlayerController_OnAction(object sender, PlayerController.ActionTileArgs e) {
+        if (e.card != this) return;
+        if (!IsActionable(e.tile)) return;
+
+        TryAction(e.actionTokens, e.tile, out bool finished, out int tokenCost);
+
+        SendActionFinishedCallBack(finished, tokenCost);
     }
-
-    public int GetActionTokenCost() { return actionTokenCost;}
+    public void PlayerController_OnCancelAction(object sender, PlayerController.CancelTileArgs e) {
+        if ((object)e.card != this) return;
+        ResetAction();
+    }
 }

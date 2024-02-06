@@ -11,8 +11,13 @@ public class TerminalGroup : TileMap {
     }
 
     public void InstantiateTerminalCards() {
-        List<Transform> transforms = terminalGroupSO.GetTerminalCards();
-        for (int i = 0; i < transforms.Count; i++) {
+        List<Transform> transforms = new List<Transform>(terminalGroupSO.GetTerminalCards());
+        List<int[]> validCoords = GetValidCoords();
+
+        for (int i = 0; i < validCoords.Count; i++) {
+            int x = validCoords[i][0];
+            int y = validCoords[i][1];
+
             Transform terminalCardTransform = Instantiate(transforms[i]);
 
             NetworkObject terminalCardNetwork = terminalCardTransform.GetComponent<NetworkObject>();
@@ -20,7 +25,7 @@ public class TerminalGroup : TileMap {
 
             TerminalCard terminalCard = terminalCardTransform.GetComponent<TerminalCard>();
 
-            terminalCard.SetTileParent(GetTile(0, i));
+            terminalCard.SetTileParent(GetTile(x, y));
             terminalCards.Add(terminalCard);
         }
     }

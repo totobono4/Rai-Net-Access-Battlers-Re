@@ -12,25 +12,28 @@ public class PlayerController : NetworkBehaviour {
 
     private Vector3 lastMouseWorldPosition;
     private Tile selectedTile;
-    private List<Tile> actionableTiles;
     private Card actionCard;
+    private List<Tile> actionableTiles;
 
     public EventHandler<HoverTileChangedArgs> OnHoverTileChanged;
     public class HoverTileChangedArgs : EventArgs {
-        public Tile hoverTile;
+        public Tile tile;
     }
     public static EventHandler<SelectedTileArgs> OnSelectTile;
     public class SelectedTileArgs : EventArgs {
         public Team team;
-        public Tile selectedTile;
+        public Tile tile;
     }
-    public static EventHandler<ActionTileArgs> OnActionTile;
+    public static EventHandler<ActionTileArgs> OnAction;
     public class ActionTileArgs : EventArgs {
-        public Tile actionedTile;
+        public int actionTokens;
+        public Tile tile;
+        public Card card;
     }
-    public static EventHandler<CancelTileArgs> OnCancelTile;
+    public static EventHandler<CancelTileArgs> OnCancelAction;
     public class CancelTileArgs : EventArgs {
-        public Tile canceledTile;
+        public Tile tile;
+        public Card card;
     }
 
     public static event EventHandler<AnyPlayerSpawnedArgs> OnAnyPlayerSpawned;
@@ -70,8 +73,8 @@ public class PlayerController : NetworkBehaviour {
         actionTokens.OnValueChanged += ActionTokens_OnValueChanged;
 
         selectedTile = null;
-        actionableTiles = new List<Tile>();
         actionCard = null;
+        actionableTiles = new List<Tile>();
 
         team = new NetworkVariable<Team>();
         team.Value = Team.None;
@@ -117,8 +120,8 @@ public class PlayerController : NetworkBehaviour {
     public override void OnNetworkSpawn() {
         base.OnNetworkSpawn();
 
-        InputSystem.Instance.OnPlayerAction += PlayerAction;
-        GameManager.Instance.OnPlayerGivePriority += PlayerGivePriority;
+        InputSystem.Instance.OnPlayerAction += InputSystem_OnPlayerAction;
+        GameManager.Instance.OnPlayerGivePriority += GameManager_OnPlayerGivePriority;
 
         if (IsOwner) LocalInstance = this;
 
@@ -154,16 +157,16 @@ public class PlayerController : NetworkBehaviour {
         Vector3 mouseWorldPosition = InputSystem.Instance.GetMouseWorldPosition();
         if (GameBoard.Instance.GetTile(mouseWorldPosition, out Tile tile)) {
             OnHoverTileChanged?.Invoke(this, new HoverTileChangedArgs {
-                hoverTile = tile
+                tile = tile
             });
             return;
         }
         OnHoverTileChanged?.Invoke(this, new HoverTileChangedArgs {
-            hoverTile = null
+            tile = null
         });
     }
 
-    private void PlayerGivePriority(object sender, GameManager.PlayerGivePriorityArgs e) {
+    private void GameManager_OnPlayerGivePriority(object sender, GameManager.PlayerGivePriorityArgs e) {
         if (e.team == team.Value) playerState.Value = PlayerState.SelectingForAction;
         else playerState.Value = PlayerState.WaitingForTurn;
         actionTokens.Value = e.actionTokens;
@@ -174,7 +177,7 @@ public class PlayerController : NetworkBehaviour {
         GameManager.Instance.PassPriority(actionTokens.Value);
     }
 
-    private void PlayerAction(object sender, EventArgs e) {
+    private void InputSystem_OnPlayerAction(object sender, EventArgs e) {
         if (!IsOwner) return;
 
         lastMouseWorldPosition = InputSystem.Instance.GetMouseWorldPosition();
@@ -193,12 +196,10 @@ public class PlayerController : NetworkBehaviour {
         }
     }
 
-    // On attend notre tour.
     private void WaitingForTurn() {
 
     }
 
-    // On essaies de sélectionner une case.
     private void SelectingForAction() {
         if (!GameBoard.Instance.GetTile(lastMouseWorldPosition, out Tile tile)) return;
         SelectingForActionServerRpc(tile.GetComponent<NetworkObject>());
@@ -209,11 +210,10 @@ public class PlayerController : NetworkBehaviour {
         if (!tileNetworkReference.TryGet(out NetworkObject tileNetwork)) return;
         Tile tile = tileNetwork.GetComponent<Tile>();
 
-        tile.OnSelectedTile += TileSelected;
-        OnSelectTile?.Invoke(this, new SelectedTileArgs { selectedTile = tile, team = GetTeam() });
+        tile.OnSelectedValueChanged += Tile_OnSelectedTile;
+        OnSelectTile?.Invoke(this, new SelectedTileArgs { tile = tile, team = GetTeam() });
     }
 
-    // On tente de faire une action.
     private void ThinkingForAction() {
         if (!GameBoard.Instance.GetTile(lastMouseWorldPosition, out Tile tile)) return;
         ThinkingForActionServerRpc(tile.GetComponent<NetworkObject>());
@@ -226,56 +226,47 @@ public class PlayerController : NetworkBehaviour {
 
         if (tile.Equals(selectedTile)) {
             foreach (Tile actionable in actionableTiles) actionable.UnsetActionable();
-            OnCancelTile?.Invoke(this, new CancelTileArgs { canceledTile = tile });
+            CancelAction();
             playerState.Value = PlayerState.SelectingForAction;
+            return;
         }
-        else {
-            tile.OnActionedTile += TileActioned;
-            OnActionTile?.Invoke(this, new ActionTileArgs { actionedTile = tile });
-        }
+
+        OnAction?.Invoke(this, new ActionTileArgs {
+            actionTokens = actionTokens.Value,
+            tile = tile,
+            card = actionCard
+        }); ;
     }
 
-    // Si la case est sélectionable, alors on bascule vers la réflexion.
-    private void TileSelected(object sender, Tile.SelectedTileArgs e) {
-        e.selectedTile.OnSelectedTile -= TileSelected;
+    private void Tile_OnSelectedTile(object sender, Tile.SelectedTileArgs e) {
+        e.tile.OnSelectedValueChanged -= Tile_OnSelectedTile;
 
-        if (!e.selectedTile.GetCard(out Card card)) return;
+        if (!e.tile.GetCard(out Card card)) return;
         if (!card.IsUsable()) return;
         if (!e.isSelected) return;
 
-        selectedTile = e.selectedTile;
+        selectedTile = e.tile;
         playerState.Value = PlayerState.ThinkingForAction;
 
         actionableTiles = card.GetActionables();
         foreach (Tile actionable in actionableTiles) actionable.SetActionable();
-    }
-
-    // Si on peut faire une action on la fait, et on appelle le callback d'action pour savoir s'il reste des choses à faire.
-    private void TileActioned(object sender, Tile.ActionedTileArgs e) {
-        e.actionedTile.OnActionedTile -= TileActioned;
-
-        if (selectedTile == null) return;
-        if (!selectedTile.GetCard(out Card card)) return;
 
         actionCard = card;
-        actionCard.OnActionCallback += ActionCallback;
-
-        actionTokens.Value -= actionCard.TryAction(actionTokens.Value, e.actionedTile);
+        actionCard.OnActionCallback += Card_OnActionCallback;
     }
 
-    // Si il reste des choses à faire, on se prépare à continuer, sinon on termine l'action et on fini le tour.
-    private void ActionCallback(object sender, Card.ActionCallbackArgs e) {
-        foreach (Tile actionable in actionableTiles) actionable.UnsetActionable();
-        if (e.actionFinished) {
-            actionCard.OnActionCallback -= ActionCallback;
-            OnCancelTile?.Invoke(this, new CancelTileArgs { canceledTile = selectedTile });
-            selectedTile = null;
-        }
-        else {
-            if (!selectedTile.GetCard(out Card card)) return;
+    private void Card_OnActionCallback(object sender, Card.ActionCallbackArgs e) {
+        actionTokens.Value -= e.tokenCost;
 
-            actionableTiles = card.GetActionables();
-            foreach (Tile actionable in actionableTiles) actionable.SetActionable();
-        }
+        foreach (Tile actionable in actionableTiles) actionable.UnsetActionable();
+        if (e.finished) CancelAction();
+        else foreach (Tile actionable in e.card.GetActionables()) actionable.SetActionable();
+    }
+
+    private void CancelAction() {
+        actionCard.OnActionCallback -= Card_OnActionCallback;
+        OnCancelAction?.Invoke(this, new CancelTileArgs { tile = selectedTile, card = actionCard });
+        selectedTile = null;
+        actionCard = null;
     }
 }

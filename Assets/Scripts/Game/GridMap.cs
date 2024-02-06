@@ -1,4 +1,3 @@
-using Unity.Netcode;
 using UnityEngine;
 
 public class GridMap<TGridObject> {
@@ -7,13 +6,7 @@ public class GridMap<TGridObject> {
     Transform origin;
     private TGridObject[,] gridMap;
 
-    public GridMap(int width, int height, Transform origin) {
-        this.width = width;
-        this.height = height;
-        this.origin = origin;
-
-        gridMap = new TGridObject[width, height];
-
+    private void Debug_GridMap() {
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
                 Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.blue, Mathf.Infinity);
@@ -22,6 +15,16 @@ public class GridMap<TGridObject> {
         }
         Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.blue, Mathf.Infinity);
         Debug.DrawLine(GetWorldPosition(0, height), GetWorldPosition(width, height), Color.blue, Mathf.Infinity);
+    }
+
+    public GridMap(int width, int height, Transform origin) {
+        this.width = width;
+        this.height = height;
+        this.origin = origin;
+
+        gridMap = new TGridObject[width, height];
+
+        Debug_GridMap();   
     }
 
     private bool IsValidPosition(int x, int y) {
@@ -37,8 +40,13 @@ public class GridMap<TGridObject> {
     }
 
     public void GetCoords(Vector3 worldPosition, out int x, out int y) {
-        x = Mathf.FloorToInt((worldPosition - origin.position).x / origin.localScale.x);
-        y = Mathf.FloorToInt((worldPosition - origin.position).z / origin.localScale.z);
+        // Not Perfect
+
+        origin.rotation.ToAngleAxis(out float angle, out Vector3 axis);
+        Vector3 rotated = Quaternion.AngleAxis(angle, axis) * (worldPosition - origin.position);
+
+        x = Mathf.FloorToInt(rotated.x / origin.localScale.x);
+        y = Mathf.FloorToInt(rotated.z / origin.localScale.z);
     }
 
     public void SetValue(int x, int y, TGridObject value) {

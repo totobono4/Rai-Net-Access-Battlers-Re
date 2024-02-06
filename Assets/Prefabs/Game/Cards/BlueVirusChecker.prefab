@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 172914979125742613}
     m_Modifications:
+    - target: {fileID: 3834516261328861280, guid: 84aca54783c01b741b1388bbc5f7ddfc, type: 3}
+      propertyPath: terminalCard
+      value: 
+      objectReference: {fileID: 3448411900974146197}
     - target: {fileID: 4548303794734126856, guid: 84aca54783c01b741b1388bbc5f7ddfc, type: 3}
       propertyPath: m_Name
       value: BlueVirusCheckerVisual
@@ -78,6 +82,10 @@ PrefabInstance:
       propertyPath: team
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6791546593249464643, guid: ee4bef463cf69b3428d693b2902e7d11, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 951099334
+      objectReference: {fileID: 0}
     - target: {fileID: 7116213709367730377, guid: ee4bef463cf69b3428d693b2902e7d11, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -139,3 +147,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7116213709367730377, guid: ee4bef463cf69b3428d693b2902e7d11, type: 3}
   m_PrefabInstance: {fileID: 6964693591310642396}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3448411900974146197 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5727654800356118089, guid: ee4bef463cf69b3428d693b2902e7d11, type: 3}
+  m_PrefabInstance: {fileID: 6964693591310642396}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 294ffd121ebfee043bf72de6603b773b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

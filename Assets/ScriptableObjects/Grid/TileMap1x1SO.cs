@@ -16,6 +16,8 @@ public class TileMap1x1SO : TileMapSO {
     }
 
     public override Transform[,] GetTilePrefabArray() {
-        return new Transform[,] { { tile } };
+        return new Transform[,] {
+            { tile }
+        };
     }
 }

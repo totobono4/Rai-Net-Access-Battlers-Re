@@ -19,9 +19,9 @@ public class FireWalledTileVisual : MonoBehaviour
 
     private void BoardTile_OnFireWallUpdate(object sender, BoardTile.FireWallUpdateArgs e) {
         if (e.boardTile != boardTile) return;
-
         Hide();
-        if (e.boardTile.HasFireWall()) Show(fireWallVisualsDict[e.fireWallTeam]);
+        if (!e.boardTile.HasFireWall()) return;
+        Show(fireWallVisualsDict[e.fireWallTeam]);
     }
 
     private void OnDestroy() {
@@ -31,7 +31,6 @@ public class FireWalledTileVisual : MonoBehaviour
     private void Show(Transform fireWallVisual) {
         fireWallVisual.gameObject.SetActive(true);
     }
-
     private void Hide() {
         foreach (Transform fireWallVisual in fireWallVisuals) fireWallVisual.gameObject.SetActive(false);
     }

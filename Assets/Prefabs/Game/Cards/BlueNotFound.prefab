@@ -72,6 +72,17 @@ PrefabInstance:
       addedObject: {fileID: 6582261339283775079}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3198adee20a4b4fb2b02ca6f539a24, type: 3}
+--- !u!114 &1175301083707266422 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -8847057356920167312, guid: df3198adee20a4b4fb2b02ca6f539a24, type: 3}
+  m_PrefabInstance: {fileID: 1546830542874652934}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88826af7f7c2f146aa96093894a47cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5860718676584912531 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4909493945451669397, guid: df3198adee20a4b4fb2b02ca6f539a24, type: 3}
@@ -129,6 +140,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4849623316531838879, guid: 6aa3d556b0291fa4191963e15df34583, type: 3}
+      propertyPath: terminalCard
+      value: 
+      objectReference: {fileID: 1175301083707266422}
     - target: {fileID: 5288757287791595767, guid: 6aa3d556b0291fa4191963e15df34583, type: 3}
       propertyPath: m_Name
       value: BlueNotFoundVisual

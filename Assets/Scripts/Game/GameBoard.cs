@@ -62,26 +62,17 @@ public class GameBoard : NetworkBehaviour {
         }
     }
 
-    private PlayerEntity GetEntityFromTeam(Team team) {
+    public PlayerEntity GetPlayerEntityFromTeam(Team team) {
         foreach(PlayerEntity playerEntity in players) if (playerEntity.GetTeam() == team) return playerEntity;
         return default;
     }
 
-    public Card CopyOnlineCard(OnlineCard onlineCard, Tile tileParent) {
-        PlayerEntity playerEntity = GetEntityFromTeam(onlineCard.GetTeam());
-        Transform onlineCardPrefab = playerEntity.GetOnlineCardPrefab();
-
-        Transform newOnlineCardTransform = Instantiate(onlineCardPrefab);
-        OnlineCard newOnlineCard = newOnlineCardTransform.GetComponent<OnlineCard>();
-
-        newOnlineCard.SetServerState(onlineCard.GetServerCardState());
-        newOnlineCard.SetTileParent(tileParent);
-        newOnlineCard.GetComponent<NetworkObject>().Spawn();
-        playerEntity.SubOnlineCard(newOnlineCard);
-
+    public OnlineCard CopyOnlineCard(OnlineCard onlineCard) {
+        OnlineCard copy = Instantiate(onlineCard);
         onlineCard.GetComponent<NetworkObject>().Despawn();
-
-        return newOnlineCard;
+        copy.GetComponent<NetworkObject>().Spawn();
+        copy.GetMissingInfos(onlineCard);
+        return copy;
     }
 
     public bool GetTile(Vector3 worldPosition, out Tile tile) {

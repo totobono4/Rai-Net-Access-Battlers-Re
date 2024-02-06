@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using Unity.Netcode;
 using UnityEngine;
-using static UnityEngine.UI.Image;
 
 public class PlayMap : TileMap {
     public List<Tile> GetNeighbors(Vector3 worldPosition, NeighborMatrixSO neighborMatrixSO) {

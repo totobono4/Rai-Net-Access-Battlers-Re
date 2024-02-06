@@ -4,13 +4,15 @@ using UnityEngine;
 public class OnlineCardVisual : CardVisual
 {
     [SerializeField] private OnlineCard onlineCard;
-    [SerializeField] private Transform unknown, link, virus, revealed, notfound;
+    [SerializeField] private Transform unknown, link, virus, lineboostIcon, virusCheckerIcon, notFoundIcon;
 
     private void Awake() {
         onlineCard.OnTileParentChanged += OnlineCard_OnTileParentChanged;
-        onlineCard.OnStateChanged += OnlineCard_OnStateChanged;
+        onlineCard.OnStateValueChanged += OnlineCard_OnStateValueChanged;
         onlineCard.OnRevealValueChanged += OnlineCard_OnRevealValueChanged;
         onlineCard.OnNotFoundValueChanged += OnlineCard_OnNotFoundValueChanged;
+        onlineCard.OnCapturedValueChanged += OnlineCard_OnCapturedValueChanged;
+        onlineCard.OnBoostedValueChanged += OnlineCard_OnBoostedValueChanged;
     }
 
     private void OnlineCard_OnTileParentChanged(object sender, Card.TileParentChangedArgs e) {
@@ -18,7 +20,7 @@ public class OnlineCardVisual : CardVisual
         else transform.rotation = e.tile.transform.rotation;
     }
 
-    private void OnlineCard_OnStateChanged(object sender, OnlineCard.StateChangedArgs e) {
+    private void OnlineCard_OnStateValueChanged(object sender, OnlineCard.StateChangedArgs e) {
         switch(e.state) {
             case OnlineCard.CardState.Unknown: ShowUnknown(); break;
             case OnlineCard.CardState.Link: ShowLink(); break;
@@ -26,17 +28,31 @@ public class OnlineCardVisual : CardVisual
         }
     }
 
+    private void OnlineCard_OnBoostedValueChanged(object sender, OnlineCard.BoostUpdateArgs e) {
+        HideLineBoostIcon();
+        if (e.onlineCard != onlineCard) return;
+        if (!e.boosted) return;
+        ShowLineBoostIcon();
+    }
+
     private void OnlineCard_OnRevealValueChanged(object sender, EventArgs e) {
-        if (onlineCard.IsRevealed() && onlineCard.GetTeam() == PlayerController.LocalInstance.GetTeam()) {
-            ShowReveal();
-        }
-        else {
-            HideReveal();
-        }
+        HideVirusCheckerIcon();
+        if (onlineCard.GetTeam() != PlayerController.LocalInstance.GetTeam()) return;
+        if (!onlineCard.IsRevealed()) return;
+        if (onlineCard.IsCaptured()) return;
+        ShowVirusCheckerIcon();
     }
 
     private void OnlineCard_OnNotFoundValueChanged(object sender, EventArgs e) {
-        if (onlineCard.GetTeam() != PlayerController.LocalInstance.GetTeam()) ShowNotFound();
+        HideNotFoundIcon();
+        if (onlineCard.GetTeam() == PlayerController.LocalInstance.GetTeam()) return;
+        if (!onlineCard.IsNotFound()) return;
+        ShowNotFoundIcon();
+    }
+
+    private void OnlineCard_OnCapturedValueChanged(object sender, EventArgs e) {
+        if (!onlineCard.IsCaptured()) return;
+        HideVirusCheckerIcon();
     }
 
     private void ShowUnknown() {
@@ -44,29 +60,36 @@ public class OnlineCardVisual : CardVisual
         link.gameObject.SetActive(false);
         virus.gameObject.SetActive(false);
     }
-
     private void ShowLink() {
         unknown.gameObject.SetActive(false);
         link.gameObject.SetActive(true);
         virus.gameObject.SetActive(false);
 
     }
-
     private void ShowVirus() {
         unknown.gameObject.SetActive(false);
         link.gameObject.SetActive(false);
         virus.gameObject.SetActive(true);
     }
 
-    private void ShowReveal() {
-        revealed.gameObject.SetActive(true);
+    private void ShowLineBoostIcon() {
+        lineboostIcon.gameObject.SetActive(true);
+    }
+    private void HideLineBoostIcon() {
+        lineboostIcon.gameObject.SetActive(false);
     }
 
-    private void HideReveal() {
-        revealed.gameObject.SetActive(false);
+    private void ShowVirusCheckerIcon() {
+        virusCheckerIcon.gameObject.SetActive(true);
+    }
+    private void HideVirusCheckerIcon() {
+        virusCheckerIcon.gameObject.SetActive(false);
     }
 
-    private void ShowNotFound() {
-        notfound.gameObject.SetActive(true);
+    private void ShowNotFoundIcon() {
+        notFoundIcon.gameObject.SetActive(true);
+    }
+    private void HideNotFoundIcon() {
+        notFoundIcon.gameObject.SetActive(false);
     }
 }

@@ -13,5 +13,12 @@ public class TileMap1x4SO : TileMapSO {
     public override int GetWidth() { return GRID_WIDTH; }
     public override int GetHeight() { return GRID_HEIGHT; }
 
-    public override Transform[,] GetTilePrefabArray() { return new Transform[,] { { tile_0 }, { tile_1 }, { tile_2 }, { tile_3 } }; }
+    public override Transform[,] GetTilePrefabArray() {
+        return new Transform[,] {
+            { tile_0 },
+            { tile_1 },
+            { tile_2 },
+            { tile_3 }
+        };
+    }
 }

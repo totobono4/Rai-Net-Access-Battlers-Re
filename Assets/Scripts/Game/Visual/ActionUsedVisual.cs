@@ -6,18 +6,19 @@ public class ActionUsedVisual : MonoBehaviour
     [SerializeField] Transform actioned;
 
     private void Start() {
-        tile.OnActionUsed += Tile_OnActionUsed;
+        tile.OnActionUsedValueChanged += Tile_OnActionUsed;
     }
 
     private void Tile_OnActionUsed(object sender, Tile.ActionUsedArgs e) {
         Hide();
-        if (e.usedTile == tile && e.isUsed == true) Show();
+        if (e.tile != tile) return;
+        if (!e.isUsed) return;
+        Show();
     }
 
     private void Show() {
         actioned.gameObject.SetActive(true);
     }
-
     private void Hide() {
         actioned.gameObject.SetActive(false);
     }

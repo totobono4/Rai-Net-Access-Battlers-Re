@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using TMPro;
-using Unity.Services.Authentication;
 using Unity.Services.Lobbies.Models;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,8 +8,6 @@ public class JoinGameUI : MonoBehaviour
 {
     [SerializeField] Transform lobbyListContent;
     [SerializeField] Transform lobbyListElementTemplate;
-
-    [SerializeField] Button refreshLobbyListButton;
 
     [SerializeField] Button quickJoinButton;
 
@@ -23,9 +20,6 @@ public class JoinGameUI : MonoBehaviour
     private void Awake() {
         lobbyListElementTransformList = new List<Transform>();
 
-        refreshLobbyListButton.onClick.AddListener(() => {
-            LobbyManager.Instance.RefreshLobbies();
-        });
         quickJoinButton.onClick.AddListener(() => {
             LobbyManager.Instance.QuickJoinLobby();
         });
@@ -34,7 +28,8 @@ public class JoinGameUI : MonoBehaviour
         });
 
         codeInputField.onValueChanged.AddListener((string newString) => {
-            lobbyCode = newString;
+            codeInputField.text = newString.ToUpper();
+            lobbyCode = newString.ToUpper();
         });
 
         lobbyCode = codeInputField.text;
@@ -42,8 +37,6 @@ public class JoinGameUI : MonoBehaviour
 
     private void Start() {
         LobbyManager.Instance.OnRefreshLobbiesUpdate += LobbyManager_OnRefreshLobbiesUpdate;
-
-        if (AuthenticationService.Instance.IsSignedIn) LobbyManager.Instance.RefreshLobbies();
     }
 
     private void LobbyManager_OnRefreshLobbiesUpdate(object sender, LobbyManager.RefreshLobbiesUpdateArgs e) {

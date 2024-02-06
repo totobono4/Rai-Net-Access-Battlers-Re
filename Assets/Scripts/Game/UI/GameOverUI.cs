@@ -40,6 +40,7 @@ public class GameOverUI : MonoBehaviour
     }
 
     private void Show() {
+        InputSystem.Instance.SetInactive();
         gameObject.SetActive(true);
     }
 

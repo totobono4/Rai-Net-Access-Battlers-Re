@@ -1,46 +1,29 @@
-using System.Collections.Generic;
-using Unity.Netcode;
-
 public class LineBoost : TerminalCard {
-    private NetworkVariable<bool> activated;
-
-    protected override void Awake() {
-        base.Awake();
-
-        activated = new NetworkVariable<bool>(false);
-    }
-
-    private void BoostUpdate(object sender, OnlineCard.BoostUpdateArgs e) {
-        if (!e.boosted) e.onlineCard.OnBoostUpdate -= BoostUpdate;
-        activated.Value = e.boosted;
-    }
-
-    public override int Action(Tile actionable) {
-        if (!actionable.GetCard(out Card card)) return 0;
+    public override void Action(Tile tile, out bool finished, out int tokenCost) {
+        tokenCost = 0; finished = false;
+        if (!tile.GetCard(out Card card)) return;
         OnlineCard onlineCard = card as OnlineCard;
 
-        if (!activated.Value) {
-            onlineCard.OnBoostUpdate += BoostUpdate;
-            onlineCard.SetBoost();
-        }
-        else onlineCard.UnsetBoost();
-        SendActionFinishedCallBack();
-        return GetActionTokenCost();
-    }
-
-    protected override bool IsTileActionable(Tile tile) {
-        if (!activated.Value)
-        {
-            if (!tile.GetCard(out Card card)) return false;
-            if (card.GetTeam() != GetTeam()) return false;
-            if (card is not OnlineCard) return false;
+        if (!used.Value) {
+            onlineCard.SetBoosted();
+            SetUsed();
         }
         else {
-            if (!tile.GetCard(out Card card)) return false;
-            if (card.GetTeam() != GetTeam()) return false;
-            if (card is not OnlineCard) return false;
-            if ((card as OnlineCard).IsBoosted() == false) return false;
+            onlineCard.UnsetBoosted();
+            UnsetUsed();
         }
+
+        tokenCost = GetTokenCost();
+        finished = true;
+        return;
+    }
+
+    public override bool IsActionable(Tile tile) {
+        if (!tile.GetCard(out Card card)) return false;
+        if (card.GetTeam() != GetTeam()) return false;
+        if (card is not OnlineCard) return false;
+        if (used.Value && !(card as OnlineCard).IsBoosted()) return false;
+
         return true;
     }
 }

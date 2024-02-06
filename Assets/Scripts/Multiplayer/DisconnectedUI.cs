@@ -44,15 +44,12 @@ public class DisconnectedUI : MonoBehaviour
     }
 
     private void OnDestroy() {
-        if (NetworkManager.Singleton.IsHost) {
-            MultiplayerManager.Instance.OnClientDisconnect -= MultiplayerManager_OnClientDisconnect;
-        }
-        else {
-            MultiplayerManager.Instance.OnHostDisconnect -= MultiplayerManager_OnHostDisconnect;
-        }
+        MultiplayerManager.Instance.OnClientDisconnect -= MultiplayerManager_OnClientDisconnect;
+        MultiplayerManager.Instance.OnHostDisconnect -= MultiplayerManager_OnHostDisconnect;
     }
 
     private void Show() {
+        if (InputSystem.Instance != null) InputSystem.Instance.SetInactive();
         this.gameObject.SetActive(true);
     }
 

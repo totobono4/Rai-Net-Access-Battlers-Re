@@ -11,15 +11,19 @@ using Unity.Services.Lobbies.Models;
 using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LobbyManager : MonoBehaviour
 {
     private const float HEARTBEAT_DELAY = 15f;
+    private const float REFRESH_DELAY = 3f;
+
     private const string KEY_RELAY_JOIN_CODE = "RelayJoinCode";
 
     public static LobbyManager Instance { get; private set; }
 
     private float heartbeatTimer;
+    private float refreshTimer;
     private Lobby currentLobby;
 
     public EventHandler OnTryCreateLobby;
@@ -27,10 +31,6 @@ public class LobbyManager : MonoBehaviour
 
     public EventHandler OnTryQuickJoinLobby;
     public EventHandler<LobbyServiceExceptionArgs> OnQuickJoinLobbyFailed;
-
-    public EventHandler OnTryRefreshingLobbies;
-    public EventHandler OnRefreshingLobbiesSuccess;
-    public EventHandler<LobbyServiceExceptionArgs> OnRefreshingLobbiesFailed;
 
     public EventHandler<RefreshLobbiesUpdateArgs> OnRefreshLobbiesUpdate;
     public class RefreshLobbiesUpdateArgs : EventArgs {
@@ -55,11 +55,13 @@ public class LobbyManager : MonoBehaviour
         InitializeAuthenticationServices();
 
         heartbeatTimer = HEARTBEAT_DELAY;
+        refreshTimer = REFRESH_DELAY;
         currentLobby = null;
     }
 
     private void Update() {
-        if (IsLobbyHost()) LobbyHeartBeat();
+        if (IsLobbyHost()) HandleLobbyHeartBeat();
+        HandleLobbyRefresh();
     }
 
     private void OnApplicationQuit() {
@@ -85,15 +87,32 @@ public class LobbyManager : MonoBehaviour
         return currentLobby != null;
     }
 
-    private async void LobbyHeartBeat() {
-        if (!LobbyExists()) return;
+    private async void HandleLobbyHeartBeat() {
+        try {
+            if (!LobbyExists()) return;
 
-        heartbeatTimer -= Time.deltaTime;
+            heartbeatTimer -= Time.deltaTime;
 
-        if (heartbeatTimer > 0) return;
+            if (heartbeatTimer > 0) return;
 
-        heartbeatTimer = HEARTBEAT_DELAY;
-        await LobbyService.Instance.SendHeartbeatPingAsync(currentLobby.Id);
+            heartbeatTimer = HEARTBEAT_DELAY;
+            await LobbyService.Instance.SendHeartbeatPingAsync(currentLobby.Id);
+        } catch (LobbyServiceException e) {
+            Debug.LogException(e);
+        }
+    }
+
+    private void HandleLobbyRefresh() {
+        if (SceneManager.GetActiveScene().name != SceneLoader.Scene.LobbyScene.ToString()) return;
+
+        if (!AuthenticationService.Instance.IsSignedIn) return;
+
+        refreshTimer -= Time.deltaTime;
+
+        if (refreshTimer > 0) return;
+
+        refreshTimer = REFRESH_DELAY;
+        RefreshLobbies();
     }
 
     public bool IsLobbyHost() {
@@ -105,7 +124,7 @@ public class LobbyManager : MonoBehaviour
         try {
             return await RelayService.Instance.CreateAllocationAsync(MultiplayerManager.Instance.GetMaxPlayerCount() - 1);
         } catch (RelayServiceException e) {
-            Debug.Log(e);
+            Debug.LogException(e);
             return default;
         }
     }
@@ -114,7 +133,7 @@ public class LobbyManager : MonoBehaviour
         try {
             return await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
         } catch (RelayServiceException e) {
-            Debug.Log(e);
+            Debug.LogException(e);
             return default;
         }
     }
@@ -123,7 +142,7 @@ public class LobbyManager : MonoBehaviour
         try {
             return await RelayService.Instance.JoinAllocationAsync(joinCode);
         } catch (RelayServiceException e) {
-            Debug.Log(e);
+            Debug.LogException(e);
             return default;
         }
     }
@@ -151,7 +170,7 @@ public class LobbyManager : MonoBehaviour
             MultiplayerManager.Instance.StartHost();
             SceneLoader.LoadNetwork(SceneLoader.Scene.LobbyRoomScene);
         } catch (LobbyServiceException e) {
-            Debug.Log(e);
+            Debug.LogException(e);
             OnCreateLobbyFailed?.Invoke(this, new LobbyServiceExceptionArgs {
                 lobbyServiceException = e
             });
@@ -172,7 +191,7 @@ public class LobbyManager : MonoBehaviour
 
             MultiplayerManager.Instance.StartClient();
         } catch (LobbyServiceException e) {
-            Debug.Log(e);
+            Debug.LogException(e);
             OnQuickJoinLobbyFailed?.Invoke(this, new LobbyServiceExceptionArgs {
                 lobbyServiceException = e
             });
@@ -181,8 +200,6 @@ public class LobbyManager : MonoBehaviour
 
     public async void RefreshLobbies() {
         try {
-            OnTryRefreshingLobbies?.Invoke(this, EventArgs.Empty);
-
             QueryLobbiesOptions queryLobbiesOptions = new QueryLobbiesOptions {
                 Filters = new List<QueryFilter> {
                     new QueryFilter(QueryFilter.FieldOptions.AvailableSlots, "0", QueryFilter.OpOptions.GT)
@@ -191,13 +208,9 @@ public class LobbyManager : MonoBehaviour
 
             QueryResponse queryRespone = await LobbyService.Instance.QueryLobbiesAsync(queryLobbiesOptions);
 
-            OnRefreshingLobbiesSuccess?.Invoke(this, EventArgs.Empty);
             OnRefreshLobbiesUpdate?.Invoke(this, new RefreshLobbiesUpdateArgs { lobbies = queryRespone.Results });
         } catch (LobbyServiceException e) {
-            Debug.Log(e);
-            OnRefreshingLobbiesFailed?.Invoke(this, new LobbyServiceExceptionArgs {
-                lobbyServiceException = e
-            });
+            Debug.LogException(e);
         }
     }
 
@@ -215,7 +228,7 @@ public class LobbyManager : MonoBehaviour
 
             MultiplayerManager.Instance.StartClient();
         } catch (LobbyServiceException e) {
-            Debug.Log(e);
+            Debug.LogException(e);
             OnJoinLobbyByIdFailed?.Invoke(this, new LobbyServiceExceptionArgs {
                 lobbyServiceException = e
             });
@@ -236,7 +249,7 @@ public class LobbyManager : MonoBehaviour
 
             MultiplayerManager.Instance.StartClient();
         } catch (LobbyServiceException e) {
-            Debug.Log(e);
+            Debug.LogException(e);
             OnJoinLobbyByCodeFailed?.Invoke(this, new LobbyServiceExceptionArgs {
                 lobbyServiceException = e
             });
@@ -251,7 +264,7 @@ public class LobbyManager : MonoBehaviour
 
             currentLobby = null;
         } catch (LobbyServiceException e) {
-            Debug.Log(e);
+            Debug.LogException(e);
         }
     }
 
@@ -263,7 +276,7 @@ public class LobbyManager : MonoBehaviour
 
             currentLobby = null;
         } catch (LobbyServiceException e) {
-            Debug.Log(e);
+            Debug.LogException(e);
         }
     }
 
@@ -273,7 +286,7 @@ public class LobbyManager : MonoBehaviour
         try {
             await LobbyService.Instance.RemovePlayerAsync(currentLobby.Id, playerId);
         } catch (LobbyServiceException e) {
-            Debug.Log(e);
+            Debug.LogException(e);
         }
     }
 

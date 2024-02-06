@@ -264,9 +264,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: OnlineCardVisual
       objectReference: {fileID: 0}
+    - target: {fileID: 5415362887655856353, guid: ea4f7101a3f5c0847b2492f6447b7864, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415362887655856353, guid: ea4f7101a3f5c0847b2492f6447b7864, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415362887655856353, guid: ea4f7101a3f5c0847b2492f6447b7864, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 5928375157197152701, guid: ea4f7101a3f5c0847b2492f6447b7864, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928375157197152701, guid: ea4f7101a3f5c0847b2492f6447b7864, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928375157197152701, guid: ea4f7101a3f5c0847b2492f6447b7864, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928375157197152701, guid: ea4f7101a3f5c0847b2492f6447b7864, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5928375157197152701, guid: ea4f7101a3f5c0847b2492f6447b7864, type: 3}
       propertyPath: m_LocalPosition.x
@@ -350,6 +374,7 @@ MonoBehaviour:
   link: {fileID: 1612533273342157696}
   virus: {fileID: 4758978574184397775}
   revealed: {fileID: 0}
+  notfound: {fileID: 0}
 --- !u!114 &684124976770349444
 MonoBehaviour:
   m_ObjectHideFlags: 0

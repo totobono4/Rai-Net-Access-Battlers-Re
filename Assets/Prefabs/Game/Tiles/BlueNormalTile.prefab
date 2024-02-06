@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueNormalTile
       objectReference: {fileID: 0}
+    - target: {fileID: 8366542805945395625, guid: f158bd0412bdedd43a9634565d379a37, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 951099334
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
