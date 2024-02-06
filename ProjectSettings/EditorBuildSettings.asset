@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/RulesScene.unity
     guid: 0c2207d0569c75c479521d64aabd5412
   - enabled: 1
+    path: Assets/Scenes/CreditScene.unity
+    guid: c73f127d28d1b09408dfe18c9ed624e9
+  - enabled: 1
     path: Assets/Scenes/LobbyScene.unity
     guid: fea63d9208fd1a84193d993095454a5e
   - enabled: 1

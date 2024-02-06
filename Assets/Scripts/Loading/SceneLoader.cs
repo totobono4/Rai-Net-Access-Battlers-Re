@@ -7,6 +7,7 @@ public static class SceneLoader
         MainMenuScene,
         LoadingScene,
         RulesScene,
+        CreditScene,
         LobbyScene,
         LobbyRoomScene,
         GameScene

@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 84
+  controlID: 81
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 0
-  controlID: 83
+  controlID: 80
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 129
+  controlID: 139
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -405,7 +405,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 1
       id: unity-search-toolbar
       index: 1
@@ -444,7 +444,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Light Settings
       index: 0
@@ -470,7 +470,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Cloth Constraints
       index: 1
@@ -483,7 +483,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Cloth Collisions
       index: 2
@@ -535,7 +535,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Occlusion Culling
       index: 3
@@ -548,7 +548,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Physics Debugger
       index: 4
@@ -561,7 +561,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Scene Visibility
       index: 5
@@ -574,7 +574,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Particles
       index: 6
@@ -623,15 +623,15 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_WindowGUID: b0fb5cdeb10f4684e89f06188a85c74b
   m_Gizmos: 1
-  m_OverrideSceneCullingMask: 0
-  m_SceneIsLit: 0
+  m_OverrideSceneCullingMask: 6917529027641081856
+  m_SceneIsLit: 1
   m_SceneLighting: 1
   m_2DMode: 0
   m_isRotationLocked: 0
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 960, y: 540, z: 0}
+    m_Target: {x: 811.13196, y: 528.71954, z: -62.411316}
     speed: 2
     m_Value: {x: 960, y: 540, z: 0}
   m_RenderMode: 0
@@ -644,7 +644,7 @@ MonoBehaviour:
   m_SceneViewState:
     m_AlwaysRefresh: 0
     showFog: 1
-    showSkybox: 0
+    showSkybox: 1
     showFlares: 1
     showImageEffects: 1
     showParticleSystems: 1
@@ -679,13 +679,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.0434756, y: 0.022477208, z: -0.0009776265, w: 0.9988069}
+    m_Target: {x: -0.13986102, y: -0.09728191, z: 0.01377699, w: -0.9853171}
     speed: 2
-    m_Value: {x: 0.04047876, y: 0.02247991, z: -0.0009101839, w: 0.99892706}
+    m_Value: {x: -0.0434756, y: -0.022477206, z: 0.0009776265, w: -0.9988069}
   m_Size:
-    m_Target: 631.31494
+    m_Target: 1165.3882
     speed: 2
-    m_Value: 661.06274
+    m_Value: 631.31494
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -749,7 +749,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: e4f7fffff2f7ffff88700000
+      m_ExpandedIDs: 76d0ffffb2d0ffff3ed4ffff08d5ffffc6d6ffff2cd7ffff3ad7ffffc0d7ffffcae1ffff06e2ffffa8e5ffff72e6ffff30e8ffff96e8ffffa4e8ffff2ae9ffffc6efffff24fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -818,7 +818,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/PrefabsVisuals/Visuals
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -860,10 +860,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 0}
+    scrollPos: {x: 0, y: 59}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000446f0000466f0000486f00004a6f00004c6f0000b06f0000
+    m_ExpandedIDs: ffffffff00000000446f0000466f0000486f00004a6f00004c6f00004e6f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1132,7 +1132,7 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
-  progressMessageClearTime: 270.665143
+  progressMessageClearTime: 1411.3305423000002
   notificationClearTime: -1
   timeSinceLastRotation: -1
   currentBranchAndRemoteHasUpdate: 0
@@ -1342,13 +1342,13 @@ MonoBehaviour:
     gitStatusEntries: []
     changedFilesText: No changed files
     lastCurrentBranchChangedEvent:
-      updatedTimeString: 2024-02-06T22:37:10.387+01:00
+      updatedTimeString: 2024-02-06T23:00:49.283+01:00
       cacheType: 1
     lastStatusEntriesChangedEvent:
-      updatedTimeString: 2024-02-06T22:37:01.361+01:00
+      updatedTimeString: 2024-02-06T23:00:42.348+01:00
       cacheType: 6
     lastLocksChangedEvent:
-      updatedTimeString: 2024-02-06T22:33:00.412+01:00
+      updatedTimeString: 2024-02-06T22:37:38.164+01:00
       cacheType: 7
   historyView:
     currentLogHasUpdate: 0
@@ -1570,13 +1570,13 @@ MonoBehaviour:
     m_Image: {fileID: 0}
     m_Tooltip: Url of the origin remote
   lastCurrentBranchAndRemoteChangedEvent:
-    updatedTimeString: 2024-02-06T22:37:10.387+01:00
+    updatedTimeString: 2024-02-06T23:00:49.283+01:00
     cacheType: 1
   lastTrackingStatusChangedEvent:
-    updatedTimeString: 2024-02-06T22:37:10.362+01:00
+    updatedTimeString: 2024-02-06T23:00:49.985+01:00
     cacheType: 5
   lastStatusEntriesChangedEvent:
-    updatedTimeString: 2024-02-06T22:37:01.361+01:00
+    updatedTimeString: 2024-02-06T23:00:42.348+01:00
     cacheType: 6
   pullButtonContent:
     m_Text: Pull
