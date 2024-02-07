@@ -1,21 +1,37 @@
+using System;
+
 public class LineBoost : TerminalCard {
-    public override void Action(Tile tile, out bool finished, out int tokenCost) {
+    protected override void Awake() {
+        base.Awake();
+    }
+
+    protected override void Action(Tile tile, out bool finished, out int tokenCost) {
         tokenCost = 0; finished = false;
         if (!tile.GetCard(out Card card)) return;
         OnlineCard onlineCard = card as OnlineCard;
 
-        if (!used.Value) {
-            onlineCard.SetBoosted();
-            SetUsed();
-        }
-        else {
-            onlineCard.UnsetBoosted();
-            UnsetUsed();
-        }
+        if (!used.Value) Boost(onlineCard);
+        else Unboost(onlineCard);
 
         tokenCost = GetTokenCost();
         finished = true;
         return;
+    }
+
+    private void Boost(OnlineCard onlineCard) {
+        onlineCard.SetBoosted();
+        SetUsed();
+        onlineCard.OnCapturedValueChanged += OnlineCard_OnCapturedValueChanged;
+    }
+
+    private void Unboost(OnlineCard onlineCard) {
+        onlineCard.UnsetBoosted();
+        UnsetUsed();
+        onlineCard.OnCapturedValueChanged -= OnlineCard_OnCapturedValueChanged;
+    }
+
+    private void OnlineCard_OnCapturedValueChanged(object sender, EventArgs e) {
+        if ((sender as OnlineCard).IsCaptured()) Unboost(sender as OnlineCard);
     }
 
     public override bool IsActionable(Tile tile) {

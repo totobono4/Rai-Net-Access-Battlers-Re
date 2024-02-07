@@ -44,7 +44,7 @@ public class LobbyRoomReadyManager : NetworkBehaviour
         UpdateReadyStateClientRpc(clientId, isReady);
     }
 
-    [ClientRpc]
+    [ClientRpc(Delivery = RpcDelivery.Reliable)]
     private void UpdateReadyStateClientRpc(ulong clientId, bool isReady) {
         clientsReady[clientId] = isReady;
 
@@ -55,7 +55,7 @@ public class LobbyRoomReadyManager : NetworkBehaviour
         TogglePlayerReadyServerRpc();
     }
 
-    [ServerRpc(RequireOwnership = false)]
+    [ServerRpc(Delivery = RpcDelivery.Reliable, RequireOwnership = false)]
     private void TogglePlayerReadyServerRpc(ServerRpcParams serverRpcParams = default) {
         ulong clientId = serverRpcParams.Receive.SenderClientId;
         if (!clientsReady.ContainsKey(clientId)) clientsReady[clientId] = true;

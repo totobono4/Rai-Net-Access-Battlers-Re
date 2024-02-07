@@ -62,19 +62,6 @@ public class GameBoard : NetworkBehaviour {
         }
     }
 
-    public PlayerEntity GetPlayerEntityFromTeam(Team team) {
-        foreach(PlayerEntity playerEntity in players) if (playerEntity.GetTeam() == team) return playerEntity;
-        return default;
-    }
-
-    public OnlineCard CopyOnlineCard(OnlineCard onlineCard) {
-        OnlineCard copy = Instantiate(onlineCard);
-        onlineCard.GetComponent<NetworkObject>().Despawn();
-        copy.GetComponent<NetworkObject>().Spawn();
-        copy.GetMissingInfos(onlineCard);
-        return copy;
-    }
-
     public bool GetTile(Vector3 worldPosition, out Tile tile) {
         foreach (TileMap tileMap in tileMaps) {
             if (tileMap.TryGetTile(worldPosition, out tile)) return true;

@@ -102,7 +102,7 @@ public class OnlineCard : Card
         serverState = newState;
     }
 
-    [ServerRpc(RequireOwnership = false)]
+    [ServerRpc(Delivery = RpcDelivery.Reliable, RequireOwnership = false)]
     private void SyncServerStateServerRpc() {
         List<ulong> ids = GameManager.Instance.GetClientIdsByTeam(GetTeam());
         ClientRpcParams clientRpcParams = new ClientRpcParams { Send = new ClientRpcSendParams { TargetClientIds = ids.ToArray() } };
@@ -110,7 +110,7 @@ public class OnlineCard : Card
         else SyncServerStateClientRpc(serverState, clientRpcParams);
     }
 
-    [ClientRpc]
+    [ClientRpc(Delivery = RpcDelivery.Reliable)]
     private void SyncServerStateClientRpc(CardState newState, ClientRpcParams clientRpcParams) {
         state = newState;
         StateChanged();
@@ -144,7 +144,7 @@ public class OnlineCard : Card
         return state;
     }
 
-    public override void Action(Tile tile, out bool finished, out int tokenCost) {
+    protected override void Action(Tile tile, out bool finished, out int tokenCost) {
         TryCapture(tile);
         Move(tile);
         if (tile is InfiltrationTile) TryCapture(tile);
@@ -156,7 +156,7 @@ public class OnlineCard : Card
         return;
     }
 
-    [ClientRpc]
+    [ClientRpc(Delivery = RpcDelivery.Reliable)]
     private void ActionClientRpc() {
         SyncCardParent();
     }
@@ -228,7 +228,6 @@ public class OnlineCard : Card
 
     public void Capture() {
         Reveal();
-        if (boosted.Value) UnsetBoosted();
         captured.Value = true;
     }
 
@@ -263,10 +262,5 @@ public class OnlineCard : Card
 
     private void NotFound_OnValueChanged(bool previousValue, bool newValue) {
         OnNotFoundValueChanged?.Invoke(this, EventArgs.Empty);
-    }
-
-    public void GetMissingInfos(OnlineCard onlineCard) {
-        GameBoard.Instance.GetPlayerEntityFromTeam(onlineCard.GetTeam()).SubOnlineCard(this);
-        boosted.Value = onlineCard.IsBoosted();
     }
 }

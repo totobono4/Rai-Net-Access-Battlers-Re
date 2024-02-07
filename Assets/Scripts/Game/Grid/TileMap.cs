@@ -53,7 +53,7 @@ public class TileMap : NetworkBehaviour {
         }
     }
 
-    [ClientRpc]
+    [ClientRpc(Delivery = RpcDelivery.Reliable)]
     private void SyncGridMapClientRpc(int x, int y, NetworkObjectReference tileNetworkReference) {
         if (!tileNetworkReference.TryGet(out NetworkObject tileNetwork)) return;
         tileMap.SetValue(x, y, tileNetwork.transform);

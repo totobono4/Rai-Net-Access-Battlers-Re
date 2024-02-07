@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Unity.Netcode;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerEntity : NetworkBehaviour {
@@ -34,7 +35,9 @@ public class PlayerEntity : NetworkBehaviour {
         virusScore.Value = 0;
     }
 
-    public Team GetTeam() { return team; }
+    public Team GetTeam() {
+        return team;
+    }
 
     public bool GetWin(out bool winState) {
         winState = default;
@@ -56,9 +59,15 @@ public class PlayerEntity : NetworkBehaviour {
         tileMaps.Add(infiltrationGroup);
         return tileMaps;
     }
-    public Transform GetOnlineCardPrefab() { return onlineCardPrefab; }
-    public Dictionary<OnlineCard.CardState, int> GetOnlineCardCounts() { return onlineCardCounts; }
-    public List<Vector2Int> GetOnlineCardPlacements() { return onlineCardPlacements; }
+    public Transform GetOnlineCardPrefab() {
+        return onlineCardPrefab;
+    }
+    public Dictionary<OnlineCard.CardState, int> GetOnlineCardCounts() {
+        return onlineCardCounts;
+    }
+    public List<Vector2Int> GetOnlineCardPlacements() {
+        return onlineCardPlacements;
+    }
 
     public void InstantiateTiles() {
         foreach (ScoreSlotGroup scoreSlotGroup in scoreSlotsGroupDict.Values) { scoreSlotGroup.InstantiateTileMap(); }
@@ -70,7 +79,9 @@ public class PlayerEntity : NetworkBehaviour {
         terminalGroup.InstantiateTerminalCards();
     }
 
-    public List<TerminalCard> GetTerminalCards() { return terminalGroup.GetTerminalCards(); }
+    public List<TerminalCard> GetTerminalCards() {
+        return terminalGroup.GetTerminalCards();
+    }
 
     public void SubOnlineCards(List<OnlineCard> onlineCards) {
         foreach (OnlineCard onlineCard in onlineCards) {
@@ -79,22 +90,23 @@ public class PlayerEntity : NetworkBehaviour {
     }
 
     public void SubOnlineCard(OnlineCard onlineCard) {
-        onlineCard.OnMoveCard += MoveCard;
-        onlineCard.OnCaptureCard += CaptureCard;
-        onlineCard.OnCaptureCard += AddScore;
+        onlineCard.OnMoveCard += OnlineCard_OnMoveCard;
+        onlineCard.OnCaptureCard += OnlineCard_OnCaptureCard;
     }
 
-    private void MoveCard(object sender, OnlineCard.MoveCardArgs e) {
+    private void OnlineCard_OnMoveCard(object sender, OnlineCard.MoveCardArgs e) {
         e.movingCard.SetTileParent(e.moveTarget);
     }
 
-    private void CaptureCard(object sender, OnlineCard.CaptureCardArgs e) {
+    private void OnlineCard_OnCaptureCard(object sender, OnlineCard.CaptureCardArgs e) {
         scoreSlotsGroupDict[e.capturedCard.GetServerCardState()].AddOnlineCard(e.capturedCard);
         e.capturedCard.Capture();
+
+        if (e.capturingCard.GetTeam() == GetTeam()) AddScore(e.capturedCard.GetCardState());
     }
 
-    private void AddScore(object sender, OnlineCard.CaptureCardArgs e) {
-        if (e.capturedCard.GetCardState() == OnlineCard.CardState.Virus) { virusScore.Value++; }
-        if (e.capturedCard.GetCardState() == OnlineCard.CardState.Link) { linkScore.Value++; }
+    private void AddScore(OnlineCard.CardState cardState) {
+        if (cardState == OnlineCard.CardState.Virus) virusScore.Value++;
+        if (cardState == OnlineCard.CardState.Link) linkScore.Value++;
     }
 }
