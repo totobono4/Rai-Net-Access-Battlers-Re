@@ -138,7 +138,7 @@ public class PlayerController : NetworkBehaviour {
         SendEventHoverTileChanged();
     }
 
-    [ServerRpc(RequireOwnership = false)]
+    [ServerRpc(Delivery = RpcDelivery.Reliable, RequireOwnership = false)]
     private void InitializeServerRpc(ServerRpcParams serverRpcParams = default) {
         team.Value = MultiplayerManager.Instance.GetClientTeamById(serverRpcParams.Receive.SenderClientId);
     }
@@ -196,6 +196,18 @@ public class PlayerController : NetworkBehaviour {
         }
     }
 
+    private bool IsWaitingForTurn() {
+        return playerState.Value == PlayerState.WaitingForTurn;
+    }
+
+    private bool IsSelectingForAction() {
+        return playerState.Value == PlayerState.SelectingForAction;
+    }
+
+    private bool IsThinkingForAction() {
+        return playerState.Value == PlayerState.ThinkingForAction;
+    }
+
     private void WaitingForTurn() {
 
     }
@@ -205,8 +217,10 @@ public class PlayerController : NetworkBehaviour {
         SelectingForActionServerRpc(tile.GetComponent<NetworkObject>());
     }
 
-    [ServerRpc]
+    [ServerRpc(Delivery = RpcDelivery.Reliable)]
     private void SelectingForActionServerRpc(NetworkObjectReference tileNetworkReference) {
+        if (!IsSelectingForAction()) return;
+
         if (!tileNetworkReference.TryGet(out NetworkObject tileNetwork)) return;
         Tile tile = tileNetwork.GetComponent<Tile>();
 
@@ -219,8 +233,10 @@ public class PlayerController : NetworkBehaviour {
         ThinkingForActionServerRpc(tile.GetComponent<NetworkObject>());
     }
 
-    [ServerRpc]
+    [ServerRpc(Delivery = RpcDelivery.Reliable)]
     private void ThinkingForActionServerRpc(NetworkObjectReference tileNetworkReference) {
+        if (!IsThinkingForAction()) return;
+
         if (!tileNetworkReference.TryGet(out NetworkObject tileNetwork)) return;
         Tile tile = tileNetwork.GetComponent<Tile>();
 
@@ -239,6 +255,8 @@ public class PlayerController : NetworkBehaviour {
     }
 
     private void Tile_OnSelectedTile(object sender, Tile.SelectedTileArgs e) {
+        if (!IsSelectingForAction()) return;
+
         e.tile.OnSelectedValueChanged -= Tile_OnSelectedTile;
 
         if (!e.tile.GetCard(out Card card)) return;
@@ -256,6 +274,8 @@ public class PlayerController : NetworkBehaviour {
     }
 
     private void Card_OnActionCallback(object sender, Card.ActionCallbackArgs e) {
+        if (!IsThinkingForAction()) return;
+
         actionTokens.Value -= e.tokenCost;
 
         foreach (Tile actionable in actionableTiles) actionable.UnsetActionable();

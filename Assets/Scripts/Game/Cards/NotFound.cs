@@ -21,7 +21,7 @@ public class NotFound : TerminalCard {
         SwitchAskClientRpc(clientRpcParams);
     }
 
-    [ClientRpc]
+    [ClientRpc(Delivery = RpcDelivery.Reliable)]
     private void SwitchAskClientRpc(ClientRpcParams clientRpcParams) {
         OnSwitchAsking?.Invoke(this, EventArgs.Empty);
     }
@@ -35,28 +35,30 @@ public class NotFound : TerminalCard {
         SwitchServerRpc(switching);
     }
 
-    [ServerRpc(RequireOwnership = false)]
+    [ServerRpc(Delivery = RpcDelivery.Reliable, RequireOwnership = false)]
     public void SwitchServerRpc(bool switching) {
+        if (IsUsed()) return;
+
         GetCardAndParent(usedTiles[0], out Card card1, out Tile parent1);
         GetCardAndParent(usedTiles[1], out Card card2, out Tile parent2);
 
-        OnlineCard newCard1 = GameBoard.Instance.CopyOnlineCard(card1 as OnlineCard);
-        OnlineCard newCard2 = GameBoard.Instance.CopyOnlineCard(card2 as OnlineCard);
-
         if (switching) {
-            newCard1.SetTileParent(parent2);
-            newCard2.SetTileParent(parent1);
+            card1.SetTileParent(parent2);
+            card2.SetTileParent(parent1);
+            card1.SetTileParent(parent2);
+            card1.SyncCardParent();
+            card2.SyncCardParent();
         }
 
-        newCard1.SetNotFound();
-        newCard2.SetNotFound();
+        (card1 as OnlineCard).SetNotFound();
+        (card2 as OnlineCard).SetNotFound();
 
         SetUsed();
         ResetAction();
         SendActionFinishedCallBack(true, GetTokenCost());
     }
 
-    public override void Action(Tile tile, out bool finished, out int tokenCost) {
+    protected override void Action(Tile tile, out bool finished, out int tokenCost) {
         tokenCost = 0; finished = false;
 
         tile.SetActionUsed();

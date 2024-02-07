@@ -1,5 +1,5 @@
 public class FireWall : TerminalCard {
-    public override void Action(Tile tile, out bool finished, out int tokenCost) {
+    protected override void Action(Tile tile, out bool finished, out int tokenCost) {
         tokenCost = 0; finished = false;
 
         if (tile is not BoardTile) return;

@@ -44,20 +44,22 @@ public abstract class Card : NetworkBehaviour {
         SyncCardParentServerRpc();
     }
 
-    [ServerRpc(RequireOwnership = false)]
+    [ServerRpc(Delivery = RpcDelivery.Reliable, RequireOwnership = false)]
     private void SyncCardParentServerRpc() {
         if (tileParent == null) return;
         NetworkObject tileParentNetwork = tileParent.GetComponent<NetworkObject>();
         SyncCardParentClientRpc(tileParentNetwork);
     }
 
-    [ClientRpc]
+    [ClientRpc(Delivery = RpcDelivery.Reliable)]
     private void SyncCardParentClientRpc(NetworkObjectReference tileNetworkReference) {
         tileNetworkReference.TryGet(out NetworkObject tileNetwork);
         SetTileParent(tileNetwork.GetComponent<Tile>());
     }
 
-    public Team GetTeam() { return team; }
+    public Team GetTeam() {
+        return team;
+    }
 
     public void SetTileParent(Tile tile) {
         if (tileParent != null) tileParent.ClearCard();
@@ -72,7 +74,9 @@ public abstract class Card : NetworkBehaviour {
         OnTileParentChanged?.Invoke(this, new TileParentChangedArgs { tile = tile, team = team });
     }
 
-    public Tile GetTileParent() { return tileParent; }
+    public Tile GetTileParent() {
+        return tileParent;
+    }
 
     protected Vector3 GetPosition() {
         return tileParent.GetPosition();
@@ -90,9 +94,9 @@ public abstract class Card : NetworkBehaviour {
         return actionTokenCost;
     }
 
-    public abstract void Action(Tile tile, out bool finished, out int tokenCost);
+    protected abstract void Action(Tile tile, out bool finished, out int tokenCost);
 
-    public void TryAction(int actionTokens, Tile tile, out bool finished, out int tokenCost) {
+    protected void TryAction(int actionTokens, Tile tile, out bool finished, out int tokenCost) {
         tokenCost = 0;
         finished = true;
 

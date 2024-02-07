@@ -7,7 +7,6 @@ public class RulesUI : MonoBehaviour
 
     private void Awake() {
         mainMenuButton.onClick.AddListener(() => {
-            Debug.Log("kkkk");
             SceneLoader.Load(SceneLoader.Scene.MainMenuScene);
         });
     }
