@@ -32,6 +32,8 @@ public class MessageBoxUI : MonoBehaviour
         LobbyManager.Instance.OnTryJoinLobbyByCode += LobbyManager_OnTryJoinLobbyByCode;
         LobbyManager.Instance.OnJoinLobbyByCodeFailed += LobbyManager_OnJoinLobbyByCodeFailed;
 
+        LobbyManager.Instance.OnRefusedToJoinLobby += LobbyManager_OnRefusedToJoinLobby;
+
         Hide();
     }
 
@@ -101,6 +103,13 @@ public class MessageBoxUI : MonoBehaviour
     private void LobbyManager_OnJoinLobbyByCodeFailed(object sender, LobbyManager.LobbyServiceExceptionArgs e) {
         statusText.text = "Joining Lobby by Code Failed";
         messageText.text = e.lobbyServiceException.Message;
+        ShowCloseButton();
+        Show();
+    }
+
+    private void LobbyManager_OnRefusedToJoinLobby(object sender, LobbyManager.RefusedToJoinLobbyArgs e) {
+        statusText.text = "Refused to join Lobby";
+        messageText.text = e.message;
         ShowCloseButton();
         Show();
     }

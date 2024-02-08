@@ -876,9 +876,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1838722400}
     m_Modifications:
+    - target: {fileID: -7572246409934497668, guid: b96700db464ee514088b264ec9c16266, type: 3}
+      propertyPath: m_Name
+      value: version
+      objectReference: {fileID: 0}
     - target: {fileID: 2986634699053827378, guid: b96700db464ee514088b264ec9c16266, type: 3}
       propertyPath: m_Name
       value: MenuVisuals
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056719106466755762, guid: b96700db464ee514088b264ec9c16266, type: 3}
+      propertyPath: m_Name
+      value: GameInfosVisual
       objectReference: {fileID: 0}
     - target: {fileID: 7081881324318929548, guid: b96700db464ee514088b264ec9c16266, type: 3}
       propertyPath: m_Pivot.x

@@ -19,6 +19,10 @@ public class LobbyManager : MonoBehaviour
     private const float REFRESH_DELAY = 3f;
 
     private const string KEY_RELAY_JOIN_CODE = "RelayJoinCode";
+    private const string KEY_PROTOCOL_VERSION = "ProtocolVersion";
+    private const string KEY_HOST_BUILD_VERSION = "HostBuildVersion";
+
+    private bool canQuit;
 
     public static LobbyManager Instance { get; private set; }
 
@@ -47,6 +51,11 @@ public class LobbyManager : MonoBehaviour
         public LobbyServiceException lobbyServiceException;
     }
 
+    public EventHandler<RefusedToJoinLobbyArgs> OnRefusedToJoinLobby;
+    public class RefusedToJoinLobbyArgs : EventArgs {
+        public string message;
+    }
+
     private void Awake() {
         Instance = this;
 
@@ -57,19 +66,41 @@ public class LobbyManager : MonoBehaviour
         heartbeatTimer = HEARTBEAT_DELAY;
         refreshTimer = REFRESH_DELAY;
         currentLobby = null;
+
+        canQuit = true;
+        Application.wantsToQuit += Application_WantsToQuit;
+    }
+
+    private async void LeaveAndQuit() {
+        if (!LobbyExists(currentLobby)) {
+            canQuit = true;
+            Application.Quit();
+        }
+
+        try {
+            if (IsLobbyHost(currentLobby)) await LobbyService.Instance.DeleteLobbyAsync(currentLobby.Id);
+            else await LobbyService.Instance.RemovePlayerAsync(currentLobby.Id, AuthenticationService.Instance.PlayerId);
+
+            canQuit = true;
+            Application.Quit();
+        }
+        catch (LobbyServiceException e) {
+            Debug.LogException(e);
+
+            canQuit = true;
+            Application.Quit();
+        }
+    }
+
+    private bool Application_WantsToQuit() {
+        if (!AuthenticationService.Instance.IsSignedIn) return false;
+        if (!canQuit) LeaveAndQuit();
+        return canQuit;
     }
 
     private void Update() {
-        if (IsLobbyHost()) HandleLobbyHeartBeat();
+        if (IsLobbyHost(currentLobby)) HandleLobbyHeartBeat();
         HandleLobbyRefresh();
-    }
-
-    private void OnApplicationQuit() {
-        if (IsLobbyHost()) {
-            DeleteLobby();
-            NetworkManager.Singleton.Shutdown();
-        }
-        else LeaveLobby();
     }
 
     private async void InitializeAuthenticationServices() {
@@ -83,13 +114,13 @@ public class LobbyManager : MonoBehaviour
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
     }
 
-    private bool LobbyExists() {
-        return currentLobby != null;
+    private bool LobbyExists(Lobby lobby) {
+        return lobby != null;
     }
 
     private async void HandleLobbyHeartBeat() {
         try {
-            if (!LobbyExists()) return;
+            if (!LobbyExists(currentLobby)) return;
 
             heartbeatTimer -= Time.deltaTime;
 
@@ -115,9 +146,9 @@ public class LobbyManager : MonoBehaviour
         RefreshLobbies();
     }
 
-    public bool IsLobbyHost() {
-        if (!LobbyExists()) return false;
-        return currentLobby.HostId == AuthenticationService.Instance.PlayerId;
+    public bool IsLobbyHost(Lobby lobby) {
+        if (!LobbyExists(lobby)) return false;
+        return lobby.HostId == AuthenticationService.Instance.PlayerId;
     }
 
     private async Task<Allocation> AllocateRelay() {
@@ -154,12 +185,15 @@ public class LobbyManager : MonoBehaviour
             Allocation allocation = await AllocateRelay();
 
             string relayJoinCode = await GetRelayJoinCode(allocation);
+            ushort protocolVersion = NetworkManager.Singleton.NetworkConfig.ProtocolVersion;
 
             int maxPlayers = MultiplayerManager.Instance.GetMaxPlayerCount();
             CreateLobbyOptions options = new CreateLobbyOptions() {
                 IsPrivate = isPrivate,
                 Data = new Dictionary<string, DataObject> {
-                    { KEY_RELAY_JOIN_CODE, new DataObject(DataObject.VisibilityOptions.Member, relayJoinCode) }
+                    { KEY_RELAY_JOIN_CODE, new DataObject(DataObject.VisibilityOptions.Member, relayJoinCode) },
+                    { KEY_PROTOCOL_VERSION, new DataObject(DataObject.VisibilityOptions.Public, protocolVersion.ToString()) },
+                    { KEY_HOST_BUILD_VERSION, new DataObject(DataObject.VisibilityOptions.Public, Application.version) }
                 }
             };
 
@@ -169,11 +203,54 @@ public class LobbyManager : MonoBehaviour
 
             MultiplayerManager.Instance.StartHost();
             SceneLoader.LoadNetwork(SceneLoader.Scene.LobbyRoomScene);
+
+            canQuit = false;
         } catch (LobbyServiceException e) {
             Debug.LogException(e);
             OnCreateLobbyFailed?.Invoke(this, new LobbyServiceExceptionArgs {
                 lobbyServiceException = e
             });
+        }
+    }
+
+    private bool DataKeyExists(Lobby lobby, string dataKey) {
+        if (lobby.Data == null) return false;
+        if (!lobby.Data.ContainsKey(dataKey)) return false;
+        return true;
+    }
+
+    private string GetHostProtocolVersion(Lobby lobby) {
+        if (!LobbyExists(lobby)) return "0";
+        if (!DataKeyExists(lobby, KEY_PROTOCOL_VERSION)) return "0";
+        return lobby.Data[KEY_PROTOCOL_VERSION].Value;
+    }
+
+    private bool IsNetworkCompatible(Lobby lobby) {
+        if (!LobbyExists(lobby)) return false;
+        return GetHostProtocolVersion(lobby) == NetworkManager.Singleton.NetworkConfig.ProtocolVersion.ToString();
+    }
+
+    private async void JoinLobby() {
+        try {
+            if (!IsNetworkCompatible(currentLobby)) {
+                OnRefusedToJoinLobby?.Invoke(this, new RefusedToJoinLobbyArgs {
+                    message = "Not Network Compatible with host's Version"
+                });
+                LeaveLobby();
+                return;
+            }
+
+            string relayJoinCode = currentLobby.Data[KEY_RELAY_JOIN_CODE].Value;    
+
+            JoinAllocation joinAllocation = await JoinRelay(relayJoinCode);
+
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(new RelayServerData(joinAllocation, "dtls"));
+
+            MultiplayerManager.Instance.StartClient();
+
+            canQuit = false;
+        } catch (LobbyServiceException e) {
+            throw new LobbyServiceException(e);
         }
     }
 
@@ -183,13 +260,7 @@ public class LobbyManager : MonoBehaviour
 
             currentLobby = await LobbyService.Instance.QuickJoinLobbyAsync();
 
-            string relayJoinCode = currentLobby.Data[KEY_RELAY_JOIN_CODE].Value;
-
-            JoinAllocation joinAllocation = await JoinRelay(relayJoinCode);
-
-            NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(new RelayServerData(joinAllocation, "dtls"));
-
-            MultiplayerManager.Instance.StartClient();
+            JoinLobby();
         } catch (LobbyServiceException e) {
             Debug.LogException(e);
             OnQuickJoinLobbyFailed?.Invoke(this, new LobbyServiceExceptionArgs {
@@ -220,13 +291,7 @@ public class LobbyManager : MonoBehaviour
 
             currentLobby = await LobbyService.Instance.JoinLobbyByIdAsync(lobbyId);
 
-            string relayJoinCode = currentLobby.Data[KEY_RELAY_JOIN_CODE].Value;
-
-            JoinAllocation joinAllocation = await JoinRelay(relayJoinCode);
-
-            NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(new RelayServerData(joinAllocation, "dtls"));
-
-            MultiplayerManager.Instance.StartClient();
+            JoinLobby();
         } catch (LobbyServiceException e) {
             Debug.LogException(e);
             OnJoinLobbyByIdFailed?.Invoke(this, new LobbyServiceExceptionArgs {
@@ -241,13 +306,7 @@ public class LobbyManager : MonoBehaviour
 
             currentLobby = await LobbyService.Instance.JoinLobbyByCodeAsync(lobbyCode);
 
-            string relayJoinCode = currentLobby.Data[KEY_RELAY_JOIN_CODE].Value;
-
-            JoinAllocation joinAllocation = await JoinRelay(relayJoinCode);
-
-            NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(new RelayServerData(joinAllocation, "dtls"));
-
-            MultiplayerManager.Instance.StartClient();
+            JoinLobby();
         } catch (LobbyServiceException e) {
             Debug.LogException(e);
             OnJoinLobbyByCodeFailed?.Invoke(this, new LobbyServiceExceptionArgs {
@@ -257,7 +316,7 @@ public class LobbyManager : MonoBehaviour
     }
 
     public async void DeleteLobby() {
-        if (!LobbyExists()) return;
+        if (!LobbyExists(currentLobby)) return;
 
         try {
             await LobbyService.Instance.DeleteLobbyAsync(currentLobby.Id);
@@ -269,7 +328,7 @@ public class LobbyManager : MonoBehaviour
     }
 
     public async void LeaveLobby() {
-        if (!LobbyExists()) return;
+        if (!LobbyExists(currentLobby)) return;
 
         try {
             await LobbyService.Instance.RemovePlayerAsync(currentLobby.Id, AuthenticationService.Instance.PlayerId);
@@ -281,7 +340,7 @@ public class LobbyManager : MonoBehaviour
     }
 
     public async void KickPlayer(string playerId) {
-        if (!LobbyExists()) return;
+        if (!LobbyExists(currentLobby)) return;
 
         try {
             await LobbyService.Instance.RemovePlayerAsync(currentLobby.Id, playerId);
@@ -291,12 +350,24 @@ public class LobbyManager : MonoBehaviour
     }
 
     public string GetLobbyName() {
-        if (!LobbyExists()) return null;
+        if (!LobbyExists(currentLobby)) return null;
         return currentLobby.Name;
     }
 
     public string GetLobbyCode() {
-        if (!LobbyExists()) return null;
+        if (!LobbyExists(currentLobby)) return null;
         return currentLobby.LobbyCode;
+    }
+
+    public string GetLobbyHostBuildVersion(Lobby lobby) {
+        if (lobby == null) return null;
+        if (!DataKeyExists(lobby, KEY_HOST_BUILD_VERSION)) return "0.1.0b\nor below";
+        return lobby.Data[KEY_HOST_BUILD_VERSION].Value;
+    }
+
+    public bool IsLobbyNeworkCompatible(Lobby lobby) {
+        if (lobby == null) return false;
+
+        return IsNetworkCompatible(lobby);
     }
 }
