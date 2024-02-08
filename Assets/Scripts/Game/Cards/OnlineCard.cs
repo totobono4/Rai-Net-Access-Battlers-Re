@@ -106,6 +106,7 @@ public class OnlineCard : Card
     private void SyncServerStateServerRpc() {
         List<ulong> ids = GameManager.Instance.GetClientIdsByTeam(GetTeam());
         ClientRpcParams clientRpcParams = new ClientRpcParams { Send = new ClientRpcSendParams { TargetClientIds = ids.ToArray() } };
+        if (!IsRevealed()) SyncUnknownStateClientRpc();
         if (IsRevealed()) SyncServerStateClientRpc(serverState, default);
         else SyncServerStateClientRpc(serverState, clientRpcParams);
     }
@@ -113,6 +114,12 @@ public class OnlineCard : Card
     [ClientRpc(Delivery = RpcDelivery.Reliable)]
     private void SyncServerStateClientRpc(CardState newState, ClientRpcParams clientRpcParams) {
         state = newState;
+        StateChanged();
+    }
+
+    [ClientRpc(Delivery = RpcDelivery.Reliable)]
+    private void SyncUnknownStateClientRpc() {
+        state = CardState.Unknown;
         StateChanged();
     }
 
@@ -240,10 +247,6 @@ public class OnlineCard : Card
         notFound.Value = false;
     }
 
-    public void Unreveal() {
-        
-    }
-
     private void StateChanged() {
         OnStateValueChanged?.Invoke(this, new StateChangedArgs { state = state });
     }
@@ -258,6 +261,7 @@ public class OnlineCard : Card
 
     public void SetNotFound() {
         notFound.Value = true;
+        revealed.Value = false;
     }
 
     private void NotFound_OnValueChanged(bool previousValue, bool newValue) {

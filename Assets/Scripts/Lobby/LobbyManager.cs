@@ -72,6 +72,11 @@ public class LobbyManager : MonoBehaviour
     }
 
     private async void LeaveAndQuit() {
+        if (!AuthenticationService.Instance.IsSignedIn) {
+            canQuit = true;
+            Application.Quit();
+        }
+
         if (!LobbyExists(currentLobby)) {
             canQuit = true;
             Application.Quit();
