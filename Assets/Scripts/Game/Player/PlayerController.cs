@@ -196,7 +196,7 @@ public class PlayerController : NetworkBehaviour {
         }
     }
 
-    private bool IsWaitingForTurn() {
+    public bool IsWaitingForTurn() {
         return playerState.Value == PlayerState.WaitingForTurn;
     }
 

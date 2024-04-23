@@ -190,4 +190,8 @@ public class MultiplayerManager : NetworkBehaviour
     public PlayerData GetPlayerDataByIndex(int playerIndex) {
         return playerDataNetworkList[playerIndex];
     }
+
+    public int GetPlayerCount() {
+        return playerDataNetworkList.Count;
+    }
 }

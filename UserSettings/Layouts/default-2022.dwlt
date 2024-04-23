@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 91
+  controlID: 96
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -145,8 +145,8 @@ MonoBehaviour:
     y: 0
     width: 439
     height: 531
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 0
-  controlID: 90
+  controlID: 95
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 149
+  controlID: 235
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Window
+  m_Name: InspectorWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -319,14 +319,14 @@ MonoBehaviour:
     y: 0
     width: 555
     height: 939
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 20}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
   - {fileID: 20}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -631,9 +631,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 960, y: 540, z: 0}
+    m_Target: {x: 993.65027, y: 545.8487, z: -1.0162964}
     speed: 2
-    m_Value: {x: 960, y: 540, z: 0}
+    m_Value: {x: 993.65027, y: 545.8487, z: -1.0162964}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -679,13 +679,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.061271016, y: 0.079586715, z: -0.004871811, w: 0.99497837}
+    m_Target: {x: 0.077893786, y: 0.028736677, z: -0.0022105742, w: 0.9966004}
     speed: 2
-    m_Value: {x: 0.061268143, y: 0.07958299, z: -0.0048715826, w: 0.99493176}
+    m_Value: {x: 0.07788949, y: 0.028735092, z: -0.0022104522, w: 0.9965454}
   m_Size:
-    m_Target: 788.3296
+    m_Target: 774.0781
     speed: 2
-    m_Value: 788.3296
+    m_Value: 774.0781
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -749,21 +749,21 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 4c1fffff881fffff4423ffff2824ffff2c26ffff6a26fffff426ffff0227ffffa227ffffb6d5ffff04d6ffffc0d9ffffa4daffffa8dcffffe6dcffff70ddffff7eddffff1edeffffdcdfffff6ceaffff28eeffff24fbffff
+      m_ExpandedIDs: aea3fdffeea3fdffbaa7fdff9ea8fdffa2aafdffe0aafdff6aabfdff78abfdff18acfdff260afeff660afeff320efeff160ffeff1a11feff5811feffe211fefff011feff9012feff268efeff668efeff3292feff1693feff1a95feff5895feffe295fefff095feff9096feff3ac5feff54c5feff9cc6feff9ec6feffc6c6feff60d0feffa0d0feff6cd4feff50d5feff54d7feff92d7feff1cd8feff2ad8feffcad8feff8c08ffffdc08ffffa80cffff8c0dffff900fffffce0fffff5810ffff6610ffff0611ffff3a3cffffe042ffff2e43fffffa46ffffde47ffffe249ffff204affffaa4affffb84affff584bffffe47cffff347effff609cffff829cffffbca6ffff0aa7ffffd6aaffffbaabffffbeadfffffcadffff86aeffff94aeffff34afffff94b0ffff24fbffff686f0000ac6f00009e90000094ab0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: GameUI
+        m_OriginalName: GameUI
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -33564
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 6}
       m_SearchString: 
@@ -818,7 +818,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -835,7 +835,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: c85c0000
     m_LastClickedID: 23752
-    m_ExpandedIDs: 00000000b47a0000b67a0000b87a0000ba7a0000
+    m_ExpandedIDs: 00000000f67a0000f87a0000fa7a0000fc7a0000fe7a0000007b0000027b0000047b0000067b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -863,18 +863,18 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000b47a0000b67a0000b87a0000ba7a0000ca7a0000167b0000fc7b0000
+    m_ExpandedIDs: ffffffff00000000f67a0000f87a0000fa7a0000fc7a0000fe7a0000007b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: RulesVisuals
-      m_OriginalName: RulesVisuals
+      m_Name: PlayerInfosElementTemplate
+      m_OriginalName: PlayerInfosElementTemplate
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 32016
+      m_UserData: 28652
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -1132,14 +1132,14 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
-  progressMessageClearTime: 3649.2193606
+  progressMessageClearTime: -1
   notificationClearTime: -1
   timeSinceLastRotation: -1
   currentBranchAndRemoteHasUpdate: 0
   currentTrackingStatusHasUpdate: 0
-  currentStatusEntriesHasUpdate: 0
-  repositoryProgressHasUpdate: 0
-  appManagerProgressHasUpdate: 0
+  currentStatusEntriesHasUpdate: 1
+  repositoryProgressHasUpdate: 1
+  appManagerProgressHasUpdate: 1
   changeTab: 3
   activeTab: 3
   initProjectView:
@@ -1210,10 +1210,21 @@ MonoBehaviour:
       folders:
         keys:
         - Remote branches
+        - origin
         values:
         - path: Remote branches
           label: Remote branches
           level: 0
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 0
+          checkState: 0
+        - path: origin
+          label: origin
+          level: 1
           isFolder: 1
           isContainer: 0
           isCollapsed: 0
@@ -1240,10 +1251,30 @@ MonoBehaviour:
         isActive: 0
         treeIsCheckable: 0
         checkState: 0
+      - path: origin
+        label: origin
+        level: 1
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 0
+        checkState: 0
+      - path: origin/master
+        label: master
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 0
+        checkState: 0
       selectedNode:
-        path: 
-        label: 
-        level: 0
+        path: origin/master
+        label: master
+        level: 2
         isFolder: 0
         isContainer: 0
         isCollapsed: 0
@@ -1257,17 +1288,17 @@ MonoBehaviour:
     disableDelete: 1
     disableCreate: 1
     lastLocalAndRemoteBranchListChangedEvent:
-      updatedTimeString: 2023-06-20T01:58:53.931+02:00
+      updatedTimeString: 2024-03-15T16:09:28.855+01:00
       cacheType: 2
     lastCurrentBranchAndRemoteChange:
-      updatedTimeString: 2023-06-20T01:58:37.274+02:00
+      updatedTimeString: 2024-03-15T16:09:25.949+01:00
       cacheType: 1
     currentBranch:
       name: master
-      tracking: 
+      tracking: origin/master
     currentRemote:
-      name: 
-      url: 
+      name: origin
+      url: https://github.com/totobono4/Rai-Net-Access-Battlers-Re.git
       login: 
       user: 
       host: 
@@ -1275,23 +1306,728 @@ MonoBehaviour:
       token: 
     localBranches:
     - name: master
-      tracking: 
-    remoteBranches: []
+      tracking: origin/master
+    remoteBranches:
+    - name: origin/master
+      tracking: '[None]'
   changesView:
-    currentBranchHasUpdate: 0
-    currentStatusEntriesHasUpdate: 0
-    currentLocksHasUpdate: 0
+    currentBranchHasUpdate: 1
+    currentStatusEntriesHasUpdate: 1
+    currentLocksHasUpdate: 1
     commitBody: 
     commitMessage: 
     currentBranch: master
     treeScroll: {x: 0, y: 0}
     treeChanges:
       assets:
-        keys: []
-        values: []
+        keys:
+        - 00000000000000001000000000000000
+        - 2826caa26f9f1804fa456150b977a6d5
+        - e110bbe921377564389d5fabafd10baa
+        - e15cbef174cdd0f4889a0b28ee2b5637
+        - 521c53a4c1908664ea513f2a9b4d34ad
+        - 5263249841658e64aa544e8e41c4e88c
+        - 43e46f66265e4ac49ba669379c754c94
+        - c7ba42f65304ad34f924533a19df3882
+        - 5f8fa70fd89d93c41ae1695e13a5e598
+        - 3a9f8229e6b48694db2501a57d197f04
+        - 6ea315d0fd7389c41b19996891e99ae3
+        - 9fc0d4010bbf28b4594072e72b8655ab
+        - 104be7f49c6875840a544d9f6178145a
+        - d73daa0eb80123944b74ea670ee60609
+        - 9d98e54ffd5b24142bdb21f4e589e93e
+        - f8c58b8d1b244ab4a99ac18ff47876f5
+        - 0031ae0f5c481d74998a9701e63b0258
+        - 1dee5dc2dc200b24482f0066ad176930
+        - 5effcce606488054ca2ba3d13ac2ff59
+        - 3e2bc20c0ccab194cb22adabf0097acd
+        - 4032a8a58c1c5a44f8185f378c83006a
+        - b89d00fd7c8155045a6b412b0245dd2d
+        - ef38ecdb3016bd54f88dae943be028e4
+        values:
+        - path: Assets
+          label: Assets
+          level: 0
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Prefabs
+          label: Prefabs
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Prefabs\Game
+          label: Game
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Prefabs\Game\UI
+          label: UI
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Prefabs\Game\UI\GameUI.prefab
+          label: GameUI.prefab
+          level: 4
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Prefabs\Game\UI\GameUI.prefab
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\UI\GameUI.prefab
+            projectPath: Assets\Prefabs\Game\UI\GameUI.prefab
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Prefabs\Game\UI\PauseTab.prefab
+          label: PauseTab.prefab
+          level: 4
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Prefabs\Game\UI\PauseTab.prefab
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\UI\PauseTab.prefab
+            projectPath: Assets\Prefabs\Game\UI\PauseTab.prefab
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Prefabs\Game\UI\PauseUI.prefab
+          label: PauseUI.prefab
+          level: 4
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Prefabs\Game\UI\PauseUI.prefab
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\UI\PauseUI.prefab
+            projectPath: Assets\Prefabs\Game\UI\PauseUI.prefab
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Prefabs\Game\UI\PlayerInfosUI
+          label: PlayerInfosUI
+          level: 4
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosElementTemplate.prefab
+          label: PlayerInfosElementTemplate.prefab
+          level: 5
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosElementTemplate.prefab
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosElementTemplate.prefab
+            projectPath: Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosElementTemplate.prefab
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosUI.prefab
+          label: PlayerInfosUI.prefab
+          level: 5
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosUI.prefab
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosUI.prefab
+            projectPath: Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosUI.prefab
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Scenes
+          label: Scenes
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scenes\GameScene.unity
+          label: GameScene.unity
+          level: 2
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scenes\GameScene.unity
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scenes\GameScene.unity
+            projectPath: Assets\Scenes\GameScene.unity
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts
+          label: Scripts
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Game
+          label: Game
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Game\Cards
+          label: Cards
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Game\Cards\LineBoost.cs
+          label: LineBoost.cs
+          level: 4
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\Game\Cards\LineBoost.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\Cards\LineBoost.cs
+            projectPath: Assets\Scripts\Game\Cards\LineBoost.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\Game\UI
+          label: UI
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Game\UI\PlayerInfosElement.cs
+          label: PlayerInfosElement.cs
+          level: 4
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\Game\UI\PlayerInfosElement.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\UI\PlayerInfosElement.cs
+            projectPath: Assets\Scripts\Game\UI\PlayerInfosElement.cs
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Scripts\Game\UI\PlayerInfosUI.cs
+          label: PlayerInfosUI.cs
+          level: 4
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\Game\UI\PlayerInfosUI.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\UI\PlayerInfosUI.cs
+            projectPath: Assets\Scripts\Game\UI\PlayerInfosUI.cs
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Scripts\LobbyRoom
+          label: LobbyRoom
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\LobbyRoom\PlayerListElement.cs
+          label: PlayerListElement.cs
+          level: 3
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\LobbyRoom\PlayerListElement.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\LobbyRoom\PlayerListElement.cs
+            projectPath: Assets\Scripts\LobbyRoom\PlayerListElement.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\Multiplayer
+          label: Multiplayer
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Multiplayer\MultiplayerManager.cs
+          label: MultiplayerManager.cs
+          level: 3
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\Multiplayer\MultiplayerManager.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Multiplayer\MultiplayerManager.cs
+            projectPath: Assets\Scripts\Multiplayer\MultiplayerManager.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
       folders:
-        keys: []
-        values: []
+        keys:
+        - Assets
+        - Assets\Prefabs
+        - Assets\Prefabs\Game
+        - Assets\Prefabs\Game\UI
+        - Assets\Prefabs\Game\UI\PlayerInfosUI
+        - Assets\Scenes
+        - Assets\Scripts
+        - Assets\Scripts\Game
+        - Assets\Scripts\Game\Cards
+        - Assets\Scripts\Game\UI
+        - Assets\Scripts\LobbyRoom
+        - Assets\Scripts\Multiplayer
+        - UserSettings
+        - UserSettings\Layouts
+        values:
+        - path: Assets
+          label: Assets
+          level: 0
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Prefabs
+          label: Prefabs
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Prefabs\Game
+          label: Game
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Prefabs\Game\UI
+          label: UI
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Prefabs\Game\UI\PlayerInfosUI
+          label: PlayerInfosUI
+          level: 4
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scenes
+          label: Scenes
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts
+          label: Scripts
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Game
+          label: Game
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Game\Cards
+          label: Cards
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Game\UI
+          label: UI
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\LobbyRoom
+          label: LobbyRoom
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Multiplayer
+          label: Multiplayer
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: UserSettings
+          label: UserSettings
+          level: 0
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: UserSettings\Layouts
+          label: Layouts
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
       checkedFileNodes:
         keys: []
         values: []
@@ -1320,6 +2056,600 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
+      - path: Assets
+        label: Assets
+        level: 0
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Prefabs
+        label: Prefabs
+        level: 1
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Prefabs\Game
+        label: Game
+        level: 2
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Prefabs\Game\UI
+        label: UI
+        level: 3
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Prefabs\Game\UI\GameUI.prefab
+        label: GameUI.prefab
+        level: 4
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Prefabs\Game\UI\GameUI.prefab
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\UI\GameUI.prefab
+          projectPath: Assets\Prefabs\Game\UI\GameUI.prefab
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Prefabs\Game\UI\GameUI.prefab.meta
+        label: GameUI.prefab.meta
+        level: 5
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Prefabs\Game\UI\GameUI.prefab.meta
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\UI\GameUI.prefab.meta
+          projectPath: Assets\Prefabs\Game\UI\GameUI.prefab.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Prefabs\Game\UI\PauseTab.prefab
+        label: PauseTab.prefab
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Prefabs\Game\UI\PauseTab.prefab
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\UI\PauseTab.prefab
+          projectPath: Assets\Prefabs\Game\UI\PauseTab.prefab
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Prefabs\Game\UI\PauseUI.prefab
+        label: PauseUI.prefab
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Prefabs\Game\UI\PauseUI.prefab
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\UI\PauseUI.prefab
+          projectPath: Assets\Prefabs\Game\UI\PauseUI.prefab
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Prefabs\Game\UI\PlayerInfosUI.meta
+        label: PlayerInfosUI.meta
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Prefabs\Game\UI\PlayerInfosUI.meta
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\UI\PlayerInfosUI.meta
+          projectPath: Assets\Prefabs\Game\UI\PlayerInfosUI.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Prefabs\Game\UI\PlayerInfosUI
+        label: PlayerInfosUI
+        level: 4
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosElementTemplate.prefab
+        label: PlayerInfosElementTemplate.prefab
+        level: 5
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosElementTemplate.prefab
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosElementTemplate.prefab
+          projectPath: Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosElementTemplate.prefab
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosElementTemplate.prefab.meta
+        label: PlayerInfosElementTemplate.prefab.meta
+        level: 6
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosElementTemplate.prefab.meta
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosElementTemplate.prefab.meta
+          projectPath: Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosElementTemplate.prefab.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosUI.prefab
+        label: PlayerInfosUI.prefab
+        level: 5
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosUI.prefab
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosUI.prefab
+          projectPath: Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosUI.prefab
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosUI.prefab.meta
+        label: PlayerInfosUI.prefab.meta
+        level: 6
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosUI.prefab.meta
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosUI.prefab.meta
+          projectPath: Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosUI.prefab.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Scenes
+        label: Scenes
+        level: 1
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scenes\GameScene.unity
+        label: GameScene.unity
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scenes\GameScene.unity
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scenes\GameScene.unity
+          projectPath: Assets\Scenes\GameScene.unity
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts
+        label: Scripts
+        level: 1
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scripts\Game
+        label: Game
+        level: 2
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scripts\Game\Cards
+        label: Cards
+        level: 3
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scripts\Game\Cards\LineBoost.cs
+        label: LineBoost.cs
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\Game\Cards\LineBoost.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\Cards\LineBoost.cs
+          projectPath: Assets\Scripts\Game\Cards\LineBoost.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\Game\UI
+        label: UI
+        level: 3
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scripts\Game\UI\PlayerInfosElement.cs
+        label: PlayerInfosElement.cs
+        level: 4
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\Game\UI\PlayerInfosElement.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\UI\PlayerInfosElement.cs
+          projectPath: Assets\Scripts\Game\UI\PlayerInfosElement.cs
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Scripts\Game\UI\PlayerInfosElement.cs.meta
+        label: PlayerInfosElement.cs.meta
+        level: 5
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\Game\UI\PlayerInfosElement.cs.meta
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\UI\PlayerInfosElement.cs.meta
+          projectPath: Assets\Scripts\Game\UI\PlayerInfosElement.cs.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Scripts\Game\UI\PlayerInfosUI.cs
+        label: PlayerInfosUI.cs
+        level: 4
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\Game\UI\PlayerInfosUI.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\UI\PlayerInfosUI.cs
+          projectPath: Assets\Scripts\Game\UI\PlayerInfosUI.cs
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Scripts\Game\UI\PlayerInfosUI.cs.meta
+        label: PlayerInfosUI.cs.meta
+        level: 5
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\Game\UI\PlayerInfosUI.cs.meta
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\UI\PlayerInfosUI.cs.meta
+          projectPath: Assets\Scripts\Game\UI\PlayerInfosUI.cs.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Scripts\LobbyRoom
+        label: LobbyRoom
+        level: 2
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scripts\LobbyRoom\PlayerListElement.cs
+        label: PlayerListElement.cs
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\LobbyRoom\PlayerListElement.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\LobbyRoom\PlayerListElement.cs
+          projectPath: Assets\Scripts\LobbyRoom\PlayerListElement.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\Multiplayer
+        label: Multiplayer
+        level: 2
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scripts\Multiplayer\MultiplayerManager.cs
+        label: MultiplayerManager.cs
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\Multiplayer\MultiplayerManager.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Multiplayer\MultiplayerManager.cs
+          projectPath: Assets\Scripts\Multiplayer\MultiplayerManager.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: UserSettings
+        label: UserSettings
+        level: 0
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: UserSettings\EditorUserSettings.asset
+        label: EditorUserSettings.asset
+        level: 1
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: UserSettings\EditorUserSettings.asset
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\UserSettings\EditorUserSettings.asset
+          projectPath: UserSettings\EditorUserSettings.asset
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: UserSettings\Layouts
+        label: Layouts
+        level: 1
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: UserSettings\Layouts\default-2022.dwlt
+        label: default-2022.dwlt
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: UserSettings\Layouts\default-2022.dwlt
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\UserSettings\Layouts\default-2022.dwlt
+          projectPath: UserSettings\Layouts\default-2022.dwlt
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
       selectedNode:
         path: 
         label: 
@@ -1339,16 +2669,130 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-    gitStatusEntries: []
-    changedFilesText: No changed files
+    gitStatusEntries:
+    - path: Assets\Prefabs\Game\UI\GameUI.prefab
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\UI\GameUI.prefab
+      projectPath: Assets\Prefabs\Game\UI\GameUI.prefab
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Prefabs\Game\UI\GameUI.prefab.meta
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\UI\GameUI.prefab.meta
+      projectPath: Assets\Prefabs\Game\UI\GameUI.prefab.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Prefabs\Game\UI\PauseTab.prefab
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\UI\PauseTab.prefab
+      projectPath: Assets\Prefabs\Game\UI\PauseTab.prefab
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Prefabs\Game\UI\PauseUI.prefab
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\UI\PauseUI.prefab
+      projectPath: Assets\Prefabs\Game\UI\PauseUI.prefab
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Prefabs\Game\UI\PlayerInfosUI.meta
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\UI\PlayerInfosUI.meta
+      projectPath: Assets\Prefabs\Game\UI\PlayerInfosUI.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosElementTemplate.prefab
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosElementTemplate.prefab
+      projectPath: Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosElementTemplate.prefab
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosElementTemplate.prefab.meta
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosElementTemplate.prefab.meta
+      projectPath: Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosElementTemplate.prefab.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosUI.prefab
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosUI.prefab
+      projectPath: Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosUI.prefab
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosUI.prefab.meta
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosUI.prefab.meta
+      projectPath: Assets\Prefabs\Game\UI\PlayerInfosUI\PlayerInfosUI.prefab.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Scenes\GameScene.unity
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scenes\GameScene.unity
+      projectPath: Assets\Scenes\GameScene.unity
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\Game\Cards\LineBoost.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\Cards\LineBoost.cs
+      projectPath: Assets\Scripts\Game\Cards\LineBoost.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\Game\UI\PlayerInfosElement.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\UI\PlayerInfosElement.cs
+      projectPath: Assets\Scripts\Game\UI\PlayerInfosElement.cs
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Scripts\Game\UI\PlayerInfosElement.cs.meta
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\UI\PlayerInfosElement.cs.meta
+      projectPath: Assets\Scripts\Game\UI\PlayerInfosElement.cs.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Scripts\Game\UI\PlayerInfosUI.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\UI\PlayerInfosUI.cs
+      projectPath: Assets\Scripts\Game\UI\PlayerInfosUI.cs
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Scripts\Game\UI\PlayerInfosUI.cs.meta
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\UI\PlayerInfosUI.cs.meta
+      projectPath: Assets\Scripts\Game\UI\PlayerInfosUI.cs.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Scripts\LobbyRoom\PlayerListElement.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\LobbyRoom\PlayerListElement.cs
+      projectPath: Assets\Scripts\LobbyRoom\PlayerListElement.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\Multiplayer\MultiplayerManager.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Multiplayer\MultiplayerManager.cs
+      projectPath: Assets\Scripts\Multiplayer\MultiplayerManager.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: UserSettings\EditorUserSettings.asset
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\UserSettings\EditorUserSettings.asset
+      projectPath: UserSettings\EditorUserSettings.asset
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: UserSettings\Layouts\default-2022.dwlt
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\UserSettings\Layouts\default-2022.dwlt
+      projectPath: UserSettings\Layouts\default-2022.dwlt
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    changedFilesText: 19 changed files
     lastCurrentBranchChangedEvent:
-      updatedTimeString: 2024-02-08T17:27:59.384+01:00
+      updatedTimeString: 2024-03-15T17:09:50.052+01:00
       cacheType: 1
     lastStatusEntriesChangedEvent:
-      updatedTimeString: 2024-02-08T17:28:29.666+01:00
+      updatedTimeString: 2024-03-15T17:58:37.645+01:00
       cacheType: 6
     lastLocksChangedEvent:
-      updatedTimeString: 2024-02-08T17:24:16.355+01:00
+      updatedTimeString: 2024-03-15T17:56:24.251+01:00
       cacheType: 7
   historyView:
     currentLogHasUpdate: 0
@@ -1486,7 +2930,7 @@ MonoBehaviour:
       changingManually: 0
     hasRemote: 1
     lastCurrentRemoteChangedEvent:
-      updatedTimeString: 2024-01-14T15:53:07.498+01:00
+      updatedTimeString: 2024-03-15T16:09:25.949+01:00
       cacheType: 1
     newRepositoryRemoteUrl: https://github.com/totobono4/Rai-Net-Access-Battlers-Re.git
     repositoryRemoteName: origin
@@ -1499,7 +2943,7 @@ MonoBehaviour:
       newGitEmail: totobono4@outlook.fr
       needsSaving: 0
       lastCheckUserChangedEvent:
-        updatedTimeString: 0001-01-01T00:00:00.000+00:00
+        updatedTimeString: 2024-03-15T16:37:38.141+01:00
         cacheType: 8
     webTimeout: 100000
     gitTimeout: 5000
@@ -1559,7 +3003,7 @@ MonoBehaviour:
   currentRemoteUrl: https://github.com/totobono4/Rai-Net-Access-Battlers-Re.git
   statusAhead: 0
   statusBehind: 0
-  hasItemsToCommit: 0
+  hasItemsToCommit: 1
   isTrackingRemoteBranch: 1
   currentBranchContent:
     m_Text: master
@@ -1570,13 +3014,13 @@ MonoBehaviour:
     m_Image: {fileID: 0}
     m_Tooltip: Url of the origin remote
   lastCurrentBranchAndRemoteChangedEvent:
-    updatedTimeString: 2024-02-08T17:27:59.384+01:00
+    updatedTimeString: 2024-03-15T16:09:25.949+01:00
     cacheType: 1
   lastTrackingStatusChangedEvent:
-    updatedTimeString: 2024-02-08T17:28:29.676+01:00
+    updatedTimeString: 2024-03-15T16:10:21.138+01:00
     cacheType: 5
   lastStatusEntriesChangedEvent:
-    updatedTimeString: 2024-02-08T17:28:29.666+01:00
+    updatedTimeString: 2024-03-15T16:53:22.320+01:00
     cacheType: 6
   pullButtonContent:
     m_Text: Pull
@@ -1594,8 +3038,8 @@ MonoBehaviour:
     m_Text: Fetch
     m_Image: {fileID: 0}
     m_Tooltip: 
-  repositoryProgressValue: 1
-  repositoryProgressMessage: Pushed
+  repositoryProgressValue: 0
+  repositoryProgressMessage: 
   appManagerProgressValue: 1
   appManagerProgressMessage: 
   primaryConnectionUsername: 

@@ -69,6 +69,8 @@ public class LobbyManager : MonoBehaviour
 
         canQuit = true;
         Application.wantsToQuit += Application_WantsToQuit;
+
+        AuthenticationService.Instance.SignedIn += AuthentificationService_SignedIn;
     }
 
     private async void LeaveAndQuit() {
@@ -101,6 +103,10 @@ public class LobbyManager : MonoBehaviour
         if (!AuthenticationService.Instance.IsSignedIn) return false;
         if (!canQuit) LeaveAndQuit();
         return canQuit;
+    }
+
+    private void AuthentificationService_SignedIn() {
+        RefreshLobbies();
     }
 
     private void Update() {

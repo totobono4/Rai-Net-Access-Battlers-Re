@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class PlayerListElement : MonoBehaviour
 {
-    [SerializeField] TeamColorsSO teamColors;
+    [SerializeField] private TeamColorsSO teamColors;
 
-    [SerializeField] TextMeshProUGUI playerNameText;
-    [SerializeField] Image teamColorImage;
-    [SerializeField] Toggle readyToggle;
-    [SerializeField] Button kickButton;
+    [SerializeField] private TextMeshProUGUI playerNameText;
+    [SerializeField] private Image teamColorImage;
+    [SerializeField] private Toggle readyToggle;
+    [SerializeField] private Button kickButton;
 
     private ulong clientId;
     private int playerIndex;

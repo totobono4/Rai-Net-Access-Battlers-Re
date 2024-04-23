@@ -1,10 +1,6 @@
 using System;
 
 public class LineBoost : TerminalCard {
-    protected override void Awake() {
-        base.Awake();
-    }
-
     protected override void Action(Tile tile, out bool finished, out int tokenCost) {
         tokenCost = 0; finished = false;
         if (!tile.GetCard(out Card card)) return;
