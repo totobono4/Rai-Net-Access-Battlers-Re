@@ -86,6 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3734443867858758380}
   - component: {fileID: 225639882835114535}
+  - component: {fileID: 7347168789746817660}
   m_Layer: 0
   m_Name: PlayerInfosElementTemplate
   m_TagString: Untagged
@@ -130,6 +131,26 @@ MonoBehaviour:
   teamColors: {fileID: 11400000, guid: e3ca507f06822c54dbec9c1cf7e72fbd, type: 2}
   playerNameText: {fileID: 7699182497506748024}
   playerBackgroundImage: {fileID: 1124574810914746982}
+--- !u!114 &7347168789746817660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6038385810831845884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 0
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 0
+  SpawnWithObservers: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &6357584782450625160
 GameObject:
   m_ObjectHideFlags: 0
