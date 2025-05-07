@@ -10,21 +10,21 @@ public class GameManager : NetworkBehaviour
     [SerializeField] private GameConfigSO gameConfigSO;
 
     private Transform playerPrefab;
-    private List<Team> playerTeams;
-    private List<Team> playOrder;
+    private List<PlayerTeam> playerTeams;
+    private List<PlayerTeam> playOrder;
 
     private int playCursor;
-    private Team teamPriority;
+    private PlayerTeam teamPriority;
 
     public EventHandler<PlayerGivePriorityArgs> OnPlayerGivePriority;
     public class PlayerGivePriorityArgs : EventArgs {
-        public Team team;
+        public PlayerTeam team;
         public int actionTokens;
     }
 
     public EventHandler<GameOverArgs> OnGameOver;
     public class GameOverArgs : EventArgs {
-        public Team team;
+        public PlayerTeam team;
         public bool hasWon;
     }
 
@@ -35,7 +35,7 @@ public class GameManager : NetworkBehaviour
         playerTeams = gameConfigSO.GetPlayerTeams();
         playOrder = gameConfigSO.GetPlayOrder();
         playCursor = 0;
-        teamPriority = Team.None;
+        teamPriority = PlayerTeam.None;
     }
 
     public override void OnNetworkSpawn() {
@@ -57,7 +57,7 @@ public class GameManager : NetworkBehaviour
         PassPriority(0);
     }
 
-    private bool IsGameOver(out Team team, out bool hasWon) {
+    private bool IsGameOver(out PlayerTeam team, out bool hasWon) {
         team = default;
         hasWon = default;
 
@@ -81,7 +81,7 @@ public class GameManager : NetworkBehaviour
             playCursor++;
         }
 
-        if (!IsGameOver(out Team team, out bool hasWon)) {
+        if (!IsGameOver(out PlayerTeam team, out bool hasWon)) {
             OnPlayerGivePriority?.Invoke(this, new PlayerGivePriorityArgs {
                 team = teamPriority,
                 actionTokens = playerActionTokens
@@ -95,7 +95,7 @@ public class GameManager : NetworkBehaviour
         });
     }
 
-    public List<ulong> GetClientIdsByTeam(Team team) {
+    public List<ulong> GetClientIdsByTeam(PlayerTeam team) {
         return MultiplayerManager.Instance.GetClientIdsByTeam(team);
     }
 }

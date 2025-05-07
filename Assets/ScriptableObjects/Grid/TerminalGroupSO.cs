@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu (menuName = "TerminalGroupObject")]
+[CreateAssetMenu (menuName = "Scriptable/Grid/TerminalGroupObject")]
 public class TerminalGroupSO : ScriptableObject
 {
     [SerializeField] private Transform terminal_0;

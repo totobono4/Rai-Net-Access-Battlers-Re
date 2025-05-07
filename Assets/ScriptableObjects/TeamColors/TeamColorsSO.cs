@@ -1,14 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "TeamColorObject")]
+[CreateAssetMenu(menuName = "Scriptable/Other/TeamColorObject")]
 public class TeamColorsSO : ScriptableObject
 {
-    [SerializeField] private List<Team> teams;
+    [SerializeField] private List<PlayerTeam> teams;
     [SerializeField] private List<Color> colors;
 
-    public Dictionary<Team, Color> GetTeamColors() {
-        Dictionary<Team, Color> teamColors = new Dictionary<Team, Color>();
+    public Dictionary<PlayerTeam, Color> GetTeamColors() {
+        Dictionary<PlayerTeam, Color> teamColors = new Dictionary<PlayerTeam, Color>();
         for (int i = 0; i < teams.Count; i++) teamColors.Add(teams[i], colors[i]);
         return teamColors;
     }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu (menuName = "TileMap1x4Object")]
+[CreateAssetMenu (menuName = "Scriptable/Grid/TileMap1x4Object")]
 public class TileMap1x4SO : TileMapSO {
     public Transform tile_0;
     public Transform tile_1;

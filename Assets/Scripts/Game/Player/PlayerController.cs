@@ -8,7 +8,7 @@ public class PlayerController : NetworkBehaviour {
 
     [SerializeField] private LayerMask tileLayerMask;
 
-    [SerializeField] private NetworkVariable<Team> team;
+    [SerializeField] private NetworkVariable<PlayerTeam> team;
 
     private Vector3 lastMouseWorldPosition;
     private Tile selectedTile;
@@ -21,7 +21,7 @@ public class PlayerController : NetworkBehaviour {
     }
     public static EventHandler<SelectedTileArgs> OnSelectTile;
     public class SelectedTileArgs : EventArgs {
-        public Team team;
+        public PlayerTeam team;
         public Tile tile;
     }
     public static EventHandler<ActionTileArgs> OnAction;
@@ -43,7 +43,7 @@ public class PlayerController : NetworkBehaviour {
 
     public static EventHandler<TeamChangedArgs> OnTeamChanged;
     public class TeamChangedArgs : EventArgs {
-        public Team team;
+        public PlayerTeam team;
     }
 
     private NetworkVariable<PlayerState> playerState;
@@ -76,8 +76,8 @@ public class PlayerController : NetworkBehaviour {
         actionCard = null;
         actionableTiles = new List<Tile>();
 
-        team = new NetworkVariable<Team>();
-        team.Value = Team.None;
+        team = new NetworkVariable<PlayerTeam>();
+        team.Value = PlayerTeam.None;
         team.OnValueChanged += Team_OnValueChanged;
     }
 
@@ -143,7 +143,7 @@ public class PlayerController : NetworkBehaviour {
         team.Value = MultiplayerManager.Instance.GetClientTeamById(serverRpcParams.Receive.SenderClientId);
     }
 
-    private void Team_OnValueChanged(Team previous, Team current) {
+    private void Team_OnValueChanged(PlayerTeam previous, PlayerTeam current) {
         OnTeamChanged?.Invoke(this, new TeamChangedArgs { team = current });
     }
 
@@ -151,7 +151,7 @@ public class PlayerController : NetworkBehaviour {
         OnTeamChanged?.Invoke(this, new TeamChangedArgs { team = team.Value });
     }
 
-    public Team GetTeam() { return team.Value; }
+    public PlayerTeam GetTeam() { return team.Value; }
 
     private void SendEventHoverTileChanged() {
         Vector3 mouseWorldPosition = InputSystem.Instance.GetMouseWorldPosition();

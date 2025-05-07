@@ -3,16 +3,16 @@ using Unity.Netcode;
 using UnityEngine;
 
 public class PlayerEntity : NetworkBehaviour {
-    [SerializeField] private Team team;
+    [SerializeField] private PlayerTeam team;
 
     [SerializeField] private PlayerOnlineCardsSO playerOnlineCardsSO;
     Transform onlineCardPrefab;
-    Dictionary<OnlineCard.CardState, int> onlineCardCounts;
+    Dictionary<OnlineCardState, int> onlineCardCounts;
     List<Vector2Int> onlineCardPlacements;
 
-    [SerializeField] private List<OnlineCard.CardState> onlineCardTypes;
+    [SerializeField] private List<OnlineCardState> onlineCardTypes;
     [SerializeField] private List<ScoreSlotGroup> scoreSlotsGroups;
-    private Dictionary<OnlineCard.CardState, ScoreSlotGroup> scoreSlotsGroupDict = new Dictionary<OnlineCard.CardState, ScoreSlotGroup>();
+    private Dictionary<OnlineCardState, ScoreSlotGroup> scoreSlotsGroupDict = new Dictionary<OnlineCardState, ScoreSlotGroup>();
 
     private NetworkVariable<int> linkScore;
     private NetworkVariable<int> virusScore;
@@ -34,7 +34,7 @@ public class PlayerEntity : NetworkBehaviour {
         virusScore.Value = 0;
     }
 
-    public Team GetTeam() {
+    public PlayerTeam GetTeam() {
         return team;
     }
 
@@ -61,7 +61,7 @@ public class PlayerEntity : NetworkBehaviour {
     public Transform GetOnlineCardPrefab() {
         return onlineCardPrefab;
     }
-    public Dictionary<OnlineCard.CardState, int> GetOnlineCardCounts() {
+    public Dictionary<OnlineCardState, int> GetOnlineCardCounts() {
         return onlineCardCounts;
     }
     public List<Vector2Int> GetOnlineCardPlacements() {
@@ -104,8 +104,8 @@ public class PlayerEntity : NetworkBehaviour {
         if (e.capturingCard.GetTeam() == GetTeam()) AddScore(e.capturedCard.GetCardState());
     }
 
-    private void AddScore(OnlineCard.CardState cardState) {
-        if (cardState == OnlineCard.CardState.Virus) virusScore.Value++;
-        if (cardState == OnlineCard.CardState.Link) linkScore.Value++;
+    private void AddScore(OnlineCardState cardState) {
+        if (cardState == OnlineCardState.Virus) virusScore.Value++;
+        if (cardState == OnlineCardState.Link) linkScore.Value++;
     }
 }

@@ -1,0 +1,21 @@
+{
+    "name": "RaiNet.Game",
+    "rootNamespace": "",
+    "references": [
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:1491147abca9d7d4bb7105af628b223e",
+        "GUID:e08a03c71b8ba58488990f92f6ee2e5d",
+        "GUID:51d196d7319e95341857baef3f318c08",
+        "GUID:ed0a587a25f2f3642a97e11dcf669734",
+        "GUID:369e97dadab4f7a44a8699c713bf0168"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

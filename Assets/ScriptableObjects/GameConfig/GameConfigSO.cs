@@ -1,17 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "GameConfigObject")]
+[CreateAssetMenu(menuName = "Scriptable/GameConfig/GameConfigObject")]
 public class GameConfigSO : ScriptableObject
 {
     [SerializeField] private Transform playerPrefab;
 
     [SerializeField] private int actionTokens;
-    [SerializeField] private List<Team> playerTeams;
-    [SerializeField] private List<Team> playOrder;
+    [SerializeField] private List<PlayerTeam> playerTeams;
+    [SerializeField] private List<PlayerTeam> playOrder;
 
     public Transform GetPlayerPrefab() { return playerPrefab; }
     public int GetActionTokens() { return actionTokens; }
-    public List<Team> GetPlayerTeams() {  return playerTeams; }
-    public List<Team> GetPlayOrder() { return playOrder; }
+    public List<PlayerTeam> GetPlayerTeams() {  return playerTeams; }
+    public List<PlayerTeam> GetPlayOrder() { return playOrder; }
 }

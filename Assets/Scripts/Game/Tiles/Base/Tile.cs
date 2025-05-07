@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Tile : NetworkBehaviour {
     [SerializeField] private Transform tileCardPoint;
-    [SerializeField] private Team teamColor;
+    [SerializeField] private PlayerTeam teamColor;
 
     [SerializeField] Transform worldPosition;
     private Vector3 position;
@@ -60,7 +60,7 @@ public abstract class Tile : NetworkBehaviour {
 
     public Vector3 GetPosition() { return position; }
 
-    public Team GetTeam() { return teamColor; }
+    public PlayerTeam GetTeam() { return teamColor; }
 
     public void SetCard(Card card) {
         this.card = card;

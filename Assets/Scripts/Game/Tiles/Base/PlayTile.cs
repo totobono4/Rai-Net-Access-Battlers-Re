@@ -1,5 +1,5 @@
 public class PlayTile : Tile {
-    private bool IsSelectedTileValid(Team controllerTeam) {
+    private bool IsSelectedTileValid(PlayerTeam controllerTeam) {
         if (!GetCard(out Card card)) return false;
         if (!card.IsUsable()) return false;
         if (!card.GetTeam().Equals(controllerTeam)) return false;

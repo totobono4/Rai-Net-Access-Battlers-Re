@@ -1,15 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "MultiplayerConfig")]
+[CreateAssetMenu(menuName = "Scriptable/GameConfig/MultiplayerConfig")]
 public class MultiplayerConfigSO : ScriptableObject
 {
     [SerializeField] private int MaxPlayerCount;
     [SerializeField] private int MinPlayerCount;
 
-    [SerializeField] private List<Team> playerTeams;
+    [SerializeField] private List<PlayerTeam> playerTeams;
 
     public int GetMaxPlayerCount() { return MaxPlayerCount; }
     public int GetMinPlayerCount() { return MinPlayerCount; }
-    public List<Team> GetPlayerTeams() { return new List<Team>(playerTeams); }
+    public List<PlayerTeam> GetPlayerTeams() { return new List<PlayerTeam>(playerTeams); }
 }

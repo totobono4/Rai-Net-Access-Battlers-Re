@@ -28,11 +28,11 @@ public class GameBoard : NetworkBehaviour {
         foreach (PlayerEntity playerEntity in players) {
             Transform onlineCardPrefab = playerEntity.GetOnlineCardPrefab();
 
-            Dictionary<OnlineCard.CardState, int> onlineCardCounts = playerEntity.GetOnlineCardCounts();
+            Dictionary<OnlineCardState, int> onlineCardCounts = playerEntity.GetOnlineCardCounts();
             List<Vector2Int> onlineCardPlacements = playerEntity.GetOnlineCardPlacements();
 
             List<OnlineCard> onlineCards = new List<OnlineCard>();
-            foreach (OnlineCard.CardState cardType in onlineCardCounts.Keys) {
+            foreach (OnlineCardState cardType in onlineCardCounts.Keys) {
                 for (int i = 0; i < onlineCardCounts[cardType]; i++) {
                     OnlineCard onlineCard = Instantiate(onlineCardPrefab).GetComponent<OnlineCard>();
                     onlineCards.Add(onlineCard);

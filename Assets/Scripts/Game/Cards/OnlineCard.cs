@@ -8,21 +8,15 @@ public class OnlineCard : Card
 {
     public static event EventHandler<EventArgs> OnAnyOnlineCardSpawned;
 
-    public enum CardState {
-        Unknown,
-        Link,
-        Virus
-    };
-
-    [SerializeField] private CardState serverState;
-    [SerializeField] private CardState state;
+    [SerializeField] private OnlineCardState serverState;
+    [SerializeField] private OnlineCardState state;
     private NetworkVariable<bool> revealed;
 
     [SerializeField] private NeighborMatrixSO neighborMatrixSO;
 
     public EventHandler<StateChangedArgs> OnStateValueChanged;
     public class StateChangedArgs : EventArgs {
-        public CardState state;
+        public OnlineCardState state;
     }
 
     public EventHandler<MoveCardArgs> OnMoveCard;
@@ -71,7 +65,7 @@ public class OnlineCard : Card
         captured = new NetworkVariable<bool>(false);
         captured.OnValueChanged += Captured_OnValueChanged;
 
-        state = CardState.Unknown;
+        state = OnlineCardState.Unknown;
 
         PlayerController.OnTeamChanged += LocalTeamChanged;
     }
@@ -98,7 +92,7 @@ public class OnlineCard : Card
         SyncServerStateServerRpc();
     }
 
-    public void SetServerState(CardState newState) {
+    public void SetServerState(OnlineCardState newState) {
         serverState = newState;
     }
 
@@ -112,14 +106,14 @@ public class OnlineCard : Card
     }
 
     [ClientRpc(Delivery = RpcDelivery.Reliable)]
-    private void SyncServerStateClientRpc(CardState newState, ClientRpcParams clientRpcParams) {
+    private void SyncServerStateClientRpc(OnlineCardState newState, ClientRpcParams clientRpcParams) {
         state = newState;
         StateChanged();
     }
 
     [ClientRpc(Delivery = RpcDelivery.Reliable)]
     private void SyncUnknownStateClientRpc() {
-        state = CardState.Unknown;
+        state = OnlineCardState.Unknown;
         StateChanged();
     }
 
@@ -143,11 +137,11 @@ public class OnlineCard : Card
         OnBoostedValueChanged?.Invoke(this, new BoostUpdateArgs { onlineCard = this, boosted = current });
     }
 
-    public CardState GetServerCardState() {
+    public OnlineCardState GetServerCardState() {
         return serverState;
     }
 
-    public CardState GetCardState() {
+    public OnlineCardState GetCardState() {
         return state;
     }
 

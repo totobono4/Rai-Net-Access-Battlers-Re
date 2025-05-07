@@ -8,10 +8,10 @@ public abstract class Card : NetworkBehaviour {
     public EventHandler<TileParentChangedArgs> OnTileParentChanged;
     public class TileParentChangedArgs : EventArgs {
         public Tile tile;
-        public Team team;
+        public PlayerTeam team;
     }
 
-    [SerializeField] private Team team;
+    [SerializeField] private PlayerTeam team;
 
     [SerializeField] private int actionTokenCost;
 
@@ -57,7 +57,7 @@ public abstract class Card : NetworkBehaviour {
         SetTileParent(tileNetwork.GetComponent<Tile>());
     }
 
-    public Team GetTeam() {
+    public PlayerTeam GetTeam() {
         return team;
     }
 
