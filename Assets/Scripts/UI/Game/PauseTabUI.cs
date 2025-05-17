@@ -5,20 +5,24 @@ using UnityEngine.UI;
 public class PauseTabUI : MonoBehaviour
 {
     [SerializeField] Button continueButton;
-    [SerializeField] Button forfaitButton;
+    [SerializeField] Button forfeitButton;
 
     private void Awake() {
         continueButton.onClick.AddListener(() => {
             Hide();
             InputSystem.Instance.SetActive();
         });
-        forfaitButton.onClick.AddListener(() => {
-            NetworkManager.Singleton.Shutdown();
+        forfeitButton.onClick.AddListener(() => {
+            GameCleaner.Instance.Clean();
             SceneLoader.Load(SceneLoader.Scene.MainMenuScene);
         });
     }
 
     private void Hide() {
         gameObject.SetActive(false);
+    }
+
+    public void CleanPauseTabUI() {
+        Destroy(gameObject);
     }
 }

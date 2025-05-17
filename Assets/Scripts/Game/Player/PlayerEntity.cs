@@ -152,13 +152,9 @@ public class PlayerEntity : NetworkBehaviour {
 
     public void SubOnlineCards() {
         foreach (OnlineCard onlineCard in onlineCards) {
-            SubOnlineCard(onlineCard);
+            onlineCard.OnMoveCard += OnlineCard_OnMoveCard;
+            onlineCard.OnCaptureCard += OnlineCard_OnCaptureCard;
         }
-    }
-
-    public void SubOnlineCard(OnlineCard onlineCard) {
-        onlineCard.OnMoveCard += OnlineCard_OnMoveCard;
-        onlineCard.OnCaptureCard += OnlineCard_OnCaptureCard;
     }
 
     private void OnlineCard_OnMoveCard(object sender, OnlineCard.MoveCardArgs e) {
@@ -195,5 +191,21 @@ public class PlayerEntity : NetworkBehaviour {
 
     public bool AreCardsReady() {
         return areCardsReady.Value;
+    }
+
+    public void Clean() {
+        areOnlineCardsPlaced.OnValueChanged -= AreOnlineCardsPlaced_OnValueChanged;
+        areCardsReady.OnValueChanged -= AreCardsReady_OnValueChanged;
+
+        foreach (OnlineCard onlineCard in onlineCards) {
+            onlineCard.OnMoveCard -= OnlineCard_OnMoveCard;
+            onlineCard.OnCaptureCard -= OnlineCard_OnCaptureCard;
+
+            onlineCard.CleanOnlineCard();
+
+            onlineCard.GetComponent<NetworkObject>().Despawn();
+        }
+
+        Destroy(gameObject);
     }
 }

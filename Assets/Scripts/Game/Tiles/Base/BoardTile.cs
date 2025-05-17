@@ -19,7 +19,7 @@ public class BoardTile : PlayTile {
     }
 
     private void FireWallTeam_OnValueChanged(PlayerTeam previous, PlayerTeam current) {
-        SetFireWall(current);
+        OnFireWallUpdate?.Invoke(this, new FireWallUpdateArgs { boardTile = this, fireWallTeam = fireWallTeam.Value });
     }
 
     public bool HasFireWall() {
@@ -28,17 +28,11 @@ public class BoardTile : PlayTile {
 
     public void SetFireWall(PlayerTeam fireWallTeam) {
         this.fireWallTeam.Value = fireWallTeam;
-        FireWallUpdate();
     }
 
     public void UnsetFireWall() {
         fireWallTeam.Value = PlayerTeam.None;
-        FireWallUpdate();
     }
 
     public PlayerTeam GetFireWall() { return fireWallTeam.Value; }
-
-    private void FireWallUpdate() {
-        OnFireWallUpdate?.Invoke(this, new FireWallUpdateArgs { boardTile = this, fireWallTeam = fireWallTeam.Value });
-    }
 }

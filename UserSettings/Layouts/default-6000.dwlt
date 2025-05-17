@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Console
   m_RootView: {fileID: 8}
   m_MinSize: {x: 875, y: 321}
   m_MaxSize: {x: 10000, y: 10000}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 122
+  controlID: 79
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 56
+  controlID: 40
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 0
-  controlID: 121
+  controlID: 78
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -275,7 +275,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 182
+  controlID: 356
   draggingID: 0
 --- !u!114 &12
 MonoBehaviour:
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Window
+  m_Name: InspectorWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -323,15 +323,15 @@ MonoBehaviour:
     y: 0
     width: 555
     height: 933
-  m_MinSize: {x: 101, y: 126}
+  m_MinSize: {x: 276, y: 76}
   m_MaxSize: {x: 4001, y: 4026}
-  m_ActualView: {fileID: 21}
+  m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
   - {fileID: 21}
   - {fileID: 14}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 2
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -964,7 +964,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 14fbffff
+      m_ExpandedIDs: f2d4feffaef0fefff0f5feff94fafefffc74ffffa696ffff1cc0ffff20caffff1ee4ffff2ce5ffff12fbffff44dc000040e5000076e70000baf30000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1035,7 +1035,8 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 1
-    m_Folders: []
+    m_Folders:
+    - Assets/Scenes
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1054,7 +1055,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: c85c0000
     m_LastClickedID: 23752
-    m_ExpandedIDs: 000000002ec7000030c7000032c7000034c7000036c7000038c700003ac700003cc700003ec7000040c7000042c7000044c7000046c7000048c700004ac700004cc700004ec7000050c7000052c70000
+    m_ExpandedIDs: 0000000026c7000028c700002ac700002cc700002ec7000030c7000032c7000034c7000036c7000038c700003ac700003cc700003ec7000040c7000042c70000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1083,7 +1084,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002ec7000030c7000032c7000034c7000036c7000038c700003ac700003cc700003ec7000040c7000042c7000044c7000046c7000048c700004ac700004cc700004ec7000050c7000052c70000
+    m_ExpandedIDs: 0000000026c7000028c700002ac700002cc700002ec7000030c7000032c7000034c7000036c7000038c700003ac700003cc700003ec7000040c7000042c70000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1299,8 +1300,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1365
-    y: 79
+    x: 1366
+    y: 24
     width: 554
     height: 907
   m_SerializedDataModeController:
@@ -1348,8 +1349,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Git for Unity\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1366
-    y: 24
+    x: 1365
+    y: 79
     width: 554
     height: 907
   m_SerializedDataModeController:
@@ -1363,14 +1364,14 @@ MonoBehaviour:
     m_SaveData: []
     m_ContainerData: []
     m_OverlaysVisible: 1
-  progressMessageClearTime: 187.2156214
+  progressMessageClearTime: -1
   notificationClearTime: -1
   timeSinceLastRotation: -1
   currentBranchAndRemoteHasUpdate: 0
-  currentTrackingStatusHasUpdate: 0
-  currentStatusEntriesHasUpdate: 0
-  repositoryProgressHasUpdate: 0
-  appManagerProgressHasUpdate: 0
+  currentTrackingStatusHasUpdate: 1
+  currentStatusEntriesHasUpdate: 1
+  repositoryProgressHasUpdate: 1
+  appManagerProgressHasUpdate: 1
   changeTab: 3
   activeTab: 3
   initProjectView:
@@ -1551,11 +1552,866 @@ MonoBehaviour:
     treeScroll: {x: 0, y: 0}
     treeChanges:
       assets:
-        keys: []
-        values: []
+        keys:
+        - 00000000000000001000000000000000
+        - 6ea315d0fd7389c41b19996891e99ae3
+        - 039ea5b642693794aa614e1791125bc7
+        - 104be7f49c6875840a544d9f6178145a
+        - d73daa0eb80123944b74ea670ee60609
+        - 9d98e54ffd5b24142bdb21f4e589e93e
+        - e6c4626832c570245990e83c3e1e5939
+        - d2e90ee9348fa8c44a192bb2e80b05d2
+        - 58cb629c688ebfd4d9cf647d46cdd73b
+        - b02063969c5a49b4c883fe6698dbe3e6
+        - 58a105ca2844b4348bf59e694b8479e8
+        - 5e40438c80e52ed4a9dae5e023c2749e
+        - 11fa9f15eb66f9b42923fd0dbbee0b32
+        - 4f420389d54b3d74db77efc29b6b3147
+        - b89d00fd7c8155045a6b412b0245dd2d
+        - ef38ecdb3016bd54f88dae943be028e4
+        - 42ba95030aa928e43a34ce331357b291
+        - 083226c7a5d83794fad8125de03e62f2
+        - 2f1bf5177428f4c4ab3efcaf24970b8c
+        - 0820cbe8450c3ae4484f1907a51fc283
+        - 9e0ce24f4800ee9409b13911a92b14b5
+        - 018675346119e644ca68ae121e6f622a
+        - 4065c01c4ea90384bace88c5e868b871
+        - 1dee5dc2dc200b24482f0066ad176930
+        - 5effcce606488054ca2ba3d13ac2ff59
+        - 8bcba0e5169dd4f429c679358f9a2d28
+        - 2ed65c4265c12224789620ca09ef4ab4
+        - cff268e2d62a39446a6157b396b5c365
+        - 3e0fd8aebf7ff4f488f815dfa7577b29
+        values:
+        - path: Assets
+          label: Assets
+          level: 0
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scenes
+          label: Scenes
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scenes\MainMenuScene.unity
+          label: MainMenuScene.unity
+          level: 2
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scenes\MainMenuScene.unity
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scenes\MainMenuScene.unity
+            projectPath: Assets\Scenes\MainMenuScene.unity
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts
+          label: Scripts
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Game
+          label: Game
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Game\Cards
+          label: Cards
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Game\Cards\OnlineCard.cs
+          label: OnlineCard.cs
+          level: 4
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\Game\Cards\OnlineCard.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\Cards\OnlineCard.cs
+            projectPath: Assets\Scripts\Game\Cards\OnlineCard.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\Game\GameBoard.cs
+          label: GameBoard.cs
+          level: 3
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\Game\GameBoard.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\GameBoard.cs
+            projectPath: Assets\Scripts\Game\GameBoard.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\Game\GameManager.cs
+          label: GameManager.cs
+          level: 3
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\Game\GameManager.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\GameManager.cs
+            projectPath: Assets\Scripts\Game\GameManager.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\Game\Grid
+          label: Grid
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Game\Grid\TileMap.cs
+          label: TileMap.cs
+          level: 4
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\Game\Grid\TileMap.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\Grid\TileMap.cs
+            projectPath: Assets\Scripts\Game\Grid\TileMap.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\Game\Player
+          label: Player
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Game\Player\PlayerEntity.cs
+          label: PlayerEntity.cs
+          level: 4
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\Game\Player\PlayerEntity.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\Player\PlayerEntity.cs
+            projectPath: Assets\Scripts\Game\Player\PlayerEntity.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\Network
+          label: Network
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Network\Multiplayer
+          label: Multiplayer
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Network\Multiplayer\MultiplayerManager.cs
+          label: MultiplayerManager.cs
+          level: 4
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\Network\Multiplayer\MultiplayerManager.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Network\Multiplayer\MultiplayerManager.cs
+            projectPath: Assets\Scripts\Network\Multiplayer\MultiplayerManager.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\UI
+          label: UI
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\UI\Game
+          label: Game
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\UI\Game\CardsReadyUI.cs
+          label: CardsReadyUI.cs
+          level: 4
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\UI\Game\CardsReadyUI.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\Game\CardsReadyUI.cs
+            projectPath: Assets\Scripts\UI\Game\CardsReadyUI.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\UI\Game\GameCleaner.cs
+          label: GameCleaner.cs
+          level: 4
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\UI\Game\GameCleaner.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\Game\GameCleaner.cs
+            projectPath: Assets\Scripts\UI\Game\GameCleaner.cs
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Scripts\UI\Game\GameOverUI.cs
+          label: GameOverUI.cs
+          level: 4
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\UI\Game\GameOverUI.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\Game\GameOverUI.cs
+            projectPath: Assets\Scripts\UI\Game\GameOverUI.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\UI\Game\PauseTabUI.cs
+          label: PauseTabUI.cs
+          level: 4
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\UI\Game\PauseTabUI.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\Game\PauseTabUI.cs
+            projectPath: Assets\Scripts\UI\Game\PauseTabUI.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\UI\Game\PauseUI.cs
+          label: PauseUI.cs
+          level: 4
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\UI\Game\PauseUI.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\Game\PauseUI.cs
+            projectPath: Assets\Scripts\UI\Game\PauseUI.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\UI\Game\PlayerInfosElement.cs
+          label: PlayerInfosElement.cs
+          level: 4
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\UI\Game\PlayerInfosElement.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\Game\PlayerInfosElement.cs
+            projectPath: Assets\Scripts\UI\Game\PlayerInfosElement.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\UI\Game\PlayerInfosUI.cs
+          label: PlayerInfosUI.cs
+          level: 4
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\UI\Game\PlayerInfosUI.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\Game\PlayerInfosUI.cs
+            projectPath: Assets\Scripts\UI\Game\PlayerInfosUI.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\UI\MainMenu
+          label: MainMenu
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\UI\MainMenu\MainMenuCleaner.cs
+          label: MainMenuCleaner.cs
+          level: 4
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\UI\MainMenu\MainMenuCleaner.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\MainMenu\MainMenuCleaner.cs
+            projectPath: Assets\Scripts\UI\MainMenu\MainMenuCleaner.cs
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Scripts\UI\Multiplayer
+          label: Multiplayer
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\UI\Multiplayer\DisconnectedUI.cs
+          label: DisconnectedUI.cs
+          level: 4
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\UI\Multiplayer\DisconnectedUI.cs
+            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\Multiplayer\DisconnectedUI.cs
+            projectPath: Assets\Scripts\UI\Multiplayer\DisconnectedUI.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
       folders:
-        keys: []
-        values: []
+        keys:
+        - Assets
+        - Assets\Scenes
+        - Assets\Scripts
+        - Assets\Scripts\Game
+        - Assets\Scripts\Game\Cards
+        - Assets\Scripts\Game\Grid
+        - Assets\Scripts\Game\Player
+        - Assets\Scripts\MainMenu
+        - Assets\Scripts\Network
+        - Assets\Scripts\Network\Multiplayer
+        - Assets\Scripts\UI
+        - Assets\Scripts\UI\Game
+        - Assets\Scripts\UI\MainMenu
+        - Assets\Scripts\UI\Multiplayer
+        - UserSettings
+        - UserSettings\Layouts
+        values:
+        - path: Assets
+          label: Assets
+          level: 0
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scenes
+          label: Scenes
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts
+          label: Scripts
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Game
+          label: Game
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Game\Cards
+          label: Cards
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Game\Grid
+          label: Grid
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Game\Player
+          label: Player
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\MainMenu
+          label: MainMenu
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Network
+          label: Network
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Network\Multiplayer
+          label: Multiplayer
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\UI
+          label: UI
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\UI\Game
+          label: Game
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\UI\MainMenu
+          label: MainMenu
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\UI\Multiplayer
+          label: Multiplayer
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: UserSettings
+          label: UserSettings
+          level: 0
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: UserSettings\Layouts
+          label: Layouts
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
       checkedFileNodes:
         keys: []
         values: []
@@ -1584,6 +2440,690 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
+      - path: Assets
+        label: Assets
+        level: 0
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scenes
+        label: Scenes
+        level: 1
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scenes\MainMenuScene.unity
+        label: MainMenuScene.unity
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scenes\MainMenuScene.unity
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scenes\MainMenuScene.unity
+          projectPath: Assets\Scenes\MainMenuScene.unity
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts
+        label: Scripts
+        level: 1
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scripts\Game
+        label: Game
+        level: 2
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scripts\Game\Cards
+        label: Cards
+        level: 3
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scripts\Game\Cards\OnlineCard.cs
+        label: OnlineCard.cs
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\Game\Cards\OnlineCard.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\Cards\OnlineCard.cs
+          projectPath: Assets\Scripts\Game\Cards\OnlineCard.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\Game\GameBoard.cs
+        label: GameBoard.cs
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\Game\GameBoard.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\GameBoard.cs
+          projectPath: Assets\Scripts\Game\GameBoard.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\Game\GameManager.cs
+        label: GameManager.cs
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\Game\GameManager.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\GameManager.cs
+          projectPath: Assets\Scripts\Game\GameManager.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\Game\Grid
+        label: Grid
+        level: 3
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scripts\Game\Grid\TileMap.cs
+        label: TileMap.cs
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\Game\Grid\TileMap.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\Grid\TileMap.cs
+          projectPath: Assets\Scripts\Game\Grid\TileMap.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\Game\Player
+        label: Player
+        level: 3
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scripts\Game\Player\PlayerEntity.cs
+        label: PlayerEntity.cs
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\Game\Player\PlayerEntity.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\Player\PlayerEntity.cs
+          projectPath: Assets\Scripts\Game\Player\PlayerEntity.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\MainMenu.meta
+        label: MainMenu.meta
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\MainMenu.meta
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\MainMenu.meta
+          projectPath: Assets\Scripts\MainMenu.meta
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 5
+      - path: Assets\Scripts\MainMenu
+        label: MainMenu
+        level: 2
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scripts\MainMenu\MainMenuCleaner.cs
+        label: MainMenuCleaner.cs
+        level: 3
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\MainMenu\MainMenuCleaner.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\MainMenu\MainMenuCleaner.cs
+          projectPath: Assets\Scripts\MainMenu\MainMenuCleaner.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 5
+      - path: Assets\Scripts\MainMenu\MainMenuCleaner.cs.meta
+        label: MainMenuCleaner.cs.meta
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\MainMenu\MainMenuCleaner.cs.meta
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\MainMenu\MainMenuCleaner.cs.meta
+          projectPath: Assets\Scripts\MainMenu\MainMenuCleaner.cs.meta
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 5
+      - path: Assets\Scripts\Network
+        label: Network
+        level: 2
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scripts\Network\Multiplayer
+        label: Multiplayer
+        level: 3
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scripts\Network\Multiplayer\MultiplayerManager.cs
+        label: MultiplayerManager.cs
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\Network\Multiplayer\MultiplayerManager.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Network\Multiplayer\MultiplayerManager.cs
+          projectPath: Assets\Scripts\Network\Multiplayer\MultiplayerManager.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\UI
+        label: UI
+        level: 2
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scripts\UI\Game
+        label: Game
+        level: 3
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scripts\UI\Game\CardsReadyUI.cs
+        label: CardsReadyUI.cs
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\UI\Game\CardsReadyUI.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\Game\CardsReadyUI.cs
+          projectPath: Assets\Scripts\UI\Game\CardsReadyUI.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\UI\Game\GameCleaner.cs
+        label: GameCleaner.cs
+        level: 4
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\UI\Game\GameCleaner.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\Game\GameCleaner.cs
+          projectPath: Assets\Scripts\UI\Game\GameCleaner.cs
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Scripts\UI\Game\GameCleaner.cs.meta
+        label: GameCleaner.cs.meta
+        level: 5
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\UI\Game\GameCleaner.cs.meta
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\Game\GameCleaner.cs.meta
+          projectPath: Assets\Scripts\UI\Game\GameCleaner.cs.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Scripts\UI\Game\GameOverUI.cs
+        label: GameOverUI.cs
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\UI\Game\GameOverUI.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\Game\GameOverUI.cs
+          projectPath: Assets\Scripts\UI\Game\GameOverUI.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\UI\Game\PauseTabUI.cs
+        label: PauseTabUI.cs
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\UI\Game\PauseTabUI.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\Game\PauseTabUI.cs
+          projectPath: Assets\Scripts\UI\Game\PauseTabUI.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\UI\Game\PauseUI.cs
+        label: PauseUI.cs
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\UI\Game\PauseUI.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\Game\PauseUI.cs
+          projectPath: Assets\Scripts\UI\Game\PauseUI.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\UI\Game\PlayerInfosElement.cs
+        label: PlayerInfosElement.cs
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\UI\Game\PlayerInfosElement.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\Game\PlayerInfosElement.cs
+          projectPath: Assets\Scripts\UI\Game\PlayerInfosElement.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\UI\Game\PlayerInfosUI.cs
+        label: PlayerInfosUI.cs
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\UI\Game\PlayerInfosUI.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\Game\PlayerInfosUI.cs
+          projectPath: Assets\Scripts\UI\Game\PlayerInfosUI.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\UI\MainMenu
+        label: MainMenu
+        level: 3
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scripts\UI\MainMenu\MainMenuCleaner.cs
+        label: MainMenuCleaner.cs
+        level: 4
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\UI\MainMenu\MainMenuCleaner.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\MainMenu\MainMenuCleaner.cs
+          projectPath: Assets\Scripts\UI\MainMenu\MainMenuCleaner.cs
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Scripts\UI\MainMenu\MainMenuCleaner.cs.meta
+        label: MainMenuCleaner.cs.meta
+        level: 5
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\UI\MainMenu\MainMenuCleaner.cs.meta
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\MainMenu\MainMenuCleaner.cs.meta
+          projectPath: Assets\Scripts\UI\MainMenu\MainMenuCleaner.cs.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Scripts\UI\Multiplayer
+        label: Multiplayer
+        level: 3
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scripts\UI\Multiplayer\DisconnectedUI.cs
+        label: DisconnectedUI.cs
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\UI\Multiplayer\DisconnectedUI.cs
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\Multiplayer\DisconnectedUI.cs
+          projectPath: Assets\Scripts\UI\Multiplayer\DisconnectedUI.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: UserSettings
+        label: UserSettings
+        level: 0
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: UserSettings\Layouts
+        label: Layouts
+        level: 1
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: UserSettings\Layouts\default-6000.dwlt
+        label: default-6000.dwlt
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: UserSettings\Layouts\default-6000.dwlt
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\UserSettings\Layouts\default-6000.dwlt
+          projectPath: UserSettings\Layouts\default-6000.dwlt
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
       selectedNode:
         path: 
         label: 
@@ -1603,8 +3143,140 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-    gitStatusEntries: []
-    changedFilesText: No changed files
+    gitStatusEntries:
+    - path: Assets\Scenes\MainMenuScene.unity
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scenes\MainMenuScene.unity
+      projectPath: Assets\Scenes\MainMenuScene.unity
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\Game\Cards\OnlineCard.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\Cards\OnlineCard.cs
+      projectPath: Assets\Scripts\Game\Cards\OnlineCard.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\Game\GameBoard.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\GameBoard.cs
+      projectPath: Assets\Scripts\Game\GameBoard.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\Game\GameManager.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\GameManager.cs
+      projectPath: Assets\Scripts\Game\GameManager.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\Game\Grid\TileMap.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\Grid\TileMap.cs
+      projectPath: Assets\Scripts\Game\Grid\TileMap.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\Game\Player\PlayerEntity.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Game\Player\PlayerEntity.cs
+      projectPath: Assets\Scripts\Game\Player\PlayerEntity.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\MainMenu.meta
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\MainMenu.meta
+      projectPath: Assets\Scripts\MainMenu.meta
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 5
+    - path: Assets\Scripts\MainMenu\MainMenuCleaner.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\MainMenu\MainMenuCleaner.cs
+      projectPath: Assets\Scripts\MainMenu\MainMenuCleaner.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 5
+    - path: Assets\Scripts\MainMenu\MainMenuCleaner.cs.meta
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\MainMenu\MainMenuCleaner.cs.meta
+      projectPath: Assets\Scripts\MainMenu\MainMenuCleaner.cs.meta
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 5
+    - path: Assets\Scripts\Network\Multiplayer\MultiplayerManager.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\Network\Multiplayer\MultiplayerManager.cs
+      projectPath: Assets\Scripts\Network\Multiplayer\MultiplayerManager.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\UI\Game\CardsReadyUI.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\Game\CardsReadyUI.cs
+      projectPath: Assets\Scripts\UI\Game\CardsReadyUI.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\UI\Game\GameCleaner.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\Game\GameCleaner.cs
+      projectPath: Assets\Scripts\UI\Game\GameCleaner.cs
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Scripts\UI\Game\GameCleaner.cs.meta
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\Game\GameCleaner.cs.meta
+      projectPath: Assets\Scripts\UI\Game\GameCleaner.cs.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Scripts\UI\Game\GameOverUI.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\Game\GameOverUI.cs
+      projectPath: Assets\Scripts\UI\Game\GameOverUI.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\UI\Game\PauseTabUI.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\Game\PauseTabUI.cs
+      projectPath: Assets\Scripts\UI\Game\PauseTabUI.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\UI\Game\PauseUI.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\Game\PauseUI.cs
+      projectPath: Assets\Scripts\UI\Game\PauseUI.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\UI\Game\PlayerInfosElement.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\Game\PlayerInfosElement.cs
+      projectPath: Assets\Scripts\UI\Game\PlayerInfosElement.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\UI\Game\PlayerInfosUI.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\Game\PlayerInfosUI.cs
+      projectPath: Assets\Scripts\UI\Game\PlayerInfosUI.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\UI\MainMenu\MainMenuCleaner.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\MainMenu\MainMenuCleaner.cs
+      projectPath: Assets\Scripts\UI\MainMenu\MainMenuCleaner.cs
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Scripts\UI\MainMenu\MainMenuCleaner.cs.meta
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\MainMenu\MainMenuCleaner.cs.meta
+      projectPath: Assets\Scripts\UI\MainMenu\MainMenuCleaner.cs.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Scripts\UI\Multiplayer\DisconnectedUI.cs
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Scripts\UI\Multiplayer\DisconnectedUI.cs
+      projectPath: Assets\Scripts\UI\Multiplayer\DisconnectedUI.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: UserSettings\Layouts\default-6000.dwlt
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\UserSettings\Layouts\default-6000.dwlt
+      projectPath: UserSettings\Layouts\default-6000.dwlt
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    changedFilesText: 22 changed files
     lastCurrentBranchChangedEvent:
       updatedTimeString: 0001-01-01T00:00:00.000+00:00
       cacheType: 1
@@ -42569,7 +44241,7 @@ MonoBehaviour:
   currentRemoteUrl: https://github.com/totobono4/Rai-Net-Access-Battlers-Re.git
   statusAhead: 0
   statusBehind: 0
-  hasItemsToCommit: 0
+  hasItemsToCommit: 1
   isTrackingRemoteBranch: 1
   currentBranchContent:
     m_Text: master
@@ -42582,13 +44254,13 @@ MonoBehaviour:
     m_Tooltip: Url of the origin remote
     m_TextWithWhitespace: 
   lastCurrentBranchAndRemoteChangedEvent:
-    updatedTimeString: 2025-05-17T18:58:11.109+02:00
+    updatedTimeString: 2025-05-18T00:00:26.723+02:00
     cacheType: 1
   lastTrackingStatusChangedEvent:
-    updatedTimeString: 2025-05-17T18:58:11.447+02:00
+    updatedTimeString: 2025-05-18T00:01:04.746+02:00
     cacheType: 5
   lastStatusEntriesChangedEvent:
-    updatedTimeString: 2025-05-17T18:58:03.027+02:00
+    updatedTimeString: 2025-05-18T00:01:04.742+02:00
     cacheType: 6
   pullButtonContent:
     m_Text: Pull
@@ -42610,8 +44282,8 @@ MonoBehaviour:
     m_Image: {fileID: 0}
     m_Tooltip: 
     m_TextWithWhitespace: "Fetch\u200B"
-  repositoryProgressValue: 1
-  repositoryProgressMessage: Pushed
+  repositoryProgressValue: 0
+  repositoryProgressMessage: 
   appManagerProgressValue: 1
   appManagerProgressMessage: 
   primaryConnectionUsername: 

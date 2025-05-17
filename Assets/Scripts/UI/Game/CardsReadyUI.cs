@@ -21,12 +21,6 @@ public class CardsReadyUI : MonoBehaviour
         PlayerEntity.OnCardsReady += PlayerEntity_OnCardsReady;
     }
 
-    private void OnDestroy() {
-        PlayerController.OnTeamChanged -= PlayerController_OnTeamChanged;
-        PlayerEntity.OnOnlineCardsPlaced -= PlayerEntity_OnOnlineCardsPlaced;
-        PlayerEntity.OnCardsReady -= PlayerEntity_OnCardsReady;
-    }
-
     private void Start() {
         InputSystem inputSystem = InputSystem.Instance;
 
@@ -51,5 +45,13 @@ public class CardsReadyUI : MonoBehaviour
 
     private void Hide() {
         gameObject.SetActive(false);
+    }
+
+    public void Clean() {
+        PlayerController.OnTeamChanged -= PlayerController_OnTeamChanged;
+        PlayerEntity.OnOnlineCardsPlaced -= PlayerEntity_OnOnlineCardsPlaced;
+        PlayerEntity.OnCardsReady -= PlayerEntity_OnCardsReady;
+
+        Destroy(gameObject);
     }
 }

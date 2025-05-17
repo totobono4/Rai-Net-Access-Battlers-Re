@@ -89,4 +89,13 @@ public class GameBoard : NetworkBehaviour {
     public bool TryPlaceOnlineCard(StartTile startTile, OnlineCardState onlineCardState, PlayerTeam team) {
         return GetPlayerEntityByTeam(team).TryPlaceOnlineCard(startTile, onlineCardState);
     }
+
+    public void Clean() {
+        PlayerEntity.OnCardsReady -= PlayerEntity_OnCardsReady;
+
+        foreach (TileMap tileMap in tileMaps) tileMap.Clean();
+        foreach (PlayerEntity playerEntity in players) playerEntity.Clean();
+
+        Destroy(gameObject);
+    }
 }

@@ -4,8 +4,7 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerListElement : MonoBehaviour
-{
+public class PlayerListElement : MonoBehaviour {
     [SerializeField] private TeamColorsSO teamColors;
 
     [SerializeField] private TextMeshProUGUI playerNameText;
@@ -82,5 +81,12 @@ public class PlayerListElement : MonoBehaviour
 
     private void Hide() {
         this.gameObject.SetActive(false);
+    }
+
+    public void Clean() {
+        MultiplayerManager.Instance.OnPlayerDataNetworkListChanged -= MultiplayerManager_OnPlayerDataNetworkListChanged;
+        LobbyRoomReadyManager.Instance.OnClientReadyStateChanged -= LobbyRoomReadyManager_OnClientReadyStateChanged;
+
+        Destroy(gameObject);
     }
 }

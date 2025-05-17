@@ -10,6 +10,8 @@ public class LobbyRoomReadyManager : NetworkBehaviour
 
     public EventHandler OnClientReadyStateChanged;
 
+    public EventHandler OnStartGame;
+
     private void Awake() {
         Instance = this;
 
@@ -36,8 +38,15 @@ public class LobbyRoomReadyManager : NetworkBehaviour
         }
 
         LobbyManager.Instance.DeleteLobby();
-        Destroy(LobbyManager.Instance.gameObject);
+
+        StartGameClientRpc();
+
         SceneLoader.LoadNetwork(SceneLoader.Scene.GameScene);
+    }
+
+    [ClientRpc(Delivery = RpcDelivery.Reliable)]
+    private void StartGameClientRpc() {
+        OnStartGame?.Invoke(this, EventArgs.Empty);
     }
 
     private void UpdateReadyState(ulong clientId, bool isReady) {

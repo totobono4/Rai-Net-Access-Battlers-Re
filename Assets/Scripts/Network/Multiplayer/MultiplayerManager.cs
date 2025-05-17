@@ -194,4 +194,21 @@ public class MultiplayerManager : NetworkBehaviour
     public int GetPlayerCount() {
         return playerDataNetworkList.Count;
     }
+
+    public void Clean() {
+        if (NetworkManager.Singleton.IsHost) {
+            NetworkManager.Singleton.ConnectionApprovalCallback -= NetworkManager_ConnectionApprovalCallback;
+            NetworkManager.Singleton.OnClientConnectedCallback -= NetworkManager_Server_OnClientConnectedCallback;
+            NetworkManager.Singleton.OnClientDisconnectCallback -= NetworkManager_Server_OnClientDisconnectCallback;
+            NetworkManager.Singleton.OnClientConnectedCallback -= NetworkManager_Client_OnClientConnectedCallback;
+        }
+        else {
+            NetworkManager.Singleton.OnClientDisconnectCallback -= NetworkManager_Client_OnClientDisconnectCallback;
+            NetworkManager.Singleton.OnClientConnectedCallback -= NetworkManager_Client_OnClientConnectedCallback;
+        }
+
+        playerDataNetworkList.OnListChanged -= PlayerDataNetworkList_OnListChanged;
+        
+        NetworkManager.Shutdown();
+    }
 }

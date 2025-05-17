@@ -11,7 +11,7 @@ public class GameOverUI : MonoBehaviour
 
     private void Awake() {
         menuButton.onClick.AddListener(() => {
-            NetworkManager.Singleton.Shutdown();
+            GameCleaner.Instance.Clean();
             SceneLoader.Load(SceneLoader.Scene.MainMenuScene);
         });
     }
@@ -35,10 +35,6 @@ public class GameOverUI : MonoBehaviour
         }
     }
 
-    private void OnDestroy() {
-        PlayerController.OnPlayerStateChanged -= PlayerController_PlayerStateChanged;
-    }
-
     private void Show() {
         InputSystem.Instance.SetInactive();
         gameObject.SetActive(true);
@@ -46,5 +42,11 @@ public class GameOverUI : MonoBehaviour
 
     private void Hide() {
         gameObject.SetActive(false);
+    }
+
+    public void Clean() {
+        PlayerController.OnPlayerStateChanged -= PlayerController_PlayerStateChanged;
+
+        Destroy(gameObject);
     }
 }

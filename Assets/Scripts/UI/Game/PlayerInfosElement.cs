@@ -31,16 +31,17 @@ public class PlayerInfosElement : NetworkBehaviour
         Playing();
     }
 
-    public override void OnDestroy() {
-        base.OnDestroy();
-        PlayerController.OnPlayerStateChanged -= PlayerController_OnPlayerStateChanged;
-    }
-
     private void Playing() {
         playerBackgroundImage.color = teamColors.GetTeamColors()[team] * new Color(1, 1, 1, 0.5f);
     }
 
     private void NotPlaying() {
         playerBackgroundImage.color = teamColors.GetTeamColors()[team] * new Color(0.5f, 0.5f, 0.5f, 0.5f);
+    }
+
+    public void Clean() {
+        PlayerController.OnPlayerStateChanged -= PlayerController_OnPlayerStateChanged;
+
+        Destroy(gameObject);
     }
 }

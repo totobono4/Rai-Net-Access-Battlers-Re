@@ -38,11 +38,6 @@ public class GameManager : NetworkBehaviour
         teamPriority = PlayerTeam.None;
     }
 
-    public override void OnDestroy() {
-        if (!IsServer) return;
-        NetworkManager.Singleton.SceneManager.OnLoadEventCompleted -= SceneManager_OnLoadEventCompleted;
-    }
-
     public override void OnNetworkSpawn() {
         base.OnNetworkSpawn();
 
@@ -99,5 +94,12 @@ public class GameManager : NetworkBehaviour
 
     public List<ulong> GetClientIdsByTeam(PlayerTeam team) {
         return MultiplayerManager.Instance.GetClientIdsByTeam(team);
+    }
+
+    public void Clean() {
+        GameBoard.Instance.Clean();
+        MultiplayerManager.Instance.Clean();
+
+        Destroy(gameObject);
     }
 }

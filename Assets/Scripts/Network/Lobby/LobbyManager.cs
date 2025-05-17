@@ -385,4 +385,11 @@ public class LobbyManager : MonoBehaviour
 
         return IsNetworkCompatible(lobby);
     }
+
+    public void Clean() {
+        Application.wantsToQuit -= Application_WantsToQuit;
+        AuthenticationService.Instance.SignedIn -= AuthentificationService_SignedIn;
+
+        Destroy(gameObject);
+    }
 }

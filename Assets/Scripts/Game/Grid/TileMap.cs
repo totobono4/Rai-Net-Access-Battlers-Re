@@ -98,4 +98,14 @@ public class TileMap : NetworkBehaviour {
 
         return result;
     }
+
+    public void Clean() {
+        if (!IsServer) return;
+        foreach (Tile tile in GetAllTiles()) {
+            if (tile == null) continue;
+            tile.GetComponent<NetworkObject>().Despawn();
+        }
+
+        Destroy(gameObject);
+    }
 }

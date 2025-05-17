@@ -209,6 +209,7 @@ public class OnlineCard : Card
     private void TryCapture(Tile tile) {
         if (!tile.GetCard(out Card card)) return;
         if (card is not OnlineCard) return;
+
         OnCaptureCard?.Invoke(this, new CaptureCardArgs { capturedCard = card as OnlineCard, capturingCard = this });
     }
 
@@ -253,5 +254,12 @@ public class OnlineCard : Card
 
     private void NotFound_OnValueChanged(bool previousValue, bool newValue) {
         OnNotFoundValueChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void CleanOnlineCard() {
+        revealed.OnValueChanged -= Revealed_OnValueChanged;
+        boosted.OnValueChanged -= Boosted_OnValueChanged;
+        notFound.OnValueChanged -= NotFound_OnValueChanged;
+        captured.OnValueChanged -= Captured_OnValueChanged;
     }
 }

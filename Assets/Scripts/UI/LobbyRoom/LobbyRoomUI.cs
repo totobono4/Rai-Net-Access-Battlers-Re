@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
@@ -15,7 +16,11 @@ public class LobbyRoomUI : MonoBehaviour
     [SerializeField] private Transform playerSlots;
     [SerializeField] private Transform playerListElementTemplate;
 
+    private List<PlayerListElement> playerListElements;
+
     private void Awake() {
+        playerListElements = new List<PlayerListElement>();
+
         mainMenuButton.onClick.AddListener(() => {
             LobbyManager.Instance.LeaveLobby();
             NetworkManager.Singleton.Shutdown();
@@ -31,8 +36,18 @@ public class LobbyRoomUI : MonoBehaviour
         lobbyCodeText.text = LobbyManager.Instance.GetLobbyCode();
 
         for (int i = 0; i < MultiplayerManager.Instance.GetMaxPlayerCount(); i++) {
-            Transform playerListElement = Instantiate(playerListElementTemplate, playerSlots);
-            playerListElement.GetComponent<PlayerListElement>().Initialize(i);
+            Transform playerListElementTransform = Instantiate(playerListElementTemplate, playerSlots);
+            PlayerListElement playerListElement = playerListElementTransform.GetComponent<PlayerListElement>();
+            playerListElements.Add(playerListElement);
+            playerListElement.Initialize(i);
         }   
+    }
+
+    public void Clean() {
+        foreach (PlayerListElement playerListElement in playerListElements) {
+            playerListElement.Clean();
+        }
+
+        Destroy(gameObject);
     }
 }
