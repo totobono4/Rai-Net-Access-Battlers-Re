@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class TerminalCardVisual : CardVisual
+public class TerminalCardVisual : MonoBehaviour
 {
     [SerializeField] private TerminalCard terminalCard;
 

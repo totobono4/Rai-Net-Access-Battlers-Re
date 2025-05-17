@@ -49,4 +49,8 @@ public class JoinGameUI : MonoBehaviour
             lobbyListElementTransform.GetComponent<LobbyListElement>().SetLobby(lobby);
         }
     }
+
+    private void OnDestroy() {
+        LobbyManager.Instance.OnRefreshLobbiesUpdate -= LobbyManager_OnRefreshLobbiesUpdate;
+    }
 }

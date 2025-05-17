@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class OnlineCardVisual : CardVisual
+public class OnlineCardVisual : MonoBehaviour
 {
     [SerializeField] private OnlineCard onlineCard;
     [SerializeField] private Transform unknown, link, virus, lineboostIcon, virusCheckerIcon, notFoundIcon;

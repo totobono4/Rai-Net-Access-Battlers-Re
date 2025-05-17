@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class OnlineCard : Card
 {
-    public static event EventHandler<EventArgs> OnAnyOnlineCardSpawned;
-
     [SerializeField] private OnlineCardState serverState;
     [SerializeField] private OnlineCardState state;
     private NetworkVariable<bool> revealed;
@@ -66,8 +64,6 @@ public class OnlineCard : Card
         captured.OnValueChanged += Captured_OnValueChanged;
 
         state = OnlineCardState.Unknown;
-
-        PlayerController.OnTeamChanged += LocalTeamChanged;
     }
 
     protected override void Start() {
@@ -78,13 +74,6 @@ public class OnlineCard : Card
 
     public override void OnNetworkSpawn() {
         base.OnNetworkSpawn();
-
-        OnAnyOnlineCardSpawned?.Invoke(this, EventArgs.Empty);
-    }
-
-    private void LocalTeamChanged(object sender, PlayerController.TeamChangedArgs e) {
-        if (!IsSpawned) return;
-        SyncServerStateServerRpc();
     }
 
     private void Revealed_OnValueChanged(bool previous, bool current) {
@@ -94,6 +83,10 @@ public class OnlineCard : Card
 
     public void SetServerState(OnlineCardState newState) {
         serverState = newState;
+    }
+
+    public void SyncServerState() {
+        SyncServerStateServerRpc();
     }
 
     [ServerRpc(Delivery = RpcDelivery.Reliable, RequireOwnership = false)]

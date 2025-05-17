@@ -53,8 +53,6 @@ public class GameManager : NetworkBehaviour
         }
 
         GameBoard.Instance.Initialize();
-
-        PassPriority(0);
     }
 
     private bool IsGameOver(out PlayerTeam team, out bool hasWon) {

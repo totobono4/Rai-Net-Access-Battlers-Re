@@ -73,6 +73,11 @@ public class LobbyManager : MonoBehaviour
         AuthenticationService.Instance.SignedIn += AuthentificationService_SignedIn;
     }
 
+    private void OnDestroy() {
+        AuthenticationService.Instance.SignedIn -= AuthentificationService_SignedIn;
+        Application.wantsToQuit -= Application_WantsToQuit;
+    }
+
     private async void LeaveAndQuit() {
         if (!AuthenticationService.Instance.IsSignedIn) {
             canQuit = true;

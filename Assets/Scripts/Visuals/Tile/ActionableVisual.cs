@@ -16,6 +16,10 @@ public class ActionableVisual : MonoBehaviour
         Show();
     }
 
+    private void OnDestroy() {
+        tile.OnActionableValueChanged -= Tile_OnActionableTile;
+    }
+
     private void Show() {
         actionable.gameObject.SetActive(true);
     }

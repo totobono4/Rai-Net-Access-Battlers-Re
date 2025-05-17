@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Netcode;
@@ -18,6 +19,8 @@ public class GameBoard : NetworkBehaviour {
     private void Start() {
         tileMaps.Add(playMap);
         foreach (PlayerEntity playerEntity in players) foreach (TileMap tileMap in playerEntity.GetTileMaps()) { tileMaps.Add(tileMap); }
+
+        PlayerEntity.OnCardsReady += PlayerEntity_OnCardsReady;
     }
 
     public void Initialize() {
@@ -26,40 +29,25 @@ public class GameBoard : NetworkBehaviour {
         playMap.InstantiateTileMap();
 
         foreach (PlayerEntity playerEntity in players) {
-            Transform onlineCardPrefab = playerEntity.GetOnlineCardPrefab();
-
-            Dictionary<OnlineCardState, int> onlineCardCounts = playerEntity.GetOnlineCardCounts();
-            List<Vector2Int> onlineCardPlacements = playerEntity.GetOnlineCardPlacements();
-
-            List<OnlineCard> onlineCards = new List<OnlineCard>();
-            foreach (OnlineCardState cardType in onlineCardCounts.Keys) {
-                for (int i = 0; i < onlineCardCounts[cardType]; i++) {
-                    OnlineCard onlineCard = Instantiate(onlineCardPrefab).GetComponent<OnlineCard>();
-                    onlineCards.Add(onlineCard);
-
-                    onlineCard.SetServerState(cardType);
-
-                    onlineCard.GetComponent<NetworkObject>().Spawn();
-                }
-            }
-
-            for (int i = 0; i < onlineCards.Count; i++) {
-                int rand = Random.Range(0, onlineCards.Count);
-                OnlineCard temp = onlineCards[i];
-                onlineCards[i] = onlineCards[rand];
-                onlineCards[rand] = temp;
-            }
-
-            for (int i = 0; i < onlineCards.Count; i++) {
-                onlineCards[i].SetTileParent(playMap.GetTile(onlineCardPlacements[i]));
-                playMap.GetTile(onlineCardPlacements[i]).GetCard(out Card card);
-            }
-
-            playerEntity.SubOnlineCards(onlineCards);
-
             playerEntity.InstantiateTiles();
             playerEntity.InstantiateCards();
         }
+    }
+
+    private void PlayerEntity_OnCardsReady(object sender, PlayerEntity.CardsReadyArgs e) {
+        if (!IsServer) return;
+
+        (sender as PlayerEntity).SubOnlineCards();
+
+        bool allPlayersReady = true;
+        foreach (PlayerEntity playerEntity in players) {
+            if (!playerEntity.AreCardsReady()) {
+                allPlayersReady = false;
+                break;
+            }
+        }
+
+        if (allPlayersReady) GameManager.Instance.PassPriority(0);
     }
 
     public bool GetTile(Vector3 worldPosition, out Tile tile) {
@@ -68,6 +56,14 @@ public class GameBoard : NetworkBehaviour {
         }
         tile = null;
         return false;
+    }
+
+    public List<StartTile> GetStartTilesByTeam(PlayerTeam team) {
+        return GetStartTiles().Where(tile => tile.GetTeam() == team).ToList();
+    }
+
+    public List<StartTile> GetStartTiles() {
+        return GetAllTiles().OfType<StartTile>().ToList();
     }
 
     public List<Tile> GetAllTiles() {
@@ -84,5 +80,13 @@ public class GameBoard : NetworkBehaviour {
 
     public List<PlayerEntity> GetPlayerEntities() {
         return players;
+    }
+
+    public PlayerEntity GetPlayerEntityByTeam(PlayerTeam team) {
+        return players.FirstOrDefault(player => player.GetTeam() == team);
+    }
+
+    public bool TryPlaceOnlineCard(StartTile startTile, OnlineCardState onlineCardState, PlayerTeam team) {
+        return GetPlayerEntityByTeam(team).TryPlaceOnlineCard(startTile, onlineCardState);
     }
 }

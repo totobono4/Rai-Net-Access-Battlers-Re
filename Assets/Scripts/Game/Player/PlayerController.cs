@@ -49,6 +49,7 @@ public class PlayerController : NetworkBehaviour {
     private NetworkVariable<PlayerState> playerState;
 
     private enum PlayerState {
+        PlacingOnlineCards,
         WaitingForTurn,
         SelectingForAction,
         ThinkingForAction,
@@ -66,7 +67,7 @@ public class PlayerController : NetworkBehaviour {
     private NetworkVariable<int> actionTokens;
 
     private void Awake() {
-        playerState = new NetworkVariable<PlayerState>(PlayerState.WaitingForTurn);
+        playerState = new NetworkVariable<PlayerState>(PlayerState.PlacingOnlineCards);
         playerState.OnValueChanged += PlayerState_OnValueChanged;
 
         actionTokens = new NetworkVariable<int>(0);
@@ -76,13 +77,11 @@ public class PlayerController : NetworkBehaviour {
         actionCard = null;
         actionableTiles = new List<Tile>();
 
-        team = new NetworkVariable<PlayerTeam>();
-        team.Value = PlayerTeam.None;
+        team = new NetworkVariable<PlayerTeam>(PlayerTeam.None);
         team.OnValueChanged += Team_OnValueChanged;
     }
 
     private void Start() {
-        OnlineCard.OnAnyOnlineCardSpawned += OnlineCard_OnAnyOnlineCardSpawned;
         GameManager.Instance.OnGameOver += GameManager_OnGameOver;
     }
 
@@ -147,10 +146,6 @@ public class PlayerController : NetworkBehaviour {
         OnTeamChanged?.Invoke(this, new TeamChangedArgs { team = current });
     }
 
-    private void OnlineCard_OnAnyOnlineCardSpawned(object sender, EventArgs e) {
-        OnTeamChanged?.Invoke(this, new TeamChangedArgs { team = team.Value });
-    }
-
     public PlayerTeam GetTeam() { return team.Value; }
 
     private void SendEventHoverTileChanged() {
@@ -177,23 +172,30 @@ public class PlayerController : NetworkBehaviour {
         GameManager.Instance.PassPriority(actionTokens.Value);
     }
 
-    private void InputSystem_OnPlayerAction(object sender, EventArgs e) {
+    private void InputSystem_OnPlayerAction(object sender, InputSystem.PlayerActionEventArgs e) {
         if (!IsOwner) return;
 
         lastMouseWorldPosition = InputSystem.Instance.GetMouseWorldPosition();
 
         switch (playerState.Value) {
             default: break;
+            case PlayerState.PlacingOnlineCards:
+                PlacingOnlineCards(e.playerActionType);
+                break;
             case PlayerState.WaitingForTurn:
-                WaitingForTurn();
+                WaitingForTurn(e.playerActionType);
                 break;
             case PlayerState.SelectingForAction:
-                SelectingForAction();
+                SelectingForAction(e.playerActionType);
                 break;
             case PlayerState.ThinkingForAction:
-                ThinkingForAction();
+                ThinkingForAction(e.playerActionType);
                 break;
         }
+    }
+
+    public bool IsPlacingCards() {
+        return playerState.Value == PlayerState.PlacingOnlineCards;
     }
 
     public bool IsWaitingForTurn() {
@@ -208,11 +210,39 @@ public class PlayerController : NetworkBehaviour {
         return playerState.Value == PlayerState.ThinkingForAction;
     }
 
-    private void WaitingForTurn() {
+    private void PlacingOnlineCards(InputSystem.PlayerActionType playerActionType) {
+        if (!GameBoard.Instance.GetTile(lastMouseWorldPosition, out Tile tile)) return;
+        if (tile.GetTeam() != team.Value) return;
+        if (tile is not StartTile) return;
+
+        switch (playerActionType) {
+            default: break;
+            case InputSystem.PlayerActionType.Action:
+                PlacingCardsServerRpc(tile.GetComponent<NetworkObject>(), OnlineCardState.Link);
+                break;
+            case InputSystem.PlayerActionType.SecondaryAction:
+                PlacingCardsServerRpc(tile.GetComponent<NetworkObject>(), OnlineCardState.Virus);
+                break;
+        }
+    }
+
+    [ServerRpc(Delivery = RpcDelivery.Reliable)]
+    private void PlacingCardsServerRpc(NetworkObjectReference tileNetworkReference, OnlineCardState onlineCardState) {
+        if (!IsPlacingCards()) return;
+
+        if (!tileNetworkReference.TryGet(out NetworkObject tileNetwork)) return;
+        Tile tile = tileNetwork.GetComponent<Tile>();
+
+        if (!tile.TryGetComponent(out StartTile startTile)) return;
+        (tile as StartTile).TryPlaceOnlineCard(onlineCardState, team.Value);
+    }
+
+    private void WaitingForTurn(InputSystem.PlayerActionType playerActionType) {
 
     }
 
-    private void SelectingForAction() {
+    private void SelectingForAction(InputSystem.PlayerActionType playerActionType) {
+        if (playerActionType != InputSystem.PlayerActionType.Action) return;
         if (!GameBoard.Instance.GetTile(lastMouseWorldPosition, out Tile tile)) return;
         SelectingForActionServerRpc(tile.GetComponent<NetworkObject>());
     }
@@ -228,7 +258,8 @@ public class PlayerController : NetworkBehaviour {
         OnSelectTile?.Invoke(this, new SelectedTileArgs { tile = tile, team = GetTeam() });
     }
 
-    private void ThinkingForAction() {
+    private void ThinkingForAction(InputSystem.PlayerActionType playerActionType) {
+        if (playerActionType != InputSystem.PlayerActionType.Action) return;
         if (!GameBoard.Instance.GetTile(lastMouseWorldPosition, out Tile tile)) return;
         ThinkingForActionServerRpc(tile.GetComponent<NetworkObject>());
     }

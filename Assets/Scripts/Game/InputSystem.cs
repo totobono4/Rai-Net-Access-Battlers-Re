@@ -8,7 +8,16 @@ public class InputSystem : MonoBehaviour {
     private PlayerInputActions inputActions;
     [SerializeField] private LayerMask mousePositionLayer;
 
-    public EventHandler OnPlayerAction;
+    public enum PlayerActionType {
+        Action,
+        SecondaryAction
+    }
+
+    public EventHandler<PlayerActionEventArgs> OnPlayerAction;
+
+    public class PlayerActionEventArgs : EventArgs {
+        public PlayerActionType playerActionType;
+    }
 
     private bool active;
 
@@ -19,6 +28,7 @@ public class InputSystem : MonoBehaviour {
         inputActions.Player.Enable();
 
         inputActions.Player.Action.performed += PlayerAction;
+        inputActions.Player.SecondaryAction.performed += PlayerAction;
 
         active = true;
     }
@@ -41,7 +51,30 @@ public class InputSystem : MonoBehaviour {
         return Vector3.positiveInfinity;
     }
 
-    public void PlayerAction(InputAction.CallbackContext callbackContext) {
-        OnPlayerAction?.Invoke(this, EventArgs.Empty);
+    private void PlayerAction(InputAction.CallbackContext context) {
+        if (!Enum.TryParse(context.action.name, out PlayerActionType playerActionType)) return;
+
+        OnPlayerAction?.Invoke(this, new PlayerActionEventArgs {
+            playerActionType = playerActionType
+        });
+    }
+
+    private string FixBindingString(string binding) {
+        switch(binding) {
+            case "LMB":
+                return "Left Mouse Button";
+            case "RMB":
+                return "Right Mouse Button";
+            default:
+                return binding;
+        }
+    }
+
+    public string GetActionbinding() {
+        return FixBindingString(inputActions.Player.Action.bindings[0].ToDisplayString());
+    }
+
+    public string GetSecondaryActionbinding() {
+        return FixBindingString(inputActions.Player.SecondaryAction.bindings[0].ToDisplayString());
     }
 }

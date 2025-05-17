@@ -16,6 +16,10 @@ public class ActionUsedVisual : MonoBehaviour
         Show();
     }
 
+    private void OnDestroy() {
+        tile.OnActionUsedValueChanged -= Tile_OnActionUsed;
+    }
+
     private void Show() {
         actioned.gameObject.SetActive(true);
     }

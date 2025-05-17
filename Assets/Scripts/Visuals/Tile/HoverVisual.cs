@@ -23,6 +23,10 @@ public class HoverVisual : MonoBehaviour
         Show();
     }
 
+    private void OnDestroy() {
+        PlayerController.LocalInstance.OnHoverTileChanged -= PlayerController_OnHoverTileChanged;
+    }
+
     private void Show() {
         hilight.gameObject.SetActive(true);
     }

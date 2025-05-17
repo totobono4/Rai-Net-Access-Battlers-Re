@@ -16,6 +16,10 @@ public class SelectedVisual : MonoBehaviour
         Show();
     }
 
+    private void OnDestroy() {
+        tile.OnSelectedValueChanged -= Tile_OnSelectedTile;
+    }
+
     private void Show() {
         selected.gameObject.SetActive(true);
     }
