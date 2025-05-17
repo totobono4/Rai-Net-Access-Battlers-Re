@@ -38,11 +38,15 @@ public class GameManager : NetworkBehaviour
         teamPriority = PlayerTeam.None;
     }
 
+    public override void OnDestroy() {
+        if (!IsServer) return;
+        NetworkManager.Singleton.SceneManager.OnLoadEventCompleted -= SceneManager_OnLoadEventCompleted;
+    }
+
     public override void OnNetworkSpawn() {
         base.OnNetworkSpawn();
 
         if (!IsServer) return;
-
         NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += SceneManager_OnLoadEventCompleted;
     }
 

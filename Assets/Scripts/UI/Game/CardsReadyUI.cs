@@ -17,9 +17,14 @@ public class CardsReadyUI : MonoBehaviour
         });
 
         PlayerController.OnTeamChanged += PlayerController_OnTeamChanged;
-
         PlayerEntity.OnOnlineCardsPlaced += PlayerEntity_OnOnlineCardsPlaced;
         PlayerEntity.OnCardsReady += PlayerEntity_OnCardsReady;
+    }
+
+    private void OnDestroy() {
+        PlayerController.OnTeamChanged -= PlayerController_OnTeamChanged;
+        PlayerEntity.OnOnlineCardsPlaced -= PlayerEntity_OnOnlineCardsPlaced;
+        PlayerEntity.OnCardsReady -= PlayerEntity_OnCardsReady;
     }
 
     private void Start() {

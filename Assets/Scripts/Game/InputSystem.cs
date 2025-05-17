@@ -33,6 +33,13 @@ public class InputSystem : MonoBehaviour {
         active = true;
     }
 
+    private void OnDestroy() {
+        inputActions.Player.Action.performed -= PlayerAction;
+        inputActions.Player.SecondaryAction.performed -= PlayerAction;
+        inputActions.Player.Disable();
+        Instance = null;
+    }
+
     public void SetActive() {
         active = true;
     }

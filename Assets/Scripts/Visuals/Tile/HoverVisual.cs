@@ -24,7 +24,7 @@ public class HoverVisual : MonoBehaviour
     }
 
     private void OnDestroy() {
-        PlayerController.LocalInstance.OnHoverTileChanged -= PlayerController_OnHoverTileChanged;
+        if (PlayerController.LocalInstance) PlayerController.LocalInstance.OnHoverTileChanged -= PlayerController_OnHoverTileChanged;
     }
 
     private void Show() {

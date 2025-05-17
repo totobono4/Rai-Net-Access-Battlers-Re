@@ -91,7 +91,6 @@ public class LobbyManager : MonoBehaviour
 
         try {
             if (IsLobbyHost(currentLobby)) await LobbyService.Instance.DeleteLobbyAsync(currentLobby.Id);
-            else await LobbyService.Instance.RemovePlayerAsync(currentLobby.Id, AuthenticationService.Instance.PlayerId);
 
             canQuit = true;
             Application.Quit();

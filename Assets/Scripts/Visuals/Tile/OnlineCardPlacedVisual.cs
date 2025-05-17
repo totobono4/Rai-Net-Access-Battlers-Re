@@ -8,7 +8,6 @@ public class OnlineCardPlacedVisual : MonoBehaviour {
 
     private void Start() {
         startTile.OnOnlineCardPlaced += StartTile_OnOnlineCardPlaced;
-
         PlayerController.OnTeamChanged += PlayerController_OnTeamChanged;
     }
 
@@ -28,6 +27,7 @@ public class OnlineCardPlacedVisual : MonoBehaviour {
 
     private void OnDestroy() {
         startTile.OnOnlineCardPlaced -= StartTile_OnOnlineCardPlaced;
+        PlayerController.OnTeamChanged -= PlayerController_OnTeamChanged;
     }
 
     private void Show() {

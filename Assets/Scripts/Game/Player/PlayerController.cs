@@ -81,6 +81,15 @@ public class PlayerController : NetworkBehaviour {
         team.OnValueChanged += Team_OnValueChanged;
     }
 
+    public override void OnDestroy() {
+        playerState.OnValueChanged -= PlayerState_OnValueChanged;
+        actionTokens.OnValueChanged -= ActionTokens_OnValueChanged;
+        team.OnValueChanged -= Team_OnValueChanged;
+        if (InputSystem.Instance) InputSystem.Instance.OnPlayerAction -= InputSystem_OnPlayerAction;
+        if (GameManager.Instance) GameManager.Instance.OnPlayerGivePriority -= GameManager_OnPlayerGivePriority;
+        if (IsOwner) LocalInstance = null;
+    }
+
     private void Start() {
         GameManager.Instance.OnGameOver += GameManager_OnGameOver;
     }
