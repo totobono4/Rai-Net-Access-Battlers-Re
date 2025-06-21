@@ -76,6 +76,11 @@ public class OnlineCard : Card
         base.OnNetworkSpawn();
     }
 
+    public override void OnNetworkDespawn() {
+        base.OnNetworkDespawn();
+        Clean();
+    }
+
     private void Revealed_OnValueChanged(bool previous, bool current) {
         OnRevealValueChanged?.Invoke(this, EventArgs.Empty);
         SyncServerStateServerRpc();

@@ -25,9 +25,11 @@ public class DisconnectedUI : MonoBehaviour {
         }
 
         if (NetworkManager.Singleton.IsHost) {
+            disconnectStatusText.text = "Client have been disconnected";
             MultiplayerManager.Instance.OnClientDisconnect += MultiplayerManager_OnClientDisconnect;
         }
         else {
+            disconnectStatusText.text = "You have been disconnected";
             MultiplayerManager.Instance.OnHostDisconnect += MultiplayerManager_OnHostDisconnect;
         }
 
