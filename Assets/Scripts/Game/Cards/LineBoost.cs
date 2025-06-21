@@ -38,4 +38,15 @@ public class LineBoost : TerminalCard {
 
         return true;
     }
+
+    public override void Clean() {
+        if (GameBoard.Instance != null) {
+            foreach (Tile tile in GameBoard.Instance.GetAllTiles()) {
+                if (tile.GetCard(out Card card) && card is OnlineCard onlineCard) {
+                    onlineCard.OnCapturedValueChanged -= OnlineCard_OnCapturedValueChanged;
+                }
+            }
+        }
+        base.Clean();
+    }
 }

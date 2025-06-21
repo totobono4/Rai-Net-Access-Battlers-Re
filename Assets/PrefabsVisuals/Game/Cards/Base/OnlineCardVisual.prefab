@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1751631936757379767}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5688480664753262388}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &8035558035697478840
 SpriteRenderer:
@@ -49,10 +49,13 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 947ee8b153d6af54a9c2c274f06f4b64, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,13 +111,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2899453562434701699}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5688480664753262388}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &4302484684349492386
 SpriteRenderer:
@@ -133,10 +136,13 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 947ee8b153d6af54a9c2c274f06f4b64, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -192,13 +198,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3961664488940895197}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5688480664753262388}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &1283888001297878945
 SpriteRenderer:
@@ -217,10 +223,13 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 947ee8b153d6af54a9c2c274f06f4b64, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -348,9 +357,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3488522894140916732, guid: ea4f7101a3f5c0847b2492f6447b7864, type: 3}
       insertIndex: -1
       addedObject: {fileID: -8039983313426327927}
-    - targetCorrespondingSourceObject: {fileID: 3488522894140916732, guid: ea4f7101a3f5c0847b2492f6447b7864, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 684124976770349444}
   m_SourcePrefab: {fileID: 100100000, guid: ea4f7101a3f5c0847b2492f6447b7864, type: 3}
 --- !u!1 &3872824970146092073 stripped
 GameObject:
@@ -373,22 +379,9 @@ MonoBehaviour:
   unknown: {fileID: 3758595572826371553}
   link: {fileID: 1612533273342157696}
   virus: {fileID: 4758978574184397775}
-  revealed: {fileID: 0}
-  notfound: {fileID: 0}
---- !u!114 &684124976770349444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3872824970146092073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 542bae1966967c142838aeb0b68b1d89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onlineCard: {fileID: 0}
-  lineBoostVisual: {fileID: 0}
+  lineboostIcon: {fileID: 0}
+  virusCheckerIcon: {fileID: 0}
+  notFoundIcon: {fileID: 0}
 --- !u!4 &5688480664753262388 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5415362887655856353, guid: ea4f7101a3f5c0847b2492f6447b7864, type: 3}

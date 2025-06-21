@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class TerminalGroup : TileMap {
     [SerializeField] private TerminalGroupSO terminalGroupSO;
-    private List<TerminalCard> terminalCards = new List<TerminalCard>();
+    private List<TerminalCard> terminalCards;
 
     protected override void Awake() {
         base.Awake();
+
+        terminalCards = new List<TerminalCard>();
     }
 
     public void InstantiateTerminalCards() {

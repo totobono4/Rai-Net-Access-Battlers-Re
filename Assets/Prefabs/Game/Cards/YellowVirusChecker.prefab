@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6791546593249464643, guid: ee4bef463cf69b3428d693b2902e7d11, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 951099334
+      value: 1166491138
       objectReference: {fileID: 0}
     - target: {fileID: 7116213709367730377, guid: ee4bef463cf69b3428d693b2902e7d11, type: 3}
       propertyPath: m_RootOrder
@@ -100,6 +100,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: YellowVirusCheckerVisual
       objectReference: {fileID: 0}
+    - target: {fileID: 1018912776013294894, guid: fda5cf87afeecd04c9500ac64830d3be, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 6852299396601498463}
     - target: {fileID: 1018912776013294894, guid: fda5cf87afeecd04c9500ac64830d3be, type: 3}
       propertyPath: terminalCard
       value: 

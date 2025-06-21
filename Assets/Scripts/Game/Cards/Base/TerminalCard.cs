@@ -27,4 +27,10 @@ public abstract class TerminalCard : Card {
     protected void UnsetUsed() {
         used.Value = false;
     }
+
+    public override void Clean() {
+        used.OnValueChanged -= Used_OnValueChanged;
+
+        base.Clean();
+    }
 }

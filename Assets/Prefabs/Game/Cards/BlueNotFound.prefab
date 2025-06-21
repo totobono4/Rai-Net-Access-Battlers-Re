@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: team
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 831271573386515974, guid: df3198adee20a4b4fb2b02ca6f539a24, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
+    - target: {fileID: 1131439796323622893, guid: df3198adee20a4b4fb2b02ca6f539a24, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     - target: {fileID: 4909493945451669397, guid: df3198adee20a4b4fb2b02ca6f539a24, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -60,9 +68,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueNotFound
       objectReference: {fileID: 0}
+    - target: {fileID: 8270975386731458749, guid: df3198adee20a4b4fb2b02ca6f539a24, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     - target: {fileID: 8692989298797254175, guid: df3198adee20a4b4fb2b02ca6f539a24, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 951099334
+      value: 1052567074
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -140,6 +152,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4849623316531838879, guid: 6aa3d556b0291fa4191963e15df34583, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 1175301083707266422}
     - target: {fileID: 4849623316531838879, guid: 6aa3d556b0291fa4191963e15df34583, type: 3}
       propertyPath: terminalCard
       value: 

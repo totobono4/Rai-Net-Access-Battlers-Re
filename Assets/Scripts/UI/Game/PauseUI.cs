@@ -25,7 +25,7 @@ public class PauseUI : MonoBehaviour
     }
 
     public void Clean() {
-        pauseTab.GetComponent<PauseTabUI>().CleanPauseTabUI();
+        pauseTab.GetComponent<PauseTabUI>().Clean();
         Destroy(gameObject);
     }
 }

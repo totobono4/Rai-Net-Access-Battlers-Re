@@ -41,4 +41,8 @@ public class StartTile : BoardTile {
         if (GameBoard.Instance.TryPlaceOnlineCard(this, onlineCardState, team)) SetOnlineCardPlaced();
         else UnsetOnlineCardPlaced();
     }
+
+    public override void Clean() {
+        onlineCardPlaced.OnValueChanged -= OnlineCardPlacedValueChanged;
+    }
 }

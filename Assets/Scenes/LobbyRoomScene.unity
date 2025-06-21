@@ -602,6 +602,10 @@ PrefabInstance:
       propertyPath: DisconnectedUI
       value: 
       objectReference: {fileID: 3744082867726344491}
+    - target: {fileID: 2921318742613741407, guid: d8fe89973a8ebf047a4963414c6364f0, type: 3}
+      propertyPath: disconnectedUI
+      value: 
+      objectReference: {fileID: 3744082867726344491}
     - target: {fileID: 4562104384364182609, guid: d8fe89973a8ebf047a4963414c6364f0, type: 3}
       propertyPath: m_Name
       value: LobbyRoomCleaner

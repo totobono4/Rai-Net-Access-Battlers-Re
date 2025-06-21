@@ -22,6 +22,8 @@ public abstract class Card : NetworkBehaviour {
         public int tokenCost;
     }
 
+    public EventHandler OnClean;
+
     protected virtual void Awake() {
 
     }
@@ -130,5 +132,12 @@ public abstract class Card : NetworkBehaviour {
     public void PlayerController_OnCancelAction(object sender, PlayerController.CancelTileArgs e) {
         if ((object)e.card != this) return;
         ResetAction();
+    }
+
+    public virtual void Clean() {
+        PlayerController.OnAction -= PlayerController_OnAction;
+        PlayerController.OnCancelAction -= PlayerController_OnCancelAction;
+
+        OnClean?.Invoke(this, EventArgs.Empty);
     }
 }

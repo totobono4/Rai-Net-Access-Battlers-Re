@@ -8,7 +8,7 @@ public class GameCleaner : MonoBehaviour
     [SerializeField] GameOverUI gameOverUI;
     [SerializeField] PauseUI pauseUI;
     [SerializeField] PlayerInfosUI playerInfosUI;
-    [SerializeField] DisconnectedUI DisconnectedUI;
+    [SerializeField] DisconnectedUI disconnectedUI;
 
     private void Awake() {
         Instance = this;
@@ -20,6 +20,6 @@ public class GameCleaner : MonoBehaviour
         gameOverUI.Clean();
         pauseUI.Clean();
         playerInfosUI.Clean();
-        DisconnectedUI.Clean();
+        disconnectedUI.Clean();
     }
 }

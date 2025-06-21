@@ -22,7 +22,7 @@ public class PauseTabUI : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void CleanPauseTabUI() {
+    public void Clean() {
         Destroy(gameObject);
     }
 }

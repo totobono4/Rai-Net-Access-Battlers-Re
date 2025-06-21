@@ -1,18 +1,30 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class OnlineCardVisual : MonoBehaviour
-{
+public class OnlineCardVisual : CardVisual {
     [SerializeField] private OnlineCard onlineCard;
     [SerializeField] private Transform unknown, link, virus, lineboostIcon, virusCheckerIcon, notFoundIcon;
 
-    private void Awake() {
+    protected override void Awake() {
+        base.Awake();
+
         onlineCard.OnTileParentChanged += OnlineCard_OnTileParentChanged;
         onlineCard.OnStateValueChanged += OnlineCard_OnStateValueChanged;
         onlineCard.OnRevealValueChanged += OnlineCard_OnRevealValueChanged;
         onlineCard.OnNotFoundValueChanged += OnlineCard_OnNotFoundValueChanged;
         onlineCard.OnCapturedValueChanged += OnlineCard_OnCapturedValueChanged;
         onlineCard.OnBoostedValueChanged += OnlineCard_OnBoostedValueChanged;
+        onlineCard.OnClean += OnlineCard_OnClean;
+    }
+
+    protected override List<SpriteRenderer> InitializeSpriteRenderers() {
+        return new List<SpriteRenderer>() {
+            unknown.GetComponent<SpriteRenderer>(),
+            link.GetComponent<SpriteRenderer>(),
+            virus.GetComponent<SpriteRenderer>(),
+        };
     }
 
     private void OnlineCard_OnTileParentChanged(object sender, Card.TileParentChangedArgs e) {
@@ -91,5 +103,15 @@ public class OnlineCardVisual : MonoBehaviour
     }
     private void HideNotFoundIcon() {
         notFoundIcon.gameObject.SetActive(false);
+    }
+
+    private void OnlineCard_OnClean(object sender, EventArgs e) {
+        onlineCard.OnTileParentChanged -= OnlineCard_OnTileParentChanged;
+        onlineCard.OnStateValueChanged -= OnlineCard_OnStateValueChanged;
+        onlineCard.OnRevealValueChanged -= OnlineCard_OnRevealValueChanged;
+        onlineCard.OnNotFoundValueChanged -= OnlineCard_OnNotFoundValueChanged;
+        onlineCard.OnCapturedValueChanged -= OnlineCard_OnCapturedValueChanged;
+        onlineCard.OnBoostedValueChanged -= OnlineCard_OnBoostedValueChanged;
+        onlineCard.OnClean -= OnlineCard_OnClean;
     }
 }

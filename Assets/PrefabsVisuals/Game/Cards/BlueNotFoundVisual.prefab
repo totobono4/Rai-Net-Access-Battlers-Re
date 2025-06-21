@@ -28,6 +28,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2770436276674998401, guid: 25fe055d24ee9814cbdf85dce3bdf18f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 00f29563a3755cc4a8deffa7d08fdca7, type: 3}
     - target: {fileID: 3749734436260173269, guid: 25fe055d24ee9814cbdf85dce3bdf18f, type: 3}
       propertyPath: m_Size.x
       value: 3.77
@@ -44,6 +48,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3749734436260173269, guid: 25fe055d24ee9814cbdf85dce3bdf18f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 00f29563a3755cc4a8deffa7d08fdca7, type: 3}
     - target: {fileID: 4242141767066678718, guid: 25fe055d24ee9814cbdf85dce3bdf18f, type: 3}
       propertyPath: m_Name
       value: BlueNotFoundVisual

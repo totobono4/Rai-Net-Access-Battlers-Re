@@ -103,6 +103,7 @@ public class TileMap : NetworkBehaviour {
         if (!IsServer) return;
         foreach (Tile tile in GetAllTiles()) {
             if (tile == null) continue;
+            tile.Clean();
             tile.GetComponent<NetworkObject>().Despawn();
         }
 

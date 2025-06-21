@@ -40,6 +40,8 @@ public class PlayerEntity : NetworkBehaviour {
         public bool cardsReady;
     }
 
+    private List<TerminalCard> terminalCards;
+
     private void Awake() {
         onlineCardPrefab = playerOnlineCardsSO.GetPrefab();
         onlineCardCounts = playerOnlineCardsSO.GetCounts();
@@ -201,7 +203,7 @@ public class PlayerEntity : NetworkBehaviour {
             onlineCard.OnMoveCard -= OnlineCard_OnMoveCard;
             onlineCard.OnCaptureCard -= OnlineCard_OnCaptureCard;
 
-            onlineCard.CleanOnlineCard();
+            onlineCard.Clean();
 
             onlineCard.GetComponent<NetworkObject>().Despawn();
         }

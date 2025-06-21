@@ -93,6 +93,7 @@ public class GameBoard : NetworkBehaviour {
     public void Clean() {
         PlayerEntity.OnCardsReady -= PlayerEntity_OnCardsReady;
 
+        foreach (StartTile startTile in GetStartTiles()) startTile.Clean();
         foreach (TileMap tileMap in tileMaps) tileMap.Clean();
         foreach (PlayerEntity playerEntity in players) playerEntity.Clean();
 

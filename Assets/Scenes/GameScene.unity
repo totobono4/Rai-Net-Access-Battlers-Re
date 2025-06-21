@@ -1892,6 +1892,10 @@ PrefabInstance:
       propertyPath: DisconnectedUI
       value: 
       objectReference: {fileID: 1018108753}
+    - target: {fileID: 869460627392717517, guid: 8eef0773d12e9854dbd80d5fc68b5c1f, type: 3}
+      propertyPath: disconnectedUI
+      value: 
+      objectReference: {fileID: 1018108753}
     - target: {fileID: 951012755236465131, guid: 8eef0773d12e9854dbd80d5fc68b5c1f, type: 3}
       propertyPath: m_Name
       value: GameCleaner

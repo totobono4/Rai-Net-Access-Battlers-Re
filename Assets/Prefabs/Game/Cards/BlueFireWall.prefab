@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 6456982032297100754}
     m_Modifications:
     - target: {fileID: 3737361503800883957, guid: 5a0ca321130950649800309561f1d0c0, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 510546993753925405}
+    - target: {fileID: 3737361503800883957, guid: 5a0ca321130950649800309561f1d0c0, type: 3}
       propertyPath: terminalCard
       value: 
       objectReference: {fileID: 510546993753925405}
@@ -84,7 +88,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1057505753751774529, guid: 9c708262c85e80d418de9a728e427798, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 951099334
+      value: 2292714541
       objectReference: {fileID: 0}
     - target: {fileID: 2953455569417065024, guid: 9c708262c85e80d418de9a728e427798, type: 3}
       propertyPath: m_Name

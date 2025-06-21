@@ -113,4 +113,12 @@ public abstract class Tile : NetworkBehaviour {
     private void ActionUsed_OnValueChanged(bool previous, bool current) {
         OnActionUsedValueChanged?.Invoke(this, new ActionUsedArgs { tile = this, isUsed = current });
     }
+
+    public virtual void Clean() {
+        PlayerController.OnSelectTile -= PlayerController_OnSelectedTile;
+        PlayerController.OnCancelAction -= PlayerController_OnCancelAction;
+        selected.OnValueChanged -= Selected_OnValueChanged;
+        actionable.OnValueChanged -= Actionable_OnValueChanged;
+        actionUsed.OnValueChanged -= ActionUsed_OnValueChanged;
+    }
 }

@@ -256,10 +256,12 @@ public class OnlineCard : Card
         OnNotFoundValueChanged?.Invoke(this, EventArgs.Empty);
     }
 
-    public void CleanOnlineCard() {
+    public override void Clean() {
         revealed.OnValueChanged -= Revealed_OnValueChanged;
         boosted.OnValueChanged -= Boosted_OnValueChanged;
         notFound.OnValueChanged -= NotFound_OnValueChanged;
         captured.OnValueChanged -= Captured_OnValueChanged;
+
+        base.Clean();
     }
 }

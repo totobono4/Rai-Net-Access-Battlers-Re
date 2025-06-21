@@ -57,6 +57,10 @@ PrefabInstance:
       value: YellowNotFoundVisual
       objectReference: {fileID: 0}
     - target: {fileID: 8920179122706184618, guid: 9c6c6703eca57694485a1e465617f990, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 1819008851515000178}
+    - target: {fileID: 8920179122706184618, guid: 9c6c6703eca57694485a1e465617f990, type: 3}
       propertyPath: terminalCard
       value: 
       objectReference: {fileID: 1819008851515000178}
@@ -81,6 +85,14 @@ PrefabInstance:
     - target: {fileID: -8847057356920167312, guid: df3198adee20a4b4fb2b02ca6f539a24, type: 3}
       propertyPath: team
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 831271573386515974, guid: df3198adee20a4b4fb2b02ca6f539a24, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
+    - target: {fileID: 1131439796323622893, guid: df3198adee20a4b4fb2b02ca6f539a24, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
       objectReference: {fileID: 0}
     - target: {fileID: 4909493945451669397, guid: df3198adee20a4b4fb2b02ca6f539a24, type: 3}
       propertyPath: m_RootOrder
@@ -130,9 +142,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: YellowNotFound
       objectReference: {fileID: 0}
+    - target: {fileID: 8270975386731458749, guid: df3198adee20a4b4fb2b02ca6f539a24, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     - target: {fileID: 8692989298797254175, guid: df3198adee20a4b4fb2b02ca6f539a24, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 951099334
+      value: 3808431964
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

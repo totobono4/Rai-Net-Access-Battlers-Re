@@ -6,7 +6,7 @@ public class LobbyRoomCleaner : MonoBehaviour
     public static LobbyRoomCleaner Instance { get; private set; }
 
     [SerializeField] LobbyRoomUI lobbyRoomUI;
-    [SerializeField] DisconnectedUI DisconnectedUI;
+    [SerializeField] DisconnectedUI disconnectedUI;
 
     private void Awake() {
         Instance = this;
@@ -25,7 +25,7 @@ public class LobbyRoomCleaner : MonoBehaviour
         LobbyManager.Instance.Clean();
 
         lobbyRoomUI.Clean();
-        DisconnectedUI.Clean();
+        disconnectedUI.Clean();
 
         Destroy(gameObject);
     }

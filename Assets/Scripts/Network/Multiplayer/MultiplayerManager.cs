@@ -208,7 +208,7 @@ public class MultiplayerManager : NetworkBehaviour
         }
 
         playerDataNetworkList.OnListChanged -= PlayerDataNetworkList_OnListChanged;
-        
+
         NetworkManager.Shutdown();
     }
 }
