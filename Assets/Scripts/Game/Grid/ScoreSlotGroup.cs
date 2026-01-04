@@ -15,7 +15,7 @@ public class ScoreSlotGroup : TileMap
         AddOnlineCardClientRpc(onlineCard.GetComponent<NetworkObject>());
     }
 
-    [ClientRpc(Delivery = RpcDelivery.Reliable)]
+    [Rpc(SendTo.ClientsAndHost, Delivery = RpcDelivery.Reliable)]
     private void AddOnlineCardClientRpc(NetworkObjectReference onlineCardNetworkReference) {
         if (!onlineCardNetworkReference.TryGet(out NetworkObject onlineCardNetwork)) return;
         OnlineCard onlineCard = onlineCardNetwork.GetComponent<OnlineCard>();

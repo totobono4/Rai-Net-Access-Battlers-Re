@@ -134,9 +134,9 @@ public class MultiplayerManager : NetworkBehaviour
         SetPlayerNameServerRpc(playerName);
     }
 
-    [ServerRpc(Delivery = RpcDelivery.Reliable, RequireOwnership = false)]
-    private void SetPlayerIdServerRpc(string playerId, ServerRpcParams serverRpcParams = default) {
-        ulong clientId = serverRpcParams.Receive.SenderClientId;
+    [Rpc(SendTo.Server, Delivery = RpcDelivery.Reliable)]
+    private void SetPlayerIdServerRpc(string playerId, RpcParams rpcParams = default) {
+        ulong clientId = rpcParams.Receive.SenderClientId;
 
         int playerDataIndex = GetPlayerDataIndexFromClientId(clientId);
 
@@ -147,9 +147,9 @@ public class MultiplayerManager : NetworkBehaviour
         playerDataNetworkList[playerDataIndex] = playerData;
     }
 
-    [ServerRpc(Delivery = RpcDelivery.Reliable, RequireOwnership = false)]
-    private void SetPlayerNameServerRpc(FixedString128Bytes playerName, ServerRpcParams serverRpcParams = default) {
-        ulong clientId = serverRpcParams.Receive.SenderClientId;
+    [Rpc(SendTo.Server, Delivery = RpcDelivery.Reliable)]
+    private void SetPlayerNameServerRpc(FixedString128Bytes playerName, RpcParams rpcParams = default) {
+        ulong clientId = rpcParams.Receive.SenderClientId;
 
         int playerDataIndex = GetPlayerDataIndexFromClientId(clientId);
 

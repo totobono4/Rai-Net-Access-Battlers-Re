@@ -179,8 +179,8 @@ public class PlayerEntity : NetworkBehaviour {
         SetReadyServerRpc();
     }
 
-    [ServerRpc(RequireOwnership = false, Delivery = RpcDelivery.Reliable)]
-    private void SetReadyServerRpc(ServerRpcParams serverRpcParams = default) {
+    [Rpc(SendTo.Server, Delivery = RpcDelivery.Reliable)]
+    private void SetReadyServerRpc() {
         areCardsReady.Value = AreOnlineCardsPlaced();
     }
 

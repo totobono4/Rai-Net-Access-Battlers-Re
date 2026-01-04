@@ -46,14 +46,14 @@ public abstract class Card : NetworkBehaviour {
         SyncCardParentServerRpc();
     }
 
-    [ServerRpc(Delivery = RpcDelivery.Reliable, RequireOwnership = false)]
+    [Rpc(SendTo.Server, Delivery = RpcDelivery.Reliable)]
     private void SyncCardParentServerRpc() {
         if (tileParent == null) return;
         NetworkObject tileParentNetwork = tileParent.GetComponent<NetworkObject>();
         SyncCardParentClientRpc(tileParentNetwork);
     }
 
-    [ClientRpc(Delivery = RpcDelivery.Reliable)]
+    [Rpc(SendTo.ClientsAndHost, Delivery = RpcDelivery.Reliable)]
     private void SyncCardParentClientRpc(NetworkObjectReference tileNetworkReference) {
         tileNetworkReference.TryGet(out NetworkObject tileNetwork);
         SetTileParent(tileNetwork.GetComponent<Tile>());

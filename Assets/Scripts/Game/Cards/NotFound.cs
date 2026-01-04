@@ -16,13 +16,15 @@ public class NotFound : TerminalCard {
 
     private void SwitchAsk() {
         List<ulong> ids = GameManager.Instance.GetClientIdsByTeam(GetTeam());
-        ClientRpcParams clientRpcParams = new ClientRpcParams { Send = { TargetClientIds = ids } };
 
-        SwitchAskClientRpc(clientRpcParams);
+        for (int i = 0; i < ids.Count; i++) {
+            ulong id = ids[i];
+            SwitchAskClientRpc(RpcTarget.Single(id, RpcTargetUse.Temp));
+        }
     }
 
-    [ClientRpc(Delivery = RpcDelivery.Reliable)]
-    private void SwitchAskClientRpc(ClientRpcParams clientRpcParams) {
+    [Rpc(SendTo.SpecifiedInParams, Delivery = RpcDelivery.Reliable)]
+    private void SwitchAskClientRpc(RpcParams rpcParams) {
         OnSwitchAsking?.Invoke(this, EventArgs.Empty);
     }
 
@@ -35,7 +37,7 @@ public class NotFound : TerminalCard {
         SwitchServerRpc(switching);
     }
 
-    [ServerRpc(Delivery = RpcDelivery.Reliable, RequireOwnership = false)]
+    [Rpc(SendTo.Server, Delivery = RpcDelivery.Reliable)]
     public void SwitchServerRpc(bool switching) {
         if (IsUsed()) return;
 

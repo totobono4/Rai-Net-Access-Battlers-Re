@@ -146,9 +146,9 @@ public class PlayerController : NetworkBehaviour {
         SendEventHoverTileChanged();
     }
 
-    [ServerRpc(Delivery = RpcDelivery.Reliable, RequireOwnership = false)]
-    private void InitializeServerRpc(ServerRpcParams serverRpcParams = default) {
-        team.Value = MultiplayerManager.Instance.GetClientTeamById(serverRpcParams.Receive.SenderClientId);
+    [Rpc(SendTo.Server, Delivery = RpcDelivery.Reliable)]
+    private void InitializeServerRpc(RpcParams rpcParams = default) {
+        team.Value = MultiplayerManager.Instance.GetClientTeamById(rpcParams.Receive.SenderClientId);
     }
 
     private void Team_OnValueChanged(PlayerTeam previous, PlayerTeam current) {
@@ -235,7 +235,7 @@ public class PlayerController : NetworkBehaviour {
         }
     }
 
-    [ServerRpc(Delivery = RpcDelivery.Reliable)]
+    [Rpc(SendTo.Server, Delivery = RpcDelivery.Reliable)]
     private void PlacingCardsServerRpc(NetworkObjectReference tileNetworkReference, OnlineCardState onlineCardState) {
         if (!IsPlacingCards()) return;
 
@@ -256,7 +256,7 @@ public class PlayerController : NetworkBehaviour {
         SelectingForActionServerRpc(tile.GetComponent<NetworkObject>());
     }
 
-    [ServerRpc(Delivery = RpcDelivery.Reliable)]
+    [Rpc(SendTo.Server, Delivery = RpcDelivery.Reliable)]
     private void SelectingForActionServerRpc(NetworkObjectReference tileNetworkReference) {
         if (!IsSelectingForAction()) return;
 
@@ -273,7 +273,7 @@ public class PlayerController : NetworkBehaviour {
         ThinkingForActionServerRpc(tile.GetComponent<NetworkObject>());
     }
 
-    [ServerRpc(Delivery = RpcDelivery.Reliable)]
+    [Rpc(SendTo.Server, Delivery = RpcDelivery.Reliable)]
     private void ThinkingForActionServerRpc(NetworkObjectReference tileNetworkReference) {
         if (!IsThinkingForAction()) return;
 

@@ -44,7 +44,7 @@ public class LobbyRoomReadyManager : NetworkBehaviour
         SceneLoader.LoadNetwork(SceneLoader.Scene.GameScene);
     }
 
-    [ClientRpc(Delivery = RpcDelivery.Reliable)]
+    [Rpc(SendTo.ClientsAndHost, Delivery = RpcDelivery.Reliable)]
     private void StartGameClientRpc() {
         OnStartGame?.Invoke(this, EventArgs.Empty);
     }
@@ -53,7 +53,7 @@ public class LobbyRoomReadyManager : NetworkBehaviour
         UpdateReadyStateClientRpc(clientId, isReady);
     }
 
-    [ClientRpc(Delivery = RpcDelivery.Reliable)]
+    [Rpc(SendTo.ClientsAndHost, Delivery = RpcDelivery.Reliable)]
     private void UpdateReadyStateClientRpc(ulong clientId, bool isReady) {
         clientsReady[clientId] = isReady;
 
@@ -64,9 +64,9 @@ public class LobbyRoomReadyManager : NetworkBehaviour
         TogglePlayerReadyServerRpc();
     }
 
-    [ServerRpc(Delivery = RpcDelivery.Reliable, RequireOwnership = false)]
-    private void TogglePlayerReadyServerRpc(ServerRpcParams serverRpcParams = default) {
-        ulong clientId = serverRpcParams.Receive.SenderClientId;
+    [Rpc(SendTo.Server, Delivery = RpcDelivery.Reliable)]
+    private void TogglePlayerReadyServerRpc(RpcParams rpcParams = default) {
+        ulong clientId = rpcParams.Receive.SenderClientId;
         if (!clientsReady.ContainsKey(clientId)) clientsReady[clientId] = true;
         else clientsReady[clientId] = !clientsReady[clientId];
         UpdateReadyStateClientRpc(clientId, clientsReady[clientId]);

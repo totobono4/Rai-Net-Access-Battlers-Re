@@ -94,22 +94,26 @@ public class OnlineCard : Card
         SyncServerStateServerRpc();
     }
 
-    [ServerRpc(Delivery = RpcDelivery.Reliable, RequireOwnership = false)]
+    [Rpc(SendTo.Server, Delivery = RpcDelivery.Reliable)]
     private void SyncServerStateServerRpc() {
         List<ulong> ids = GameManager.Instance.GetClientIdsByTeam(GetTeam());
-        ClientRpcParams clientRpcParams = new ClientRpcParams { Send = new ClientRpcSendParams { TargetClientIds = ids.ToArray() } };
         if (!IsRevealed()) SyncUnknownStateClientRpc();
         if (IsRevealed()) SyncServerStateClientRpc(serverState, default);
-        else SyncServerStateClientRpc(serverState, clientRpcParams);
+        else {
+            for (int i = 0; i < ids.Count; i++) {
+                ulong id = ids[i];
+                SyncServerStateClientRpc(serverState, RpcTarget.Single(id, RpcTargetUse.Temp));
+            } 
+        }
     }
 
-    [ClientRpc(Delivery = RpcDelivery.Reliable)]
-    private void SyncServerStateClientRpc(OnlineCardState newState, ClientRpcParams clientRpcParams) {
+    [Rpc(SendTo.ClientsAndHost, AllowTargetOverride = true, Delivery = RpcDelivery.Reliable)]
+    private void SyncServerStateClientRpc(OnlineCardState newState, RpcParams rpcParams) {
         state = newState;
         StateChanged();
     }
 
-    [ClientRpc(Delivery = RpcDelivery.Reliable)]
+    [Rpc(SendTo.ClientsAndHost, Delivery = RpcDelivery.Reliable)]
     private void SyncUnknownStateClientRpc() {
         state = OnlineCardState.Unknown;
         StateChanged();
@@ -155,7 +159,7 @@ public class OnlineCard : Card
         return;
     }
 
-    [ClientRpc(Delivery = RpcDelivery.Reliable)]
+    [Rpc(SendTo.ClientsAndHost, Delivery = RpcDelivery.Reliable)]
     private void ActionClientRpc() {
         SyncCardParent();
     }
