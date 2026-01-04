@@ -69,11 +69,11 @@ public class PlayerEntity : NetworkBehaviour {
 
     public bool GetWin(out bool winState) {
         winState = default;
-        if (linkScore.Value >= 4) {
+        if (linkScore.Value >= onlineCardCounts[OnlineCardState.Link]) {
             winState = true;
             return true;
         }
-        if (virusScore.Value >= 4) {
+        if (virusScore.Value >= onlineCardCounts[OnlineCardState.Virus]) {
             winState = false;
             return true;
         }
@@ -99,8 +99,10 @@ public class PlayerEntity : NetworkBehaviour {
             onlineCards.Remove(onlinecardAlreadyPlaced);
             onlinecardAlreadyPlaced.GetComponent<NetworkObject>().Despawn();
 
-            UpdateAreOnlineCardsPlaced();
-            return false;
+            if (onlineCardState == OnlineCardState.None) {
+                UpdateAreOnlineCardsPlaced();
+                return false;
+            }
         }
 
         if (onlineCards.Where(onlinecard => onlinecard.GetServerCardState() == onlineCardState).ToList().Count >= onlineCardCounts[onlineCardState]) return false;
@@ -146,6 +148,14 @@ public class PlayerEntity : NetworkBehaviour {
 
     public void InstantiateCards() {
         terminalGroup.InstantiateTerminalCards();
+    }
+
+    public int GetOnlineCardsCount(OnlineCardState onlineCardState) {
+        return onlineCardCounts[onlineCardState];
+    }
+
+    public List<OnlineCard> GetOnlineCards() {
+        return onlineCards;
     }
 
     public List<TerminalCard> GetTerminalCards() {

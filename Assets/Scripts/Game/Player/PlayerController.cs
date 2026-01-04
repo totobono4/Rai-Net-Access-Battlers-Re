@@ -1,5 +1,7 @@
+using Mono.CSharp;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -224,15 +226,29 @@ public class PlayerController : NetworkBehaviour {
         if (tile.GetTeam() != team.Value) return;
         if (tile is not StartTile) return;
 
-        switch (playerActionType) {
+            switch (playerActionType) {
             default: break;
             case InputSystem.PlayerActionType.Action:
-                PlacingCardsServerRpc(tile.GetComponent<NetworkObject>(), OnlineCardState.Link);
+                PlaceCards(tile, OnlineCardState.Link, OnlineCardState.Virus);
                 break;
             case InputSystem.PlayerActionType.SecondaryAction:
-                PlacingCardsServerRpc(tile.GetComponent<NetworkObject>(), OnlineCardState.Virus);
+                PlaceCards(tile, OnlineCardState.Virus, OnlineCardState.Link);
                 break;
         }
+    }
+
+    private void PlaceCards(Tile tile, OnlineCardState onlineCardState1, OnlineCardState onlineCardState2) {
+        tile.GetCard(out Card card);
+        if (!card) {
+            PlayerEntity playerEntity = GameBoard.Instance.GetPlayerEntityByTeam(team.Value);
+            List<OnlineCard> onlineCards = playerEntity.GetOnlineCards();
+            List<OnlineCard> onlineLinks = onlineCards.Where(onlineCard => onlineCard.GetCardState() == onlineCardState1).ToList();
+            if (onlineLinks.Count < playerEntity.GetOnlineCardsCount(onlineCardState1)) PlacingCardsServerRpc(tile.GetComponent<NetworkObject>(), onlineCardState1);
+            else PlacingCardsServerRpc(tile.GetComponent<NetworkObject>(), onlineCardState2);
+        }
+        else if (card is not OnlineCard) return;
+        else if ((card as OnlineCard).GetCardState() == onlineCardState1) PlacingCardsServerRpc(tile.GetComponent<NetworkObject>(), onlineCardState2);
+        else if ((card as OnlineCard).GetCardState() == onlineCardState2) PlacingCardsServerRpc(tile.GetComponent<NetworkObject>(), OnlineCardState.None);
     }
 
     [Rpc(SendTo.Server, Delivery = RpcDelivery.Reliable)]

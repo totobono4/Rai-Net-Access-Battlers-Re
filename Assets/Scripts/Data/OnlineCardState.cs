@@ -1,7 +1,8 @@
 using UnityEngine;
 
 public enum OnlineCardState {
-    Unknown,
-    Link,
-    Virus
+    None = 3,
+    Unknown = 0,
+    Link = 1,
+    Virus = 2
 };
