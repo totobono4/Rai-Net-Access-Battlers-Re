@@ -61,6 +61,8 @@ public class InputSystem : MonoBehaviour {
     private void PlayerAction(InputAction.CallbackContext context) {
         if (!Enum.TryParse(context.action.name, out PlayerActionType playerActionType)) return;
 
+        if (!context.action.WasPressedThisFrame()) return;
+
         OnPlayerAction?.Invoke(this, new PlayerActionEventArgs {
             playerActionType = playerActionType
         });

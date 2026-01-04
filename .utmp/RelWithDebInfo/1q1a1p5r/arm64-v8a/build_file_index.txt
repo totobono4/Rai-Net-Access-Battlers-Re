@@ -1,0 +1,2 @@
+D:\Unity\Projects\Rai-Net Access Battlers Re\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+D:\Unity\Projects\Rai-Net Access Battlers Re\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\FramePacing\CMakeLists.txt
