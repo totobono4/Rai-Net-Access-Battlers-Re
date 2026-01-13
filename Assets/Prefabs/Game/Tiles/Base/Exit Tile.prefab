@@ -92,7 +92,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Exit Tile
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8215259797913384250, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3222744813
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6966699979410210114, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -100,9 +105,14 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: -2701013929840209785}
   m_SourcePrefab: {fileID: 100100000, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
---- !u!4 &1505240668152899921 stripped
+--- !u!4 &1962891259079520042 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 2611907154527086214, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3161945771469545725, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
+  m_PrefabInstance: {fileID: 3520948349246820311}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4996828431312126787 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8468076979113184404, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
   m_PrefabInstance: {fileID: 3520948349246820311}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &6649033121864370912 stripped
@@ -122,11 +132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d656b012c7a924c9d7a47b7c89be84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileCardPoint: {fileID: 1505240668152899921}
+  ShowTopMostFoldoutHeaderGroup: 1
+  tileCardPoint: {fileID: 4996828431312126787}
   teamColor: 0
-  worldPosition: {fileID: 7856903773646512805}
---- !u!4 &7856903773646512805 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6761520992779677042, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
-  m_PrefabInstance: {fileID: 3520948349246820311}
-  m_PrefabAsset: {fileID: 0}
+  worldPosition: {fileID: 1962891259079520042}
+  card: {fileID: 0}

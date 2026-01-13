@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: YellowInfiltrationTile
       objectReference: {fileID: 0}
+    - target: {fileID: 5893005191818299692, guid: 6927905a009ca3b49bdf462a47a56859, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1430330801
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

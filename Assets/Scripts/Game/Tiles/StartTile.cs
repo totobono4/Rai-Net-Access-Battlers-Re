@@ -1,6 +1,5 @@
 using System;
 using Unity.Netcode;
-using UnityEngine;
 
 public class StartTile : BoardTile {
     public EventHandler<OnlineCardPlacedArgs> OnOnlineCardPlaced;

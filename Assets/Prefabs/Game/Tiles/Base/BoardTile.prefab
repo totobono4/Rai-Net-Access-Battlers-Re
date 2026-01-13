@@ -58,17 +58,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8215259797913384250, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 951099334
+      value: 4276200494
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6966699979410210114, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
     m_RemovedGameObjects:
     - {fileID: 456628496421657628, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1222487698066097899, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1630780180855998169}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7825839685540939063, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8889886222817252931}
   m_SourcePrefab: {fileID: 100100000, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
+--- !u!4 &369033016310317277 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8468076979113184404, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
+  m_PrefabInstance: {fileID: 8114280051692080201}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2017965628454308222 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7825839685540939063, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
+  m_PrefabInstance: {fileID: 8114280051692080201}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8889886222817252931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017965628454308222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad47e3c9ea23b2048b9f3758860f9d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: RaiNet.Game::BoardTile
+  ShowTopMostFoldoutHeaderGroup: 1
+  tileCardPoint: {fileID: 369033016310317277}
+  teamColor: 0
+  worldPosition: {fileID: 6591803492813810868}
+  card: {fileID: 0}
+--- !u!4 &6591803492813810868 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3161945771469545725, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
+  m_PrefabInstance: {fileID: 8114280051692080201}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6948087353280219810 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1222487698066097899, guid: 3c524243a508ec848a76379da4e00a24, type: 3}

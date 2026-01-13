@@ -2,8 +2,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class CardVisual : MonoBehaviour
-{
+public abstract class CardVisual : MonoBehaviour {
+    [SerializeField] private string SELECTED_SHADER_PROPERTY;
+
     [SerializeField] private Card card;
 
     private Tile tileParent;
@@ -35,14 +36,14 @@ public abstract class CardVisual : MonoBehaviour
 
     private void ShowSelected() {
         MaterialPropertyBlock propertyBlock = new MaterialPropertyBlock();
-        propertyBlock.SetInteger("_Enabled", 1);
+        propertyBlock.SetInteger(SELECTED_SHADER_PROPERTY, 1);
 
         spriteRenderers.ForEach(sr => sr.SetPropertyBlock(propertyBlock));
     }
 
     private void HideSelected() {
         MaterialPropertyBlock propertyBlock = new MaterialPropertyBlock();
-        propertyBlock.SetInteger("_Enabled", 0);
+        propertyBlock.SetInteger(SELECTED_SHADER_PROPERTY, 0);
 
         spriteRenderers.ForEach(sr => sr.SetPropertyBlock(propertyBlock));
     }

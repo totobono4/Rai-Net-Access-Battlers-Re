@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2362417120318412649, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 418996689
+      objectReference: {fileID: 0}
     - target: {fileID: 4450211132458785606, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -64,9 +68,14 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3305292188859577342}
   m_SourcePrefab: {fileID: 100100000, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
---- !u!4 &1659981908113127788 stripped
+--- !u!4 &1789995699165118231 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 651384567933008683, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
+  m_CorrespondingSourceObject: {fileID: 492028751615343952, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
+  m_PrefabInstance: {fileID: 2162675669576254023}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5094288414002336638 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6391120528375435577, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
   m_PrefabInstance: {fileID: 2162675669576254023}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &6894127902365424349 stripped
@@ -86,11 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee825f2c458ee543a14ff900411d14c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileCardPoint: {fileID: 1659981908113127788}
+  ShowTopMostFoldoutHeaderGroup: 1
+  tileCardPoint: {fileID: 5094288414002336638}
   teamColor: 0
-  worldPosition: {fileID: 7990393936335188632}
---- !u!4 &7990393936335188632 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8133724003736531167, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
-  m_PrefabInstance: {fileID: 2162675669576254023}
-  m_PrefabAsset: {fileID: 0}
+  worldPosition: {fileID: 1789995699165118231}
+  card: {fileID: 0}

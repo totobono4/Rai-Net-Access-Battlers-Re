@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 187394120493939059, guid: e855b1d460df3ac46a39957632db9556, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 951099334
+      value: 211522209
       objectReference: {fileID: 0}
     - target: {fileID: 2017965628454308222, guid: e855b1d460df3ac46a39957632db9556, type: 3}
       propertyPath: m_Name
@@ -116,7 +116,8 @@ PrefabInstance:
       propertyPath: Reference
       value: 
       objectReference: {fileID: -5105751825104200581}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8889886222817252931, guid: e855b1d460df3ac46a39957632db9556, type: 3}
     m_RemovedGameObjects:
     - {fileID: 8560766221449793621, guid: e855b1d460df3ac46a39957632db9556, type: 3}
     m_AddedGameObjects: []
@@ -125,14 +126,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: -5105751825104200581}
   m_SourcePrefab: {fileID: 100100000, guid: e855b1d460df3ac46a39957632db9556, type: 3}
---- !u!4 &2460868306798017045 stripped
+--- !u!4 &3312650366514412654 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6099260383024278223, guid: e855b1d460df3ac46a39957632db9556, type: 3}
-  m_PrefabInstance: {fileID: 8539440272573993178}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &6614704408211993057 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3264556898478694715, guid: e855b1d460df3ac46a39957632db9556, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6591803492813810868, guid: e855b1d460df3ac46a39957632db9556, type: 3}
   m_PrefabInstance: {fileID: 8539440272573993178}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &7675099837394033060 stripped
@@ -152,7 +148,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd753a4d4f9e7a428d17e69d5c76afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileCardPoint: {fileID: 2460868306798017045}
+  ShowTopMostFoldoutHeaderGroup: 1
+  tileCardPoint: {fileID: 8330883320319660039}
   teamColor: 0
-  worldPosition: {fileID: 6614704408211993057}
+  worldPosition: {fileID: 3312650366514412654}
   card: {fileID: 0}
+--- !u!4 &8330883320319660039 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 369033016310317277, guid: e855b1d460df3ac46a39957632db9556, type: 3}
+  m_PrefabInstance: {fileID: 8539440272573993178}
+  m_PrefabAsset: {fileID: 0}

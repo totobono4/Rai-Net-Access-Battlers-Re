@@ -67,23 +67,4 @@ public class InputSystem : MonoBehaviour {
             playerActionType = playerActionType
         });
     }
-
-    private string FixBindingString(string binding) {
-        switch(binding) {
-            case "LMB":
-                return "Left Mouse Button";
-            case "RMB":
-                return "Right Mouse Button";
-            default:
-                return binding;
-        }
-    }
-
-    public string GetActionbinding() {
-        return FixBindingString(inputActions.Player.Action.bindings[0].ToDisplayString());
-    }
-
-    public string GetSecondaryActionbinding() {
-        return FixBindingString(inputActions.Player.SecondaryAction.bindings[0].ToDisplayString());
-    }
 }

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
@@ -43,7 +42,8 @@ public class TileMap : NetworkBehaviour {
                 if (!IsCoordsValid(x, y)) continue;
 
                 Transform tileTransform = Instantiate(tilePrefabArray[y, x], tileMap.GetWorldPosition(x, y), tileMap.GetWorldRotation(x, y));
-                tileTransform.transform.localScale = origin.localScale;
+                tileTransform.localScale = origin.localScale;
+
                 NetworkObject tileNetwork = tileTransform.GetComponent<NetworkObject>();
 
                 tileNetwork.Spawn();

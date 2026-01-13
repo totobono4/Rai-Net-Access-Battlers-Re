@@ -1,11 +1,16 @@
-using System;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CardsReadyUI : MonoBehaviour
 {
+#if PLATFORM_STANDALONE_WIN || PLATFORM_STANDALONE_LINUX
+    private const string INFOS_TEXT = "Click on starting tiles to place your Link and Virus cards";
+#endif
+#if PLATFORM_ANDROID
+    private const string INFOS_TEXT = "Tap starting tiles to place your Link and Virus cards";
+#endif
+
     private PlayerEntity playerEntity;
     [SerializeField] private TextMeshProUGUI infos;
     [SerializeField] private Button readyButton;
@@ -24,7 +29,7 @@ public class CardsReadyUI : MonoBehaviour
     private void Start() {
         InputSystem inputSystem = InputSystem.Instance;
 
-        infos.text = $"Place your link cards with {inputSystem.GetActionbinding()} and virus cards with {inputSystem.GetSecondaryActionbinding()}";
+        infos.text = INFOS_TEXT;
     }
 
     private void PlayerController_OnTeamChanged(object sender, PlayerController.TeamChangedArgs e) {

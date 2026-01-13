@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75b71733aa7f76c48ba92b856b053e4d, type: 3}
   m_Name: OriginalPlayGrid
   m_EditorClassIdentifier: 
+  tileMapOriginData:
+    originTransform: {fileID: 0}
+    originPosition: {x: -13.255, y: 0, z: -13.252}
+    originRotation: {x: 0, y: 0, z: 0, w: 0}
+    originScale: {x: 3.315, y: 3.315, z: 3.315}
   tile_00: {fileID: 6166416949586276751, guid: 66611c8205401764fac96334283b4120, type: 3}
   tile_01: {fileID: 6166416949586276751, guid: 66611c8205401764fac96334283b4120, type: 3}
   tile_02: {fileID: 6166416949586276751, guid: 66611c8205401764fac96334283b4120, type: 3}

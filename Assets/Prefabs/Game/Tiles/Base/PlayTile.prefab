@@ -83,6 +83,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2362417120318412649, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 809426503
+      objectReference: {fileID: 0}
+    - target: {fileID: 651384567933008683, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 651384567933008683, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4450211132458785606, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -134,14 +146,50 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5999675922229224251, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
+    - {fileID: 3253895708452427710, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4450211132458785606, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7242687531803255796}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4733145618449471642, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6966699979410210114}
   m_SourcePrefab: {fileID: 100100000, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
 --- !u!4 &1222487698066097899 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4450211132458785606, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
+  m_PrefabInstance: {fileID: 3257638994006121901}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3161945771469545725 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 492028751615343952, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
+  m_PrefabInstance: {fileID: 3257638994006121901}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7825839685540939063 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4733145618449471642, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
+  m_PrefabInstance: {fileID: 3257638994006121901}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6966699979410210114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7825839685540939063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 386e425eb55e8c64aa5ce5af3518d236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: RaiNet.Game::PlayTile
+  ShowTopMostFoldoutHeaderGroup: 1
+  tileCardPoint: {fileID: 8468076979113184404}
+  teamColor: 0
+  worldPosition: {fileID: 3161945771469545725}
+  card: {fileID: 0}
+--- !u!4 &8468076979113184404 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6391120528375435577, guid: 5547d70eecf099b4694f6b004c3c0775, type: 3}
   m_PrefabInstance: {fileID: 3257638994006121901}
   m_PrefabAsset: {fileID: 0}

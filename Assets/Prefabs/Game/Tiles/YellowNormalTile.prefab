@@ -64,9 +64,17 @@ PrefabInstance:
       propertyPath: boardTile
       value: 
       objectReference: {fileID: 8868617103186738975}
+    - target: {fileID: 5474999267950109266, guid: f158bd0412bdedd43a9634565d379a37, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7675099837394033060, guid: f158bd0412bdedd43a9634565d379a37, type: 3}
       propertyPath: m_Name
       value: YellowNormalTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 8366542805945395625, guid: f158bd0412bdedd43a9634565d379a37, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 38116527
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

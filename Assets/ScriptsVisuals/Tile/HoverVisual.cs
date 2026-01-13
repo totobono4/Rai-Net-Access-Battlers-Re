@@ -1,12 +1,18 @@
 using System;
+using UnityEditor;
 using UnityEngine;
 
-public class HoverVisual : MonoBehaviour
-{
-    [SerializeField] Tile tile;
-    [SerializeField] Transform hilight;
+public class HoverVisual : MonoBehaviour {
+    [SerializeField] private string HILIGHT_SHADER_PROPERTY;
+
+    [SerializeField] private Tile tile;
+    [SerializeField] private Transform highlight;
+
+    private SpriteRenderer spriteRenderer;
 
     private void Start() {
+        spriteRenderer = highlight.GetComponent<SpriteRenderer>();
+
         if (PlayerController.LocalInstance == null) PlayerController.OnAnyPlayerSpawned += PlayerController_OnAnyPlayerSpawned;
         else PlayerController.LocalInstance.OnHoverTileChanged += PlayerController_OnHoverTileChanged;
     }
@@ -28,9 +34,16 @@ public class HoverVisual : MonoBehaviour
     }
 
     private void Show() {
-        hilight.gameObject.SetActive(true);
+        MaterialPropertyBlock propertyBlock = new MaterialPropertyBlock();
+        propertyBlock.SetInteger(HILIGHT_SHADER_PROPERTY, 1);
+
+        spriteRenderer.SetPropertyBlock(propertyBlock);
+
     }
     private void Hide() {
-        hilight.gameObject.SetActive(false);
+        MaterialPropertyBlock propertyBlock = new MaterialPropertyBlock();
+        propertyBlock.SetInteger(HILIGHT_SHADER_PROPERTY, 0);
+
+        spriteRenderer.SetPropertyBlock(propertyBlock);
     }
 }

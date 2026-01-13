@@ -109,6 +109,10 @@ PrefabInstance:
       propertyPath: startTile
       value: 
       objectReference: {fileID: 1013824457334894047}
+    - target: {fileID: 63080477603621058, guid: 7f8b16e8a7e09c14490d1fb72f4e6a0e, type: 3}
+      propertyPath: gridObject
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 604820638042163789, guid: 7f8b16e8a7e09c14490d1fb72f4e6a0e, type: 3}
       propertyPath: boardTile
       value: 

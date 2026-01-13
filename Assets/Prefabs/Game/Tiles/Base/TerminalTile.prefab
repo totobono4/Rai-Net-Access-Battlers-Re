@@ -92,8 +92,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: TerminalTile
       objectReference: {fileID: 0}
+    - target: {fileID: 8215259797913384250, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2150552715
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4232546190521385127, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
+    - {fileID: 6966699979410210114, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -101,6 +106,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 410930451763842031}
   m_SourcePrefab: {fileID: 100100000, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
+--- !u!4 &817055116541198599 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8468076979113184404, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
+  m_PrefabInstance: {fileID: 9138476996591799699}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1317465422168869028 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7825839685540939063, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
@@ -118,16 +128,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c23431d2e87cd3343a895ead58afa57d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileCardPoint: {fileID: 6551963259133340437}
+  ShowTopMostFoldoutHeaderGroup: 1
+  tileCardPoint: {fileID: 817055116541198599}
   teamColor: 0
-  worldPosition: {fileID: 2524227931179606241}
---- !u!4 &2524227931179606241 stripped
+  worldPosition: {fileID: 6139277672428301678}
+  card: {fileID: 0}
+--- !u!4 &6139277672428301678 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6761520992779677042, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
-  m_PrefabInstance: {fileID: 9138476996591799699}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &6551963259133340437 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2611907154527086214, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3161945771469545725, guid: 3c524243a508ec848a76379da4e00a24, type: 3}
   m_PrefabInstance: {fileID: 9138476996591799699}
   m_PrefabAsset: {fileID: 0}

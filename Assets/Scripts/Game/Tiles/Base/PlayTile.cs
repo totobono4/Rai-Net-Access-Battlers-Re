@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class PlayTile : Tile {
     private bool IsSelectedTileValid(PlayerTeam controllerTeam) {
         if (!GetCard(out Card card)) return false;
@@ -9,6 +11,7 @@ public class PlayTile : Tile {
     protected override void PlayerController_OnSelectedTile(object sender, PlayerController.SelectedTileArgs e) {
         if (e.tile != this) return;
         selected.Value = IsSelectedTileValid(e.team);
+        Debug.Log("Tile selected");
     }
 
     protected override void PlayerController_OnCancelAction(object sender, PlayerController.CancelTileArgs e) {

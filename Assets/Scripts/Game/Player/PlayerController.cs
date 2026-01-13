@@ -1,4 +1,3 @@
-using Mono.CSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -224,42 +223,37 @@ public class PlayerController : NetworkBehaviour {
     private void PlacingOnlineCards(InputSystem.PlayerActionType playerActionType) {
         if (!GameBoard.Instance.GetTile(lastMouseWorldPosition, out Tile tile)) return;
         if (tile.GetTeam() != team.Value) return;
-        if (tile is not StartTile) return;
 
             switch (playerActionType) {
             default: break;
             case InputSystem.PlayerActionType.Action:
-                PlaceCards(tile, OnlineCardState.Link, OnlineCardState.Virus);
+                PlacingCardsServerRpc(tile.GetComponent<NetworkObject>(), OnlineCardState.Link, OnlineCardState.Virus);
                 break;
             case InputSystem.PlayerActionType.SecondaryAction:
-                PlaceCards(tile, OnlineCardState.Virus, OnlineCardState.Link);
+                PlacingCardsServerRpc(tile.GetComponent<NetworkObject>(), OnlineCardState.Virus, OnlineCardState.Link);
                 break;
         }
-    }
-
-    private void PlaceCards(Tile tile, OnlineCardState onlineCardState1, OnlineCardState onlineCardState2) {
-        tile.GetCard(out Card card);
-        if (!card) {
-            PlayerEntity playerEntity = GameBoard.Instance.GetPlayerEntityByTeam(team.Value);
-            List<OnlineCard> onlineCards = playerEntity.GetOnlineCards();
-            List<OnlineCard> onlineLinks = onlineCards.Where(onlineCard => onlineCard.GetCardState() == onlineCardState1).ToList();
-            if (onlineLinks.Count < playerEntity.GetOnlineCardsCount(onlineCardState1)) PlacingCardsServerRpc(tile.GetComponent<NetworkObject>(), onlineCardState1);
-            else PlacingCardsServerRpc(tile.GetComponent<NetworkObject>(), onlineCardState2);
-        }
-        else if (card is not OnlineCard) return;
-        else if ((card as OnlineCard).GetCardState() == onlineCardState1) PlacingCardsServerRpc(tile.GetComponent<NetworkObject>(), onlineCardState2);
-        else if ((card as OnlineCard).GetCardState() == onlineCardState2) PlacingCardsServerRpc(tile.GetComponent<NetworkObject>(), OnlineCardState.None);
     }
 
     [Rpc(SendTo.Server, Delivery = RpcDelivery.Reliable)]
-    private void PlacingCardsServerRpc(NetworkObjectReference tileNetworkReference, OnlineCardState onlineCardState) {
+    private void PlacingCardsServerRpc(NetworkObjectReference tileNetworkReference, OnlineCardState onlineCardState1, OnlineCardState onlineCardState2) {
         if (!IsPlacingCards()) return;
 
         if (!tileNetworkReference.TryGet(out NetworkObject tileNetwork)) return;
         Tile tile = tileNetwork.GetComponent<Tile>();
 
         if (!tile.TryGetComponent(out StartTile startTile)) return;
-        (tile as StartTile).TryPlaceOnlineCard(onlineCardState, team.Value);
+
+        if (!tile.GetCard(out Card card)) {
+            PlayerEntity playerEntity = GameBoard.Instance.GetPlayerEntityByTeam(team.Value);
+            List<OnlineCard> onlineCards = playerEntity.GetOnlineCards();
+            List<OnlineCard> onlineLinks = onlineCards.Where(onlineCard => onlineCard.GetServerCardState() == onlineCardState1).ToList();
+            if (onlineLinks.Count < playerEntity.GetOnlineCardsCount(onlineCardState1)) startTile.TryPlaceOnlineCard(onlineCardState1, team.Value);
+            else startTile.TryPlaceOnlineCard(onlineCardState2, team.Value);
+        }
+        else if (card is not OnlineCard) return;
+        else if ((card as OnlineCard).GetServerCardState() == onlineCardState1) startTile.TryPlaceOnlineCard(onlineCardState2, team.Value);
+        else if ((card as OnlineCard).GetServerCardState() == onlineCardState2) startTile.TryPlaceOnlineCard(OnlineCardState.None, team.Value);
     }
 
     private void WaitingForTurn(InputSystem.PlayerActionType playerActionType) {
