@@ -2,48 +2,24 @@ trackSelection = true
 refreshSearchWindowsInPlayMode = false
 pickerAdvancedUI = false
 fetchPreview = true
-defaultFlags = 0
+defaultFlags = 264
 keepOpen = false
 queryFolder = "Assets"
 onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
+	"picker_window_position_offset.00000000" = "147;40;320;550"
+	"picker_visibility_flags.00000000" = "0"
+	"picker_item_size.00000000" = "1"
+	"picker_inspector.00000000" = "0"
+	"OpenInspectorPreview.66F56946" = "0"
+	"currentGroup.66F56946" = "asset"
 }
 providers = {
-	adb = {
-		active = false
-		priority = 2500
-		defaultAction = null
-	}
 	asset = {
 		active = true
 		priority = 25
-		defaultAction = null
-	}
-	store = {
-		active = true
-		priority = 100
-		defaultAction = null
-	}
-	find = {
-		active = true
-		priority = 25
-		defaultAction = null
-	}
-	log = {
-		active = false
-		priority = 210
-		defaultAction = null
-	}
-	packages = {
-		active = true
-		priority = 90
-		defaultAction = null
-	}
-	performance = {
-		active = false
-		priority = 100
 		defaultAction = null
 	}
 	scene = {
@@ -51,9 +27,24 @@ providers = {
 		priority = 50
 		defaultAction = null
 	}
+	adb = {
+		active = false
+		priority = 2500
+		defaultAction = null
+	}
 	presets_provider = {
 		active = false
 		priority = -10
+		defaultAction = null
+	}
+	find = {
+		active = true
+		priority = 25
+		defaultAction = null
+	}
+	packages = {
+		active = false
+		priority = 90
 		defaultAction = null
 	}
 	profilermarkers = {
@@ -61,10 +52,65 @@ providers = {
 		priority = 100
 		defaultAction = null
 	}
+	performance = {
+		active = false
+		priority = 100
+		defaultAction = null
+	}
+	store = {
+		active = false
+		priority = 100
+		defaultAction = null
+	}
+	log = {
+		active = false
+		priority = 210
+		defaultAction = null
+	}
+	menu = {
+		active = true
+		priority = 80
+		defaultAction = null
+	}
+	settings = {
+		active = true
+		priority = 100
+		defaultAction = null
+	}
+	calculator = {
+		active = true
+		priority = 10
+		defaultAction = null
+	}
+	static_methods = {
+		active = false
+		priority = 85
+		defaultAction = null
+	}
 }
 objectSelectors = {
 }
 recentSearches = [
+	"ref=Hilight"
+	"ref"
+	"ref:Hilight"
+	""
+	"p: ref=<$object:\"Assets/Materials/Actionable.mat\",UnityEngine.Object$>"
+	"p: ref=<$object:none,UnityEngine.Object$>"
+	"ref=<$object:\"Assets/Materials/Actionable.mat\",UnityEngine.Object$>"
+	"ref=<$object:none,UnityEngine.Object$>"
+	"ref={p: }"
+	"p:"
+	"p: dir=\"Assets\" "
+	"store:"
+	"store: free=true"
+	"ref=AssetsMaterials/Hilight"
+	"ref=Materials/CardT"
+	"ref=Materials"
+	"ref="
+	"ref = Materiali"
+	"ref = "
+	"Hilight"
 ]
 searchItemFavorites = [
 ]

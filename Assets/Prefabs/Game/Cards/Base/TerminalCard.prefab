@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1333156710761347957, guid: ba42882f7f59c294798ee7fbbc0c380e, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1065517526
+      objectReference: {fileID: 0}
     - target: {fileID: 3315185861319805695, guid: ba42882f7f59c294798ee7fbbc0c380e, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -54,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3805991554591820916, guid: ba42882f7f59c294798ee7fbbc0c380e, type: 3}
       propertyPath: m_Name
-      value: Card
+      value: TerminalCard
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
