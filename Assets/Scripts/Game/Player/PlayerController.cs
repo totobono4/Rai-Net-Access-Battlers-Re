@@ -31,9 +31,12 @@ public class PlayerController : NetworkBehaviour {
         public Tile tile;
         public Card card;
     }
+    public static EventHandler<CancelSelectionArgs> OnCancelSelection;
+    public class CancelSelectionArgs : EventArgs {
+        public Tile tile;
+    }
     public static EventHandler<CancelTileArgs> OnCancelAction;
     public class CancelTileArgs : EventArgs {
-        public Tile tile;
         public Card card;
     }
 
@@ -50,20 +53,14 @@ public class PlayerController : NetworkBehaviour {
     private NetworkVariable<PlayerState> playerState;
 
     private enum PlayerState {
-        PlacingOnlineCards,
-        WaitingForTurn,
-        SelectingForAction,
-        ThinkingForAction,
-        Won,
-        Lose
+        PlacingOnlineCards = 0,
+        WaitingForTurn = 1,
+        PlayingTurn = 2,
+        Won = 4,
+        Lose = 5
     }
 
     public static EventHandler OnPlayerStateChanged;
-
-    public static EventHandler<EventArgs> OnActionFinished;
-    public class ActionFinishedArgs : EventArgs {
-        public int actionCost;
-    }
 
     private NetworkVariable<int> actionTokens;
 
@@ -172,7 +169,7 @@ public class PlayerController : NetworkBehaviour {
     }
 
     private void GameManager_OnPlayerGivePriority(object sender, GameManager.PlayerGivePriorityArgs e) {
-        if (e.team == team.Value) playerState.Value = PlayerState.SelectingForAction;
+        if (e.team == team.Value) playerState.Value = PlayerState.PlayingTurn;
         else playerState.Value = PlayerState.WaitingForTurn;
         actionTokens.Value = e.actionTokens;
     }
@@ -195,11 +192,8 @@ public class PlayerController : NetworkBehaviour {
             case PlayerState.WaitingForTurn:
                 WaitingForTurn(e.playerActionType);
                 break;
-            case PlayerState.SelectingForAction:
-                SelectingForAction(e.playerActionType);
-                break;
-            case PlayerState.ThinkingForAction:
-                ThinkingForAction(e.playerActionType);
+            case PlayerState.PlayingTurn:
+                PlayingTurn(e.playerActionType);
                 break;
         }
     }
@@ -212,12 +206,54 @@ public class PlayerController : NetworkBehaviour {
         return playerState.Value == PlayerState.WaitingForTurn;
     }
 
-    private bool IsSelectingForAction() {
-        return playerState.Value == PlayerState.SelectingForAction;
+    private bool IsPlayingTurn() {
+        return playerState.Value == PlayerState.PlayingTurn;
     }
 
-    private bool IsThinkingForAction() {
-        return playerState.Value == PlayerState.ThinkingForAction;
+    private void SetSelectedTile(Tile tile) {
+        selectedTile = tile;
+    }
+
+    private void UnsetSelectedTile() {
+        OnCancelSelection?.Invoke(this, new CancelSelectionArgs {
+            tile = selectedTile
+        });
+        selectedTile = null;
+    }
+
+    private void SetActionables(Card card) {
+        actionableTiles = card.GetActionables();
+        foreach (Tile actionable in actionableTiles) actionable.SetActionable();
+    }
+
+    private void UnsetActionables() {
+        foreach (Tile actionable in actionableTiles) actionable.UnsetActionable();
+        actionableTiles.Clear();
+    }
+
+    private void SetActionCard(Card card) {
+        actionCard = card;
+        actionCard.OnActionCallback += Card_OnActionCallback;
+    }
+
+    private void UnsetActionCard() {
+        if (!actionCard) return;
+        actionCard.OnActionCallback -= Card_OnActionCallback;
+        actionCard = null;
+    }
+
+    private bool IsTileAcionable(Tile tile) {
+        foreach (Tile actionable in actionableTiles) {
+            if (tile.Equals(actionable)) return true;
+        }
+        return false;
+    }
+
+    private void CancelAction() {
+        UnsetSelectedTile();
+        UnsetActionables();
+        UnsetActionCard();
+        OnCancelAction?.Invoke(this, new CancelTileArgs { card = actionCard });
     }
 
     private void PlacingOnlineCards(InputSystem.PlayerActionType playerActionType) {
@@ -260,52 +296,41 @@ public class PlayerController : NetworkBehaviour {
 
     }
 
-    private void SelectingForAction(InputSystem.PlayerActionType playerActionType) {
+    private void PlayingTurn(InputSystem.PlayerActionType playerActionType) {
         if (playerActionType != InputSystem.PlayerActionType.Action) return;
         if (!GameBoard.Instance.GetTile(lastMouseWorldPosition, out Tile tile)) return;
-        SelectingForActionServerRpc(tile.GetComponent<NetworkObject>());
+        PlayingTurnServerRpc(tile.GetComponent<NetworkObject>());
     }
 
     [Rpc(SendTo.Server, Delivery = RpcDelivery.Reliable)]
-    private void SelectingForActionServerRpc(NetworkObjectReference tileNetworkReference) {
-        if (!IsSelectingForAction()) return;
+    private void PlayingTurnServerRpc(NetworkObjectReference tileNetworkReference) {
+        if (!IsPlayingTurn()) return;
 
         if (!tileNetworkReference.TryGet(out NetworkObject tileNetwork)) return;
         Tile tile = tileNetwork.GetComponent<Tile>();
+
+        if (IsTileAcionable(tile)) {
+            OnAction?.Invoke(this, new ActionTileArgs {
+                actionTokens = actionTokens.Value,
+                tile = tile,
+                card = actionCard
+            }); ;
+            return;
+        }
+
+        if (tile.Equals(selectedTile)) {
+            UnsetSelectedTile();
+            UnsetActionables();
+            UnsetActionCard();
+            return;
+        }
 
         tile.OnSelectedValueChanged += Tile_OnSelectedTile;
         OnSelectTile?.Invoke(this, new SelectedTileArgs { tile = tile, team = GetTeam() });
     }
 
-    private void ThinkingForAction(InputSystem.PlayerActionType playerActionType) {
-        if (playerActionType != InputSystem.PlayerActionType.Action) return;
-        if (!GameBoard.Instance.GetTile(lastMouseWorldPosition, out Tile tile)) return;
-        ThinkingForActionServerRpc(tile.GetComponent<NetworkObject>());
-    }
-
-    [Rpc(SendTo.Server, Delivery = RpcDelivery.Reliable)]
-    private void ThinkingForActionServerRpc(NetworkObjectReference tileNetworkReference) {
-        if (!IsThinkingForAction()) return;
-
-        if (!tileNetworkReference.TryGet(out NetworkObject tileNetwork)) return;
-        Tile tile = tileNetwork.GetComponent<Tile>();
-
-        if (tile.Equals(selectedTile)) {
-            foreach (Tile actionable in actionableTiles) actionable.UnsetActionable();
-            CancelAction();
-            playerState.Value = PlayerState.SelectingForAction;
-            return;
-        }
-
-        OnAction?.Invoke(this, new ActionTileArgs {
-            actionTokens = actionTokens.Value,
-            tile = tile,
-            card = actionCard
-        }); ;
-    }
-
     private void Tile_OnSelectedTile(object sender, Tile.SelectedTileArgs e) {
-        if (!IsSelectingForAction()) return;
+        if (!IsPlayingTurn()) return;
 
         e.tile.OnSelectedValueChanged -= Tile_OnSelectedTile;
 
@@ -313,30 +338,23 @@ public class PlayerController : NetworkBehaviour {
         if (!card.IsUsable()) return;
         if (!e.isSelected) return;
 
-        selectedTile = e.tile;
-        playerState.Value = PlayerState.ThinkingForAction;
+        UnsetSelectedTile();
+        SetSelectedTile(e.tile);
 
-        actionableTiles = card.GetActionables();
-        foreach (Tile actionable in actionableTiles) actionable.SetActionable();
-
-        actionCard = card;
-        actionCard.OnActionCallback += Card_OnActionCallback;
+        UnsetActionables();
+        SetActionables(card);
+        
+        UnsetActionCard();
+        SetActionCard(card);
     }
 
     private void Card_OnActionCallback(object sender, Card.ActionCallbackArgs e) {
-        if (!IsThinkingForAction()) return;
+        if (!IsPlayingTurn()) return;
 
         actionTokens.Value -= e.tokenCost;
 
-        foreach (Tile actionable in actionableTiles) actionable.UnsetActionable();
+        UnsetActionables();
         if (e.finished) CancelAction();
-        else foreach (Tile actionable in e.card.GetActionables()) actionable.SetActionable();
-    }
-
-    private void CancelAction() {
-        actionCard.OnActionCallback -= Card_OnActionCallback;
-        OnCancelAction?.Invoke(this, new CancelTileArgs { tile = selectedTile, card = actionCard });
-        selectedTile = null;
-        actionCard = null;
+        else SetActionables(actionCard);
     }
 }

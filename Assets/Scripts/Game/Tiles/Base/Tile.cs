@@ -43,7 +43,7 @@ public abstract class Tile : NetworkBehaviour {
         actionUsed.OnValueChanged += ActionUsed_OnValueChanged;
 
         PlayerController.OnSelectTile += PlayerController_OnSelectedTile;
-        PlayerController.OnCancelAction += PlayerController_OnCancelAction;
+        PlayerController.OnCancelSelection += PlayerController_OnCancelSelection;
     }
 
     private void Start() {
@@ -84,7 +84,7 @@ public abstract class Tile : NetworkBehaviour {
     }
 
     protected abstract void PlayerController_OnSelectedTile(object sender, PlayerController.SelectedTileArgs e);
-    protected abstract void PlayerController_OnCancelAction(object sender, PlayerController.CancelTileArgs e);
+    protected abstract void PlayerController_OnCancelSelection(object sender, PlayerController.CancelSelectionArgs e);
 
     private void Selected_OnValueChanged(bool previous, bool current) {
         OnSelectedValueChanged?.Invoke(this, new SelectedTileArgs { tile = this, isSelected = current });
@@ -116,7 +116,7 @@ public abstract class Tile : NetworkBehaviour {
 
     public virtual void Clean() {
         PlayerController.OnSelectTile -= PlayerController_OnSelectedTile;
-        PlayerController.OnCancelAction -= PlayerController_OnCancelAction;
+        PlayerController.OnCancelSelection -= PlayerController_OnCancelSelection;
         selected.OnValueChanged -= Selected_OnValueChanged;
         actionable.OnValueChanged -= Actionable_OnValueChanged;
         actionUsed.OnValueChanged -= ActionUsed_OnValueChanged;

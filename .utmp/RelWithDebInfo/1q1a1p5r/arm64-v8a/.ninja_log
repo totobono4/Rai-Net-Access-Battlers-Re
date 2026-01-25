@@ -1,5 +1,5 @@
 # ninja log v5
-336	517	7905626208728491	D:/Unity/Projects/Rai-Net Access Battlers Re/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1q1a1p5r/obj/arm64-v8a/libswappywrapper.so	641c8d22badc6147
-1	334	7905626207136961	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	66321501edd3b5d7
 2	978	7910651108513827	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	66321501edd3b5d7
 978	1390	7910651112422680	D:/Unity/Projects/Rai-Net Access Battlers Re/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1q1a1p5r/obj/arm64-v8a/libswappywrapper.so	641c8d22badc6147
+5	160	7910795653284286	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	66321501edd3b5d7
+160	346	7910795655010676	D:/Unity/Projects/Rai-Net Access Battlers Re/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1q1a1p5r/obj/arm64-v8a/libswappywrapper.so	641c8d22badc6147
