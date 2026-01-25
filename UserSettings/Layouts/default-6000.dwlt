@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Git for Unity
   m_RootView: {fileID: 8}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -275,7 +275,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 112}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 77
+  controlID: 130
   draggingID: 0
 --- !u!114 &12
 MonoBehaviour:
@@ -2682,6 +2682,33 @@ MonoBehaviour:
       m_LastClickedID:
         m_Data: 0
       m_ExpandedIDs:
+      - m_Data: -29538
+      - m_Data: -29480
+      - m_Data: -28298
+      - m_Data: -28060
+      - m_Data: -27540
+      - m_Data: -27470
+      - m_Data: -27324
+      - m_Data: -27302
+      - m_Data: -27136
+      - m_Data: -12104
+      - m_Data: -12042
+      - m_Data: -10860
+      - m_Data: -10622
+      - m_Data: -10102
+      - m_Data: -10032
+      - m_Data: -9886
+      - m_Data: -9864
+      - m_Data: -9698
+      - m_Data: -6694
+      - m_Data: -6632
+      - m_Data: -5450
+      - m_Data: -5212
+      - m_Data: -4692
+      - m_Data: -4622
+      - m_Data: -4476
+      - m_Data: -4454
+      - m_Data: -4286
       - m_Data: -1302
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -2756,8 +2783,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 1
-    m_Folders:
-    - Assets/Materials
+    m_Folders: []
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -2780,8 +2806,7 @@ MonoBehaviour:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 55092
-    - m_Data: 55094
+    - m_Data: 55086
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2814,8 +2839,7 @@ MonoBehaviour:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 55092
-    - m_Data: 55094
+    - m_Data: 55086
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -3060,7 +3084,7 @@ MonoBehaviour:
     m_CachedPref: -275
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -4120
+  m_LastInspectedObjectInstanceID: -1
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
@@ -3105,13 +3129,13 @@ MonoBehaviour:
     m_DynamicPanelContainerData: []
     m_OverlaysVisible: 1
     m_DynamicPanelBehavior: 0
-  progressMessageClearTime: 25.5586624
+  progressMessageClearTime: -1
   notificationClearTime: -1
   timeSinceLastRotation: -1
   currentBranchAndRemoteHasUpdate: 0
   currentTrackingStatusHasUpdate: 0
   currentStatusEntriesHasUpdate: 0
-  repositoryProgressHasUpdate: 1
+  repositoryProgressHasUpdate: 0
   appManagerProgressHasUpdate: 0
   changeTab: 3
   activeTab: 3
@@ -3293,388 +3317,40 @@ MonoBehaviour:
     treeScroll: {x: 0, y: 0}
     treeChanges:
       assets:
-        keys:
-        - 00000000000000001000000000000000
-        - 1b4b6d26014eeb946a23de41677cd6ee
-        - 56b32b7af2e05db4dbb24a25f5583bff
-        - b274903622cf6ef4e977ae8cdb397a82
-        - 531306d87f7453f448c747b78cc5c7c1
-        - 1d6d6ea56bad1d442842f125f31790b2
-        - 2826caa26f9f1804fa456150b977a6d5
-        - e110bbe921377564389d5fabafd10baa
-        - 7ee027c45d5b3c64ba49fdadc24a67e7
-        - 293327e8004155c49b7e10f85f84f080
-        - c6e77ab1706d41b4cb7dbdfeca90f4d5
-        - 356642929c85a6e478056deb9f268389
-        - 4e2b0ac864f55f749a6092c5c8d812ff
-        - 4558fd7f288bacd45b9a2c432095998b
-        - 1ce238ab505d33540aefbf77a158540c
-        - fa5b1210b8f0d8e4dacc5b1346ad67e4
-        - 25fe055d24ee9814cbdf85dce3bdf18f
-        - 00000000000000004000000000000000
-        - 0000000000000000e100000000000000
-        values:
-        - path: Assets
-          label: Assets
-          level: 0
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Materials
-          label: Materials
-          level: 1
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Materials\Actionable.mat
-          label: Actionable.mat
-          level: 2
-          isFolder: 0
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Materials\Actionable.mat
-            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Materials\Actionable.mat
-            projectPath: Assets\Materials\Actionable.mat
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 3
-        - path: Assets\Materials\Actioned.mat
-          label: Actioned.mat
-          level: 2
-          isFolder: 0
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Materials\Actioned.mat
-            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Materials\Actioned.mat
-            projectPath: Assets\Materials\Actioned.mat
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 3
-        - path: Assets\Materials\CardsTiles.mat
-          label: CardsTiles.mat
-          level: 2
-          isFolder: 0
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Materials\CardsTiles.mat
-            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Materials\CardsTiles.mat
-            projectPath: Assets\Materials\CardsTiles.mat
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 3
-        - path: Assets\Materials\Hilight.mat
-          label: Hilight.mat
-          level: 2
-          isFolder: 0
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Materials\Hilight.mat
-            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Materials\Hilight.mat
-            projectPath: Assets\Materials\Hilight.mat
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 3
-        - path: Assets\Prefabs
-          label: Prefabs
-          level: 1
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Prefabs\Game
-          label: Game
-          level: 2
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Prefabs\Game\Cards
-          label: Cards
-          level: 3
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Prefabs\Game\Cards\Base
-          label: Base
-          level: 4
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Prefabs\Game\Cards\Base\OnlineCard.prefab
-          label: OnlineCard.prefab
-          level: 5
-          isFolder: 0
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Prefabs\Game\Cards\Base\OnlineCard.prefab
-            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\Cards\Base\OnlineCard.prefab
-            projectPath: Assets\Prefabs\Game\Cards\Base\OnlineCard.prefab
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 3
-        - path: Assets\Prefabs\Game\Cards\Base\TerminalCard.prefab
-          label: TerminalCard.prefab
-          level: 5
-          isFolder: 0
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Prefabs\Game\Cards\Base\TerminalCard.prefab
-            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\Cards\Base\TerminalCard.prefab
-            projectPath: Assets\Prefabs\Game\Cards\Base\TerminalCard.prefab
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 3
-        - path: Assets\PrefabsVisuals
-          label: PrefabsVisuals
-          level: 1
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\PrefabsVisuals\Game
-          label: Game
-          level: 2
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\PrefabsVisuals\Game\Cards
-          label: Cards
-          level: 3
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\PrefabsVisuals\Game\Cards\Base
-          label: Base
-          level: 4
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\PrefabsVisuals\Game\Cards\Base\TerminalCardVisual.prefab
-          label: TerminalCardVisual.prefab
-          level: 5
-          isFolder: 0
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\PrefabsVisuals\Game\Cards\Base\TerminalCardVisual.prefab
-            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\PrefabsVisuals\Game\Cards\Base\TerminalCardVisual.prefab
-            projectPath: Assets\PrefabsVisuals\Game\Cards\Base\TerminalCardVisual.prefab
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 3
-        - path: ProjectSettings\ProjectSettings.asset
-          label: ProjectSettings.asset
-          level: 1
-          isFolder: 0
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: ProjectSettings\ProjectSettings.asset
-            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\ProjectSettings\ProjectSettings.asset
-            projectPath: ProjectSettings\ProjectSettings.asset
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 3
-        - path: ProjectSettings\ProjectVersion.txt
-          label: ProjectVersion.txt
-          level: 1
-          isFolder: 0
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: ProjectSettings\ProjectVersion.txt
-            fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\ProjectSettings\ProjectVersion.txt
-            projectPath: ProjectSettings\ProjectVersion.txt
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 3
+        keys: []
+        values: []
       folders:
         keys:
-        - Assets
-        - Assets\Materials
-        - Assets\Prefabs
-        - Assets\Prefabs\Game
-        - Assets\Prefabs\Game\Cards
-        - Assets\Prefabs\Game\Cards\Base
-        - Assets\PrefabsVisuals
-        - Assets\PrefabsVisuals\Game
-        - Assets\PrefabsVisuals\Game\Cards
-        - Assets\PrefabsVisuals\Game\Cards\Base
-        - Packages
-        - ProjectSettings
-        - UserSettings
-        - UserSettings\Layouts
+        - .utmp
+        - .utmp\RelWithDebInfo
+        - .utmp\RelWithDebInfo\1q1a1p5r
+        - .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a
+        - .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake
+        - .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api
+        - .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1
+        - .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply
+        - .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles
+        - .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty
+        - .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\FramePacing
+        - .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\FramePacing\CMakeFiles
+        - .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\FramePacing\CMakeFiles\swappywrapper.dir
+        - .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a
+        - .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake
+        - .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api
+        - .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1
+        - .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply
+        - .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles
+        - .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty
+        - .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\FramePacing
+        - .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\FramePacing\CMakeFiles
+        - .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\FramePacing\CMakeFiles\swappywrapper.dir
+        - .utmp\tools
+        - .utmp\tools\release
+        - .utmp\tools\release\arm64-v8a
+        - .utmp\tools\release\armeabi-v7a
         values:
-        - path: Assets
-          label: Assets
+        - path: .utmp
+          label: .utmp
           level: 0
           isFolder: 1
           isContainer: 0
@@ -3691,8 +3367,8 @@ MonoBehaviour:
             originalPath: 
             indexStatus: 0
             workTreeStatus: 0
-        - path: Assets\Materials
-          label: Materials
+        - path: .utmp\RelWithDebInfo
+          label: RelWithDebInfo
           level: 1
           isFolder: 1
           isContainer: 0
@@ -3709,26 +3385,8 @@ MonoBehaviour:
             originalPath: 
             indexStatus: 0
             workTreeStatus: 0
-        - path: Assets\Prefabs
-          label: Prefabs
-          level: 1
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Prefabs\Game
-          label: Game
+        - path: .utmp\RelWithDebInfo\1q1a1p5r
+          label: 1q1a1p5r
           level: 2
           isFolder: 1
           isContainer: 0
@@ -3745,8 +3403,8 @@ MonoBehaviour:
             originalPath: 
             indexStatus: 0
             workTreeStatus: 0
-        - path: Assets\Prefabs\Game\Cards
-          label: Cards
+        - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a
+          label: arm64-v8a
           level: 3
           isFolder: 1
           isContainer: 0
@@ -3763,8 +3421,8 @@ MonoBehaviour:
             originalPath: 
             indexStatus: 0
             workTreeStatus: 0
-        - path: Assets\Prefabs\Game\Cards\Base
-          label: Base
+        - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake
+          label: .cmake
           level: 4
           isFolder: 1
           isContainer: 0
@@ -3781,8 +3439,332 @@ MonoBehaviour:
             originalPath: 
             indexStatus: 0
             workTreeStatus: 0
-        - path: Assets\PrefabsVisuals
-          label: PrefabsVisuals
+        - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api
+          label: api
+          level: 5
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1
+          label: v1
+          level: 6
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply
+          label: reply
+          level: 7
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles
+          label: CMakeFiles
+          level: 4
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty
+          label: 3.22.1-g37088a8-dirty
+          level: 5
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\FramePacing
+          label: FramePacing
+          level: 4
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\FramePacing\CMakeFiles
+          label: CMakeFiles
+          level: 5
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\FramePacing\CMakeFiles\swappywrapper.dir
+          label: swappywrapper.dir
+          level: 6
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a
+          label: armeabi-v7a
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake
+          label: .cmake
+          level: 4
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api
+          label: api
+          level: 5
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1
+          label: v1
+          level: 6
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply
+          label: reply
+          level: 7
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles
+          label: CMakeFiles
+          level: 4
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty
+          label: 3.22.1-g37088a8-dirty
+          level: 5
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\FramePacing
+          label: FramePacing
+          level: 4
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\FramePacing\CMakeFiles
+          label: CMakeFiles
+          level: 5
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\FramePacing\CMakeFiles\swappywrapper.dir
+          label: swappywrapper.dir
+          level: 6
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: .utmp\tools
+          label: tools
           level: 1
           isFolder: 1
           isContainer: 0
@@ -3799,8 +3781,8 @@ MonoBehaviour:
             originalPath: 
             indexStatus: 0
             workTreeStatus: 0
-        - path: Assets\PrefabsVisuals\Game
-          label: Game
+        - path: .utmp\tools\release
+          label: release
           level: 2
           isFolder: 1
           isContainer: 0
@@ -3817,8 +3799,8 @@ MonoBehaviour:
             originalPath: 
             indexStatus: 0
             workTreeStatus: 0
-        - path: Assets\PrefabsVisuals\Game\Cards
-          label: Cards
+        - path: .utmp\tools\release\arm64-v8a
+          label: arm64-v8a
           level: 3
           isFolder: 1
           isContainer: 0
@@ -3835,81 +3817,9 @@ MonoBehaviour:
             originalPath: 
             indexStatus: 0
             workTreeStatus: 0
-        - path: Assets\PrefabsVisuals\Game\Cards\Base
-          label: Base
-          level: 4
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Packages
-          label: Packages
-          level: 0
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: ProjectSettings
-          label: ProjectSettings
-          level: 0
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: UserSettings
-          label: UserSettings
-          level: 0
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: UserSettings\Layouts
-          label: Layouts
-          level: 1
+        - path: .utmp\tools\release\armeabi-v7a
+          label: armeabi-v7a
+          level: 3
           isFolder: 1
           isContainer: 0
           isCollapsed: 0
@@ -3953,8 +3863,8 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: Assets
-        label: Assets
+      - path: .utmp
+        label: .utmp
         level: 0
         isFolder: 1
         isContainer: 0
@@ -3971,8 +3881,8 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: Assets\Materials
-        label: Materials
+      - path: .utmp\RelWithDebInfo
+        label: RelWithDebInfo
         level: 1
         isFolder: 1
         isContainer: 0
@@ -3989,134 +3899,8 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: Assets\Materials\Actionable.mat
-        label: Actionable.mat
-        level: 2
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Materials\Actionable.mat
-          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Materials\Actionable.mat
-          projectPath: Assets\Materials\Actionable.mat
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 3
-      - path: Assets\Materials\Actioned.mat
-        label: Actioned.mat
-        level: 2
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Materials\Actioned.mat
-          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Materials\Actioned.mat
-          projectPath: Assets\Materials\Actioned.mat
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 3
-      - path: Assets\Materials\CardsTiles.mat
-        label: CardsTiles.mat
-        level: 2
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Materials\CardsTiles.mat
-          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Materials\CardsTiles.mat
-          projectPath: Assets\Materials\CardsTiles.mat
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 3
-      - path: Assets\Materials\Hilight.mat
-        label: Hilight.mat
-        level: 2
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Materials\Hilight.mat
-          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Materials\Hilight.mat
-          projectPath: Assets\Materials\Hilight.mat
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 3
-      - path: Assets\Materials\Selected.mat
-        label: Selected.mat
-        level: 2
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Materials\Selected.mat
-          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Materials\Selected.mat
-          projectPath: Assets\Materials\Selected.mat
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Materials\Selected.mat.meta
-        label: Selected.mat.meta
-        level: 3
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Materials\Selected.mat.meta
-          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Materials\Selected.mat.meta
-          projectPath: Assets\Materials\Selected.mat.meta
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Prefabs
-        label: Prefabs
-        level: 1
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\Prefabs\Game
-        label: Game
+      - path: .utmp\RelWithDebInfo\1q1a1p5r
+        label: 1q1a1p5r
         level: 2
         isFolder: 1
         isContainer: 0
@@ -4133,8 +3917,8 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: Assets\Prefabs\Game\Cards
-        label: Cards
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a
+        label: arm64-v8a
         level: 3
         isFolder: 1
         isContainer: 0
@@ -4151,8 +3935,8 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: Assets\Prefabs\Game\Cards\Base
-        label: Base
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake
+        label: .cmake
         level: 4
         isFolder: 1
         isContainer: 0
@@ -4169,9 +3953,63 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: Assets\Prefabs\Game\Cards\Base\OnlineCard.prefab
-        label: OnlineCard.prefab
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api
+        label: api
         level: 5
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1
+        label: v1
+        level: 6
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply
+        label: reply
+        level: 7
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cache-v2-41289cb0855a8e19a752.json
+        label: cache-v2-41289cb0855a8e19a752.json
+        level: 8
         isFolder: 0
         isContainer: 0
         isCollapsed: 0
@@ -4181,15 +4019,15 @@ MonoBehaviour:
         checkState: 0
         isLocked: 0
         gitStatusEntry:
-          path: Assets\Prefabs\Game\Cards\Base\OnlineCard.prefab
-          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\Cards\Base\OnlineCard.prefab
-          projectPath: Assets\Prefabs\Game\Cards\Base\OnlineCard.prefab
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cache-v2-41289cb0855a8e19a752.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cache-v2-41289cb0855a8e19a752.json
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cache-v2-41289cb0855a8e19a752.json
           originalPath: 
-          indexStatus: 0
-          workTreeStatus: 3
-      - path: Assets\Prefabs\Game\Cards\Base\TerminalCard.prefab
-        label: TerminalCard.prefab
-        level: 5
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cache-v2-427e0b15f2b1a3079395.json
+        label: cache-v2-427e0b15f2b1a3079395.json
+        level: 8
         isFolder: 0
         isContainer: 0
         isCollapsed: 0
@@ -4199,16 +4037,178 @@ MonoBehaviour:
         checkState: 0
         isLocked: 0
         gitStatusEntry:
-          path: Assets\Prefabs\Game\Cards\Base\TerminalCard.prefab
-          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\Cards\Base\TerminalCard.prefab
-          projectPath: Assets\Prefabs\Game\Cards\Base\TerminalCard.prefab
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cache-v2-427e0b15f2b1a3079395.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cache-v2-427e0b15f2b1a3079395.json
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cache-v2-427e0b15f2b1a3079395.json
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 5
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cmakeFiles-v1-259f9bd788dcc12da553.json
+        label: cmakeFiles-v1-259f9bd788dcc12da553.json
+        level: 8
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cmakeFiles-v1-259f9bd788dcc12da553.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cmakeFiles-v1-259f9bd788dcc12da553.json
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cmakeFiles-v1-259f9bd788dcc12da553.json
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 5
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cmakeFiles-v1-df1ef1f91c987e428158.json
+        label: cmakeFiles-v1-df1ef1f91c987e428158.json
+        level: 8
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cmakeFiles-v1-df1ef1f91c987e428158.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cmakeFiles-v1-df1ef1f91c987e428158.json
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cmakeFiles-v1-df1ef1f91c987e428158.json
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\codemodel-v2-803b1f6765fc04fd30c5.json
+        label: codemodel-v2-803b1f6765fc04fd30c5.json
+        level: 8
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\codemodel-v2-803b1f6765fc04fd30c5.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\codemodel-v2-803b1f6765fc04fd30c5.json
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\codemodel-v2-803b1f6765fc04fd30c5.json
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\codemodel-v2-b4bffbf105f11158f5de.json
+        label: codemodel-v2-b4bffbf105f11158f5de.json
+        level: 8
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\codemodel-v2-b4bffbf105f11158f5de.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\codemodel-v2-b4bffbf105f11158f5de.json
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\codemodel-v2-b4bffbf105f11158f5de.json
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 5
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\index-2026-01-13T23-28-39-0287.json
+        label: index-2026-01-13T23-28-39-0287.json
+        level: 8
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\index-2026-01-13T23-28-39-0287.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\index-2026-01-13T23-28-39-0287.json
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\index-2026-01-13T23-28-39-0287.json
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 5
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\index-2026-01-19T21-50-20-0157.json
+        label: index-2026-01-19T21-50-20-0157.json
+        level: 8
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\index-2026-01-19T21-50-20-0157.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\index-2026-01-19T21-50-20-0157.json
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\index-2026-01-19T21-50-20-0157.json
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-78c853873e08d87ea4a4.json
+        label: target-swappywrapper-RelWithDebInfo-78c853873e08d87ea4a4.json
+        level: 8
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-78c853873e08d87ea4a4.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-78c853873e08d87ea4a4.json
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-78c853873e08d87ea4a4.json
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-82b6de774b2309acd490.json
+        label: target-swappywrapper-RelWithDebInfo-82b6de774b2309acd490.json
+        level: 8
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-82b6de774b2309acd490.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-82b6de774b2309acd490.json
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-82b6de774b2309acd490.json
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 5
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.ninja_deps
+        label: .ninja_deps
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.ninja_deps
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.ninja_deps
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.ninja_deps
           originalPath: 
           indexStatus: 0
           workTreeStatus: 3
-      - path: Assets\PrefabsVisuals
-        label: PrefabsVisuals
-        level: 1
-        isFolder: 1
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.ninja_log
+        label: .ninja_log
+        level: 4
+        isFolder: 0
         isContainer: 0
         isCollapsed: 0
         isHidden: 0
@@ -4217,16 +4217,16 @@ MonoBehaviour:
         checkState: 0
         isLocked: 0
         gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.ninja_log
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.ninja_log
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.ninja_log
           originalPath: 
           indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\PrefabsVisuals\Game
-        label: Game
-        level: 2
-        isFolder: 1
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\android_gradle_build.json
+        label: android_gradle_build.json
+        level: 4
+        isFolder: 0
         isContainer: 0
         isCollapsed: 0
         isHidden: 0
@@ -4235,16 +4235,16 @@ MonoBehaviour:
         checkState: 0
         isLocked: 0
         gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\android_gradle_build.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\android_gradle_build.json
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\android_gradle_build.json
           originalPath: 
           indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\PrefabsVisuals\Game\Cards
-        label: Cards
-        level: 3
-        isFolder: 1
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\android_gradle_build_mini.json
+        label: android_gradle_build_mini.json
+        level: 4
+        isFolder: 0
         isContainer: 0
         isCollapsed: 0
         isHidden: 0
@@ -4253,14 +4253,68 @@ MonoBehaviour:
         checkState: 0
         isLocked: 0
         gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\android_gradle_build_mini.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\android_gradle_build_mini.json
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\android_gradle_build_mini.json
           originalPath: 
           indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\PrefabsVisuals\Game\Cards\Base
-        label: Base
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\build.ninja
+        label: build.ninja
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\build.ninja
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\build.ninja
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\build.ninja
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\cmake_install.cmake
+        label: cmake_install.cmake
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\cmake_install.cmake
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\cmake_install.cmake
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\cmake_install.cmake
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeCache.txt
+        label: CMakeCache.txt
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeCache.txt
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeCache.txt
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeCache.txt
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles
+        label: CMakeFiles
         level: 4
         isFolder: 1
         isContainer: 0
@@ -4277,8 +4331,116 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: Assets\PrefabsVisuals\Game\Cards\Base\TerminalCardVisual.prefab
-        label: TerminalCardVisual.prefab
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty
+        label: 3.22.1-g37088a8-dirty
+        level: 5
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCCompiler.cmake
+        label: CMakeCCompiler.cmake
+        level: 6
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCCompiler.cmake
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCCompiler.cmake
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCCompiler.cmake
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCXXCompiler.cmake
+        label: CMakeCXXCompiler.cmake
+        level: 6
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCXXCompiler.cmake
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCXXCompiler.cmake
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCXXCompiler.cmake
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_C.bin
+        label: CMakeDetermineCompilerABI_C.bin
+        level: 6
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_C.bin
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_C.bin
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_C.bin
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_CXX.bin
+        label: CMakeDetermineCompilerABI_CXX.bin
+        level: 6
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_CXX.bin
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_CXX.bin
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_CXX.bin
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeSystem.cmake
+        label: CMakeSystem.cmake
+        level: 6
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeSystem.cmake
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeSystem.cmake
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeSystem.cmake
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\CMakeOutput.log
+        label: CMakeOutput.log
         level: 5
         isFolder: 0
         isContainer: 0
@@ -4289,15 +4451,87 @@ MonoBehaviour:
         checkState: 0
         isLocked: 0
         gitStatusEntry:
-          path: Assets\PrefabsVisuals\Game\Cards\Base\TerminalCardVisual.prefab
-          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\PrefabsVisuals\Game\Cards\Base\TerminalCardVisual.prefab
-          projectPath: Assets\PrefabsVisuals\Game\Cards\Base\TerminalCardVisual.prefab
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\CMakeOutput.log
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\CMakeOutput.log
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\CMakeOutput.log
           originalPath: 
           indexStatus: 0
           workTreeStatus: 3
-      - path: Packages
-        label: Packages
-        level: 0
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\rules.ninja
+        label: rules.ninja
+        level: 5
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\rules.ninja
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\rules.ninja
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\rules.ninja
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\compile_commands.json
+        label: compile_commands.json
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\compile_commands.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\compile_commands.json
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\compile_commands.json
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\compile_commands.json.bin
+        label: compile_commands.json.bin
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\compile_commands.json.bin
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\compile_commands.json.bin
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\compile_commands.json.bin
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\configure_fingerprint.bin
+        label: configure_fingerprint.bin
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\configure_fingerprint.bin
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\configure_fingerprint.bin
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\configure_fingerprint.bin
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\FramePacing
+        label: FramePacing
+        level: 4
         isFolder: 1
         isContainer: 0
         isCollapsed: 0
@@ -4313,9 +4547,9 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: Packages\manifest.json
-        label: manifest.json
-        level: 1
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\FramePacing\cmake_install.cmake
+        label: cmake_install.cmake
+        level: 5
         isFolder: 0
         isContainer: 0
         isCollapsed: 0
@@ -4325,33 +4559,15 @@ MonoBehaviour:
         checkState: 0
         isLocked: 0
         gitStatusEntry:
-          path: Packages\manifest.json
-          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Packages\manifest.json
-          projectPath: Packages\manifest.json
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\FramePacing\cmake_install.cmake
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\FramePacing\cmake_install.cmake
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\FramePacing\cmake_install.cmake
           originalPath: 
           indexStatus: 0
           workTreeStatus: 3
-      - path: Packages\packages-lock.json
-        label: packages-lock.json
-        level: 1
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Packages\packages-lock.json
-          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Packages\packages-lock.json
-          projectPath: Packages\packages-lock.json
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 3
-      - path: ProjectSettings
-        label: ProjectSettings
-        level: 0
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\FramePacing\CMakeFiles
+        label: CMakeFiles
+        level: 5
         isFolder: 1
         isContainer: 0
         isCollapsed: 0
@@ -4367,63 +4583,9 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: ProjectSettings\ProjectSettings.asset
-        label: ProjectSettings.asset
-        level: 1
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: ProjectSettings\ProjectSettings.asset
-          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\ProjectSettings\ProjectSettings.asset
-          projectPath: ProjectSettings\ProjectSettings.asset
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 3
-      - path: ProjectSettings\ProjectVersion.txt
-        label: ProjectVersion.txt
-        level: 1
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: ProjectSettings\ProjectVersion.txt
-          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\ProjectSettings\ProjectVersion.txt
-          projectPath: ProjectSettings\ProjectVersion.txt
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 3
-      - path: ProjectSettings\VirtualProjectsConfig.json
-        label: VirtualProjectsConfig.json
-        level: 1
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: ProjectSettings\VirtualProjectsConfig.json
-          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\ProjectSettings\VirtualProjectsConfig.json
-          projectPath: ProjectSettings\VirtualProjectsConfig.json
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 3
-      - path: UserSettings
-        label: UserSettings
-        level: 0
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\FramePacing\CMakeFiles\swappywrapper.dir
+        label: swappywrapper.dir
+        level: 6
         isFolder: 1
         isContainer: 0
         isCollapsed: 0
@@ -4439,9 +4601,45 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: UserSettings\Layouts
-        label: Layouts
-        level: 1
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\FramePacing\CMakeFiles\swappywrapper.dir\UnitySwappyWrapper.cpp.o
+        label: UnitySwappyWrapper.cpp.o
+        level: 7
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\FramePacing\CMakeFiles\swappywrapper.dir\UnitySwappyWrapper.cpp.o
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\FramePacing\CMakeFiles\swappywrapper.dir\UnitySwappyWrapper.cpp.o
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\FramePacing\CMakeFiles\swappywrapper.dir\UnitySwappyWrapper.cpp.o
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\metadata_generation_command.txt
+        label: metadata_generation_command.txt
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\metadata_generation_command.txt
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\metadata_generation_command.txt
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\metadata_generation_command.txt
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a
+        label: armeabi-v7a
+        level: 3
         isFolder: 1
         isContainer: 0
         isCollapsed: 0
@@ -4457,9 +4655,81 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: UserSettings\Layouts\CurrentMaximizeLayout.dwlt
-        label: CurrentMaximizeLayout.dwlt
-        level: 2
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake
+        label: .cmake
+        level: 4
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api
+        label: api
+        level: 5
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1
+        label: v1
+        level: 6
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply
+        label: reply
+        level: 7
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cache-v2-431c14abdf6f4e370841.json
+        label: cache-v2-431c14abdf6f4e370841.json
+        level: 8
         isFolder: 0
         isContainer: 0
         isCollapsed: 0
@@ -4469,15 +4739,33 @@ MonoBehaviour:
         checkState: 0
         isLocked: 0
         gitStatusEntry:
-          path: UserSettings\Layouts\CurrentMaximizeLayout.dwlt
-          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\UserSettings\Layouts\CurrentMaximizeLayout.dwlt
-          projectPath: UserSettings\Layouts\CurrentMaximizeLayout.dwlt
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cache-v2-431c14abdf6f4e370841.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cache-v2-431c14abdf6f4e370841.json
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cache-v2-431c14abdf6f4e370841.json
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cache-v2-7db4fe9b8e0b6b46d73a.json
+        label: cache-v2-7db4fe9b8e0b6b46d73a.json
+        level: 8
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cache-v2-7db4fe9b8e0b6b46d73a.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cache-v2-7db4fe9b8e0b6b46d73a.json
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cache-v2-7db4fe9b8e0b6b46d73a.json
           originalPath: 
           indexStatus: 0
           workTreeStatus: 5
-      - path: UserSettings\Layouts\default-2022.dwlt
-        label: default-2022.dwlt
-        level: 2
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cmakeFiles-v1-35f1e722d14e8edffa8f.json
+        label: cmakeFiles-v1-35f1e722d14e8edffa8f.json
+        level: 8
         isFolder: 0
         isContainer: 0
         isCollapsed: 0
@@ -4487,15 +4775,33 @@ MonoBehaviour:
         checkState: 0
         isLocked: 0
         gitStatusEntry:
-          path: UserSettings\Layouts\default-2022.dwlt
-          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\UserSettings\Layouts\default-2022.dwlt
-          projectPath: UserSettings\Layouts\default-2022.dwlt
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cmakeFiles-v1-35f1e722d14e8edffa8f.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cmakeFiles-v1-35f1e722d14e8edffa8f.json
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cmakeFiles-v1-35f1e722d14e8edffa8f.json
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cmakeFiles-v1-ebca4c4443ae67dafd4e.json
+        label: cmakeFiles-v1-ebca4c4443ae67dafd4e.json
+        level: 8
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cmakeFiles-v1-ebca4c4443ae67dafd4e.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cmakeFiles-v1-ebca4c4443ae67dafd4e.json
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cmakeFiles-v1-ebca4c4443ae67dafd4e.json
           originalPath: 
           indexStatus: 0
           workTreeStatus: 5
-      - path: UserSettings\Layouts\default-6000.dwlt
-        label: default-6000.dwlt
-        level: 2
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\codemodel-v2-3f7ee6a578547a483914.json
+        label: codemodel-v2-3f7ee6a578547a483914.json
+        level: 8
         isFolder: 0
         isContainer: 0
         isCollapsed: 0
@@ -4505,15 +4811,123 @@ MonoBehaviour:
         checkState: 0
         isLocked: 0
         gitStatusEntry:
-          path: UserSettings\Layouts\default-6000.dwlt
-          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\UserSettings\Layouts\default-6000.dwlt
-          projectPath: UserSettings\Layouts\default-6000.dwlt
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\codemodel-v2-3f7ee6a578547a483914.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\codemodel-v2-3f7ee6a578547a483914.json
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\codemodel-v2-3f7ee6a578547a483914.json
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 5
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\codemodel-v2-df18163e904ba1e3a682.json
+        label: codemodel-v2-df18163e904ba1e3a682.json
+        level: 8
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\codemodel-v2-df18163e904ba1e3a682.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\codemodel-v2-df18163e904ba1e3a682.json
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\codemodel-v2-df18163e904ba1e3a682.json
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\index-2026-01-13T23-28-40-0869.json
+        label: index-2026-01-13T23-28-40-0869.json
+        level: 8
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\index-2026-01-13T23-28-40-0869.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\index-2026-01-13T23-28-40-0869.json
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\index-2026-01-13T23-28-40-0869.json
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 5
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\index-2026-01-19T21-50-22-0658.json
+        label: index-2026-01-19T21-50-22-0658.json
+        level: 8
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\index-2026-01-19T21-50-22-0658.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\index-2026-01-19T21-50-22-0658.json
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\index-2026-01-19T21-50-22-0658.json
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-0b176dffee13c12f8284.json
+        label: target-swappywrapper-RelWithDebInfo-0b176dffee13c12f8284.json
+        level: 8
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-0b176dffee13c12f8284.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-0b176dffee13c12f8284.json
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-0b176dffee13c12f8284.json
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-f1d9b4464765a2ba742b.json
+        label: target-swappywrapper-RelWithDebInfo-f1d9b4464765a2ba742b.json
+        level: 8
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-f1d9b4464765a2ba742b.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-f1d9b4464765a2ba742b.json
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-f1d9b4464765a2ba742b.json
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 5
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.ninja_deps
+        label: .ninja_deps
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.ninja_deps
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.ninja_deps
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.ninja_deps
           originalPath: 
           indexStatus: 0
           workTreeStatus: 3
-      - path: UserSettings\Search.settings
-        label: Search.settings
-        level: 1
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.ninja_log
+        label: .ninja_log
+        level: 4
         isFolder: 0
         isContainer: 0
         isCollapsed: 0
@@ -4523,9 +4937,531 @@ MonoBehaviour:
         checkState: 0
         isLocked: 0
         gitStatusEntry:
-          path: UserSettings\Search.settings
-          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\UserSettings\Search.settings
-          projectPath: UserSettings\Search.settings
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.ninja_log
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.ninja_log
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.ninja_log
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\android_gradle_build.json
+        label: android_gradle_build.json
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\android_gradle_build.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\android_gradle_build.json
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\android_gradle_build.json
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\android_gradle_build_mini.json
+        label: android_gradle_build_mini.json
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\android_gradle_build_mini.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\android_gradle_build_mini.json
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\android_gradle_build_mini.json
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\build.ninja
+        label: build.ninja
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\build.ninja
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\build.ninja
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\build.ninja
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\cmake_install.cmake
+        label: cmake_install.cmake
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\cmake_install.cmake
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\cmake_install.cmake
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\cmake_install.cmake
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeCache.txt
+        label: CMakeCache.txt
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeCache.txt
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeCache.txt
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeCache.txt
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles
+        label: CMakeFiles
+        level: 4
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty
+        label: 3.22.1-g37088a8-dirty
+        level: 5
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCCompiler.cmake
+        label: CMakeCCompiler.cmake
+        level: 6
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCCompiler.cmake
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCCompiler.cmake
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCCompiler.cmake
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCXXCompiler.cmake
+        label: CMakeCXXCompiler.cmake
+        level: 6
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCXXCompiler.cmake
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCXXCompiler.cmake
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCXXCompiler.cmake
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_C.bin
+        label: CMakeDetermineCompilerABI_C.bin
+        level: 6
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_C.bin
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_C.bin
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_C.bin
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_CXX.bin
+        label: CMakeDetermineCompilerABI_CXX.bin
+        level: 6
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_CXX.bin
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_CXX.bin
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_CXX.bin
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeSystem.cmake
+        label: CMakeSystem.cmake
+        level: 6
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeSystem.cmake
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeSystem.cmake
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeSystem.cmake
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\CMakeOutput.log
+        label: CMakeOutput.log
+        level: 5
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\CMakeOutput.log
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\CMakeOutput.log
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\CMakeOutput.log
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\rules.ninja
+        label: rules.ninja
+        level: 5
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\rules.ninja
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\rules.ninja
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\rules.ninja
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\compile_commands.json
+        label: compile_commands.json
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\compile_commands.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\compile_commands.json
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\compile_commands.json
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\compile_commands.json.bin
+        label: compile_commands.json.bin
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\compile_commands.json.bin
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\compile_commands.json.bin
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\compile_commands.json.bin
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\configure_fingerprint.bin
+        label: configure_fingerprint.bin
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\configure_fingerprint.bin
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\configure_fingerprint.bin
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\configure_fingerprint.bin
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\FramePacing
+        label: FramePacing
+        level: 4
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\FramePacing\cmake_install.cmake
+        label: cmake_install.cmake
+        level: 5
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\FramePacing\cmake_install.cmake
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\FramePacing\cmake_install.cmake
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\FramePacing\cmake_install.cmake
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\FramePacing\CMakeFiles
+        label: CMakeFiles
+        level: 5
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\FramePacing\CMakeFiles\swappywrapper.dir
+        label: swappywrapper.dir
+        level: 6
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\FramePacing\CMakeFiles\swappywrapper.dir\UnitySwappyWrapper.cpp.o
+        label: UnitySwappyWrapper.cpp.o
+        level: 7
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\FramePacing\CMakeFiles\swappywrapper.dir\UnitySwappyWrapper.cpp.o
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\FramePacing\CMakeFiles\swappywrapper.dir\UnitySwappyWrapper.cpp.o
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\FramePacing\CMakeFiles\swappywrapper.dir\UnitySwappyWrapper.cpp.o
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\metadata_generation_command.txt
+        label: metadata_generation_command.txt
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\metadata_generation_command.txt
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\metadata_generation_command.txt
+          projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\metadata_generation_command.txt
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\tools
+        label: tools
+        level: 1
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: .utmp\tools\release
+        label: release
+        level: 2
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: .utmp\tools\release\arm64-v8a
+        label: arm64-v8a
+        level: 3
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: .utmp\tools\release\arm64-v8a\compile_commands.json
+        label: compile_commands.json
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\tools\release\arm64-v8a\compile_commands.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\tools\release\arm64-v8a\compile_commands.json
+          projectPath: .utmp\tools\release\arm64-v8a\compile_commands.json
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: .utmp\tools\release\armeabi-v7a
+        label: armeabi-v7a
+        level: 3
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: .utmp\tools\release\armeabi-v7a\compile_commands.json
+        label: compile_commands.json
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .utmp\tools\release\armeabi-v7a\compile_commands.json
+          fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\tools\release\armeabi-v7a\compile_commands.json
+          projectPath: .utmp\tools\release\armeabi-v7a\compile_commands.json
           originalPath: 
           indexStatus: 0
           workTreeStatus: 3
@@ -4549,115 +5485,379 @@ MonoBehaviour:
           indexStatus: 0
           workTreeStatus: 0
     gitStatusEntries:
-    - path: Assets\Materials\Actionable.mat
-      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Materials\Actionable.mat
-      projectPath: Assets\Materials\Actionable.mat
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cache-v2-41289cb0855a8e19a752.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cache-v2-41289cb0855a8e19a752.json
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cache-v2-41289cb0855a8e19a752.json
       originalPath: 
-      indexStatus: 0
-      workTreeStatus: 3
-    - path: Assets\Materials\Actioned.mat
-      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Materials\Actioned.mat
-      projectPath: Assets\Materials\Actioned.mat
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 3
-    - path: Assets\Materials\CardsTiles.mat
-      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Materials\CardsTiles.mat
-      projectPath: Assets\Materials\CardsTiles.mat
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 3
-    - path: Assets\Materials\Hilight.mat
-      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Materials\Hilight.mat
-      projectPath: Assets\Materials\Hilight.mat
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 3
-    - path: Assets\Materials\Selected.mat
-      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Materials\Selected.mat
-      projectPath: Assets\Materials\Selected.mat
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cache-v2-427e0b15f2b1a3079395.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cache-v2-427e0b15f2b1a3079395.json
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cache-v2-427e0b15f2b1a3079395.json
       originalPath: 
       indexStatus: 0
       workTreeStatus: 5
-    - path: Assets\Materials\Selected.mat.meta
-      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Materials\Selected.mat.meta
-      projectPath: Assets\Materials\Selected.mat.meta
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cmakeFiles-v1-259f9bd788dcc12da553.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cmakeFiles-v1-259f9bd788dcc12da553.json
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cmakeFiles-v1-259f9bd788dcc12da553.json
       originalPath: 
       indexStatus: 0
       workTreeStatus: 5
-    - path: Assets\Prefabs\Game\Cards\Base\OnlineCard.prefab
-      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\Cards\Base\OnlineCard.prefab
-      projectPath: Assets\Prefabs\Game\Cards\Base\OnlineCard.prefab
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cmakeFiles-v1-df1ef1f91c987e428158.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cmakeFiles-v1-df1ef1f91c987e428158.json
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\cmakeFiles-v1-df1ef1f91c987e428158.json
       originalPath: 
-      indexStatus: 0
-      workTreeStatus: 3
-    - path: Assets\Prefabs\Game\Cards\Base\TerminalCard.prefab
-      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\Prefabs\Game\Cards\Base\TerminalCard.prefab
-      projectPath: Assets\Prefabs\Game\Cards\Base\TerminalCard.prefab
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\codemodel-v2-803b1f6765fc04fd30c5.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\codemodel-v2-803b1f6765fc04fd30c5.json
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\codemodel-v2-803b1f6765fc04fd30c5.json
       originalPath: 
-      indexStatus: 0
-      workTreeStatus: 3
-    - path: Assets\PrefabsVisuals\Game\Cards\Base\TerminalCardVisual.prefab
-      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Assets\PrefabsVisuals\Game\Cards\Base\TerminalCardVisual.prefab
-      projectPath: Assets\PrefabsVisuals\Game\Cards\Base\TerminalCardVisual.prefab
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 3
-    - path: Packages\manifest.json
-      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Packages\manifest.json
-      projectPath: Packages\manifest.json
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 3
-    - path: Packages\packages-lock.json
-      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\Packages\packages-lock.json
-      projectPath: Packages\packages-lock.json
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 3
-    - path: ProjectSettings\ProjectSettings.asset
-      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\ProjectSettings\ProjectSettings.asset
-      projectPath: ProjectSettings\ProjectSettings.asset
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 3
-    - path: ProjectSettings\ProjectVersion.txt
-      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\ProjectSettings\ProjectVersion.txt
-      projectPath: ProjectSettings\ProjectVersion.txt
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 3
-    - path: ProjectSettings\VirtualProjectsConfig.json
-      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\ProjectSettings\VirtualProjectsConfig.json
-      projectPath: ProjectSettings\VirtualProjectsConfig.json
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 3
-    - path: UserSettings\Layouts\CurrentMaximizeLayout.dwlt
-      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\UserSettings\Layouts\CurrentMaximizeLayout.dwlt
-      projectPath: UserSettings\Layouts\CurrentMaximizeLayout.dwlt
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\codemodel-v2-b4bffbf105f11158f5de.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\codemodel-v2-b4bffbf105f11158f5de.json
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\codemodel-v2-b4bffbf105f11158f5de.json
       originalPath: 
       indexStatus: 0
       workTreeStatus: 5
-    - path: UserSettings\Layouts\default-2022.dwlt
-      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\UserSettings\Layouts\default-2022.dwlt
-      projectPath: UserSettings\Layouts\default-2022.dwlt
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\index-2026-01-13T23-28-39-0287.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\index-2026-01-13T23-28-39-0287.json
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\index-2026-01-13T23-28-39-0287.json
       originalPath: 
       indexStatus: 0
       workTreeStatus: 5
-    - path: UserSettings\Layouts\default-6000.dwlt
-      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\UserSettings\Layouts\default-6000.dwlt
-      projectPath: UserSettings\Layouts\default-6000.dwlt
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\index-2026-01-19T21-50-20-0157.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\index-2026-01-19T21-50-20-0157.json
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\index-2026-01-19T21-50-20-0157.json
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-78c853873e08d87ea4a4.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-78c853873e08d87ea4a4.json
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-78c853873e08d87ea4a4.json
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-82b6de774b2309acd490.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-82b6de774b2309acd490.json
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-82b6de774b2309acd490.json
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 5
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.ninja_deps
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.ninja_deps
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.ninja_deps
       originalPath: 
       indexStatus: 0
       workTreeStatus: 3
-    - path: UserSettings\Search.settings
-      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\UserSettings\Search.settings
-      projectPath: UserSettings\Search.settings
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.ninja_log
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.ninja_log
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\.ninja_log
       originalPath: 
       indexStatus: 0
       workTreeStatus: 3
-    changedFilesText: 18 changed files
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\android_gradle_build.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\android_gradle_build.json
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\android_gradle_build.json
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\android_gradle_build_mini.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\android_gradle_build_mini.json
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\android_gradle_build_mini.json
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\build.ninja
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\build.ninja
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\build.ninja
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\cmake_install.cmake
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\cmake_install.cmake
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\cmake_install.cmake
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeCache.txt
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeCache.txt
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeCache.txt
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCCompiler.cmake
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCCompiler.cmake
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCCompiler.cmake
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCXXCompiler.cmake
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCXXCompiler.cmake
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCXXCompiler.cmake
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_C.bin
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_C.bin
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_C.bin
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_CXX.bin
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_CXX.bin
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_CXX.bin
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeSystem.cmake
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeSystem.cmake
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeSystem.cmake
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\CMakeOutput.log
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\CMakeOutput.log
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\CMakeOutput.log
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\rules.ninja
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\rules.ninja
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\CMakeFiles\rules.ninja
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\compile_commands.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\compile_commands.json
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\compile_commands.json
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\compile_commands.json.bin
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\compile_commands.json.bin
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\compile_commands.json.bin
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\configure_fingerprint.bin
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\configure_fingerprint.bin
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\configure_fingerprint.bin
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\FramePacing\cmake_install.cmake
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\FramePacing\cmake_install.cmake
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\FramePacing\cmake_install.cmake
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\FramePacing\CMakeFiles\swappywrapper.dir\UnitySwappyWrapper.cpp.o
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\FramePacing\CMakeFiles\swappywrapper.dir\UnitySwappyWrapper.cpp.o
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\FramePacing\CMakeFiles\swappywrapper.dir\UnitySwappyWrapper.cpp.o
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\metadata_generation_command.txt
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\metadata_generation_command.txt
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\arm64-v8a\metadata_generation_command.txt
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cache-v2-431c14abdf6f4e370841.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cache-v2-431c14abdf6f4e370841.json
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cache-v2-431c14abdf6f4e370841.json
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cache-v2-7db4fe9b8e0b6b46d73a.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cache-v2-7db4fe9b8e0b6b46d73a.json
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cache-v2-7db4fe9b8e0b6b46d73a.json
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 5
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cmakeFiles-v1-35f1e722d14e8edffa8f.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cmakeFiles-v1-35f1e722d14e8edffa8f.json
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cmakeFiles-v1-35f1e722d14e8edffa8f.json
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cmakeFiles-v1-ebca4c4443ae67dafd4e.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cmakeFiles-v1-ebca4c4443ae67dafd4e.json
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\cmakeFiles-v1-ebca4c4443ae67dafd4e.json
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 5
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\codemodel-v2-3f7ee6a578547a483914.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\codemodel-v2-3f7ee6a578547a483914.json
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\codemodel-v2-3f7ee6a578547a483914.json
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 5
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\codemodel-v2-df18163e904ba1e3a682.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\codemodel-v2-df18163e904ba1e3a682.json
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\codemodel-v2-df18163e904ba1e3a682.json
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\index-2026-01-13T23-28-40-0869.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\index-2026-01-13T23-28-40-0869.json
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\index-2026-01-13T23-28-40-0869.json
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 5
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\index-2026-01-19T21-50-22-0658.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\index-2026-01-19T21-50-22-0658.json
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\index-2026-01-19T21-50-22-0658.json
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-0b176dffee13c12f8284.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-0b176dffee13c12f8284.json
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-0b176dffee13c12f8284.json
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-f1d9b4464765a2ba742b.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-f1d9b4464765a2ba742b.json
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.cmake\api\v1\reply\target-swappywrapper-RelWithDebInfo-f1d9b4464765a2ba742b.json
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 5
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.ninja_deps
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.ninja_deps
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.ninja_deps
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.ninja_log
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.ninja_log
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\.ninja_log
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\android_gradle_build.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\android_gradle_build.json
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\android_gradle_build.json
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\android_gradle_build_mini.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\android_gradle_build_mini.json
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\android_gradle_build_mini.json
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\build.ninja
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\build.ninja
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\build.ninja
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\cmake_install.cmake
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\cmake_install.cmake
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\cmake_install.cmake
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeCache.txt
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeCache.txt
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeCache.txt
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCCompiler.cmake
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCCompiler.cmake
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCCompiler.cmake
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCXXCompiler.cmake
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCXXCompiler.cmake
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCXXCompiler.cmake
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_C.bin
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_C.bin
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_C.bin
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_CXX.bin
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_CXX.bin
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_CXX.bin
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeSystem.cmake
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeSystem.cmake
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\3.22.1-g37088a8-dirty\CMakeSystem.cmake
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\CMakeOutput.log
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\CMakeOutput.log
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\CMakeOutput.log
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\rules.ninja
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\rules.ninja
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\CMakeFiles\rules.ninja
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\compile_commands.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\compile_commands.json
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\compile_commands.json
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\compile_commands.json.bin
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\compile_commands.json.bin
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\compile_commands.json.bin
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\configure_fingerprint.bin
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\configure_fingerprint.bin
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\configure_fingerprint.bin
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\FramePacing\cmake_install.cmake
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\FramePacing\cmake_install.cmake
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\FramePacing\cmake_install.cmake
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\FramePacing\CMakeFiles\swappywrapper.dir\UnitySwappyWrapper.cpp.o
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\FramePacing\CMakeFiles\swappywrapper.dir\UnitySwappyWrapper.cpp.o
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\FramePacing\CMakeFiles\swappywrapper.dir\UnitySwappyWrapper.cpp.o
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\metadata_generation_command.txt
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\metadata_generation_command.txt
+      projectPath: .utmp\RelWithDebInfo\1q1a1p5r\armeabi-v7a\metadata_generation_command.txt
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\tools\release\arm64-v8a\compile_commands.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\tools\release\arm64-v8a\compile_commands.json
+      projectPath: .utmp\tools\release\arm64-v8a\compile_commands.json
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: .utmp\tools\release\armeabi-v7a\compile_commands.json
+      fullPath: D:\Unity\Projects\Rai-Net Access Battlers Re\.utmp\tools\release\armeabi-v7a\compile_commands.json
+      projectPath: .utmp\tools\release\armeabi-v7a\compile_commands.json
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    changedFilesText: 62 changed files
     lastCurrentBranchChangedEvent:
       updatedTimeString: 0001-01-01T00:00:00.000+00:00
       cacheType: 1
@@ -45635,13 +46835,13 @@ MonoBehaviour:
     m_Tooltip: Url of the origin remote
     m_TextWithWhitespace: "https://github.com/totobono4/Rai-Net-Access-Battlers-Re.git\u200B"
   lastCurrentBranchAndRemoteChangedEvent:
-    updatedTimeString: 2026-01-19T22:13:32.042+01:00
+    updatedTimeString: 2026-01-19T22:50:59.029+01:00
     cacheType: 1
   lastTrackingStatusChangedEvent:
-    updatedTimeString: 2026-01-19T22:13:32.553+01:00
+    updatedTimeString: 2026-01-19T22:52:51.343+01:00
     cacheType: 5
   lastStatusEntriesChangedEvent:
-    updatedTimeString: 2026-01-19T22:13:32.547+01:00
+    updatedTimeString: 2026-01-19T22:52:51.333+01:00
     cacheType: 6
   pullButtonContent:
     m_Text: Pull
@@ -45663,7 +46863,7 @@ MonoBehaviour:
     m_Image: {fileID: 0}
     m_Tooltip: 
     m_TextWithWhitespace: "Fetch\u200B"
-  repositoryProgressValue: 0.98717946
+  repositoryProgressValue: 0
   repositoryProgressMessage: 
   appManagerProgressValue: 1
   appManagerProgressMessage: 
