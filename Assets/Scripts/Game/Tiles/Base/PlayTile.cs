@@ -1,6 +1,3 @@
-using System;
-using UnityEngine;
-
 public class PlayTile : Tile {
     private bool IsSelectedTileValid(PlayerTeam controllerTeam) {
         if (!GetCard(out Card card)) return false;

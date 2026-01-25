@@ -1,5 +1,3 @@
-using System;
-
 public class ScoreTile : Tile {
     protected override void PlayerController_OnSelectedTile(object sender, PlayerController.SelectedTileArgs e) {
         return;

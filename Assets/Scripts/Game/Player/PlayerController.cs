@@ -250,10 +250,8 @@ public class PlayerController : NetworkBehaviour {
     }
 
     private void CancelAction() {
-        UnsetSelectedTile();
-        UnsetActionables();
-        UnsetActionCard();
         OnCancelAction?.Invoke(this, new CancelTileArgs { card = actionCard });
+        UnsetActionables();
     }
 
     private void PlacingOnlineCards(InputSystem.PlayerActionType playerActionType) {
@@ -319,9 +317,9 @@ public class PlayerController : NetworkBehaviour {
         }
 
         if (tile.Equals(selectedTile)) {
-            UnsetSelectedTile();
-            UnsetActionables();
+            CancelAction();
             UnsetActionCard();
+            UnsetSelectedTile();
             return;
         }
 
@@ -337,6 +335,8 @@ public class PlayerController : NetworkBehaviour {
         if (!e.tile.GetCard(out Card card)) return;
         if (!card.IsUsable()) return;
         if (!e.isSelected) return;
+
+        CancelAction();
 
         UnsetSelectedTile();
         SetSelectedTile(e.tile);
@@ -354,7 +354,11 @@ public class PlayerController : NetworkBehaviour {
         actionTokens.Value -= e.tokenCost;
 
         UnsetActionables();
-        if (e.finished) CancelAction();
+        if (e.finished) {
+            CancelAction();
+            UnsetActionCard();
+            UnsetSelectedTile();
+        }
         else SetActionables(actionCard);
     }
 }
