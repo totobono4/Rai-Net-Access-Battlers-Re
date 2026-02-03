@@ -1,0 +1,18 @@
+{
+    "name": "Ttbn4.Clean",
+    "rootNamespace": "",
+    "references": [
+        "GUID:1491147abca9d7d4bb7105af628b223e",
+        "GUID:4c3c301d485cfbf468bb8c7066fed830",
+        "GUID:00cb0128c53a6544f8ac07cabdeb15a8"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
