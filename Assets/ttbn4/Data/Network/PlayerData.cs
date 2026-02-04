@@ -23,6 +23,7 @@ public struct PlayerData : IEquatable<PlayerData>, INetworkSerializable
         serializer.SerializeValue(ref clientId);
         serializer.SerializeValue(ref playerId);
         serializer.SerializeValue(ref playerName);
+
         serializer.SerializeValue(ref team);
     }
 }
