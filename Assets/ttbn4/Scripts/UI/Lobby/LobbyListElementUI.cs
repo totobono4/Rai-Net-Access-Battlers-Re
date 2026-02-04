@@ -1,10 +1,11 @@
+using System;
 using TMPro;
+using Unity.Netcode;
 using Unity.Services.Lobbies.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LobbyListElementUI : MonoBehaviour
-{
+public class LobbyListElementUI<TCustomData> : MonoBehaviour where TCustomData : struct, IEquatable<TCustomData>, INetworkSerializable {
     [SerializeField] private Button joinLobbyButton;
     [SerializeField] private TextMeshProUGUI lobbyNameText;
     [SerializeField] private TextMeshProUGUI lobbyPlayerCountText;
@@ -15,7 +16,7 @@ public class LobbyListElementUI : MonoBehaviour
 
     private void Awake() {
         joinLobbyButton.onClick.AddListener(() => {
-            LobbyManager.Instance.JoinLobbyById(lobby.Id);
+            LobbyManager<TCustomData>.Instance.JoinLobbyById(lobby.Id);
         });
     }
 
@@ -24,7 +25,7 @@ public class LobbyListElementUI : MonoBehaviour
 
         lobbyNameText.text = lobby.Name;
         lobbyPlayerCountText.text = lobby.Players.Count.ToString() + "/" + lobby.MaxPlayers.ToString();
-        lobbyBuildVersionText.text = LobbyManager.Instance.GetLobbyHostBuildVersion(lobby);
-        lobbyNetworkCompatibleText.text = LobbyManager.Instance.IsLobbyNeworkCompatible(lobby) ? "Yes" : "No";
+        lobbyBuildVersionText.text = LobbyManager<TCustomData>.Instance.GetLobbyHostBuildVersion(lobby);
+        lobbyNetworkCompatibleText.text = LobbyManager<TCustomData>.Instance.IsLobbyNeworkCompatible(lobby) ? "Yes" : "No";
     }
 }

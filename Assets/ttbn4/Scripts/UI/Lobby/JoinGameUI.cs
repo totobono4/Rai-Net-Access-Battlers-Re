@@ -1,11 +1,12 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Netcode;
 using Unity.Services.Lobbies.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class JoinGameUI : MonoBehaviour
-{
+public class JoinGameUI<TCustomData> : MonoBehaviour where TCustomData : struct, IEquatable<TCustomData>, INetworkSerializable {
     [SerializeField] Transform lobbyListContent;
     [SerializeField] Transform lobbyListElementTemplate;
 
@@ -21,10 +22,10 @@ public class JoinGameUI : MonoBehaviour
         lobbyListElementTransformList = new List<Transform>();
 
         quickJoinButton.onClick.AddListener(() => {
-            LobbyManager.Instance.QuickJoinLobby();
+            LobbyManager<TCustomData>.Instance.QuickJoinLobby();
         });
         joinByCodeButton.onClick.AddListener(() => {
-            LobbyManager.Instance.JoinLobbyByCode(lobbyCode);
+            LobbyManager<TCustomData>.Instance.JoinLobbyByCode(lobbyCode);
         });
 
         codeInputField.onValueChanged.AddListener((string newString) => {
@@ -36,21 +37,21 @@ public class JoinGameUI : MonoBehaviour
     }
 
     private void Start() {
-        LobbyManager.Instance.OnRefreshLobbiesUpdate += LobbyManager_OnRefreshLobbiesUpdate;
+        LobbyManager<TCustomData>.Instance.OnRefreshLobbiesUpdate += LobbyManager_OnRefreshLobbiesUpdate;
     }
 
-    private void LobbyManager_OnRefreshLobbiesUpdate(object sender, LobbyManager.RefreshLobbiesUpdateArgs e) {
+    private void LobbyManager_OnRefreshLobbiesUpdate(object sender, LobbyManager<TCustomData>.RefreshLobbiesUpdateArgs e) {
         foreach (Transform t in lobbyListElementTransformList) Destroy(t.gameObject);
         lobbyListElementTransformList.Clear();
 
         foreach(Lobby lobby in e.lobbies) {
             Transform lobbyListElementTransform = Instantiate(lobbyListElementTemplate, lobbyListContent);
             lobbyListElementTransformList.Add(lobbyListElementTransform);
-            lobbyListElementTransform.GetComponent<LobbyListElementUI>().SetLobby(lobby);
+            lobbyListElementTransform.GetComponent<LobbyListElementUI<TCustomData>>().SetLobby(lobby);
         }
     }
 
     private void OnDestroy() {
-        LobbyManager.Instance.OnRefreshLobbiesUpdate -= LobbyManager_OnRefreshLobbiesUpdate;
+        LobbyManager<TCustomData>.Instance.OnRefreshLobbiesUpdate -= LobbyManager_OnRefreshLobbiesUpdate;
     }
 }

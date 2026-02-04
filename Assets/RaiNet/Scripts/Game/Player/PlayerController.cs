@@ -146,7 +146,7 @@ public class PlayerController : NetworkBehaviour {
 
     [Rpc(SendTo.Server, Delivery = RpcDelivery.Reliable)]
     private void InitializeServerRpc(RpcParams rpcParams = default) {
-        team.Value = MultiplayerManager.Instance.GetClientTeamById(rpcParams.Receive.SenderClientId);
+        // team.Value = MultiplayerManager.Instance.GetClientTeamById(rpcParams.Receive.SenderClientId);
     }
 
     private void Team_OnValueChanged(PlayerTeam previous, PlayerTeam current) {

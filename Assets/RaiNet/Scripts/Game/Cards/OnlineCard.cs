@@ -96,6 +96,7 @@ public class OnlineCard : Card
 
     [Rpc(SendTo.Server, Delivery = RpcDelivery.Reliable)]
     private void SyncServerStateServerRpc() {
+        /*
         List<ulong> ids = GameManager.Instance.GetClientIdsByTeam(GetTeam());
         if (!IsRevealed()) SyncUnknownStateClientRpc();
         if (IsRevealed()) SyncServerStateClientRpc(serverState, default);
@@ -105,6 +106,7 @@ public class OnlineCard : Card
                 SyncServerStateClientRpc(serverState, RpcTarget.Single(id, RpcTargetUse.Temp));
             } 
         }
+        */
     }
 
     [Rpc(SendTo.ClientsAndHost, AllowTargetOverride = true, Delivery = RpcDelivery.Reliable)]

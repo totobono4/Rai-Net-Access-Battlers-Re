@@ -15,12 +15,14 @@ public class NotFound : TerminalCard {
     }
 
     private void SwitchAsk() {
+        /*
         List<ulong> ids = GameManager.Instance.GetClientIdsByTeam(GetTeam());
 
         for (int i = 0; i < ids.Count; i++) {
             ulong id = ids[i];
             SwitchAskClientRpc(RpcTarget.Single(id, RpcTargetUse.Temp));
         }
+        */
     }
 
     [Rpc(SendTo.SpecifiedInParams, Delivery = RpcDelivery.Reliable)]

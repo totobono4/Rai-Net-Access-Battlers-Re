@@ -4,8 +4,7 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MessageBoxUI : MonoBehaviour
-{
+public class MessageBoxUI<TCustomData> : MonoBehaviour where TCustomData : struct, IEquatable<TCustomData>, INetworkSerializable {
     [SerializeField] TextMeshProUGUI statusText;
     [SerializeField] TextMeshProUGUI messageText;
     [SerializeField] Button closeButton;
@@ -17,22 +16,22 @@ public class MessageBoxUI : MonoBehaviour
     }
 
     private void Start() {
-        MultiplayerManager.Instance.OnTryToConnect += MultiplayerManager_OnTryToConect;
-        MultiplayerManager.Instance.OnConnectionFailed += MultiplayerManager_OnConnectionFailed;
+        MultiplayerManager<TCustomData>.Instance.OnTryToConnect += MultiplayerManager_OnTryToConect;
+        MultiplayerManager<TCustomData>.Instance.OnConnectionFailed += MultiplayerManager_OnConnectionFailed;
 
-        LobbyManager.Instance.OnTryCreateLobby += LobbyManager_OnTryCreateLobby;
-        LobbyManager.Instance.OnCreateLobbyFailed += LobbyManager_OnCreateLobbyFailed;
+        LobbyManager<TCustomData>.Instance.OnTryCreateLobby += LobbyManager_OnTryCreateLobby;
+        LobbyManager<TCustomData>.Instance.OnCreateLobbyFailed += LobbyManager_OnCreateLobbyFailed;
 
-        LobbyManager.Instance.OnTryQuickJoinLobby += LobbyManager_OnTryQuickJoinLobby;
-        LobbyManager.Instance.OnQuickJoinLobbyFailed += LobbyManager_OnQuickJoinnLobbyFailed;
+        LobbyManager<TCustomData>.Instance.OnTryQuickJoinLobby += LobbyManager_OnTryQuickJoinLobby;
+        LobbyManager<TCustomData>.Instance.OnQuickJoinLobbyFailed += LobbyManager_OnQuickJoinnLobbyFailed;
 
-        LobbyManager.Instance.OnTryJoinLobbyById += LobbyManager_OnTryJoinLobbyById;
-        LobbyManager.Instance.OnJoinLobbyByIdFailed += LobbyManager_OnJoinLobbyByIdFailed;
+        LobbyManager<TCustomData>.Instance.OnTryJoinLobbyById += LobbyManager_OnTryJoinLobbyById;
+        LobbyManager<TCustomData>.Instance.OnJoinLobbyByIdFailed += LobbyManager_OnJoinLobbyByIdFailed;
 
-        LobbyManager.Instance.OnTryJoinLobbyByCode += LobbyManager_OnTryJoinLobbyByCode;
-        LobbyManager.Instance.OnJoinLobbyByCodeFailed += LobbyManager_OnJoinLobbyByCodeFailed;
+        LobbyManager<TCustomData>.Instance.OnTryJoinLobbyByCode += LobbyManager_OnTryJoinLobbyByCode;
+        LobbyManager<TCustomData>.Instance.OnJoinLobbyByCodeFailed += LobbyManager_OnJoinLobbyByCodeFailed;
 
-        LobbyManager.Instance.OnRefusedToJoinLobby += LobbyManager_OnRefusedToJoinLobby;
+        LobbyManager<TCustomData>.Instance.OnRefusedToJoinLobby += LobbyManager_OnRefusedToJoinLobby;
 
         Hide();
     }
@@ -44,7 +43,7 @@ public class MessageBoxUI : MonoBehaviour
         Show();
     }
 
-    private void LobbyManager_OnCreateLobbyFailed(object sender, LobbyManager.LobbyServiceExceptionArgs e) {
+    private void LobbyManager_OnCreateLobbyFailed(object sender, LobbyManager<TCustomData>.LobbyServiceExceptionArgs e) {
         statusText.text = "Create Lobby Failed";
         messageText.text = e.lobbyServiceException.Message;
         ShowCloseButton();
@@ -58,7 +57,7 @@ public class MessageBoxUI : MonoBehaviour
         Show();
     }
 
-    private void LobbyManager_OnQuickJoinnLobbyFailed(object sender, LobbyManager.LobbyServiceExceptionArgs e) {
+    private void LobbyManager_OnQuickJoinnLobbyFailed(object sender, LobbyManager<TCustomData>.LobbyServiceExceptionArgs e) {
         statusText.text = "Quick Join Lobby Failed";
         messageText.text = e.lobbyServiceException.Message;
         ShowCloseButton();
@@ -86,7 +85,7 @@ public class MessageBoxUI : MonoBehaviour
         Show();
     }
 
-    private void LobbyManager_OnJoinLobbyByIdFailed(object sender, LobbyManager.LobbyServiceExceptionArgs e) {
+    private void LobbyManager_OnJoinLobbyByIdFailed(object sender, LobbyManager<TCustomData>.LobbyServiceExceptionArgs e) {
         statusText.text = "Joining Lobby by Id Failed";
         messageText.text = e.lobbyServiceException.Message;
         ShowCloseButton();
@@ -100,14 +99,14 @@ public class MessageBoxUI : MonoBehaviour
         Show();
     }
 
-    private void LobbyManager_OnJoinLobbyByCodeFailed(object sender, LobbyManager.LobbyServiceExceptionArgs e) {
+    private void LobbyManager_OnJoinLobbyByCodeFailed(object sender, LobbyManager<TCustomData>.LobbyServiceExceptionArgs e) {
         statusText.text = "Joining Lobby by Code Failed";
         messageText.text = e.lobbyServiceException.Message;
         ShowCloseButton();
         Show();
     }
 
-    private void LobbyManager_OnRefusedToJoinLobby(object sender, LobbyManager.RefusedToJoinLobbyArgs e) {
+    private void LobbyManager_OnRefusedToJoinLobby(object sender, LobbyManager<TCustomData>.RefusedToJoinLobbyArgs e) {
         statusText.text = "Refused to join Lobby";
         messageText.text = e.message;
         ShowCloseButton();
@@ -131,19 +130,19 @@ public class MessageBoxUI : MonoBehaviour
     }
 
     private void OnDestroy() {
-        MultiplayerManager.Instance.OnTryToConnect -= MultiplayerManager_OnTryToConect;
-        MultiplayerManager.Instance.OnConnectionFailed -= MultiplayerManager_OnConnectionFailed;
+        MultiplayerManager<TCustomData>.Instance.OnTryToConnect -= MultiplayerManager_OnTryToConect;
+        MultiplayerManager<TCustomData>.Instance.OnConnectionFailed -= MultiplayerManager_OnConnectionFailed;
 
-        LobbyManager.Instance.OnTryCreateLobby -= LobbyManager_OnTryCreateLobby;
-        LobbyManager.Instance.OnCreateLobbyFailed -= LobbyManager_OnCreateLobbyFailed;
+        LobbyManager<TCustomData>.Instance.OnTryCreateLobby -= LobbyManager_OnTryCreateLobby;
+        LobbyManager<TCustomData>.Instance.OnCreateLobbyFailed -= LobbyManager_OnCreateLobbyFailed;
 
-        LobbyManager.Instance.OnTryQuickJoinLobby -= LobbyManager_OnTryQuickJoinLobby;
-        LobbyManager.Instance.OnQuickJoinLobbyFailed -= LobbyManager_OnQuickJoinnLobbyFailed;
+        LobbyManager<TCustomData>.Instance.OnTryQuickJoinLobby -= LobbyManager_OnTryQuickJoinLobby;
+        LobbyManager<TCustomData>.Instance.OnQuickJoinLobbyFailed -= LobbyManager_OnQuickJoinnLobbyFailed;
 
-        LobbyManager.Instance.OnTryJoinLobbyById -= LobbyManager_OnTryJoinLobbyById;
-        LobbyManager.Instance.OnJoinLobbyByIdFailed -= LobbyManager_OnJoinLobbyByIdFailed;
+        LobbyManager<TCustomData>.Instance.OnTryJoinLobbyById -= LobbyManager_OnTryJoinLobbyById;
+        LobbyManager<TCustomData>.Instance.OnJoinLobbyByIdFailed -= LobbyManager_OnJoinLobbyByIdFailed;
 
-        LobbyManager.Instance.OnTryJoinLobbyByCode -= LobbyManager_OnTryJoinLobbyByCode;
-        LobbyManager.Instance.OnJoinLobbyByCodeFailed -= LobbyManager_OnJoinLobbyByCodeFailed;
+        LobbyManager<TCustomData>.Instance.OnTryJoinLobbyByCode -= LobbyManager_OnTryJoinLobbyByCode;
+        LobbyManager<TCustomData>.Instance.OnJoinLobbyByCodeFailed -= LobbyManager_OnJoinLobbyByCodeFailed;
     }
 }

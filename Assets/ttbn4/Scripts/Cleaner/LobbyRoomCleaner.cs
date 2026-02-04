@@ -1,19 +1,24 @@
 using System;
+using Unity.Netcode;
 using UnityEngine;
 
-public class LobbyRoomCleaner : MonoBehaviour
-{
-    public static LobbyRoomCleaner Instance { get; private set; }
+public abstract class LobbyRoomCleaner<TCustomData> : MonoBehaviour where TCustomData : struct, IEquatable<TCustomData>, INetworkSerializable { 
+    public static LobbyRoomCleaner<TCustomData> Instance { get; private set; }
 
-    [SerializeField] DisconnectedUI disconnectedUI;
-    [SerializeField] LobbyRoomUI lobbyRoomUI;
+    private DisconnectedUI<TCustomData> disconnectedUI;
+    private LobbyRoomUI<TCustomData> lobbyRoomUI;
 
     private void Awake() {
         Instance = this;
+        disconnectedUI = GetDisconnectedUI();
+        lobbyRoomUI = GetLobbyRoomUI();
     }
 
+    protected abstract DisconnectedUI<TCustomData> GetDisconnectedUI();
+    protected abstract LobbyRoomUI<TCustomData> GetLobbyRoomUI();
+
     private void Start() {
-        LobbyRoomManager.Instance.OnStartGame += LobbyRoomReadyManager_OnStartGame;
+        LobbyRoomManager<TCustomData>.Instance.OnStartGame += LobbyRoomReadyManager_OnStartGame;
         disconnectedUI.OnClean += DisconnectedUI_OnClean;
     }
 
@@ -26,8 +31,8 @@ public class LobbyRoomCleaner : MonoBehaviour
     }
 
     public void Clean() {
-        LobbyRoomManager.Instance.OnStartGame -= LobbyRoomReadyManager_OnStartGame;
-        LobbyManager.Instance.Clean();
+        LobbyRoomManager<TCustomData>.Instance.OnStartGame -= LobbyRoomReadyManager_OnStartGame;
+        LobbyManager<TCustomData>.Instance.Clean();
 
         disconnectedUI.OnClean -= DisconnectedUI_OnClean;
         disconnectedUI.Clean();

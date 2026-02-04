@@ -5,6 +5,7 @@
   <Project Path="QFSW.QC.Grammar.csproj" />
   <Project Path="QFSW.QC.Editor.csproj" />
   <Project Path="Ttbn4.Clean.csproj" />
+  <Project Path="RaiNet.Data.csproj" />
   <Project Path="QFSW.QC.Parsers.csproj" />
   <Project Path="RaiNet.Game.csproj" />
   <Project Path="RaiNet.Visuals.csproj" />
@@ -12,14 +13,13 @@
   <Project Path="Ttbn4.UI.csproj" />
   <Project Path="QFSW.QC.Editor.Tools.csproj" />
   <Project Path="RaiNet.SceneLoader.csproj" />
-  <Project Path="RaiNet.Data.csproj" />
   <Project Path="QFSW.QC.Serializers.csproj" />
   <Project Path="QFSW.QC.Suggestors.csproj" />
   <Project Path="QFSW.QC.QGUI.csproj" />
   <Project Path="QFSW.QC.UI.csproj" />
+  <Project Path="Ttbn4.Data.Network.csproj" />
   <Project Path="RaiNet.Settings.csproj" />
   <Project Path="QFSW.QC.Demo.csproj" />
   <Project Path="RaiNet.Clean.csproj" />
-  <Project Path="Ttbn4.Data.Network.csproj" />
   <Project Path="QFSW.QC.ScanRules.csproj" />
 </Solution>

@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4812573530787379891
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4562104384364182609, guid: d8fe89973a8ebf047a4963414c6364f0, type: 3}
+      propertyPath: m_Name
+      value: RaiNetLobbyRoomCleaner
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340972779340496623, guid: d8fe89973a8ebf047a4963414c6364f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340972779340496623, guid: d8fe89973a8ebf047a4963414c6364f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340972779340496623, guid: d8fe89973a8ebf047a4963414c6364f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340972779340496623, guid: d8fe89973a8ebf047a4963414c6364f0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340972779340496623, guid: d8fe89973a8ebf047a4963414c6364f0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340972779340496623, guid: d8fe89973a8ebf047a4963414c6364f0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340972779340496623, guid: d8fe89973a8ebf047a4963414c6364f0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340972779340496623, guid: d8fe89973a8ebf047a4963414c6364f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340972779340496623, guid: d8fe89973a8ebf047a4963414c6364f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340972779340496623, guid: d8fe89973a8ebf047a4963414c6364f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1594397490119489044, guid: d8fe89973a8ebf047a4963414c6364f0, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4562104384364182609, guid: d8fe89973a8ebf047a4963414c6364f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 830732992621086967}
+  m_SourcePrefab: {fileID: 100100000, guid: d8fe89973a8ebf047a4963414c6364f0, type: 3}
+--- !u!1 &9045035532714772194 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4562104384364182609, guid: d8fe89973a8ebf047a4963414c6364f0, type: 3}
+  m_PrefabInstance: {fileID: 4812573530787379891}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &830732992621086967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9045035532714772194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f821b0fa66946f148ac54a90522954dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: RaiNet.Clean::RaiNetLobbyRoomCleaner
+  disconnectedUI: {fileID: 0}
+  lobbyRoomUI: {fileID: 0}

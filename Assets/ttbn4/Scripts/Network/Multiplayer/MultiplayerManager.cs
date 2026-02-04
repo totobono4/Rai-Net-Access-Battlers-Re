@@ -6,11 +6,10 @@ using Unity.Services.Authentication;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MultiplayerManager : NetworkBehaviour
-{
+public abstract class MultiplayerManager<TCustomData> : NetworkBehaviour where TCustomData : struct, IEquatable<TCustomData>, INetworkSerializable {
     private const string PLAYERPREFS_PLAYER_NAME_MULTIPLAYER = "PlayerNameMultiplayer";
 
-    public static MultiplayerManager Instance { get; private set; }
+    public static MultiplayerManager<TCustomData> Instance { get; private set; }
 
     [SerializeField] private MultiplayerConfigSO multiplayerConfigSO;
 
@@ -18,16 +17,14 @@ public class MultiplayerManager : NetworkBehaviour
     private int minPlayerCount;
     private List<PlayerTeam> playerTeams;
 
-    private NetworkList<PlayerData> playerDataNetworkList;
+    public EventHandler<UpdatePlayersArgs> OnUpdatePlayers;
+    public class UpdatePlayersArgs : EventArgs {
+        public List<PlayerData<TCustomData>> playerDataList;
+    }
 
     private string playerName;
 
     public EventHandler OnPlayerDataNetworkListChanged;
-
-    public EventHandler<UpdatePlayersArgs> OnUpdatePlayers;
-    public class UpdatePlayersArgs : EventArgs {
-        public List<PlayerData> playerDataList;
-    }
 
     public EventHandler OnTryToConnect;
     public EventHandler OnConnectionFailed;
@@ -35,20 +32,23 @@ public class MultiplayerManager : NetworkBehaviour
     public EventHandler OnHostDisconnect;
     public EventHandler OnClientDisconnect;
 
-    protected virtual void Awake() {
+    private void Awake() {
         Instance = this;
-
         DontDestroyOnLoad(this);
 
         maxPlayerCount = multiplayerConfigSO.GetMaxPlayerCount();
         minPlayerCount = multiplayerConfigSO.GetMinPlayerCount();
         playerTeams = multiplayerConfigSO.GetPlayerTeams();
 
-        playerDataNetworkList = new NetworkList<PlayerData>();
-        playerDataNetworkList.OnListChanged += PlayerDataNetworkList_OnListChanged;
-
         playerName = PlayerPrefs.GetString(PLAYERPREFS_PLAYER_NAME_MULTIPLAYER, GenerateGuestName());
+
+        InitializeNetworkList();
+        SubNetworkList();
     }
+
+    protected abstract void InitializeNetworkList();
+    protected abstract void SubNetworkList();
+    protected abstract void UnsubNetworkList();
 
     private string GenerateGuestName() {
         return "Guest-" + UnityEngine.Random.Range(1000, 10000).ToString();
@@ -72,7 +72,7 @@ public class MultiplayerManager : NetworkBehaviour
         return playerName;
     }
 
-    private void PlayerDataNetworkList_OnListChanged(NetworkListEvent<PlayerData> changeEvent) {
+    protected void PlayerDataNetworkList_OnListChanged(NetworkListEvent<PlayerData<TCustomData>> changeEvent) {
         OnPlayerDataNetworkListChanged?.Invoke(this, EventArgs.Empty);
     }
 
@@ -89,16 +89,28 @@ public class MultiplayerManager : NetworkBehaviour
     }
 
     private void NetworkManager_Server_OnClientConnectedCallback(ulong clientId) {
-        PlayerTeam team = playerTeams[playerDataNetworkList.Count];
-
-        playerDataNetworkList.Add(new PlayerData {
-            clientId = clientId,
-            team = team,
+        AddPlayerData(new PlayerData<TCustomData> {
+            basePlayerData = new BasePlayerData {
+                clientId = clientId
+            },
         });
     }
 
+    protected abstract void AddPlayerData(PlayerData<TCustomData> playerData);
+    protected abstract void RemovePlayerData(PlayerData<TCustomData> playerData);
+    public abstract PlayerData<TCustomData> GetPlayerDataByIndex(int playerIndex);
+    protected abstract void SetPlayerDataByIndex(int playerIndex, PlayerData<TCustomData> playerData);
+    public abstract int GetPlayerCount();
+
     private void DisconnectClient(ulong clientId) {
-        foreach (PlayerData playerData in playerDataNetworkList) if (playerData.clientId == clientId) playerDataNetworkList.Remove(playerData);
+        int playerCount = GetPlayerCount();
+        for (int i = 0; i < playerCount; i++) {
+            PlayerData<TCustomData> playerData = GetPlayerDataByIndex(i);
+            if (playerData.basePlayerData.clientId != clientId) continue;
+            RemovePlayerData(playerData);
+
+        }
+
         OnClientDisconnect?.Invoke(this, EventArgs.Empty);
     }
 
@@ -137,62 +149,52 @@ public class MultiplayerManager : NetworkBehaviour
     [Rpc(SendTo.Server, Delivery = RpcDelivery.Reliable)]
     private void SetPlayerIdServerRpc(string playerId, RpcParams rpcParams = default) {
         ulong clientId = rpcParams.Receive.SenderClientId;
-
         int playerDataIndex = GetPlayerDataIndexFromClientId(clientId);
 
-        PlayerData playerData = playerDataNetworkList[playerDataIndex];
-
-        playerData.playerId = playerId;
-
-        playerDataNetworkList[playerDataIndex] = playerData;
+        PlayerData<TCustomData> playerData = GetPlayerDataByIndex(playerDataIndex);
+        playerData.basePlayerData.playerId = playerId;
+        SetPlayerDataByIndex(playerDataIndex, playerData);
     }
 
     [Rpc(SendTo.Server, Delivery = RpcDelivery.Reliable)]
     private void SetPlayerNameServerRpc(FixedString128Bytes playerName, RpcParams rpcParams = default) {
         ulong clientId = rpcParams.Receive.SenderClientId;
-
         int playerDataIndex = GetPlayerDataIndexFromClientId(clientId);
 
-        PlayerData playerData = playerDataNetworkList[playerDataIndex];
-
-        playerData.playerName = playerName;
-
-        playerDataNetworkList[playerDataIndex] = playerData;
+        PlayerData<TCustomData> playerData = GetPlayerDataByIndex(playerDataIndex);
+        playerData.basePlayerData.playerName = playerName;
+        SetPlayerDataByIndex(playerDataIndex, playerData);
     }
 
     private int GetPlayerDataIndexFromClientId(ulong clientId) {
-        for (int i = 0; i < playerDataNetworkList.Count; i++) {
-            if (playerDataNetworkList[i].clientId == clientId) {
+        for (int i = 0; i < GetPlayerCount(); i++) {
+            if (GetPlayerDataByIndex(i).basePlayerData.clientId == clientId) {
                 return i;
             }
         }
         return -1;
     }
 
+    /*
     public PlayerTeam GetClientTeamById(ulong clientId) {
         return playerDataNetworkList[GetPlayerDataIndexFromClientId(clientId)].team;
     }
+    */
 
+    /*
     public List<ulong> GetClientIdsByTeam(PlayerTeam team) {
         List<ulong> ids = new List<ulong>();
-        foreach (PlayerData playerData in playerDataNetworkList) {
+        foreach (BasePlayerData playerData in playerDataNetworkList) {
             if (playerData.team == team) {
                 ids.Add(playerData.clientId);
             }
         }
         return ids;
     }
+    */
 
     public bool IsPlayerIndexConnected(int playerIndex) {
-        return playerIndex < playerDataNetworkList.Count;
-    }
-
-    public PlayerData GetPlayerDataByIndex(int playerIndex) {
-        return playerDataNetworkList[playerIndex];
-    }
-
-    public int GetPlayerCount() {
-        return playerDataNetworkList.Count;
+        return playerIndex < GetPlayerCount();
     }
 
     public void Clean() {
@@ -207,7 +209,7 @@ public class MultiplayerManager : NetworkBehaviour
             NetworkManager.Singleton.OnClientConnectedCallback -= NetworkManager_Client_OnClientConnectedCallback;
         }
 
-        playerDataNetworkList.OnListChanged -= PlayerDataNetworkList_OnListChanged;
+        UnsubNetworkList();
 
         NetworkManager.Shutdown();
     }

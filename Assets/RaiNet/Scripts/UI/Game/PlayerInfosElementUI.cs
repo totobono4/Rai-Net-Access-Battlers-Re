@@ -4,8 +4,7 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerInfosElementUI : NetworkBehaviour
-{
+public class PlayerInfosElementUI : NetworkBehaviour {
     [SerializeField] private TeamColorsSO teamColors;
 
     [SerializeField] private TextMeshProUGUI playerNameText;
@@ -14,9 +13,9 @@ public class PlayerInfosElementUI : NetworkBehaviour
     private PlayerTeam team;
 
     public void Initialize(int playerIndex) {
-        PlayerData playerData = MultiplayerManager.Instance.GetPlayerDataByIndex(playerIndex);
-        playerNameText.text = playerData.playerName.ToString();
-        team = playerData.team;
+        PlayerData<RaiNetPlayerData> playerData = MultiplayerManager<RaiNetPlayerData>.Instance.GetPlayerDataByIndex(playerIndex);
+        playerNameText.text = playerData.basePlayerData.playerName.ToString();
+        // team = playerData.team;
 
         NotPlaying();
 

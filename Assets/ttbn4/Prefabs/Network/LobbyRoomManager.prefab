@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7616347611362524266}
   - component: {fileID: 3705109214450182065}
-  - component: {fileID: 7648943042802891917}
+  - component: {fileID: 2182308542757133053}
   m_Layer: 0
   m_Name: LobbyRoomManager
   m_TagString: Untagged
@@ -58,7 +58,7 @@ MonoBehaviour:
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
   AllowOwnerToParent: 0
---- !u!114 &7648943042802891917
+--- !u!114 &2182308542757133053
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4459545150292775342}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6537cba63dc51c942877b64065c25111, type: 3}
+  m_Script: {fileID: 11500000, guid: 01be2d896419fa34b9ed94f6d966ab9b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Ttbn4.Network::BaseLobbyRoomManager
   ShowTopMostFoldoutHeaderGroup: 1

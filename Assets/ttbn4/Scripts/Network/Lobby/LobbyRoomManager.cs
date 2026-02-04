@@ -2,9 +2,8 @@ using System;
 using System.Collections.Generic;
 using Unity.Netcode;
 
-public class LobbyRoomManager : NetworkBehaviour
-{
-    public static LobbyRoomManager Instance { get; private set; }
+public class LobbyRoomManager<TCustomData> : NetworkBehaviour where TCustomData : struct, IEquatable<TCustomData>, INetworkSerializable {
+    public static LobbyRoomManager<TCustomData> Instance { get; private set; }
 
     private Dictionary<ulong, bool> clientsReady;
 
@@ -31,13 +30,13 @@ public class LobbyRoomManager : NetworkBehaviour
     }
 
     private void TryStartGame() {
-        if (NetworkManager.Singleton.ConnectedClientsList.Count < MultiplayerManager.Instance.GetMinPlayerCount()) return;
+        if (NetworkManager.Singleton.ConnectedClientsList.Count < MultiplayerManager<TCustomData>.Instance.GetMinPlayerCount()) return;
 
         foreach (ulong clientId in NetworkManager.Singleton.ConnectedClientsIds) {
             if (!clientsReady.ContainsKey(clientId) || !clientsReady[clientId]) return;
         }
 
-        LobbyManager.Instance.DeleteLobby();
+        LobbyManager<TCustomData>.Instance.DeleteLobby();
 
         StartGameClientRpc();
 

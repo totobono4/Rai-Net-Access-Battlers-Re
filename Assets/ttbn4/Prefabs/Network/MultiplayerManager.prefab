@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1981045161762158405}
   - component: {fileID: 5315683958419078902}
-  - component: {fileID: 1695859358718212516}
+  - component: {fileID: 6566760515917369456}
   m_Layer: 0
   m_Name: MultiplayerManager
   m_TagString: Untagged
@@ -58,7 +58,7 @@ MonoBehaviour:
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
   AllowOwnerToParent: 0
---- !u!114 &1695859358718212516
+--- !u!114 &6566760515917369456
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,8 +67,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8132235922795622618}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1245814d87265e74892cb007cb496a5c, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a62f1fcb0f06e54f8cfd7c5f9f45e26, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Ttbn4.Network::BaseMultiplayerManager
   ShowTopMostFoldoutHeaderGroup: 1
   multiplayerConfigSO: {fileID: 11400000, guid: 09fb4a74341fa724388dd97022845066, type: 2}

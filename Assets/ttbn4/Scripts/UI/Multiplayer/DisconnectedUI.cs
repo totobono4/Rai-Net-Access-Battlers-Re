@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class DisconnectedUI : MonoBehaviour {
+public class DisconnectedUI<TCustomData> : MonoBehaviour where TCustomData : struct, IEquatable<TCustomData>, INetworkSerializable {
     [SerializeField] private Enum scenes;
     [SerializeField] private TextMeshProUGUI disconnectStatusText;
     [SerializeField] private Button mainMenuButton;
@@ -28,11 +28,11 @@ public class DisconnectedUI : MonoBehaviour {
 
         if (NetworkManager.Singleton.IsHost) {
             disconnectStatusText.text = "Client have been disconnected";
-            MultiplayerManager.Instance.OnClientDisconnect += MultiplayerManager_OnClientDisconnect;
+            MultiplayerManager<TCustomData>.Instance.OnClientDisconnect += MultiplayerManager_OnClientDisconnect;
         }
         else {
             disconnectStatusText.text = "You have been disconnected";
-            MultiplayerManager.Instance.OnHostDisconnect += MultiplayerManager_OnHostDisconnect;
+            MultiplayerManager<TCustomData>.Instance.OnHostDisconnect += MultiplayerManager_OnHostDisconnect;
         }
 
         Hide();
@@ -50,13 +50,13 @@ public class DisconnectedUI : MonoBehaviour {
         gameObject.SetActive(true);
     }
 
-    protected virtual void Hide() {
+    private void Hide() {
         gameObject.SetActive(false);
     }
 
     public virtual void Clean() {
-        MultiplayerManager.Instance.OnClientDisconnect -= MultiplayerManager_OnClientDisconnect;
-        MultiplayerManager.Instance.OnHostDisconnect -= MultiplayerManager_OnHostDisconnect;
+        MultiplayerManager<TCustomData>.Instance.OnClientDisconnect -= MultiplayerManager_OnClientDisconnect;
+        MultiplayerManager<TCustomData>.Instance.OnHostDisconnect -= MultiplayerManager_OnHostDisconnect;
 
         Destroy(gameObject);
     }

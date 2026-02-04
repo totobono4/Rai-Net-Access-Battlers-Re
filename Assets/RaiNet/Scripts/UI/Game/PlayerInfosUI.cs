@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInfosUI : MonoBehaviour
-{
+public class PlayerInfosUI : MonoBehaviour {
     [SerializeField] private Transform playerInfosContent;
     [SerializeField] private Transform playerInfosElementTemplate;
 
@@ -13,7 +12,7 @@ public class PlayerInfosUI : MonoBehaviour
     }
 
     private void Start() {
-        for (int i = 0; i < MultiplayerManager.Instance.GetPlayerCount(); i++) {
+        for (int i = 0; i < MultiplayerManager<RaiNetPlayerData>.Instance.GetPlayerCount(); i++) {
             Transform playerInfosElementTransform = Instantiate(playerInfosElementTemplate, playerInfosContent);
             PlayerInfosElementUI playerInfosElement = playerInfosElementTransform.GetComponent<PlayerInfosElementUI>();
             playerInfosElements.Add(playerInfosElement);

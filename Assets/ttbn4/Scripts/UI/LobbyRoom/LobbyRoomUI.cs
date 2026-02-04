@@ -1,11 +1,11 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LobbyRoomUI : MonoBehaviour
-{
+public class LobbyRoomUI<TCustomData> : MonoBehaviour where TCustomData : struct, IEquatable<TCustomData>, INetworkSerializable {
     [SerializeField] private Button mainMenuButton;
 
     [SerializeField] private TextMeshProUGUI lobbyNameText;
@@ -16,35 +16,35 @@ public class LobbyRoomUI : MonoBehaviour
     [SerializeField] private Transform playerSlots;
     [SerializeField] private Transform playerListElementTemplate;
 
-    private List<PlayerListElementUI> playerListElements;
+    private List<PlayerListElementUI<TCustomData>> playerListElements;
 
     private void Awake() {
-        playerListElements = new List<PlayerListElementUI>();
+        playerListElements = new List<PlayerListElementUI<TCustomData>>();
 
         mainMenuButton.onClick.AddListener(() => {
-            LobbyManager.Instance.LeaveLobby();
+            LobbyManager<TCustomData>.Instance.LeaveLobby();
             NetworkManager.Singleton.Shutdown();
             SceneLoader.Load(SceneLoader.Scene.MainMenuScene);
         });
         readyButton.onClick.AddListener(() => {
-            LobbyRoomManager.Instance.TogglePlayerReady();
+            LobbyRoomManager<TCustomData>.Instance.TogglePlayerReady();
         });
     }
 
     private void Start() {
-        lobbyNameText.text = LobbyManager.Instance.GetLobbyName();
-        lobbyCodeText.text = LobbyManager.Instance.GetLobbyCode();
+        lobbyNameText.text = LobbyManager<TCustomData>.Instance.GetLobbyName();
+        lobbyCodeText.text = LobbyManager<TCustomData>.Instance.GetLobbyCode();
 
-        for (int i = 0; i < MultiplayerManager.Instance.GetMaxPlayerCount(); i++) {
+        for (int i = 0; i < MultiplayerManager<TCustomData>.Instance.GetMaxPlayerCount(); i++) {
             Transform playerListElementTransform = Instantiate(playerListElementTemplate, playerSlots);
-            PlayerListElementUI playerListElement = playerListElementTransform.GetComponent<PlayerListElementUI>();
+            PlayerListElementUI<TCustomData> playerListElement = playerListElementTransform.GetComponent<PlayerListElementUI<TCustomData>>();
             playerListElements.Add(playerListElement);
             playerListElement.Initialize(i);
         }   
     }
 
     public void Clean() {
-        foreach (PlayerListElementUI playerListElement in playerListElements) {
+        foreach (PlayerListElementUI<TCustomData> playerListElement in playerListElements) {
             playerListElement.Clean();
         }
 

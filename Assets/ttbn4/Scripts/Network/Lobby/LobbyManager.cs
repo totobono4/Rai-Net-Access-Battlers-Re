@@ -12,8 +12,7 @@ using Unity.Services.Relay.Models;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LobbyManager : MonoBehaviour
-{
+public class LobbyManager<TCustomData> : MonoBehaviour where TCustomData : struct, IEquatable<TCustomData>, INetworkSerializable {
     private const float HEARTBEAT_DELAY = 15f;
     private const float REFRESH_DELAY = 3f;
 
@@ -23,7 +22,7 @@ public class LobbyManager : MonoBehaviour
 
     private bool canQuit;
 
-    public static LobbyManager Instance { get; private set; }
+    public static LobbyManager<TCustomData> Instance { get; private set; }
 
     private float heartbeatTimer;
     private float refreshTimer;
@@ -167,7 +166,7 @@ public class LobbyManager : MonoBehaviour
 
     private async Task<Allocation> AllocateRelay() {
         try {
-            return await RelayService.Instance.CreateAllocationAsync(MultiplayerManager.Instance.GetMaxPlayerCount() - 1);
+            return await RelayService.Instance.CreateAllocationAsync(MultiplayerManager<TCustomData>.Instance.GetMaxPlayerCount() - 1);
         } catch (RelayServiceException e) {
             Debug.LogException(e);
             return default;
@@ -201,7 +200,7 @@ public class LobbyManager : MonoBehaviour
             string relayJoinCode = await GetRelayJoinCode(allocation);
             ushort protocolVersion = NetworkManager.Singleton.NetworkConfig.ProtocolVersion;
 
-            int maxPlayers = MultiplayerManager.Instance.GetMaxPlayerCount();
+            int maxPlayers = MultiplayerManager<TCustomData>.Instance.GetMaxPlayerCount();
             CreateLobbyOptions options = new CreateLobbyOptions() {
                 IsPrivate = isPrivate,
                 Data = new Dictionary<string, DataObject> {
@@ -215,7 +214,7 @@ public class LobbyManager : MonoBehaviour
 
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(AllocationUtils.ToRelayServerData(allocation, "dtls"));
 
-            MultiplayerManager.Instance.StartHost();
+            MultiplayerManager<TCustomData>.Instance.StartHost();
             SceneLoader.LoadNetwork(SceneLoader.Scene.LobbyRoomScene);
 
             canQuit = false;
@@ -260,7 +259,7 @@ public class LobbyManager : MonoBehaviour
 
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(AllocationUtils.ToRelayServerData(joinAllocation, "dtls"));
 
-            MultiplayerManager.Instance.StartClient();
+            MultiplayerManager<TCustomData>.Instance.StartClient();
 
             canQuit = false;
         } catch (LobbyServiceException e) {

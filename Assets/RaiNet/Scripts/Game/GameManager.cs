@@ -92,13 +92,15 @@ public class GameManager : NetworkBehaviour
         });
     }
 
+    /*
     public List<ulong> GetClientIdsByTeam(PlayerTeam team) {
         return MultiplayerManager.Instance.GetClientIdsByTeam(team);
     }
+    */
 
     public void Clean() {
         GameBoard.Instance.Clean();
-        MultiplayerManager.Instance.Clean();
+        // MultiplayerManager.Instance.Clean();
 
         Destroy(gameObject);
     }

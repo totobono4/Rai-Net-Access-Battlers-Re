@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1985573223199304837}
-  - component: {fileID: 869460627392717517}
+  - component: {fileID: 4793445650580119656}
   m_Layer: 0
   m_Name: GameCleaner
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &869460627392717517
+--- !u!114 &4793445650580119656
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,11 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 951012755236465131}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0820cbe8450c3ae4484f1907a51fc283, type: 3}
+  m_Script: {fileID: 11500000, guid: 10b2b9d823bc48f4289ae040063221f9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  cardsReadyUI: {fileID: 0}
-  gameOverUI: {fileID: 0}
-  pauseUI: {fileID: 0}
-  playerInfosUI: {fileID: 0}
-  DisconnectedUI: {fileID: 0}
+  m_EditorClassIdentifier: Ttbn4.Clean::BaseGameCleaner
+  disconnectedUI: {fileID: 0}
