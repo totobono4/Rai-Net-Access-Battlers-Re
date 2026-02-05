@@ -480,15 +480,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1985573223199304837, guid: 8eef0773d12e9854dbd80d5fc68b5c1f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.10489
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1985573223199304837, guid: 8eef0773d12e9854dbd80d5fc68b5c1f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1985573223199304837, guid: 8eef0773d12e9854dbd80d5fc68b5c1f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.38529
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1985573223199304837, guid: 8eef0773d12e9854dbd80d5fc68b5c1f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -518,6 +518,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3611261179067465750, guid: 8eef0773d12e9854dbd80d5fc68b5c1f, type: 3}
+      propertyPath: pauseUI
+      value: 
+      objectReference: {fileID: 26162949}
+    - target: {fileID: 3611261179067465750, guid: 8eef0773d12e9854dbd80d5fc68b5c1f, type: 3}
+      propertyPath: pauseTabUI
+      value: 
+      objectReference: {fileID: 26162947}
+    - target: {fileID: 3611261179067465750, guid: 8eef0773d12e9854dbd80d5fc68b5c1f, type: 3}
+      propertyPath: disconnectedUI
+      value: 
+      objectReference: {fileID: 353325668}
     - target: {fileID: 4793445650580119656, guid: 8eef0773d12e9854dbd80d5fc68b5c1f, type: 3}
       propertyPath: pauseUI
       value: 
@@ -1907,7 +1919,7 @@ SceneRoots:
   - {fileID: 1799991038}
   - {fileID: 304432855}
   - {fileID: 60928482145781384}
-  - {fileID: 951861939267903486}
   - {fileID: 1560200488}
   - {fileID: 1990273124}
+  - {fileID: 951861939267903486}
   - {fileID: 361043380}

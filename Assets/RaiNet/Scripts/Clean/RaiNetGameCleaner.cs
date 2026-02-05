@@ -1,15 +1,11 @@
 using System;
 using UnityEngine;
 
-public class RaiNetGameCleaner : GameCleaner<RaiNetPlayerData>
+public class RaiNetGameCleaner : NetworkGameCleaner<RaiNetPlayerData>
 {
     [SerializeField] CardsReadyUI cardsReadyUI;
     [SerializeField] GameOverUI gameOverUI;
     [SerializeField] PlayerInfosUI playerInfosUI;
-
-    protected override void Awake() {
-        base.Awake();
-    }
 
     protected override void Start() {
         base.Start();
@@ -20,9 +16,8 @@ public class RaiNetGameCleaner : GameCleaner<RaiNetPlayerData>
         Clean();
     }
 
-    public override void Clean() {
+    protected override void Clean() {
         base.Clean();
-
         gameOverUI.OnClean -= GameOverUI_OnClean;
 
         GameManager.Instance.Clean();

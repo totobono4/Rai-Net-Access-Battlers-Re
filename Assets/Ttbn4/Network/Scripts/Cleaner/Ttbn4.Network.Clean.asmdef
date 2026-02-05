@@ -1,16 +1,13 @@
 {
-    "name": "RaiNet.Clean",
+    "name": "Ttbn4.Network.Clean",
     "rootNamespace": "",
     "references": [
         "GUID:1491147abca9d7d4bb7105af628b223e",
-        "GUID:764c0ad7f3c156a4cb388aadf2c2a3b6",
         "GUID:52d20c3a3a741bf44bfc9244254d5f18",
         "GUID:00cb0128c53a6544f8ac07cabdeb15a8",
+        "GUID:fcda591d4c7a76d4db4c8d7721d3a5b4",
         "GUID:b84aa2126b6834c43ba73b94a853bded",
-        "GUID:65ff74cba158d0b4493bf8e519290dff",
-        "GUID:26d6a066636a6104cb6dab4c88d4154b",
-        "GUID:7e6de9bce860dcb4cbfdf974039b4633",
-        "GUID:51d196d7319e95341857baef3f318c08"
+        "GUID:4c3c301d485cfbf468bb8c7066fed830"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
