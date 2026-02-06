@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RaiNetMenuUI : MenuUI
+public class RaiNetNetworkMenuUI : NetworkMenuUI
 {
     [SerializeField] private string rulesSceneName;
     [SerializeField] private Button rulesButton;
