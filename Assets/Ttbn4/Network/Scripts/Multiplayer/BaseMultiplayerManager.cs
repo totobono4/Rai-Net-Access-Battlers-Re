@@ -5,9 +5,17 @@ using UnityEngine;
 public class BaseMultiplayerManager : MultiplayerManager<EmptyPlayerData> {
 
     [SerializeField] private NetworkList<PlayerData<EmptyPlayerData>> playerDataNetworkList;
+    [SerializeField] private MultiplayerConfigSO baseMultiplayerConfigSO;
+
+    protected override MultiplayerConfigSO GetMultiplayerConfig() {
+        return baseMultiplayerConfigSO;
+    }
 
     protected override void InitializeNetworkList() {
         playerDataNetworkList = new NetworkList<PlayerData<EmptyPlayerData>>();
+    }
+    protected override void InitializeCustomData() {
+        // Empty custom data
     }
 
     protected override void SubNetworkList() {
@@ -19,8 +27,6 @@ public class BaseMultiplayerManager : MultiplayerManager<EmptyPlayerData> {
     }
 
     protected override void AddPlayerData(PlayerData<EmptyPlayerData> playerData) {
-        // ajouter la team dans RaiNet
-
         playerDataNetworkList.Add(playerData);
     }
 

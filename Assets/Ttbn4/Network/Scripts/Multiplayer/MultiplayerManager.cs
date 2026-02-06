@@ -11,11 +11,8 @@ public abstract class MultiplayerManager<TCustomData> : NetworkBehaviour where T
 
     public static MultiplayerManager<TCustomData> Instance { get; private set; }
 
-    [SerializeField] private MultiplayerConfigSO multiplayerConfigSO;
-
     private int maxPlayerCount;
     private int minPlayerCount;
-    // private List<PlayerTeam> playerTeams;
 
     public EventHandler<UpdatePlayersArgs> OnUpdatePlayers;
     public class UpdatePlayersArgs : EventArgs {
@@ -33,20 +30,27 @@ public abstract class MultiplayerManager<TCustomData> : NetworkBehaviour where T
     public EventHandler OnClientDisconnect;
 
     private void Awake() {
+        if (Instance != null) {
+            Debug.LogError("MultiplayerManager has multiple instances");
+            return;
+        }
         Instance = this;
         DontDestroyOnLoad(this);
 
+        MultiplayerConfigSO multiplayerConfigSO = GetMultiplayerConfig();
         maxPlayerCount = multiplayerConfigSO.GetMaxPlayerCount();
         minPlayerCount = multiplayerConfigSO.GetMinPlayerCount();
-        // playerTeams = multiplayerConfigSO.GetPlayerTeams();
 
         playerName = PlayerPrefs.GetString(PLAYERPREFS_PLAYER_NAME_MULTIPLAYER, GenerateGuestName());
 
         InitializeNetworkList();
+        InitializeCustomData();
         SubNetworkList();
     }
 
+    protected abstract MultiplayerConfigSO GetMultiplayerConfig();
     protected abstract void InitializeNetworkList();
+    protected abstract void InitializeCustomData();
     protected abstract void SubNetworkList();
     protected abstract void UnsubNetworkList();
 
@@ -166,7 +170,7 @@ public abstract class MultiplayerManager<TCustomData> : NetworkBehaviour where T
         SetPlayerDataByIndex(playerDataIndex, playerData);
     }
 
-    private int GetPlayerDataIndexFromClientId(ulong clientId) {
+    protected int GetPlayerDataIndexFromClientId(ulong clientId) {
         for (int i = 0; i < GetPlayerCount(); i++) {
             if (GetPlayerDataByIndex(i).basePlayerData.clientId == clientId) {
                 return i;
@@ -174,24 +178,6 @@ public abstract class MultiplayerManager<TCustomData> : NetworkBehaviour where T
         }
         return -1;
     }
-
-    /*
-    public PlayerTeam GetClientTeamById(ulong clientId) {
-        return playerDataNetworkList[GetPlayerDataIndexFromClientId(clientId)].team;
-    }
-    */
-
-    /*
-    public List<ulong> GetClientIdsByTeam(PlayerTeam team) {
-        List<ulong> ids = new List<ulong>();
-        foreach (BasePlayerData playerData in playerDataNetworkList) {
-            if (playerData.team == team) {
-                ids.Add(playerData.clientId);
-            }
-        }
-        return ids;
-    }
-    */
 
     public bool IsPlayerIndexConnected(int playerIndex) {
         return playerIndex < GetPlayerCount();

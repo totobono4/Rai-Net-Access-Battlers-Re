@@ -1,0 +1,21 @@
+{
+    "name": "RaiNet.Network",
+    "rootNamespace": "",
+    "references": [
+        "GUID:1491147abca9d7d4bb7105af628b223e",
+        "GUID:e0cd26848372d4e5c891c569017e11f1",
+        "GUID:4c3c301d485cfbf468bb8c7066fed830",
+        "GUID:fcda591d4c7a76d4db4c8d7721d3a5b4",
+        "GUID:af627fcebc3134d4389e65f121df5475",
+        "GUID:51d196d7319e95341857baef3f318c08"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

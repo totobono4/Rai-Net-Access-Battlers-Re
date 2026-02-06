@@ -71,4 +71,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Ttbn4.Network::BaseMultiplayerManager
   ShowTopMostFoldoutHeaderGroup: 1
-  multiplayerConfigSO: {fileID: 11400000, guid: 09fb4a74341fa724388dd97022845066, type: 2}
+  baseMultiplayerConfigSO: {fileID: 11400000, guid: 09fb4a74341fa724388dd97022845066, type: 2}

@@ -9,9 +9,9 @@ public abstract class GameCleaner : MonoBehaviour {
 
     protected void Awake() {
         if (Instance != null) {
-
+            Debug.LogError("GameCleaner has multiple instances");
+            return;
         }
-
         Instance = this;
     }
 

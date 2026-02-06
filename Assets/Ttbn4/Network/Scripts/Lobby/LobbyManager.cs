@@ -55,8 +55,12 @@ public class LobbyManager<TCustomData> : MonoBehaviour where TCustomData : struc
     }
 
     private void Awake() {
-        Instance = this;
+        if (Instance != null) {
+            Debug.LogError("LobbyManager has multiple instances");
+            return;
+        }
 
+        Instance = this;
         DontDestroyOnLoad(gameObject);
 
         InitializeAuthenticationServices();

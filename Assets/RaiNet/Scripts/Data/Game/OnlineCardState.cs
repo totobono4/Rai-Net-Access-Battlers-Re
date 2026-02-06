@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public enum OnlineCardState {
     None = 3,
     Unknown = 0,

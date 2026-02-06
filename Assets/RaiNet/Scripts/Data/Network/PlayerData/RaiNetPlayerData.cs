@@ -1,6 +1,5 @@
 using System;
 using Unity.Netcode;
-using UnityEngine;
 
 public struct RaiNetPlayerData : IEquatable<RaiNetPlayerData>, INetworkSerializable {
     public PlayerTeam team;

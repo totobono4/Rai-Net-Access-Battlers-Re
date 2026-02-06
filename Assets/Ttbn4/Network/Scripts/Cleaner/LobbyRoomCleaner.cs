@@ -9,7 +9,12 @@ public abstract class LobbyRoomCleaner<TCustomData> : MonoBehaviour where TCusto
     private LobbyRoomUI<TCustomData> lobbyRoomUI;
 
     private void Awake() {
+        if (Instance != null) {
+            Debug.LogError("LobbyRoomCleaner has multiple instances");
+            return;
+        }
         Instance = this;
+
         disconnectedUI = GetDisconnectedUI();
         lobbyRoomUI = GetLobbyRoomUI();
     }

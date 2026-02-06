@@ -6,10 +6,12 @@
   <Project Path="RaiNet.Game.csproj" />
   <Project Path="Ttbn4.Network.Clean.csproj" />
   <Project Path="RaiNet.Visuals.csproj" />
+  <Project Path="RaiNet.Network.csproj" />
   <Project Path="Ttbn4.Game.UI.csproj" />
+  <Project Path="RaiNet.Network.Clean.csproj" />
   <Project Path="RaiNet.SceneLoader.csproj" />
+  <Project Path="RaiNet.Data.Network.csproj" />
   <Project Path="Ttbn4.Game.Clean.csproj" />
-  <Project Path="RaiNet.Clean.csproj" />
   <Project Path="Ttbn4.Common.UI.csproj" />
   <Project Path="Ttbn4.Network.Data.csproj" />
   <Project Path="RaiNet.Settings.csproj" />
