@@ -3,27 +3,22 @@ using Unity.Netcode;
 using UnityEngine;
 
 public class BaseMultiplayerManager : MultiplayerManager<EmptyPlayerData> {
-
     [SerializeField] private NetworkList<PlayerData<EmptyPlayerData>> playerDataNetworkList;
     [SerializeField] private MultiplayerConfigSO baseMultiplayerConfigSO;
 
-    protected override MultiplayerConfigSO GetMultiplayerConfig() {
-        return baseMultiplayerConfigSO;
-    }
+    protected override void Awake() {
+        base.Awake();
 
-    protected override void InitializeNetworkList() {
         playerDataNetworkList = new NetworkList<PlayerData<EmptyPlayerData>>();
-    }
-    protected override void InitializeCustomData() {
-        // Empty custom data
-    }
-
-    protected override void SubNetworkList() {
         playerDataNetworkList.OnListChanged += PlayerDataNetworkList_OnListChanged;
     }
 
-    protected override void UnsubNetworkList() {
-        playerDataNetworkList.OnListChanged -= PlayerDataNetworkList_OnListChanged;
+    protected override MultiplayerManager<EmptyPlayerData> GetMultiplayerManager() {
+        return this;
+    }
+
+    protected override MultiplayerConfigSO GetMultiplayerConfig() {
+        return baseMultiplayerConfigSO;
     }
 
     protected override void AddPlayerData(PlayerData<EmptyPlayerData> playerData) {
@@ -44,5 +39,11 @@ public class BaseMultiplayerManager : MultiplayerManager<EmptyPlayerData> {
 
     public override int GetPlayerCount() {
         return playerDataNetworkList.Count;
+    }
+
+    public override void Clean() {
+        playerDataNetworkList.OnListChanged -= PlayerDataNetworkList_OnListChanged;
+
+        base.Clean();
     }
 }

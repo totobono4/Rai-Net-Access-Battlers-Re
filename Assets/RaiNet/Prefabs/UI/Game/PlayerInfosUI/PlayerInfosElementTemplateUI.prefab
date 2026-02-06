@@ -85,6 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3734443867858758380}
   - component: {fileID: 7347168789746817660}
+  - component: {fileID: 4737122141517385989}
   m_Layer: 0
   m_Name: PlayerInfosElementTemplateUI
   m_TagString: Untagged
@@ -138,6 +139,22 @@ MonoBehaviour:
   AutoObjectParentSync: 0
   SyncOwnerTransformWhenParented: 1
   AllowOwnerToParent: 0
+--- !u!114 &4737122141517385989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6038385810831845884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dee5dc2dc200b24482f0066ad176930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: RaiNet.UI::PlayerInfosElementUI
+  ShowTopMostFoldoutHeaderGroup: 1
+  teamColors: {fileID: 11400000, guid: e3ca507f06822c54dbec9c1cf7e72fbd, type: 2}
+  playerNameText: {fileID: 7699182497506748024}
+  playerBackgroundImage: {fileID: 1124574810914746982}
 --- !u!1 &6357584782450625160
 GameObject:
   m_ObjectHideFlags: 0

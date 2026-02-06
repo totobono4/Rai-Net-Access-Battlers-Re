@@ -92,15 +92,17 @@ public class GameManager : NetworkBehaviour
         });
     }
 
-    /*
     public List<ulong> GetClientIdsByTeam(PlayerTeam team) {
-        return MultiplayerManager.Instance.GetClientIdsByTeam(team);
+        return (RaiNetMultiplayerManager.Instance as RaiNetMultiplayerManager).GetClientIdsByTeam(team);
     }
-    */
+
+    public PlayerTeam GetClientTeamById(ulong clientId) {
+        return (RaiNetMultiplayerManager.Instance as RaiNetMultiplayerManager).GetClientTeamById(clientId);
+    }
 
     public void Clean() {
         GameBoard.Instance.Clean();
-        // MultiplayerManager.Instance.Clean();
+        RaiNetMultiplayerManager.Instance.Clean();
 
         Destroy(gameObject);
     }

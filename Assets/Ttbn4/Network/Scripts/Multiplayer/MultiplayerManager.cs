@@ -29,30 +29,24 @@ public abstract class MultiplayerManager<TCustomData> : NetworkBehaviour where T
     public EventHandler OnHostDisconnect;
     public EventHandler OnClientDisconnect;
 
-    private void Awake() {
+    protected virtual void Awake() {
         if (Instance != null) {
             Debug.LogError("MultiplayerManager has multiple instances");
             return;
         }
-        Instance = this;
-        DontDestroyOnLoad(this);
+        Instance = GetMultiplayerManager();
+        DontDestroyOnLoad(Instance);
 
         MultiplayerConfigSO multiplayerConfigSO = GetMultiplayerConfig();
         maxPlayerCount = multiplayerConfigSO.GetMaxPlayerCount();
         minPlayerCount = multiplayerConfigSO.GetMinPlayerCount();
 
         playerName = PlayerPrefs.GetString(PLAYERPREFS_PLAYER_NAME_MULTIPLAYER, GenerateGuestName());
-
-        InitializeNetworkList();
-        InitializeCustomData();
-        SubNetworkList();
     }
 
     protected abstract MultiplayerConfigSO GetMultiplayerConfig();
-    protected abstract void InitializeNetworkList();
-    protected abstract void InitializeCustomData();
-    protected abstract void SubNetworkList();
-    protected abstract void UnsubNetworkList();
+
+    protected abstract MultiplayerManager<TCustomData> GetMultiplayerManager();
 
     private string GenerateGuestName() {
         return "Guest-" + UnityEngine.Random.Range(1000, 10000).ToString();
@@ -183,7 +177,7 @@ public abstract class MultiplayerManager<TCustomData> : NetworkBehaviour where T
         return playerIndex < GetPlayerCount();
     }
 
-    public void Clean() {
+    public virtual void Clean() {
         if (NetworkManager.Singleton.IsHost) {
             NetworkManager.Singleton.ConnectionApprovalCallback -= NetworkManager_ConnectionApprovalCallback;
             NetworkManager.Singleton.OnClientConnectedCallback -= NetworkManager_Server_OnClientConnectedCallback;
@@ -194,8 +188,6 @@ public abstract class MultiplayerManager<TCustomData> : NetworkBehaviour where T
             NetworkManager.Singleton.OnClientDisconnectCallback -= NetworkManager_Client_OnClientDisconnectCallback;
             NetworkManager.Singleton.OnClientConnectedCallback -= NetworkManager_Client_OnClientConnectedCallback;
         }
-
-        UnsubNetworkList();
 
         NetworkManager.Shutdown();
     }

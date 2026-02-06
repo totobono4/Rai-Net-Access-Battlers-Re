@@ -15,7 +15,7 @@ public class PlayerInfosElementUI : NetworkBehaviour {
     public void Initialize(int playerIndex) {
         PlayerData<RaiNetPlayerData> playerData = MultiplayerManager<RaiNetPlayerData>.Instance.GetPlayerDataByIndex(playerIndex);
         playerNameText.text = playerData.basePlayerData.playerName.ToString();
-        // team = playerData.team;
+        team = playerData.customData.team;
 
         NotPlaying();
 

@@ -9,24 +9,21 @@ public class RaiNetMultiplayerManager : MultiplayerManager<RaiNetPlayerData>
 
     private List<PlayerTeam> playerTeams;
 
-    protected override MultiplayerConfigSO GetMultiplayerConfig() {
-        return raiNetMultiplayerConfigSO;
-    }
+    protected override void Awake() {
+        base.Awake();
 
-    protected override void InitializeNetworkList() {
         playerDataNetworkList = new NetworkList<PlayerData<RaiNetPlayerData>>();
-    }
+        playerDataNetworkList.OnListChanged += PlayerDataNetworkList_OnListChanged;
 
-    protected override void InitializeCustomData() {
         playerTeams = raiNetMultiplayerConfigSO.GetPlayerTeams();
     }
 
-    protected override void SubNetworkList() {
-        playerDataNetworkList.OnListChanged += PlayerDataNetworkList_OnListChanged;
+    protected override MultiplayerManager<RaiNetPlayerData> GetMultiplayerManager() {
+        return this;
     }
 
-    protected override void UnsubNetworkList() {
-        playerDataNetworkList.OnListChanged -= PlayerDataNetworkList_OnListChanged;
+    protected override MultiplayerConfigSO GetMultiplayerConfig() {
+        return raiNetMultiplayerConfigSO;
     }
 
     protected override void AddPlayerData(PlayerData<RaiNetPlayerData> playerData) {
@@ -64,5 +61,11 @@ public class RaiNetMultiplayerManager : MultiplayerManager<RaiNetPlayerData>
             }
         }
         return ids;
+    }
+
+    public override void Clean() {
+        playerDataNetworkList.OnListChanged -= PlayerDataNetworkList_OnListChanged;
+
+        base.Clean();
     }
 }
