@@ -1,11 +1,14 @@
+using Unity.Netcode;
 using UnityEngine.SceneManagement;
 
-public static class SceneLoader
+public static class NetworkSceneLoader
 {
     public enum Scene {
         MainMenuScene,
         LoadingScene,
         CreditScene,
+        LobbyScene,
+        LobbyRoomScene,
         GameScene
     }
 
@@ -32,8 +35,16 @@ public static class SceneLoader
     }
 
     public static void Load(string targetScene, string loadingScene) {
-        SceneLoader.targetScene = targetScene;
+        NetworkSceneLoader.targetScene = targetScene;
         SceneManager.LoadScene(loadingScene);
+    }
+
+    public static void LoadNetwork(Scene targetScene) {
+        NetworkManager.Singleton.SceneManager.LoadScene(targetScene.ToString(), LoadSceneMode.Single);
+    }
+
+    public static void LoadNetwork(string targetScene) {
+        NetworkManager.Singleton.SceneManager.LoadScene(targetScene, LoadSceneMode.Single);
     }
 
     public static void LoaderCallback() {

@@ -3,7 +3,7 @@ public class NetworkMenuUI : MenuUI {
         base.Awake();
 
         playButton.onClick.AddListener(() => {
-            SceneLoader.Load(SceneLoader.Scene.LobbyScene);
+            NetworkSceneLoader.Load(NetworkSceneLoader.Scene.LobbyScene);
         });
     }
 }

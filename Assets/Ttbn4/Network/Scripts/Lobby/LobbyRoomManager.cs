@@ -40,7 +40,7 @@ public class LobbyRoomManager<TCustomData> : NetworkBehaviour where TCustomData 
 
         StartGameClientRpc();
 
-        SceneLoader.LoadNetwork(SceneLoader.Scene.GameScene);
+        NetworkSceneLoader.LoadNetwork(NetworkSceneLoader.Scene.GameScene);
     }
 
     [Rpc(SendTo.ClientsAndHost, Delivery = RpcDelivery.Reliable)]

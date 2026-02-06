@@ -16,12 +16,12 @@ public class DisconnectedUI<TCustomData> : MonoBehaviour where TCustomData : str
     protected virtual void Awake() {
         mainMenuButton.onClick.AddListener(() => {
             OnClean?.Invoke(this, EventArgs.Empty);
-            SceneLoader.Load(SceneLoader.Scene.MainMenuScene);
+            NetworkSceneLoader.Load(NetworkSceneLoader.Scene.MainMenuScene);
         });
     }
 
     protected virtual void Start() {
-        if (SceneManager.GetActiveScene().name == SceneLoader.Scene.LobbyRoomScene.ToString() && !disconnectHost && NetworkManager.Singleton.IsHost) {
+        if (SceneManager.GetActiveScene().name == NetworkSceneLoader.Scene.LobbyRoomScene.ToString() && !disconnectHost && NetworkManager.Singleton.IsHost) {
             Hide();
             return;
         }

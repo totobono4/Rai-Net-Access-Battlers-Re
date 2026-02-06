@@ -1,5 +1,5 @@
 {
-    "name": "Ttbn4.SceneLoader",
+    "name": "Ttbn4.NetworkSceneLoader",
     "rootNamespace": "",
     "references": [
         "GUID:1491147abca9d7d4bb7105af628b223e"

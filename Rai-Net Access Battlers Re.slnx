@@ -8,8 +8,9 @@
   <Project Path="RaiNet.Visuals.csproj" />
   <Project Path="RaiNet.Network.csproj" />
   <Project Path="Ttbn4.Game.UI.csproj" />
+  <Project Path="Ttbn4.NetworkSceneLoader.csproj" />
   <Project Path="RaiNet.Network.Clean.csproj" />
-  <Project Path="RaiNet.SceneLoader.csproj" />
+  <Project Path="Ttbn4.SceneLoader.csproj" />
   <Project Path="RaiNet.Data.Network.csproj" />
   <Project Path="Ttbn4.Game.Clean.csproj" />
   <Project Path="Ttbn4.Common.UI.csproj" />

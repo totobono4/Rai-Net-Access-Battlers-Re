@@ -24,7 +24,7 @@ public class LobbyRoomUI<TCustomData> : MonoBehaviour where TCustomData : struct
         mainMenuButton.onClick.AddListener(() => {
             LobbyManager<TCustomData>.Instance.LeaveLobby();
             NetworkManager.Singleton.Shutdown();
-            SceneLoader.Load(SceneLoader.Scene.MainMenuScene);
+            NetworkSceneLoader.Load(NetworkSceneLoader.Scene.MainMenuScene);
         });
         readyButton.onClick.AddListener(() => {
             LobbyRoomManager<TCustomData>.Instance.TogglePlayerReady();

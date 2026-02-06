@@ -151,7 +151,7 @@ public class LobbyManager<TCustomData> : MonoBehaviour where TCustomData : struc
     }
 
     private void HandleLobbyRefresh() {
-        if (SceneManager.GetActiveScene().name != SceneLoader.Scene.LobbyScene.ToString()) return;
+        if (SceneManager.GetActiveScene().name != NetworkSceneLoader.Scene.LobbyScene.ToString()) return;
 
         if (!AuthenticationService.Instance.IsSignedIn) return;
 
@@ -219,7 +219,7 @@ public class LobbyManager<TCustomData> : MonoBehaviour where TCustomData : struc
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(AllocationUtils.ToRelayServerData(allocation, "dtls"));
 
             MultiplayerManager<TCustomData>.Instance.StartHost();
-            SceneLoader.LoadNetwork(SceneLoader.Scene.LobbyRoomScene);
+            NetworkSceneLoader.LoadNetwork(NetworkSceneLoader.Scene.LobbyRoomScene);
 
             canQuit = false;
         } catch (LobbyServiceException e) {

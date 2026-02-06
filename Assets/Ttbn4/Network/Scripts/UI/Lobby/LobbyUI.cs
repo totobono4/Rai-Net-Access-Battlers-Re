@@ -10,7 +10,7 @@ public class LobbyUI<TCustomData> : MonoBehaviour where TCustomData : struct, IE
 
     private void Awake() {
         mainMenuButton.onClick.AddListener(() => {
-            SceneLoader.Load(SceneLoader.Scene.MainMenuScene);
+            NetworkSceneLoader.Load(NetworkSceneLoader.Scene.MainMenuScene);
         });
     }
 

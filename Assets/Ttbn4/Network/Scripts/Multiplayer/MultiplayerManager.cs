@@ -132,7 +132,7 @@ public abstract class MultiplayerManager<TCustomData> : NetworkBehaviour where T
     private void NetworkManager_Client_OnClientDisconnectCallback(ulong clientId) {
         NetworkManager.Singleton.OnClientDisconnectCallback -= NetworkManager_Client_OnClientDisconnectCallback;
 
-        if (SceneManager.GetActiveScene().name == SceneLoader.Scene.LobbyScene.ToString()) {
+        if (SceneManager.GetActiveScene().name == NetworkSceneLoader.Scene.LobbyScene.ToString()) {
             OnConnectionFailed?.Invoke(this, EventArgs.Empty);
         }
 
