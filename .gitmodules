@@ -1,0 +1,15 @@
+[submodule ".\\Packages\\com.totobono4.common"]
+	path = .\\Packages\\com.totobono4.common
+	url = https://github.com/totobono4/UnityPackage-Common
+[submodule ".\\Packages\\com.totobono4.network\\"]
+	path = .\\Packages\\com.totobono4.network\\
+	url = https://github.com/totobono4/UnityPackage-Network
+[submodule ".\\Packages\\com.totobono4.game\\"]
+	path = .\\Packages\\com.totobono4.game\\
+	url = https://github.com/totobono4/UnityPackage-Game
+[submodule ".\\Packages\\com.totobono4.networksceneloader\\"]
+	path = .\\Packages\\com.totobono4.networksceneloader\\
+	url = https://github.com/totobono4/UnityPackage-NetworkSceneLoader
+[submodule ".\\Packages\\com.totobono4.sceneloader\\"]
+	path = .\\Packages\\com.totobono4.sceneloader\\
+	url = https://github.com/totobono4/UnityPackage-SceneLoader
