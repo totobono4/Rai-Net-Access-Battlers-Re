@@ -1,3 +1,4 @@
+using Totobono4.SceneLoader;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,7 @@ namespace RaiNet.UI {
 
         private void Awake() {
             mainMenuButton.onClick.AddListener(() => {
-                SceneLoader.Load(SceneLoader.Scene.MainMenuScene);
+                SceneLoaderCore.Load(SceneLoaderCore.Scene.MainMenuScene);
             });
         }
     }

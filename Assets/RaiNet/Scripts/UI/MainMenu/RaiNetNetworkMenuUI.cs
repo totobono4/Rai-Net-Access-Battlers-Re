@@ -1,4 +1,5 @@
-using Ttbn4.Network.UI;
+using Totobono4.Network.UI;
+using Totobono4.SceneLoader;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +12,7 @@ namespace RaiNet.UI {
             base.Awake();
 
             rulesButton.onClick.AddListener(() => {
-                SceneLoader.Load(rulesSceneName);
+                SceneLoaderCore.Load(rulesSceneName);
             });
         }
     }

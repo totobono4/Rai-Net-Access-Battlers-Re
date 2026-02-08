@@ -1,5 +1,48 @@
 {
   "dependencies": {
+    "com.totobono4.common": {
+      "version": "file:com.totobono4.common",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
+    "com.totobono4.game": {
+      "version": "file:com.totobono4.game",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.totobono4.sceneloader": "1.0.0"
+      }
+    },
+    "com.totobono4.network": {
+      "version": "file:com.totobono4.network",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.netcode.gameobjects": "2.7.0",
+        "com.unity.services.core": "1.16.0",
+        "com.unity.services.authentication": "3.5.2",
+        "com.unity.services.multiplayer": "2.0.0",
+        "com.unity.transport": "2.6.0",
+        "com.unity.collections": "2.6.2",
+        "com.totobono4.game": "1.0.0",
+        "com.totobono4.networksceneloader": "1.0.0"
+      }
+    },
+    "com.totobono4.networksceneloader": {
+      "version": "file:com.totobono4.networksceneloader",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.netcode.gameobjects": "2.7.0"
+      }
+    },
+    "com.totobono4.sceneloader": {
+      "version": "file:com.totobono4.sceneloader",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,

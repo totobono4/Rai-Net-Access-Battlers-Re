@@ -1,7 +1,7 @@
 using RaiNet.Data;
 using RaiNet.Network.Data;
-using Ttbn4.Network.Data;
-using Ttbn4.Network.UI;
+using Totobono4.Network.Data;
+using Totobono4.Network.UI;
 using UnityEngine;
 using UnityEngine.UI;
 

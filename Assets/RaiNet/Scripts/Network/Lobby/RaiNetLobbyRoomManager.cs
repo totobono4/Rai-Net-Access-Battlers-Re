@@ -1,5 +1,5 @@
 using RaiNet.Network.Data;
-using Ttbn4.Network;
+using Totobono4.Network;
 
 namespace RaiNet.Network {
     public class RaiNetLobbyRoomManager : LobbyRoomManager<RaiNetPlayerData> {

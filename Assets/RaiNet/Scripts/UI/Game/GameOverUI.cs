@@ -1,6 +1,7 @@
 using RaiNet.Game;
 using System;
 using TMPro;
+using Totobono4.SceneLoader;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +15,7 @@ namespace RaiNet.UI {
         private void Awake() {
             menuButton.onClick.AddListener(() => {
                 OnClean?.Invoke(this, EventArgs.Empty);
-                SceneLoader.Load(SceneLoader.Scene.MainMenuScene);
+                SceneLoaderCore.Load(SceneLoaderCore.Scene.MainMenuScene);
             });
         }
 

@@ -1,7 +1,7 @@
 using RaiNet.Network.Data;
 using RaiNet.UI;
-using Ttbn4.Network.Clean;
-using Ttbn4.Network.UI;
+using Totobono4.Network.Clean;
+using Totobono4.Network.UI;
 using UnityEngine;
 
 namespace RaiNet.Network.Clean {
