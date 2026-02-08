@@ -1,5 +1,7 @@
-public enum PlayerTeam {
-    None,
-    Yellow,
-    Blue
+namespace RaiNet.Data {
+    public enum PlayerTeam {
+        None,
+        Yellow,
+        Blue
+    }
 }

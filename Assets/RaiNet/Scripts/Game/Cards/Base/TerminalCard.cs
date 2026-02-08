@@ -1,36 +1,38 @@
 using System;
 using Unity.Netcode;
 
-public abstract class TerminalCard : Card {
-    protected NetworkVariable<bool> used;
+namespace RaiNet.Game {
+    public abstract class TerminalCard : Card {
+        protected NetworkVariable<bool> used;
 
-    public EventHandler OnUsedValueChanged;
+        public EventHandler OnUsedValueChanged;
 
-    protected override void Awake() {
-        base.Awake();
+        protected override void Awake() {
+            base.Awake();
 
-        used = new NetworkVariable<bool>(false);
-        used.OnValueChanged += Used_OnValueChanged;
-    }
+            used = new NetworkVariable<bool>(false);
+            used.OnValueChanged += Used_OnValueChanged;
+        }
 
-    private void Used_OnValueChanged(bool previousValue, bool newValue) {
-        OnUsedValueChanged?.Invoke(this, EventArgs.Empty);
-    }
+        private void Used_OnValueChanged(bool previousValue, bool newValue) {
+            OnUsedValueChanged?.Invoke(this, EventArgs.Empty);
+        }
 
-    public bool IsUsed() {
-        return used.Value;
-    }
+        public bool IsUsed() {
+            return used.Value;
+        }
 
-    protected void SetUsed() {
-        used.Value = true;
-    }
-    protected void UnsetUsed() {
-        used.Value = false;
-    }
+        protected void SetUsed() {
+            used.Value = true;
+        }
+        protected void UnsetUsed() {
+            used.Value = false;
+        }
 
-    public override void Clean() {
-        used.OnValueChanged -= Used_OnValueChanged;
+        public override void Clean() {
+            used.OnValueChanged -= Used_OnValueChanged;
 
-        base.Clean();
+            base.Clean();
+        }
     }
 }

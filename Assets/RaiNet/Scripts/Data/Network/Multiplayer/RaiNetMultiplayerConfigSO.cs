@@ -1,10 +1,13 @@
+using RaiNet.Data;
 using System.Collections.Generic;
+using Ttbn4.Network.Data;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "RaiNetMultiplayerConfigSO", menuName = "RaiNet/Network/RaiNetMultiplayerConfig")]
-public class RaiNetMultiplayerConfigSO : MultiplayerConfigSO
-{
-    [SerializeField] private List<PlayerTeam> playerTeams;
+namespace RaiNet.Network.Data {
+    [CreateAssetMenu(fileName = "RaiNetMultiplayerConfigSO", menuName = "RaiNet/Network/RaiNetMultiplayerConfig")]
+    public class RaiNetMultiplayerConfigSO : MultiplayerConfigSO {
+        [SerializeField] private List<PlayerTeam> playerTeams;
 
-    public List<PlayerTeam> GetPlayerTeams() { return new List<PlayerTeam>(playerTeams); }
+        public List<PlayerTeam> GetPlayerTeams() { return new List<PlayerTeam>(playerTeams); }
+    }
 }

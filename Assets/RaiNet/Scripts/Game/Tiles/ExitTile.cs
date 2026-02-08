@@ -1,3 +1,5 @@
-public class ExitTile : BoardTile {
+namespace RaiNet.Game {
+    public class ExitTile : BoardTile {
 
+    }
 }

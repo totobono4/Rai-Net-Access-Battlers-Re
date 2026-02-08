@@ -1,20 +1,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "PlayerOnlineCardsSO", menuName = "RaiNet/PlayerEntity/OnlineCards")]
-public class PlayerOnlineCardsSO : ScriptableObject
-{
-    [SerializeField] private Transform prefab;
-    [SerializeField] private List<OnlineCardState> onlineCardTypes;
-    [SerializeField] private List<int> counts;
+namespace RaiNet.Data {
+    [CreateAssetMenu(fileName = "PlayerOnlineCardsSO", menuName = "RaiNet/PlayerEntity/OnlineCards")]
+    public class PlayerOnlineCardsSO : ScriptableObject {
+        [SerializeField] private Transform prefab;
+        [SerializeField] private List<OnlineCardState> onlineCardTypes;
+        [SerializeField] private List<int> counts;
 
-    public Transform GetPrefab() {
-        return prefab;
-    }
+        public Transform GetPrefab() {
+            return prefab;
+        }
 
-    public Dictionary<OnlineCardState, int> GetCounts() {
-        Dictionary<OnlineCardState, int> countsDict = new Dictionary<OnlineCardState, int>();
-        for (int i = 0; i < onlineCardTypes.Count; i++) countsDict.Add(onlineCardTypes[i], counts[i]);
-        return countsDict;
+        public Dictionary<OnlineCardState, int> GetCounts() {
+            Dictionary<OnlineCardState, int> countsDict = new Dictionary<OnlineCardState, int>();
+            for (int i = 0; i < onlineCardTypes.Count; i++) countsDict.Add(onlineCardTypes[i], counts[i]);
+            return countsDict;
+        }
     }
 }

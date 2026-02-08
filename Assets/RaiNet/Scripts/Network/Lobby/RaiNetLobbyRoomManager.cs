@@ -1,4 +1,8 @@
-public class RaiNetLobbyRoomManager : LobbyRoomManager<RaiNetPlayerData>
-{
+using RaiNet.Network.Data;
+using Ttbn4.Network;
 
+namespace RaiNet.Network {
+    public class RaiNetLobbyRoomManager : LobbyRoomManager<RaiNetPlayerData> {
+
+    }
 }

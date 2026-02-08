@@ -1,9 +1,13 @@
-public class NetworkMenuUI : MenuUI {
-    protected override void Awake() {
-        base.Awake();
+using Ttbn4.Game.UI;
 
-        playButton.onClick.AddListener(() => {
-            NetworkSceneLoader.Load(NetworkSceneLoader.Scene.LobbyScene);
-        });
+namespace Ttbn4.Network.UI {
+    public class NetworkMenuUI : MenuUI {
+        protected override void Awake() {
+            base.Awake();
+
+            playButton.onClick.AddListener(() => {
+                NetworkSceneLoader.Load(NetworkSceneLoader.Scene.LobbyScene);
+            });
+        }
     }
 }

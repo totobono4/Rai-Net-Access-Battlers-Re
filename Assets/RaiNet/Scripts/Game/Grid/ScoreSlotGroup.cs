@@ -1,23 +1,24 @@
 using System.Collections.Generic;
 using Unity.Netcode;
 
-public class ScoreSlotGroup : TileMap
-{
-    List<OnlineCard> onlineCards = new List<OnlineCard>();
+namespace RaiNet.Game {
+    public class ScoreSlotGroup : TileMap {
+        List<OnlineCard> onlineCards = new List<OnlineCard>();
 
-    public void AddOnlineCard(OnlineCard onlineCard) {
-        int width = GetWidth();
+        public void AddOnlineCard(OnlineCard onlineCard) {
+            int width = GetWidth();
 
-        onlineCard.SetTileParent(GetTile(onlineCards.Count % width, onlineCards.Count / width));
-        onlineCards.Add(onlineCard);
+            onlineCard.SetTileParent(GetTile(onlineCards.Count % width, onlineCards.Count / width));
+            onlineCards.Add(onlineCard);
 
-        AddOnlineCardClientRpc(onlineCard.GetComponent<NetworkObject>());
-    }
+            AddOnlineCardClientRpc(onlineCard.GetComponent<NetworkObject>());
+        }
 
-    [Rpc(SendTo.ClientsAndHost, Delivery = RpcDelivery.Reliable)]
-    private void AddOnlineCardClientRpc(NetworkObjectReference onlineCardNetworkReference) {
-        if (!onlineCardNetworkReference.TryGet(out NetworkObject onlineCardNetwork)) return;
-        OnlineCard onlineCard = onlineCardNetwork.GetComponent<OnlineCard>();
-        onlineCard.SyncCardParent();
+        [Rpc(SendTo.ClientsAndHost, Delivery = RpcDelivery.Reliable)]
+        private void AddOnlineCardClientRpc(NetworkObjectReference onlineCardNetworkReference) {
+            if (!onlineCardNetworkReference.TryGet(out NetworkObject onlineCardNetwork)) return;
+            OnlineCard onlineCard = onlineCardNetwork.GetComponent<OnlineCard>();
+            onlineCard.SyncCardParent();
+        }
     }
 }

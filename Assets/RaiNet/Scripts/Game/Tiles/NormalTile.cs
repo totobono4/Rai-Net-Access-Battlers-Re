@@ -1,3 +1,5 @@
-public class NormalTile : BoardTile {
+namespace RaiNet.Game {
+    public class NormalTile : BoardTile {
 
+    }
 }

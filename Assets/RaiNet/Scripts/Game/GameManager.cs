@@ -1,109 +1,112 @@
+using RaiNet.Data;
+using RaiNet.Network;
 using System;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public class GameManager : NetworkBehaviour
-{
-    public static GameManager Instance { get; private set; }
+namespace RaiNet.Game {
+    public class GameManager : NetworkBehaviour {
+        public static GameManager Instance { get; private set; }
 
-    [SerializeField] private GameConfigSO gameConfigSO;
+        [SerializeField] private GameConfigSO gameConfigSO;
 
-    private Transform playerPrefab;
-    private List<PlayerTeam> playerTeams;
-    private List<PlayerTeam> playOrder;
+        private Transform playerPrefab;
+        private List<PlayerTeam> playerTeams;
+        private List<PlayerTeam> playOrder;
 
-    private int playCursor;
-    private PlayerTeam teamPriority;
+        private int playCursor;
+        private PlayerTeam teamPriority;
 
-    public EventHandler<PlayerGivePriorityArgs> OnPlayerGivePriority;
-    public class PlayerGivePriorityArgs : EventArgs {
-        public PlayerTeam team;
-        public int actionTokens;
-    }
-
-    public EventHandler<GameOverArgs> OnGameOver;
-    public class GameOverArgs : EventArgs {
-        public PlayerTeam team;
-        public bool hasWon;
-    }
-
-    private void Awake() {
-        Instance = this;
-
-        playerPrefab = gameConfigSO.GetPlayerPrefab();
-        playerTeams = gameConfigSO.GetPlayerTeams();
-        playOrder = gameConfigSO.GetPlayOrder();
-        playCursor = 0;
-        teamPriority = PlayerTeam.None;
-    }
-
-    public override void OnNetworkSpawn() {
-        base.OnNetworkSpawn();
-
-        if (!IsServer) return;
-        NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += SceneManager_OnLoadEventCompleted;
-    }
-
-    private void SceneManager_OnLoadEventCompleted(string sceneName, UnityEngine.SceneManagement.LoadSceneMode loadSceneMode, List<ulong> clientsCompleted, List<ulong> clientsTimedOut) {
-        foreach (ulong clientId in NetworkManager.Singleton.ConnectedClientsIds) {
-            Transform playerTransform = Instantiate(playerPrefab);
-            playerTransform.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId, true);
+        public EventHandler<PlayerGivePriorityArgs> OnPlayerGivePriority;
+        public class PlayerGivePriorityArgs : EventArgs {
+            public PlayerTeam team;
+            public int actionTokens;
         }
 
-        GameBoard.Instance.Initialize();
-    }
-
-    private bool IsGameOver(out PlayerTeam team, out bool hasWon) {
-        team = default;
-        hasWon = default;
-
-        foreach (PlayerEntity playerEntity in GameBoard.Instance.GetPlayerEntities()) {
-            if (!playerEntity.GetWin(out bool winState)) continue;
-
-            team = playerEntity.GetTeam();
-            hasWon = winState;
-            return true;
+        public EventHandler<GameOverArgs> OnGameOver;
+        public class GameOverArgs : EventArgs {
+            public PlayerTeam team;
+            public bool hasWon;
         }
 
-        return false;
-    }
+        private void Awake() {
+            Instance = this;
 
-    public void PassPriority(int actionTokens) {
-        int playerActionTokens = actionTokens;
-
-        if (actionTokens <= 0) {
-            teamPriority = playOrder[playCursor % playOrder.Count];
-            playerActionTokens = gameConfigSO.GetActionTokens();
-            playCursor++;
+            playerPrefab = gameConfigSO.GetPlayerPrefab();
+            playerTeams = gameConfigSO.GetPlayerTeams();
+            playOrder = gameConfigSO.GetPlayOrder();
+            playCursor = 0;
+            teamPriority = PlayerTeam.None;
         }
 
-        if (!IsGameOver(out PlayerTeam team, out bool hasWon)) {
-            OnPlayerGivePriority?.Invoke(this, new PlayerGivePriorityArgs {
-                team = teamPriority,
-                actionTokens = playerActionTokens
+        public override void OnNetworkSpawn() {
+            base.OnNetworkSpawn();
+
+            if (!IsServer) return;
+            NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += SceneManager_OnLoadEventCompleted;
+        }
+
+        private void SceneManager_OnLoadEventCompleted(string sceneName, UnityEngine.SceneManagement.LoadSceneMode loadSceneMode, List<ulong> clientsCompleted, List<ulong> clientsTimedOut) {
+            foreach (ulong clientId in NetworkManager.Singleton.ConnectedClientsIds) {
+                Transform playerTransform = Instantiate(playerPrefab);
+                playerTransform.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId, true);
+            }
+
+            GameBoard.Instance.Initialize();
+        }
+
+        private bool IsGameOver(out PlayerTeam team, out bool hasWon) {
+            team = default;
+            hasWon = default;
+
+            foreach (PlayerEntity playerEntity in GameBoard.Instance.GetPlayerEntities()) {
+                if (!playerEntity.GetWin(out bool winState)) continue;
+
+                team = playerEntity.GetTeam();
+                hasWon = winState;
+                return true;
+            }
+
+            return false;
+        }
+
+        public void PassPriority(int actionTokens) {
+            int playerActionTokens = actionTokens;
+
+            if (actionTokens <= 0) {
+                teamPriority = playOrder[playCursor % playOrder.Count];
+                playerActionTokens = gameConfigSO.GetActionTokens();
+                playCursor++;
+            }
+
+            if (!IsGameOver(out PlayerTeam team, out bool hasWon)) {
+                OnPlayerGivePriority?.Invoke(this, new PlayerGivePriorityArgs {
+                    team = teamPriority,
+                    actionTokens = playerActionTokens
+                });
+                return;
+            }
+
+            OnGameOver?.Invoke(this, new GameOverArgs {
+                team = team,
+                hasWon = hasWon
             });
-            return;
         }
 
-        OnGameOver?.Invoke(this, new GameOverArgs {
-            team = team,
-            hasWon = hasWon
-        });
-    }
+        public List<ulong> GetClientIdsByTeam(PlayerTeam team) {
+            return (RaiNetMultiplayerManager.Instance as RaiNetMultiplayerManager).GetClientIdsByTeam(team);
+        }
 
-    public List<ulong> GetClientIdsByTeam(PlayerTeam team) {
-        return (RaiNetMultiplayerManager.Instance as RaiNetMultiplayerManager).GetClientIdsByTeam(team);
-    }
+        public PlayerTeam GetClientTeamById(ulong clientId) {
+            return (RaiNetMultiplayerManager.Instance as RaiNetMultiplayerManager).GetClientTeamById(clientId);
+        }
 
-    public PlayerTeam GetClientTeamById(ulong clientId) {
-        return (RaiNetMultiplayerManager.Instance as RaiNetMultiplayerManager).GetClientTeamById(clientId);
-    }
+        public void Clean() {
+            GameBoard.Instance.Clean();
+            RaiNetMultiplayerManager.Instance.Clean();
 
-    public void Clean() {
-        GameBoard.Instance.Clean();
-        RaiNetMultiplayerManager.Instance.Clean();
-
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
     }
 }

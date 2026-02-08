@@ -1,4 +1,5 @@
-public class BaseLobbyManager : LobbyManager<EmptyPlayerData>
-{
-    
+namespace Ttbn4.Network.Base {
+    public class BaseLobbyManager : LobbyManager<EmptyPlayerData> {
+
+    }
 }

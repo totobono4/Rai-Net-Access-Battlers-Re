@@ -1,4 +1,7 @@
-public class BaseLobbyUI : LobbyUI<EmptyPlayerData>
-{
+using Ttbn4.Network.UI;
 
+namespace Ttbn4.Network.Base {
+    public class BaseLobbyUI : LobbyUI<EmptyPlayerData> {
+
+    }
 }

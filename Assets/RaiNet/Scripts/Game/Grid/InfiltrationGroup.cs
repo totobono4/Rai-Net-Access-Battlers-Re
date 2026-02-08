@@ -1,3 +1,5 @@
-public class InfiltrationGroup : TileMap {
+namespace RaiNet.Game {
+    public class InfiltrationGroup : TileMap {
 
+    }
 }

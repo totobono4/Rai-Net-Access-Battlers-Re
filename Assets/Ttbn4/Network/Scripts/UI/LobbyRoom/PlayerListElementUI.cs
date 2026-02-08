@@ -1,90 +1,93 @@
 using System;
 using TMPro;
+using Ttbn4.Network.Data;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class PlayerListElementUI<TCustomData> : MonoBehaviour where TCustomData : struct, IEquatable<TCustomData>, INetworkSerializable {
-    [SerializeField] private TextMeshProUGUI playerNameText;
-    [SerializeField] private Toggle readyToggle;
-    [SerializeField] private Button kickButton;
+namespace Ttbn4.Network.UI {
+    public abstract class PlayerListElementUI<TCustomData> : MonoBehaviour where TCustomData : struct, IEquatable<TCustomData>, INetworkSerializable {
+        [SerializeField] private TextMeshProUGUI playerNameText;
+        [SerializeField] private Toggle readyToggle;
+        [SerializeField] private Button kickButton;
 
-    private ulong clientId;
-    private int playerIndex;
+        private ulong clientId;
+        private int playerIndex;
 
-    private string playerId;
+        private string playerId;
 
-    public void Initialize(int playerIndex) {
-        MultiplayerManager<TCustomData>.Instance.OnPlayerDataNetworkListChanged += MultiplayerManager_OnPlayerDataNetworkListChanged;
-        LobbyRoomManager<TCustomData>.Instance.OnClientReadyStateChanged += LobbyRoomReadyManager_OnClientReadyStateChanged;
+        public void Initialize(int playerIndex) {
+            MultiplayerManager<TCustomData>.Instance.OnPlayerDataNetworkListChanged += MultiplayerManager_OnPlayerDataNetworkListChanged;
+            LobbyRoomManager<TCustomData>.Instance.OnClientReadyStateChanged += LobbyRoomReadyManager_OnClientReadyStateChanged;
 
-        this.playerIndex = playerIndex;
+            this.playerIndex = playerIndex;
 
-        kickButton.onClick.AddListener(() => {
-            MultiplayerManager<TCustomData>.Instance.KickPlayerByClientId(clientId);
-            LobbyManager<TCustomData>.Instance.KickPlayer(playerId);
-        });
+            kickButton.onClick.AddListener(() => {
+                MultiplayerManager<TCustomData>.Instance.KickPlayerByClientId(clientId);
+                LobbyManager<TCustomData>.Instance.KickPlayer(playerId);
+            });
 
-        UpdatePlayer();
-        UpdatePlayerReady();
+            UpdatePlayer();
+            UpdatePlayerReady();
 
-        if (!NetworkManager.Singleton.IsServer) HideKickButton();
-    }
-
-    private void MultiplayerManager_OnPlayerDataNetworkListChanged(object sender, EventArgs e) {
-        UpdatePlayer();
-        UpdatePlayerReady();
-    }
-
-    private void LobbyRoomReadyManager_OnClientReadyStateChanged(object sender, EventArgs e) {
-        UpdatePlayerReady();
-    }
-
-    private void OnDestroy() {
-        MultiplayerManager<TCustomData>.Instance.OnPlayerDataNetworkListChanged -= MultiplayerManager_OnPlayerDataNetworkListChanged;
-        LobbyRoomManager<TCustomData>.Instance.OnClientReadyStateChanged -= LobbyRoomReadyManager_OnClientReadyStateChanged;
-    }
-
-    private void UpdatePlayer() {
-        if (!MultiplayerManager<TCustomData>.Instance.IsPlayerIndexConnected(playerIndex)) {
-            Hide();
-            return;
+            if (!NetworkManager.Singleton.IsServer) HideKickButton();
         }
 
-        PlayerData<TCustomData> playerData = MultiplayerManager<TCustomData>.Instance.GetPlayerDataByIndex(playerIndex);
+        private void MultiplayerManager_OnPlayerDataNetworkListChanged(object sender, EventArgs e) {
+            UpdatePlayer();
+            UpdatePlayerReady();
+        }
 
-        clientId = playerData.basePlayerData.clientId;
-        playerId = playerData.basePlayerData.playerId.ToString();
-        playerNameText.text = playerData.basePlayerData.playerName.ToString();
-        UpdatePlayerOverride(playerData);
+        private void LobbyRoomReadyManager_OnClientReadyStateChanged(object sender, EventArgs e) {
+            UpdatePlayerReady();
+        }
 
-        Show();
+        private void OnDestroy() {
+            MultiplayerManager<TCustomData>.Instance.OnPlayerDataNetworkListChanged -= MultiplayerManager_OnPlayerDataNetworkListChanged;
+            LobbyRoomManager<TCustomData>.Instance.OnClientReadyStateChanged -= LobbyRoomReadyManager_OnClientReadyStateChanged;
+        }
 
-        if (NetworkManager.Singleton.IsServer && NetworkManager.Singleton.LocalClientId == clientId) HideKickButton();
-    }
+        private void UpdatePlayer() {
+            if (!MultiplayerManager<TCustomData>.Instance.IsPlayerIndexConnected(playerIndex)) {
+                Hide();
+                return;
+            }
 
-    protected abstract void UpdatePlayerOverride(PlayerData<TCustomData> playerData);
+            PlayerData<TCustomData> playerData = MultiplayerManager<TCustomData>.Instance.GetPlayerDataByIndex(playerIndex);
 
-    private void UpdatePlayerReady() {
-        readyToggle.isOn = LobbyRoomManager<TCustomData>.Instance.GetPlayerReady(clientId);
-    }
+            clientId = playerData.basePlayerData.clientId;
+            playerId = playerData.basePlayerData.playerId.ToString();
+            playerNameText.text = playerData.basePlayerData.playerName.ToString();
+            UpdatePlayerOverride(playerData);
 
-    private void HideKickButton() {
-        kickButton.gameObject.SetActive(false);
-    }
+            Show();
 
-    private void Show() {
-        this.gameObject.SetActive(true);
-    }
+            if (NetworkManager.Singleton.IsServer && NetworkManager.Singleton.LocalClientId == clientId) HideKickButton();
+        }
 
-    private void Hide() {
-        this.gameObject.SetActive(false);
-    }
+        protected abstract void UpdatePlayerOverride(PlayerData<TCustomData> playerData);
 
-    public void Clean() {
-        MultiplayerManager<TCustomData>.Instance.OnPlayerDataNetworkListChanged -= MultiplayerManager_OnPlayerDataNetworkListChanged;
-        LobbyRoomManager<TCustomData>.Instance.OnClientReadyStateChanged -= LobbyRoomReadyManager_OnClientReadyStateChanged;
+        private void UpdatePlayerReady() {
+            readyToggle.isOn = LobbyRoomManager<TCustomData>.Instance.GetPlayerReady(clientId);
+        }
 
-        Destroy(gameObject);
+        private void HideKickButton() {
+            kickButton.gameObject.SetActive(false);
+        }
+
+        private void Show() {
+            this.gameObject.SetActive(true);
+        }
+
+        private void Hide() {
+            this.gameObject.SetActive(false);
+        }
+
+        public void Clean() {
+            MultiplayerManager<TCustomData>.Instance.OnPlayerDataNetworkListChanged -= MultiplayerManager_OnPlayerDataNetworkListChanged;
+            LobbyRoomManager<TCustomData>.Instance.OnClientReadyStateChanged -= LobbyRoomReadyManager_OnClientReadyStateChanged;
+
+            Destroy(gameObject);
+        }
     }
 }

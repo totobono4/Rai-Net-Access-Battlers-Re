@@ -1,3 +1,5 @@
-public class InfiltrationTile : PlayTile {
+namespace RaiNet.Game {
+    public class InfiltrationTile : PlayTile {
 
+    }
 }
