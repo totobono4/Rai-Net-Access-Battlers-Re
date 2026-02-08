@@ -1,9 +1,3 @@
 ﻿<Solution>
   <Project Path="RaiNet.csproj" />
-  <Project Path="Totobono4.Network.csproj" />
-  <Project Path="Totobono4.Network.Samples.csproj" />
-  <Project Path="Totobono4.Sceneloader.csproj" />
-  <Project Path="Totobono4.Game.csproj" />
-  <Project Path="Totobono4.Common.csproj" />
-  <Project Path="Totobono4.Networksceneloader.csproj" />
 </Solution>

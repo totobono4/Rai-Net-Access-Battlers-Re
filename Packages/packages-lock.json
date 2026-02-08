@@ -1,23 +1,25 @@
 {
   "dependencies": {
     "com.totobono4.common": {
-      "version": "file:com.totobono4.common",
+      "version": "https://github.com/totobono4/UnityPackage-Common.git",
       "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
+      "source": "git",
+      "dependencies": {},
+      "hash": "ae1c012ac40517742a8a5d0027c27b4e6897b1bc"
     },
     "com.totobono4.game": {
-      "version": "file:com.totobono4.game",
+      "version": "https://github.com/totobono4/UnityPackage-Game.git",
       "depth": 0,
-      "source": "embedded",
+      "source": "git",
       "dependencies": {
         "com.totobono4.sceneloader": "1.0.0"
-      }
+      },
+      "hash": "bd327d53244155ea480bed81d6610ab8a943092e"
     },
     "com.totobono4.network": {
-      "version": "file:com.totobono4.network",
+      "version": "https://github.com/totobono4/UnityPackage-Network.git",
       "depth": 0,
-      "source": "embedded",
+      "source": "git",
       "dependencies": {
         "com.unity.netcode.gameobjects": "2.7.0",
         "com.unity.services.core": "1.16.0",
@@ -27,21 +29,24 @@
         "com.unity.collections": "2.6.2",
         "com.totobono4.game": "1.0.0",
         "com.totobono4.networksceneloader": "1.0.0"
-      }
+      },
+      "hash": "37eb1bf8a26d41dae76c876edffe3b1b426c6b81"
     },
     "com.totobono4.networksceneloader": {
-      "version": "file:com.totobono4.networksceneloader",
+      "version": "https://github.com/totobono4/UnityPackage-NetworkSceneLoader.git",
       "depth": 0,
-      "source": "embedded",
+      "source": "git",
       "dependencies": {
         "com.unity.netcode.gameobjects": "2.7.0"
-      }
+      },
+      "hash": "c60e7f66759e7d96929715625eb40d4d071bf40c"
     },
     "com.totobono4.sceneloader": {
-      "version": "file:com.totobono4.sceneloader",
+      "version": "https://github.com/totobono4/UnityPackage-SceneLoader.git",
       "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
+      "source": "git",
+      "dependencies": {},
+      "hash": "03abf60f344d2e8dafbbb6cc077305406510feff"
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",

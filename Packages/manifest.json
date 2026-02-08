@@ -1,5 +1,10 @@
 {
   "dependencies": {
+    "com.totobono4.common": "https://github.com/totobono4/UnityPackage-Common.git",
+    "com.totobono4.game": "https://github.com/totobono4/UnityPackage-Game.git",
+    "com.totobono4.network": "https://github.com/totobono4/UnityPackage-Network.git",
+    "com.totobono4.networksceneloader": "https://github.com/totobono4/UnityPackage-NetworkSceneLoader.git",
+    "com.totobono4.sceneloader": "https://github.com/totobono4/UnityPackage-SceneLoader.git",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.ai.navigation": "2.0.9",
     "com.unity.device-simulator.devices": "1.0.1",
